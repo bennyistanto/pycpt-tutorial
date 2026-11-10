@@ -106,8 +106,8 @@ book:
         href: guides/about.qmd
     center: "Built with [Quarto](https://quarto.org/)"
     right:
-      - icon: github
-        text: bennyistanto/pycpt-tutorial
+      # Quarto drops `icon:` when the item also has text here, so the icon is inline HTML.
+      - text: '<i class="bi bi-github" aria-hidden="true"></i> bennyistanto/pycpt-tutorial'
         href: https://github.com/bennyistanto/pycpt-tutorial
         aria-label: "Source repository on GitHub"
 
