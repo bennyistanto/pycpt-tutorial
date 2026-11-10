@@ -25,6 +25,14 @@ local X/Y/F inputs, actual CCA/PCR calls, model patterns and cross-validated
 residuals for OND and JJA 2023. Its executed notebook requires the full fitting
 environment when you run it; both cases can be read in a browser.
 
+The [third case](../chapters/monthly-leads-2023.qmd) changes the question from
+"how good is the forecast" to "how far ahead": one month, November 2023, forecast
+from six start dates one to six months before it. The
+[fourth](../chapters/seasonal-leads-2023.qmd) does the same for October-December
+2023 and compares the season with the month. The
+[fifth](../chapters/dekad-leads-2023.qmd) moves to the subseasonal scale: every
+October-December dekad, one to three dekads ahead, with GEFSv12.
+
 ## Choose your path
 
 | Your aim | Start here | What you need |
@@ -35,6 +43,7 @@ environment when you run it; both cases can be read in a browser.
 | Reproduce the figures and scores from saved results | [Offline analysis setup](reproduce.qmd#offline-analysis) | Scientific Python/Jupyter and the complete kit; no PyCPT or CPT installation |
 | Fit the OND models through PyCPT | [Optional PyCPT refit](reproduce.qmd#optional-fit-ond-again) | Compatible PyCPT and its CPT engine, plus the supplied fitting inputs |
 | Work through actual OND/JJA fitting and diagnostics | [Case-two story and notebook](../chapters/fit-diagnose-2023.qmd) | Browser to read; full PyCPT fitting environment to execute |
+| See how skill changes with lead time | [November](../chapters/monthly-leads-2023.qmd), [OND](../chapters/seasonal-leads-2023.qmd) and [dekad](../chapters/dekad-leads-2023.qmd) lead-time stories | Browser to read; full PyCPT environment and the CHIRPS v3.0 dekadal archive to execute |
 | Examine assumptions and provenance | [Methods and limitations](methods.qmd) | The case question and its verification context |
 
 ::: {.callout-tip title="Reading and running are different activities"}

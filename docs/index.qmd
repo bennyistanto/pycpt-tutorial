@@ -26,7 +26,6 @@ when a simple climatology forecast does better, and how to reproduce the evidenc
 
 ::: {.home-footnote}
 Read in your browser. Run the companion notebooks when you are ready.
-A casual weekend project by [Benny Istanto](https://github.com/bennyistanto).
 :::
 :::
 
@@ -164,12 +163,30 @@ separate forecast errors and explains what each diagnostic can establish.
 :::
 :::
 
+::: {.featured-case}
+::: {.eyebrow}
+Cases 03 to 05 · Lead time · Monthly, seasonal and dekad rainfall
+:::
+
+## How far ahead?
+
+November 2023 and October-December 2023 forecast one to six months ahead, and
+every October-December dekad forecast one to three dekads ahead. Skill by lead for
+CCA, PCR and the raw model, and what each forecast said about a dry end to 2023.
+
+::: {.home-actions}
+[Read the November story](chapters/monthly-leads-2023.qmd){.tutorial-button .tutorial-button-primary}
+[Read the OND story](chapters/seasonal-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
+[Read the dekad story](chapters/dekad-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
+:::
+:::
+
 ::: {.home-closing}
 ## Learn the workflow behind the figure
 
 The tutorial connects forecast maps to observations, baselines, calendars and
 verification. Every case pairs an accessible story with an executed notebook
-and traceable inputs. Both cases are retrospective learning examples;
+and traceable inputs. All cases are retrospective learning examples;
 their results do not establish operational forecast skill or probability reliability.
 
 [How to use this tutorial](guides/start.qmd) · [About the project and its sources](guides/about.qmd)
@@ -180,7 +197,7 @@ their results do not establish operational forecast skill or probability reliabi
 **Who made this**
 
 PyCPT Tutorial is a casual weekend project by
-[Benny Istanto](https://github.com/bennyistanto), written to learn PyCPT
+[Benny Istanto](https://benny.istan.to), written to learn PyCPT
 in the open with real data. Corrections are welcome through the
 [issue tracker](https://github.com/bennyistanto/pycpt-tutorial/issues).
 :::
