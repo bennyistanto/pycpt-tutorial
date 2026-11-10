@@ -1,0 +1,77 @@
+name: Publish tutorial site
+
+# Renders the Quarto book in docs/ and publishes docs/_book to GitHub Pages at
+# https://bennyistanto.github.io/pycpt-tutorial
+#
+# Rendering never executes notebooks (execute.enabled is false in docs/_quarto.yml);
+# it uses the outputs saved in the committed .ipynb files, so no PyCPT, CPT or IRI
+# Data Library access is needed here.
+#
+# One-time setup in the repository: Settings > Pages > Build and deployment >
+# Source: "GitHub Actions".
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "scripts/render_tutorial.py"
+      - ".github/workflows/publish.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Jupyter for notebook conversion
+        run: python -m pip install --upgrade pip jupyter
+
+      - name: Set up Quarto (version used for the tested renders)
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.8.27
+
+      - name: Render the book
+        run: python scripts/render_tutorial.py
+
+      - name: Check the build
+        run: |
+          test -f docs/_book/index.html
+          test -f docs/_book/404.html
+          echo "Pages: $(find docs/_book -name '*.html' -not -path '*/site_libs/*' | wc -l)"
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_book
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
