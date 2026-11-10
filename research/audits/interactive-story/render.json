@@ -1,9 +1,9 @@
 {
-  "scratch_directory": "/tmp/pycpt-quarto-c311hbk6",
+  "scratch_directory": "/tmp/pycpt-quarto-c1c6nvg_",
   "output": "docs/_book",
   "renderer": "1.8.27",
   "reason": "Isolate generated Quarto cache from OneDrive/Windows file locks; source data and executed notebook are read-only copies.",
-  "story_sha256": "1ee281adcf6689d4da828323521f3736dd77badfc8c16534fd509f50d6213b12",
+  "story_sha256": "9885fd56fe207314ba6ccb193a23657471ddf94b9fd15d2b950fa47b6fc85e98",
   "unused_static_widget_bootstrap_removed": {
     "notebooks/seasonal-leads-2023.html": 3,
     "notebooks/monthly-leads-2023.html": 3,
