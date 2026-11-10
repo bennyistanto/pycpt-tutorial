@@ -1,0 +1,57 @@
+{
+  "target": "November 2023",
+  "leads_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "starts": {
+    "1": "2023-10-01",
+    "2": "2023-09-01",
+    "3": "2023-08-01",
+    "4": "2023-07-01",
+    "5": "2023-06-01",
+    "6": "2023-05-01"
+  },
+  "training_years": [
+    1991,
+    2020
+  ],
+  "cells": 3240,
+  "settings": {
+    "transform_predictand": "None",
+    "tailoring": "None",
+    "cca_modes": "(2, 2)",
+    "x_eof_modes": "(3, 3)",
+    "y_eof_modes": "(3, 3)",
+    "validation": "crossvalidation",
+    "drymask_threshold": "None",
+    "skillmask_threshold": "None",
+    "crossvalidation_window": "5",
+    "synchronous_predictors": "True"
+  },
+  "observed_category_area_percent": {
+    "below normal": 60.27,
+    "near normal": 30.56,
+    "above normal": 9.17
+  },
+  "observed_mean_2023_mm": 208.21,
+  "observed_mean_1991_2020_mm": 257.16,
+  "fit_seconds": {
+    "1-CCA": 36.6,
+    "1-PCR": 33.1,
+    "2-CCA": 33.3,
+    "2-PCR": 31.8,
+    "3-CCA": 33.3,
+    "3-PCR": 32.4,
+    "4-CCA": 33.5,
+    "4-PCR": 32.2,
+    "5-CCA": 32.9,
+    "5-PCR": 32.6,
+    "6-CCA": 32.4,
+    "6-PCR": 32.4
+  }
+}

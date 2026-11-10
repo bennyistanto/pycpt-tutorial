@@ -1,0 +1,42 @@
+{
+  "target": "October-December 2023 dekads",
+  "model": "GEFSv12 (IRI SubX GEFSv12_CPC)",
+  "training_years": [
+    2000,
+    2018
+  ],
+  "training_dekads": 171,
+  "cells": 3240,
+  "leads": [
+    1,
+    2,
+    3
+  ],
+  "lead_rule": "dekad starting 7(k-1)+1 to 7k days after a Wednesday start",
+  "cross_validation_window": 17,
+  "settings": {
+    "x_eof_modes": "(3, 3)",
+    "validation": "CROSSVALIDATION",
+    "crossvalidation_window": "17",
+    "synchronous_predictors": "True",
+    "transform_predictand": "None",
+    "tailoring": "None",
+    "drymask_threshold": "None",
+    "skillmask_threshold": "None",
+    "y_eof_modes": "(3, 3)",
+    "cca_modes": "(2, 2)"
+  },
+  "observed_category_percent_2023": {
+    "below normal": 54.51,
+    "near normal": 31.13,
+    "above normal": 14.36
+  },
+  "fit_seconds": {
+    "1-CCA": 97.7,
+    "1-PCR": 58.8,
+    "2-CCA": 97.8,
+    "2-PCR": 58.9,
+    "3-CCA": 97.0,
+    "3-PCR": 59.0
+  }
+}
