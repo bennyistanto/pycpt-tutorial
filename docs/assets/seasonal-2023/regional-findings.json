@@ -1,0 +1,66 @@
+{
+  "provinces": 38,
+  "unassigned_weight_percent": 1.3112788903155888,
+  "native_points": 61190,
+  "unassigned_points": 803,
+  "overlap_points": 0,
+  "province_counts": {
+    "2023 CCA": {
+      "DJF": 19,
+      "JFM": 21,
+      "FMA": 22,
+      "MAM": 20,
+      "AMJ": 25,
+      "MJJ": 22,
+      "JJA": 8,
+      "JAS": 17,
+      "ASO": 34,
+      "SON": 32,
+      "OND": 32,
+      "NDJ": 21
+    },
+    "2023 PCR": {
+      "DJF": 20,
+      "JFM": 15,
+      "FMA": 14,
+      "MAM": 20,
+      "AMJ": 25,
+      "MJJ": 25,
+      "JJA": 8,
+      "JAS": 14,
+      "ASO": 34,
+      "SON": 33,
+      "OND": 31,
+      "NDJ": 20
+    },
+    "Four-year CCA": {
+      "DJF": 17,
+      "JFM": 23,
+      "FMA": 22,
+      "MAM": 22,
+      "AMJ": 13,
+      "MJJ": 32,
+      "JJA": 32,
+      "JAS": 31,
+      "ASO": 33,
+      "SON": 35,
+      "OND": 32,
+      "NDJ": 21
+    },
+    "Four-year PCR": {
+      "DJF": 21,
+      "JFM": 23,
+      "FMA": 22,
+      "MAM": 24,
+      "AMJ": 15,
+      "MJJ": 30,
+      "JJA": 28,
+      "JAS": 27,
+      "ASO": 33,
+      "SON": 34,
+      "OND": 32,
+      "NDJ": 23
+    }
+  },
+  "scope": "Descriptive province-weighted coarse-cell errors; overlapping seasons and four years do not establish operational skill"
+}

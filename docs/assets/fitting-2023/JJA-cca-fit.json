@@ -1,0 +1,311 @@
+{
+  "key": "JJA-cca",
+  "season": "JJA",
+  "method": "cca",
+  "training_samples": 30,
+  "forecast_samples": 1,
+  "native_directory": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/JJA-cca",
+  "configuration": {
+    "x_eof_modes": [
+      3,
+      3
+    ],
+    "validation": "CROSSVALIDATION",
+    "crossvalidation_window": 5,
+    "synchronous_predictors": true,
+    "transform_predictand": null,
+    "tailoring": null,
+    "drymask_threshold": null,
+    "skillmask_threshold": null,
+    "y_eof_modes": [
+      3,
+      3
+    ],
+    "cca_modes": [
+      2,
+      2
+    ]
+  },
+  "comparison": {
+    "forecast_deterministic": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.01,
+      "relative_tolerance": 0
+    },
+    "forecast_probabilistic": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "forecast_prediction_error_variance": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.1,
+      "relative_tolerance": 2e-06
+    },
+    "cv_hindcasts": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.01,
+      "relative_tolerance": 0
+    },
+    "native_skill_pearson": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_spearman": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_two_alternative_forced_choice": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_roc_area_below_normal": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_roc_area_above_normal": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_root_mean_squared_error": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.01,
+      "relative_tolerance": 0
+    },
+    "predictor_eof_native_weight": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_eof_score": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_eof_correlation": {
+      "maximum_absolute_difference": 4.440892098500626e-16,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_eigenvalue": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_explained_variance_percent": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_cumulative_variance_percent": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_cca_score": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_cca_native_weight": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_cca_correlation": {
+      "maximum_absolute_difference": 3.3306690738754696e-16,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictand_eof_native_weight": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictand_eof_score": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictand_eof_correlation": {
+      "maximum_absolute_difference": 2.220446049250313e-16,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictand_eigenvalue": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictand_explained_variance_percent": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictand_cumulative_variance_percent": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictand_cca_score": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictand_cca_native_weight": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictand_cca_correlation": {
+      "maximum_absolute_difference": 4.440892098500626e-16,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    }
+  },
+  "outputs": {
+    "JJA-cca-hindcasts.nc": {
+      "sha256": "4ecbb7e2d66f0e711be00547c553360aa27ff6b91d45f302386994423e03e0a5",
+      "bytes": 913873
+    },
+    "JJA-cca-forecasts.nc": {
+      "sha256": "90e238cb0c689207897b8d7c1fe790e53c575e1420572e56f80b7b3a09377e7b",
+      "bytes": 187529
+    },
+    "JJA-cca-native-skill.nc": {
+      "sha256": "c386966b984a8005ccbe5407235894540e35a6d67bfb97c554ad7ee92c44a134",
+      "bytes": 206150
+    },
+    "JJA-cca-x-patterns.nc": {
+      "sha256": "546923e89dbb7bcbfb4859e8ab250e0f8660ec133ff1134846c47e74705c14bf",
+      "bytes": 147970
+    },
+    "JJA-cca-y-patterns.nc": {
+      "sha256": "3db76d8929d1229a1156c8bc950d201dba45d44ea7c6909d4c50fa3af9056061",
+      "bytes": 209611
+    },
+    "JJA-cca-predictor-diagnostics.nc": {
+      "sha256": "e354d693be8d6d0a382daccc5eb97928b8716863a317c7a370e1f80e11b027bc",
+      "bytes": 256554
+    },
+    "JJA-cca-predictand-diagnostics.nc": {
+      "sha256": "322e6a76b2afca087d9ccd0b46c844ec20dbf8a3419392372af584e752e78c50",
+      "bytes": 358109
+    },
+    "JJA-cca-canonical-correlations.nc": {
+      "sha256": "f1679ef8e31a20f3bfe2d8dbd4f33db3d216288361612b6a324c97f189354551",
+      "bytes": 12450
+    },
+    "sessions/JJA-cca.log": {
+      "sha256": "0e54793079b8bf9b6ae97dfc64eae545b7dc6a52ecaaf240ae03d09743f558d5",
+      "bytes": 512366
+    },
+    "sessions/JJA-cca-commands.txt": {
+      "sha256": "2e860bf8462ee5a63c9bfe70cf6167b43662f5b34d84856a1c5008915f00d061",
+      "bytes": 3357
+    }
+  },
+  "date_parsing": [
+    {
+      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/JJA-cca/forecast_probabilities.txt",
+      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/JJA-cca/forecast_probabilities.midnight-normalized.txt",
+      "dates": [
+        "2023-05-01"
+      ],
+      "source_sha256": "e53f87fcd5f0e5b839f19dceeb548306298bb90993aab7c539dd300752ded4c0",
+      "parsing_sha256": "a1b0148aafa9e301f09d272113d4d55f6e82202e14419d382541f9de1f02e0b5"
+    },
+    {
+      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/JJA-cca/forecast_values.txt",
+      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/JJA-cca/forecast_values.midnight-normalized.txt",
+      "dates": [
+        "2023-05-01"
+      ],
+      "source_sha256": "0dc11953323ccc27e6b0bd7b5f9561221e43f3fc18d68b705eaeaa9adbb4973d",
+      "parsing_sha256": "3b5a127fe956e24b8cfe440e810da3d0eb76fdab18be59f6a220a01a63733930"
+    },
+    {
+      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/JJA-cca/forecast_prediction_error_variance.txt",
+      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/JJA-cca/forecast_prediction_error_variance.midnight-normalized.txt",
+      "dates": [
+        "2023-05-01"
+      ],
+      "source_sha256": "03edee1c950f6552e137670d382f38d34a59f647430318664bd62ddce82c2bc7",
+      "parsing_sha256": "9daad492af1aa1201e184a3c6be188c9094bdcd6afe7b4607c64d454954566ff"
+    },
+    {
+      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/JJA-cca/hindcast_values.txt",
+      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/JJA-cca/hindcast_values.midnight-normalized.txt",
+      "dates": [
+        "1991-05-01",
+        "1992-05-01",
+        "1993-05-01",
+        "1994-05-01",
+        "1995-05-01",
+        "1996-05-01",
+        "1997-05-01",
+        "1998-05-01",
+        "1999-05-01",
+        "2000-05-01",
+        "2001-05-01",
+        "2002-05-01",
+        "2003-05-01",
+        "2004-05-01",
+        "2005-05-01",
+        "2006-05-01",
+        "2007-05-01",
+        "2008-05-01",
+        "2009-05-01",
+        "2010-05-01",
+        "2011-05-01",
+        "2012-05-01",
+        "2013-05-01",
+        "2014-05-01",
+        "2015-05-01",
+        "2016-05-01",
+        "2017-05-01",
+        "2018-05-01",
+        "2019-05-01",
+        "2020-05-01"
+      ],
+      "source_sha256": "ed7e369b173f6411abac42af7284b52cc293efa64d7d86a8102266d5e55fa755",
+      "parsing_sha256": "8dbccd2623b73c2d7b6cb882157d591f6de1b6c694450c7a32e3ab4f643f1758"
+    }
+  ],
+  "native_file_hashes": {
+    "cca_canonical_correlation.txt": "ac44442d7668fc5103f292871094b94058940ae652fe466074a64b496c99b734",
+    "forecast_prediction_error_variance.midnight-normalized.txt": "9daad492af1aa1201e184a3c6be188c9094bdcd6afe7b4607c64d454954566ff",
+    "forecast_prediction_error_variance.txt": "03edee1c950f6552e137670d382f38d34a59f647430318664bd62ddce82c2bc7",
+    "forecast_probabilities.midnight-normalized.txt": "a1b0148aafa9e301f09d272113d4d55f6e82202e14419d382541f9de1f02e0b5",
+    "forecast_probabilities.txt": "e53f87fcd5f0e5b839f19dceeb548306298bb90993aab7c539dd300752ded4c0",
+    "forecast_values.midnight-normalized.txt": "3b5a127fe956e24b8cfe440e810da3d0eb76fdab18be59f6a220a01a63733930",
+    "forecast_values.txt": "0dc11953323ccc27e6b0bd7b5f9561221e43f3fc18d68b705eaeaa9adbb4973d",
+    "goodness_index.txt": "b2faa4cf09c06e4282ac114824d421d8fe754c3d506bdf6a06465d98573983dc",
+    "hindcast_values.midnight-normalized.txt": "8dbccd2623b73c2d7b6cb882157d591f6de1b6c694450c7a32e3ab4f643f1758",
+    "hindcast_values.txt": "ed7e369b173f6411abac42af7284b52cc293efa64d7d86a8102266d5e55fa755",
+    "original_forecast_predictor": "892da09055501e38e9c06410b086e86f1dd97d40764dd1a5e2d23b311d2224b5",
+    "original_predictand": "be96a3eaca5f9590e1c48211e6e70df8991f202dd971589d00c2428256eb3411",
+    "original_predictor": "05e5363d87365288401bf509d3c6948242503986c3c9115f408aabae84a38ca4",
+    "pearson.txt": "86c9dc49ccb0f2d562a1a0286df9cf279ab428e493139272b68c458301241f63",
+    "predictand_cca_spatial_loadings.txt": "17c71371217977181a6596b887c5e778fc457470bae800fb10b3bacd1bbe8833",
+    "predictand_cca_timeseries.txt": "92741f204717c6a087b3f2114d33ce96ecbea94c9123033501b9bedbd391a65d",
+    "predictand_eof_spatial_loadings.txt": "21ebbc3f7d67d83e30f6f89fbdb0b1e1418f062a8a99006db099a8995fbb0bb4",
+    "predictand_eof_timeseries.txt": "2c26ce1fd4ee5e0883493604934019be15146dd07b8b850183863bc4b8e23e8f",
+    "predictand_explained_variance.txt": "0fbfa483609a8c0e5323c1224abc3db05a9ec7ed20ee993c920fee9c1f386666",
+    "predictor_cca_spatial_loadings.txt": "5e529b9200bb91e4237de5fcedeb9c19bcadaeee9ec4f2a840b18b484c8a61f5",
+    "predictor_cca_timeseries.txt": "ecde36f9238d57f822d66221151005ae09ea1f57d4ae03f718213abbbabc7797",
+    "predictor_eof_spatial_loadings.txt": "39cfdfb6231b43cb5177b5d3675f660cdb0bcccfe0f135483fc24f3398b310af",
+    "predictor_eof_timeseries.txt": "129ac4895ed6d784ff530e92e2fdcd44074076370acf72e665e39d36e89f2623",
+    "predictor_explained_variance.txt": "259ad13051a490d71d7018985606d3817bab92477b697fda02769d423aaf2512",
+    "roc_area_above_normal.txt": "8be48771e2a7341eda7c36d57bcc5e35b08f23e309454343ba07b1c3963dc526",
+    "roc_area_below_normal.txt": "f12e8c966b5a85af5cbd435f6e2d6985880672be8700dc1e3201fe756538f406",
+    "root_mean_squared_error.txt": "f44cfd72970910ed01f380bbbf652a3ae77d76086b52aa3ea0058ef9dc905a4a",
+    "spearman.txt": "77cfcbe7524a6f15a26c20bf8dae2757904c532f340cad45b2ff87ddf41675f4",
+    "two_alternative_forced_choice.txt": "fce7b0c9e995ba5a1080f399d3544102aad4697ea6bce843cbab52d0f89d63b4"
+  }
+}

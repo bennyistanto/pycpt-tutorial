@@ -1,0 +1,5 @@
+season,side,three_EOF_variance_percent,retained_EOF_modes,training_samples
+OND,predictor,73.277595,3,30
+OND,predictand,64.354505,3,30
+JJA,predictor,63.78964,3,30
+JJA,predictand,67.982988,3,30

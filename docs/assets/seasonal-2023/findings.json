@@ -1,0 +1,116 @@
+{
+  "main_year_convention": "Midpoints in2023; NDJ source ending-year2024",
+  "main_training_period": "1991\u20132020",
+  "calibration_beats_climatology_seasons": {
+    "CCA": 9,
+    "PCR": 7
+  },
+  "calibration_beats_raw_seasons": {
+    "CCA": 12,
+    "PCR": 12
+  },
+  "lowest_rmse_method_by_season": {
+    "DJF": "Climatology",
+    "JFM": "CCA",
+    "FMA": "CCA",
+    "MAM": "CCA",
+    "AMJ": "PCR",
+    "MJJ": "CCA",
+    "JJA": "Climatology",
+    "JAS": "Climatology",
+    "ASO": "CCA",
+    "SON": "PCR",
+    "OND": "PCR",
+    "NDJ": "CCA"
+  },
+  "ond_rmse_mm": {
+    "Raw CFSv2": 292.3894695720194,
+    "Climatology": 226.4960852681342,
+    "CCA": 120.34602943146868,
+    "PCR": 117.3560728024142
+  },
+  "recent_training_lower_rmse_seasons": {
+    "cca": 9,
+    "pcr": 9
+  },
+  "original_context_pooled_rmse_mm": {
+    "Raw CFSv2": {
+      "DJF": 465.9208541083398,
+      "JFM": 492.4502839476455,
+      "FMA": 430.0063789755941,
+      "MAM": 389.168400349256,
+      "AMJ": 356.57996373547394,
+      "MJJ": 415.37260380455166,
+      "JJA": 447.7347182166558,
+      "JAS": 417.13337754221953,
+      "ASO": 420.9192993586619,
+      "SON": 408.9977635214109,
+      "OND": 410.1578517714101,
+      "NDJ": 429.7513037196035
+    },
+    "Climatology": {
+      "DJF": 170.23719105941169,
+      "JFM": 159.31236647356099,
+      "FMA": 151.10500345231299,
+      "MAM": 162.09382164217345,
+      "AMJ": 171.80512689123023,
+      "MJJ": 196.79359183899467,
+      "JJA": 272.27758211054476,
+      "JAS": 324.5298229429227,
+      "ASO": 325.8286594601216,
+      "SON": 272.2254194721565,
+      "OND": 222.14111693849486,
+      "NDJ": 185.08623408888315
+    },
+    "CCA": {
+      "DJF": 174.06844457487188,
+      "JFM": 151.30806283934933,
+      "FMA": 141.00743964929433,
+      "MAM": 151.1305131787037,
+      "AMJ": 182.4998474798197,
+      "MJJ": 167.8533638976626,
+      "JJA": 198.34781716824332,
+      "JAS": 189.49758698611592,
+      "ASO": 191.86166844699216,
+      "SON": 152.06283902414677,
+      "OND": 155.83640230701096,
+      "NDJ": 166.84128724711738
+    },
+    "PCR": {
+      "DJF": 175.3669497404612,
+      "JFM": 151.74983981064864,
+      "FMA": 145.23738588203577,
+      "MAM": 150.1503140656779,
+      "AMJ": 187.907923322776,
+      "MJJ": 168.16039980846364,
+      "JJA": 203.5676947703215,
+      "JAS": 207.85712175760239,
+      "ASO": 192.02365582845948,
+      "SON": 155.8514059131192,
+      "OND": 154.12288554686157,
+      "NDJ": 165.7827703981164
+    }
+  },
+  "data_input_hashes": {
+    "indonesia-seasons-2023.nc": {
+      "sha256": "4ce8ee7414d242095ce0da30f0eb2d0a9fe81938059b5df91939d2adafa26d50",
+      "bytes": 2852157
+    },
+    "ond-forecast-predictor.nc": {
+      "sha256": "1cad26b5b885f87e52f524fdb7788194578fb44ed2a2d3fd881cee0b86995c59",
+      "bytes": 36321
+    },
+    "ond-training-observations.nc": {
+      "sha256": "0ac68c7c509a904aada881e8847e6a849a993bfa46447ddfdcc36780e85ebbef",
+      "bytes": 835945
+    },
+    "ond-training-predictor.nc": {
+      "sha256": "40f62d26dd3f9333ada8affd95004e25aa70de75970e6c28c3fe3bb029645aa8",
+      "bytes": 570530
+    },
+    "verification-context-2021-2024.nc": {
+      "sha256": "81ca50784ab5dfa94a0841e80a3275cb770b6eeff13654b3fd86debb2f78ce76",
+      "bytes": 50491
+    }
+  }
+}

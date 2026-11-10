@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-01",
+  "sources": {
+    "docs/data/indonesia-seasons-2023.nc": "4ce8ee7414d242095ce0da30f0eb2d0a9fe81938059b5df91939d2adafa26d50",
+    "docs/assets/seasonal-2023/verification-2023.nc": "3533d1460aad4c48c24384b62aed68e0f84914306b63614ef80453aa4caf27c1",
+    "docs/data/verification-context-2021-2024.nc": "81ca50784ab5dfa94a0841e80a3275cb770b6eeff13654b3fd86debb2f78ce76",
+    "docs/data/regions/province-weights.nc": "84d144f4ba47774ff3da92bc9e0a6a90563db231e8b1a2431f4ffbf141dd2815",
+    "docs/assets/seasonal-2023/province-verification-2023.nc": "d78e22287e1f3c8c5cf83a8be4151a8523d3a183d9abc09635d28bf3af21db5f",
+    "docs/data/regions/province-context-pooled.nc": "370e9db00a504cf408f84d26e9743b9970493e83227e1aae5db693c044264c11"
+  },
+  "outputs": {
+    "metrics.json": {
+      "sha256": "904291fd9f1736e6b32525e6fb29eb960a5da9e5e22f46670aa4bcfb4b8eafba",
+      "bytes": 1239772
+    },
+    "fields.json": {
+      "sha256": "ebe4e5bf383fe406f16f11210b9e4b88ab2563837e84a2762d1549f6298ecf78",
+      "bytes": 4833633
+    }
+  },
+  "preserved_artifacts": 35,
+  "map_cells": 3240,
+  "numeric_rounding": "None in JSON; labels round for readability only.",
+  "method": "Serialize existing metrics and fields; gain percentages use stored RMSE; no new fits or spatial weights."
+}

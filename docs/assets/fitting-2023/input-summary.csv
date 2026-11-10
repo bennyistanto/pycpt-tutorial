@@ -1,0 +1,7 @@
+season,role,samples,grid,complete_locations,units,target_starts,target_ends
+OND,X · training predictor,30,41 × 71,2911,mm,1991-10-01,2020-12-31
+OND,Y · training predictand,30,76 × 192,3240,mm,1991-10-01,2020-12-31
+OND,F · 2023 predictor,1,41 × 71,2911,mm,2023-10-01,2023-12-31
+JJA,X · training predictor,30,41 × 71,2911,mm,1991-06-01,2020-08-31
+JJA,Y · training predictand,30,76 × 192,3240,mm,1991-06-01,2020-08-31
+JJA,F · 2023 predictor,1,41 × 71,2911,mm,2023-06-01,2023-08-31

@@ -1,0 +1,223 @@
+{
+  "key": "OND-pcr",
+  "season": "OND",
+  "method": "pcr",
+  "training_samples": 30,
+  "forecast_samples": 1,
+  "native_directory": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr",
+  "configuration": {
+    "x_eof_modes": [
+      3,
+      3
+    ],
+    "validation": "CROSSVALIDATION",
+    "crossvalidation_window": 5,
+    "synchronous_predictors": true,
+    "transform_predictand": null,
+    "tailoring": null,
+    "drymask_threshold": null,
+    "skillmask_threshold": null
+  },
+  "comparison": {
+    "forecast_deterministic": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.01,
+      "relative_tolerance": 0
+    },
+    "forecast_probabilistic": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "forecast_prediction_error_variance": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.1,
+      "relative_tolerance": 2e-06
+    },
+    "cv_hindcasts": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.01,
+      "relative_tolerance": 0
+    },
+    "native_skill_pearson": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_spearman": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_two_alternative_forced_choice": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_roc_area_below_normal": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_roc_area_above_normal": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.001,
+      "relative_tolerance": 0
+    },
+    "native_skill_root_mean_squared_error": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 0.01,
+      "relative_tolerance": 0
+    },
+    "predictor_eof_native_weight": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_eof_score": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_eof_correlation": {
+      "maximum_absolute_difference": 4.440892098500626e-16,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_eigenvalue": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_explained_variance_percent": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    },
+    "predictor_cumulative_variance_percent": {
+      "maximum_absolute_difference": 0.0,
+      "absolute_tolerance": 2e-05,
+      "relative_tolerance": 0
+    }
+  },
+  "outputs": {
+    "OND-pcr-hindcasts.nc": {
+      "sha256": "c1ea1688e16ab979f6e4e2f9381e9bb2229a65b82081f6700c35a766089d6b9a",
+      "bytes": 905880
+    },
+    "OND-pcr-forecasts.nc": {
+      "sha256": "61027f99bedff5f2fd1495b6c3db43712ddf2d15ff183444ed5d44430e37f098",
+      "bytes": 187509
+    },
+    "OND-pcr-native-skill.nc": {
+      "sha256": "4f8b44b2a7f62b933b335ccee6271b0dab6fae9801e88699b3aeb1089e72960a",
+      "bytes": 205702
+    },
+    "OND-pcr-x-patterns.nc": {
+      "sha256": "06b72f903f5bf889423d07ae7c2b98320049692acc77b3f48bc226e033cca6af",
+      "bytes": 93404
+    },
+    "OND-pcr-predictor-diagnostics.nc": {
+      "sha256": "fe8d975690af8570ee0eb9f58af19c2bd37645df3f27290b1e1dc23bb6c32782",
+      "bytes": 158417
+    },
+    "sessions/OND-pcr.log": {
+      "sha256": "02c43db760588b4118bc06f3c866888ea6cec7e69139cb7012863b814fb84f3e",
+      "bytes": 452975
+    },
+    "sessions/OND-pcr-commands.txt": {
+      "sha256": "0f7c0df6f5b8655f17625c0119f36544909ddebb13ded15b298738145fed960b",
+      "bytes": 2281
+    }
+  },
+  "date_parsing": [
+    {
+      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_probabilities.txt",
+      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_probabilities.midnight-normalized.txt",
+      "dates": [
+        "2023-09-01"
+      ],
+      "source_sha256": "33ba72d8155a7c0b81331ced3617a81fd7eab1bc65a9335c0e6da2f000d77133",
+      "parsing_sha256": "7d021d1abfd53d9838f7d0d3c7f0edf68443bdbe6501d47e26b978f27b282198"
+    },
+    {
+      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_values.txt",
+      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_values.midnight-normalized.txt",
+      "dates": [
+        "2023-09-01"
+      ],
+      "source_sha256": "966e4ffef5376d779e1a041eb9d992d09e3fe6f6c0f5b197a2659634ac3d3fe7",
+      "parsing_sha256": "47436ff343f3a1b4948a0d5e1712d9d40f7c3d23e978a46e14ac54a56b345b86"
+    },
+    {
+      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_prediction_error_variance.txt",
+      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_prediction_error_variance.midnight-normalized.txt",
+      "dates": [
+        "2023-09-01"
+      ],
+      "source_sha256": "b927bc25fc27bf8209411c59f8234a8702b8ca5a38bf5de279827833befba443",
+      "parsing_sha256": "40323e268ba21be6641587e44bb41f1262ad67b174f3d1c6869352724457d635"
+    },
+    {
+      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/hindcast_values.txt",
+      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/hindcast_values.midnight-normalized.txt",
+      "dates": [
+        "1991-09-01",
+        "1992-09-01",
+        "1993-09-01",
+        "1994-09-01",
+        "1995-09-01",
+        "1996-09-01",
+        "1997-09-01",
+        "1998-09-01",
+        "1999-09-01",
+        "2000-09-01",
+        "2001-09-01",
+        "2002-09-01",
+        "2003-09-01",
+        "2004-09-01",
+        "2005-09-01",
+        "2006-09-01",
+        "2007-09-01",
+        "2008-09-01",
+        "2009-09-01",
+        "2010-09-01",
+        "2011-09-01",
+        "2012-09-01",
+        "2013-09-01",
+        "2014-09-01",
+        "2015-09-01",
+        "2016-09-01",
+        "2017-09-01",
+        "2018-09-01",
+        "2019-09-01",
+        "2020-09-01"
+      ],
+      "source_sha256": "9d6c15a9ac6f19892c5ee245b5548ef6c111b5350a0b91b71ab3ebad26226829",
+      "parsing_sha256": "24b98126b4855770a0fbbe34260d552f783d1cb39cdc4b55639a900c10626dd4"
+    }
+  ],
+  "native_file_hashes": {
+    "forecast_prediction_error_variance.midnight-normalized.txt": "40323e268ba21be6641587e44bb41f1262ad67b174f3d1c6869352724457d635",
+    "forecast_prediction_error_variance.txt": "b927bc25fc27bf8209411c59f8234a8702b8ca5a38bf5de279827833befba443",
+    "forecast_probabilities.midnight-normalized.txt": "7d021d1abfd53d9838f7d0d3c7f0edf68443bdbe6501d47e26b978f27b282198",
+    "forecast_probabilities.txt": "33ba72d8155a7c0b81331ced3617a81fd7eab1bc65a9335c0e6da2f000d77133",
+    "forecast_values.midnight-normalized.txt": "47436ff343f3a1b4948a0d5e1712d9d40f7c3d23e978a46e14ac54a56b345b86",
+    "forecast_values.txt": "966e4ffef5376d779e1a041eb9d992d09e3fe6f6c0f5b197a2659634ac3d3fe7",
+    "goodness_index.txt": "59899f916aa0449e87fff1e013462b16465ac30f5cf9cc3eccb4822f02377cce",
+    "hindcast_values.midnight-normalized.txt": "24b98126b4855770a0fbbe34260d552f783d1cb39cdc4b55639a900c10626dd4",
+    "hindcast_values.txt": "9d6c15a9ac6f19892c5ee245b5548ef6c111b5350a0b91b71ab3ebad26226829",
+    "original_forecast_predictor": "24d9f36df6dee74572ea73bc24406569a3740e265e8c0dbd0385bf115eeda237",
+    "original_predictand": "4efecd256e8c0f3d3d663840435954cda02a0c0653211b3d9b608eba192a3c3b",
+    "original_predictor": "0ff1e2a4f403118df373866692595aeb916123b7de3b7998f978ec0691724244",
+    "pearson.txt": "bfce178f9a925e41ced0b810866a861756fd9626bc40b998d6a113b9f2dafac3",
+    "predictor_eof_spatial_loadings.txt": "b7a72fa5c5bbecd1959beaa63f9004b72442cb6fa9fd9a04732b92267bbf0ac1",
+    "predictor_eof_timeseries.txt": "add61542f3b1a1e28994526ad82db60852d111a6ac2855adc4adf5124bb511a5",
+    "predictor_explained_variance.txt": "dff096d8bb7bb72cb57b72e3734f797f2742d124950da572e3860b66169db69d",
+    "roc_area_above_normal.txt": "e1e31a6ba4e1f1a1dd314e567e612ff8fbb207cb0f8e1eb5c3a83bf1eefec87f",
+    "roc_area_below_normal.txt": "0bd9af692f247cc740bac76c2d401f78654bcc4a425fac872ca3f7e4851acda6",
+    "root_mean_squared_error.txt": "3c87a6eeed4821ac921b05df1d51999bac686d34e00d6b65affa26a734e5265e",
+    "spearman.txt": "26fa718325632a6253fee42a9afa866b89b849e83d6807d2dff828c055aeb087",
+    "two_alternative_forced_choice.txt": "e0dfd5de72e0602955721a155df9c277628a2e873f82bc7b8f0142435d272c53"
+  }
+}
