@@ -48,6 +48,18 @@ throughout (CFSv2, 1 September 2023 start, OND 2023 rainfall over Indonesia,
   [executed notebook](docs/notebooks/fit-diagnose-2023.ipynb): four PyCPT fits for OND
   and JJA 2023, model patterns and cross-validated residuals.
 
+**Case studies: Lead time**
+
+- [November 2023, 1-6 months ahead](docs/chapters/monthly-leads-2023.qmd) with its
+  [executed notebook](docs/notebooks/monthly-leads-2023.ipynb): a monthly forecast from
+  six CFSv2 start dates, CCA and PCR skill by lead, a raw-model baseline and the 2023 outcome.
+- [OND 2023, 1-6 months ahead](docs/chapters/seasonal-leads-2023.qmd) with its
+  [executed notebook](docs/notebooks/seasonal-leads-2023.ipynb): the same design for the
+  October-December season, compared lead by lead with November.
+- [OND 2023 by dekad, 1-3 dekads ahead](docs/chapters/dekad-leads-2023.qmd) with its
+  [executed notebook](docs/notebooks/dekad-leads-2023.ipynb): subseasonal GEFSv12 forecasts
+  of dekad rainfall, calibrated through `cptcore`, skill by lead and the nine dekads of 2023.
+
 Setup, downloads, methods and credits are in [docs/guides/](docs/guides/README.md).
 
 ## Where to find the outputs
@@ -57,9 +69,10 @@ stored as NetCDF4 (open with `xarray.open_dataset`), CSV, JSON or PNG.
 
 | What | Where | Contents |
 | --- | --- | --- |
-| Case study outputs | [docs/assets/seasonal-2023/](docs/assets/seasonal-2023/), [docs/assets/fitting-2023/](docs/assets/fitting-2023/) | Scores, comparisons, figures and 33 NetCDF files behind the two case studies |
+| Case study outputs | [docs/assets/seasonal-2023/](docs/assets/seasonal-2023/), [docs/assets/fitting-2023/](docs/assets/fitting-2023/) | Scores, comparisons, figures and 33 NetCDF files behind the two season case studies |
+| Lead-time case outputs | [docs/data/monthly-2023/](docs/data/monthly-2023/), [docs/data/ond-leads-2023/](docs/data/ond-leads-2023/), [docs/data/dekad-leads-2023/](docs/data/dekad-leads-2023/), figures in the matching [docs/assets/](docs/assets/) folders | Skill by lead and 2023 scores (CSV), run summaries (JSON) and maps (one NetCDF per case) for November, OND and OND dekads |
 | Downloadable kits | [docs/downloads/](docs/downloads/) | Each case study's notebook with its inputs and helper code, ready to run; all 30 fitted NetCDF outputs of Fit & diagnose as one zip |
-| Research benchmarks | [research/cases/](research/cases/) | Frozen experiments, 276 NetCDF files in total: each case's `outputs/` folder, a README describing it and JSON manifests with every file's SHA-256 hash |
+| Research benchmarks | [research/cases/](research/cases/) | Frozen experiments, 278 NetCDF files in total: each case's `outputs/` folder, a README describing it and JSON manifests with every file's SHA-256 hash |
 | Small examples | [examples/](examples/README.md) | A real CFSv2 forecast as CPT text and as NetCDF, for trying the export tool |
 
 The research benchmarks:
@@ -71,6 +84,7 @@ The research benchmarks:
 | [indonesia-ond-2023-025deg-1991-2020](research/cases/indonesia-ond-2023-025deg-1991-2020/README.md) | 19 | OND 2023 at 0.25°, 1991-2020 training sensitivity |
 | [indonesia-ond-2023-025deg](research/cases/indonesia-ond-2023-025deg/README.md) | 18 | OND 2023, CCA and PCR refitted at 0.25° |
 | [indonesia-ond-2023](research/cases/indonesia-ond-2023/README.md) | 17 | The first full-Indonesia OND 2023 replay at 1° |
+| [indonesia-ond-2023-005deg-trial](research/cases/indonesia-ond-2023-005deg-trial/README.md) | 2 | Can the predictand be native 0.05° CHIRPS v3.0, and does it change the result? |
 
 The [research README](research/README.md) explains how these relate, and the
 [methodology audit](research/reports/METHODOLOGY_AUDIT.md) records what was checked
