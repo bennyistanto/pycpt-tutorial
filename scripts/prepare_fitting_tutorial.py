@@ -12,7 +12,7 @@ from pycpt_tutorial.export import save_netcdf
 
 NATIVE=Path('/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg')
 DATA=ROOT/'docs/data/fitting-2023'
-AUDIT=ROOT/'research/audits/fitting-tutorial-2023'
+AUDIT=ROOT/'temp/audits/fitting-tutorial-2023'
 
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def read(p):
@@ -62,7 +62,7 @@ def main():
                 if suffix=='forecasts':ds=ds.sel(T=ds.season_year==2023)
                 save(ds,f'controls/{season}-{method}-{suffix}.nc')
             for side in ['predictor']+(['predictand'] if method=='cca' else []):
-                p=ROOT/'research/audits/fitting-diagnostics/outputs'/f'{key}_{side}_diagnostics.nc'
+                p=ROOT/'temp/audits/fitting-diagnostics/outputs'/f'{key}_{side}_diagnostics.nc'
                 save(read(p),f'controls/{season}-{method}-{side}-diagnostics.nc')
     # A full predictor-domain outline is needed: case-one boundaries are cropped to Indonesia.
     base=Path('/mnt/f/temp/hybrid-bias-correction/data/subset/bnd/wld_bnd_adm0')

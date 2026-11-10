@@ -11,7 +11,7 @@ from matplotlib.colors import to_hex
 
 ROOT=Path(__file__).resolve().parents[1]
 DEST=ROOT/'docs/assets/story'
-AUDIT=ROOT/'research/audits/interactive-story'
+AUDIT=ROOT/'temp/audits/interactive-story'
 VARIANTS=['raw_cfsv2','climatology_1983_2010','climatology_1991_2020','cca_1983_2010','cca_1991_2020','pcr_1983_2010','pcr_1991_2020']
 SEASONS='DJF JFM FMA MAM AMJ MJJ JJA JAS ASO SON OND NDJ'.split()
 

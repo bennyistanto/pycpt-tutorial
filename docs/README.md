@@ -21,15 +21,14 @@ python scripts/render_tutorial.py
 Run from the repository root. Rendering uses saved notebook outputs without
 re-execution. The tested renderer is Quarto1.8.27. The optional calibration path
 is documented in the notebook and tested separately.
-To intentionally refresh scientific outputs, follow [the authoring workflow](AUTHORING.md)
-before execution and packaging; layout edits need only rendering and verification.
+To refresh scientific outputs, re-execute the notebook (each folder's README names
+the command) before packaging; layout edits need only rendering and verification.
 
 | Location | Purpose |
 | --- | --- |
 | [chapters/](chapters/README.md) | Reader-facing stories, scientific context, findings and limitations |
 | [notebooks/](notebooks/README.md) | Executed companion notebooks with reproducible steps and labelled outputs |
 | [guides/](guides/README.md) | Installation, compatibility and reusable-tool guidance |
-| [AUTHORING.md](AUTHORING.md) | Story/notebook contract and execution workflow |
 
 Completed experimental evidence lives in [research/](../research/README.md).
 Reusable Python functions live in [pycpt_tutorial/](../pycpt_tutorial/).

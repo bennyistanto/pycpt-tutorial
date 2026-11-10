@@ -9,8 +9,8 @@ forecast arrived. No model is fitted.
     python research/scripts/check_mme_availability.py --models CanSIPSIC4.PRCP SPEAR.PRCP
     python research/scripts/check_mme_availability.py --merge
 
-Each run writes research/audits/learn-pycpt/mme-availability/<model>.json;
---merge combines them into research/audits/learn-pycpt/mme-availability.json.
+Each run writes docs/data/learn/mme-availability/<model>.json;
+--merge combines them into docs/data/learn/mme-availability.json.
 """
 from pathlib import Path
 import argparse
@@ -20,7 +20,7 @@ import time
 import traceback
 
 ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / "research/audits/learn-pycpt/mme-availability"
+OUT = ROOT / "docs/data/learn/mme-availability"
 DOWNLOAD_ARGS = {
     "fdate": dt.datetime(2023, 9, 1),
     "target": "Oct-Dec",

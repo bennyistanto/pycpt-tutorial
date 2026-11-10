@@ -20,15 +20,14 @@ Execute a chapter inside the pinned Debian environment:
 python scripts/execute_learn_chapter.py docs/learn/01-first-case.ipynb
 ```
 
-The script records each run in `research/audits/learn-pycpt/` and replaces the home
+The script records each run in `temp/audits/learn-pycpt/` (local, not published) and replaces the home
 directory with `~` in text outputs. Quarto rendering never executes these notebooks.
 
 After executing a chapter, refresh its reference list (written into the notebook's
-"References" cell) and re-check the cited sources:
+"References" cell):
 
 ```
 python scripts/build_references.py
-python scripts/verify_references.py
 ```
 
 Figures come from `pycpt_tutorial/figures.py`; use it for every new figure.

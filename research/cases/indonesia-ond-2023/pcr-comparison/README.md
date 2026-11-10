@@ -1,6 +1,6 @@
 # PCR versus CCA, raw CFSv2 and climatology: Indonesia OND2023
 
-**Methodology correction, 2026-11-01:** [reference audit](../../../reports/METHODOLOGY_AUDIT.md).
+**Methodology correction, 2026-11-01:** the tutorial's [Methods & limitations](https://bennyistanto.github.io/pycpt-tutorial/guides/methods.html).
 The deterministic baseline uses the full training mean; native probability
 categories use 1991–2010. CPT automatically zero-bounds rainfall and uses
 Student's t probabilities. Numeric checks do not demonstrate probability reliability.

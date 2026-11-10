@@ -116,7 +116,7 @@ def main():
     for key,value in predictions.items(): assert int(value.count())==int(evaluation_mask.sum()),key
     comparison_meta={"data_kind":"period_sensitivity_comparison","training_periods_compared":"1982–2010 (29seasons) versus1991–2020 (30seasons)",
                      "comparison_rule":"Identical0.25degree observations/cells/native countryweights; common training masks and available2023 observations",
-                     "probability_note":"CPT category references: older fits1991–2010,recent1991–2020; see research/reports/METHODOLOGY_AUDIT.md; this comparison contains deterministic rainfall only"}
+                     "probability_note":"CPT category references: older fits1991–2010,recent1991–2020; see temp/reports/METHODOLOGY_AUDIT.md; this comparison contains deterministic rainfall only"}
     save(stack_forecasts(predictions,truth.where(evaluation_mask),f.S),"period_forecast_comparison_025.nc",comparison_meta)
     save(xr.Dataset({"new_training_mask":country.analysis_mask,"old_training_mask":old_country.analysis_mask,
                      "common_training_mask":common_mask.astype("int8"),"evaluation_mask":evaluation_mask.astype("int8"),"evaluation_country_land_weight":weights}),"period_comparison_footprint_025.nc",comparison_meta)

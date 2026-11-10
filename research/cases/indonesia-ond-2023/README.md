@@ -1,6 +1,6 @@
 # Full Indonesia: OND 2023 historical seasonal replay
 
-**Methodology correction, 2026-11-01:** [reference audit](../../reports/METHODOLOGY_AUDIT.md).
+**Methodology correction, 2026-11-01:** the tutorial's [Methods & limitations](https://bennyistanto.github.io/pycpt-tutorial/guides/methods.html).
 The deterministic baseline uses the full training mean; native probability
 categories use 1991–2010. CPT automatically zero-bounds rainfall and uses
 Student's t probabilities. Numeric checks do not demonstrate probability reliability.
@@ -134,7 +134,6 @@ source ~/miniforge3/etc/profile.d/conda.sh
 conda activate pycpt-tutorial
 python research/scripts/prepare_indonesia_case.py
 python research/scripts/run_indonesia_case.py
-python research/scripts/verify_indonesia_case.py
 ```
 
 The preparation script reuses its input cache and the runner retains a completed

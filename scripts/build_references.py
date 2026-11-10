@@ -7,7 +7,7 @@ does not run include shortcodes inside .ipynb files, so for notebooks the script
 writes the list directly into the notebook's "## References" markdown cell.
 Run it again after regenerating or re-executing a notebook.
 
-Sources were checked with scripts/verify_references.py (links resolve; PyCPT
+Sources were checked with a separate link and source-identity check (links resolve; PyCPT
 modules identical to the cited commit) and, for DOIs, against Crossref metadata.
 
     python scripts/build_references.py
@@ -48,7 +48,6 @@ SOURCES = {
     "cpt_custom": "CPT+. *Customising the Results* (CPT help). <https://cptplus.org/Help/CPT_use_custom.html>",
     "cpt_whatsnew": "CPT+. *What's New* (CPT release history). <https://cptplus.org/whatsnew.html>",
     "cpt_source_1783": "IRI. *CPT 17.8.3 source code archive*. Columbia University Academic Commons. <https://doi.org/10.7916/fdp6-v391>",
-    "methodology_audit": "PyCPT Tutorial. *Audit of the Indonesia experiments against CPT references* (research/reports/METHODOLOGY_AUDIT.md). <https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/reports/METHODOLOGY_AUDIT.md>",
     "scipy_t": "SciPy. *scipy.stats.t* (SciPy manual). <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html>",
     "numpy_quantile": "NumPy. *numpy.quantile* (NumPy manual). <https://numpy.org/doc/stable/reference/generated/numpy.quantile.html>",
     "xarray_quantile": "xarray. *xarray.DataArray.quantile* (API reference). <https://docs.xarray.dev/en/stable/generated/xarray.DataArray.quantile.html>",
@@ -58,7 +57,7 @@ SOURCES = {
     "iridl_nmme": "IRI Data Library. *North American Multi-Model Ensemble (NMME)* collection. <https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/>" + DL_NOTE,
     "iridl_seas51": "IRI Data Library. *Copernicus C3S ECMWF SEAS5.1* (catalog entry SEAS51c). <https://iridl.ldeo.columbia.edu/SOURCES/.EU/.Copernicus/.CDS/.C3S/.ECMWF/.SEAS51_iri2/>" + DL_NOTE,
     "johnson2019": "Johnson, S., Stockdale, T., Ferranti, L., et al. (2019). SEAS5: the new ECMWF seasonal forecast system. *Geoscientific Model Development*, 12, 1087-1117. <https://doi.org/10.5194/gmd-12-1087-2019>",
-    "availability_script": "PyCPT Tutorial. *Model availability check* (research/scripts/check_mme_availability.py) and its record (research/audits/learn-pycpt/mme-availability.json). <https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/check_mme_availability.py>",
+    "availability_script": "PyCPT Tutorial. *Model availability check* (research/scripts/check_mme_availability.py) and its record (docs/data/learn/mme-availability.json). <https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/check_mme_availability.py>",
     "chirps3": "Climate Hazards Center, UC Santa Barbara. *CHIRPS: Rainfall Estimates from Rain Gauge and Satellite Observations* (CHIRPS version 3.0 page). <https://www.chc.ucsb.edu/data/chirps3>",
     "saha2014": "Saha, S., Moorthi, S., Wu, X., et al. (2014). The NCEP Climate Forecast System Version 2. *Journal of Climate*, 27(6), 2185-2208. <https://doi.org/10.1175/JCLI-D-12-00823.1>",
     "kirtman2014": "Kirtman, B., Min, D., Infanti, J., et al. (2014). The North American Multimodel Ensemble: Phase-1 seasonal-to-interannual prediction; Phase-2 toward developing intraseasonal prediction. *Bulletin of the American Meteorological Society*, 95(4), 585-601. <https://doi.org/10.1175/BAMS-D-12-00050.1>",
@@ -72,7 +71,6 @@ SOURCES = {
     "iridl_gefs": "IRI Data Library. *SubX EMC GEFSv12_CPC* (hindcast and forecast precipitation). <https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC/>" + DL_NOTE,
     "chc_daily_readme": "Climate Hazards Center. *Information about CHIRPS Daily Precipitation* (CHIRPS v3.0 daily readme). <https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/readme.txt>",
     "bmkg_dasarian": f"BMKG. *Peringatan Dini Curah Hujan Dasarian* (dekadal rainfall early warnings by regency and city; showed dasarian I November 2026 when checked on {CHECKED}). <https://www.bmkg.go.id/iklim/peringatan-dini-hujan-tinggi>",
-    "gefs_audit": "PyCPT Tutorial. *GEFSv12 input adapter audit* (research/reports/GEFSV12_INPUT_ADAPTER.md). <https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/reports/GEFSV12_INPUT_ADAPTER.md>",
     # Tools
     "cartopy": "SciTools. *Cartopy* (documentation). <https://scitools.org.uk/cartopy/docs/latest/>",
     "shapely": "Shapely. *shapely.contains_xy*. <https://shapely.readthedocs.io/en/stable/reference/shapely.contains_xy.html>",
@@ -97,26 +95,26 @@ PAGES = {
                          "iridl_cfsv2", "saha2014", "chirps3", "funk2014"],
     "methods": ["teaching_cpt", "operational", "cpthelp_probs", "cpthelp_verify", "iridl_cfsv2", "saha2014",
                 "kirtman2014", "chirps3", "funk2014", "shapely"],
-    "learn-05": ["methodology_audit", "pycpt_notebook", "cptcore_cca", "operational", "cpthelp_probs", "cpt_custom",
+    "learn-05": ["pycpt_notebook", "cptcore_cca", "operational", "cpthelp_probs", "cpt_custom",
                  "cpt_whatsnew", "cpt_source_1783", "scipy_t", "numpy_quantile", "xarray_quantile", "chirps3", "funk2014"],
     "learn-06": ["operational", "pycpt_notebook", "cptcore_cca", "availability_script", "iridl_nmme", "kirtman2014",
                  "saha2014", "iridl_seas51", "johnson2019", "chirps3", "funk2014", "naturalearth", "cartopy"],
     "learn-07": ["operational", "pycpt_notebook", "cptdl", "cptio_verify", "pycpt_auth", "pycpt_docs",
-                 "availability_script", "methodology_audit", "iridl_chirps2", "funk2015", "chirps3", "funk2014"],
-    "case-monthly": ["pycpt_notebook", "cptdl", "methodology_audit", "iridl_cfsv2", "saha2014", "kirtman2014",
+                 "availability_script", "cpt_source_1783", "iridl_chirps2", "funk2015", "chirps3", "funk2014"],
+    "case-monthly": ["pycpt_notebook", "cptdl", "cpt_source_1783", "cpthelp_probs", "iridl_cfsv2", "saha2014", "kirtman2014",
                      "chirps3", "funk2014", "mason2009", "epstein1969", "barnston1993"],
-    "notebook-monthly": ["pycpt_notebook", "cptdl", "methodology_audit", "iridl_cfsv2", "saha2014", "chirps3",
+    "notebook-monthly": ["pycpt_notebook", "cptdl", "cpt_source_1783", "cpthelp_probs", "iridl_cfsv2", "saha2014", "chirps3",
                          "funk2014", "naturalearth", "shapely", "numpy_quantile", "mason2009", "epstein1969", "barnston1993", "cartopy"],
-    "case-seasonal-leads": ["pycpt_notebook", "cptdl", "methodology_audit", "iridl_cfsv2", "saha2014", "kirtman2014",
+    "case-seasonal-leads": ["pycpt_notebook", "cptdl", "cpt_source_1783", "cpthelp_probs", "iridl_cfsv2", "saha2014", "kirtman2014",
                             "chirps3", "funk2014", "mason2009", "epstein1969", "barnston1993"],
-    "notebook-seasonal-leads": ["pycpt_notebook", "cptdl", "methodology_audit", "iridl_cfsv2", "saha2014", "chirps3",
+    "notebook-seasonal-leads": ["pycpt_notebook", "cptdl", "cpt_source_1783", "cpthelp_probs", "iridl_cfsv2", "saha2014", "chirps3",
                                 "funk2014", "naturalearth", "shapely", "numpy_quantile", "mason2009", "epstein1969",
                                 "barnston1993", "cartopy"],
     "case-dekad-leads": ["iridl_gefs", "guan2022", "bmkg_dasarian", "chirps3", "funk2014", "chc_daily_readme",
-                         "pycpt_notebook", "cptcore_cca", "cptextras_redate", "gefs_audit", "mason2009", "epstein1969",
+                         "pycpt_notebook", "cptcore_cca", "cptextras_redate", "mason2009", "epstein1969",
                          "barnston1993"],
     "notebook-dekad-leads": ["iridl_gefs", "guan2022", "bmkg_dasarian", "chirps3", "funk2014", "cptcore_cca",
-                             "cptextras_redate", "gefs_audit", "naturalearth", "shapely", "numpy_quantile", "mason2009",
+                             "cptextras_redate", "naturalearth", "shapely", "numpy_quantile", "mason2009",
                              "epstein1969", "cartopy"],
     "start": ["pycpt_docs", "pycpt_auth", "pycpt_install", "cpt_product"],
     "reproduce": ["pycpt_install", "pycpt_auth", "pycpt_docs"],

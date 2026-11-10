@@ -71,7 +71,7 @@ coarse-cell errors, not a new fine-resolution provincial rainfall product.
 """)
     record={"kit":str(dest.relative_to(ROOT)),"sha256":hashlib.sha256(dest.read_bytes()).hexdigest(),"bytes":dest.stat().st_size,
             "files":[str(p.relative_to(ROOT)) for p in files],"note":"Notebook plus offline inputs/helpers and Linux lock; no credentials, native logs or reference caches."}
-    (ROOT/"research/audits/tutorial-2023/kit.json").write_text(json.dumps(record,indent=2)+"\n")
+    (ROOT/"temp/audits/tutorial-2023/kit.json").write_text(json.dumps(record,indent=2)+"\n")
     print(json.dumps({k:v for k,v in record.items() if k!="files"},indent=2))
 
 if __name__=="__main__": main()

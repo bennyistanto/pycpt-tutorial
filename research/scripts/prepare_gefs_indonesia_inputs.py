@@ -34,7 +34,7 @@ from pycpt_tutorial.export import save_netcdf
 from pycpt_tutorial.subseasonal_inputs import (
     VERSION,WEEKS,country_grid,gefs_weekly,chirps_weekly,read_chirps_country,week_dates)
 
-AUDIT=ROOT/'research/audits/gefs-input-adapter'
+AUDIT=ROOT/'temp/audits/gefs-input-adapter'
 WORK=ROOT/'temp/gefs-input-adapter'
 CHECKS=[('hindcast','2018-08-29'),('forecast','2023-08-24')]
 BASE='https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC'

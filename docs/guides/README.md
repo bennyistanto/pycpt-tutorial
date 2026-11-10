@@ -9,4 +9,4 @@
 
 Commands assume the repository or extracted-kit root unless stated otherwise.
 Offline analysis and optional PyCPT fitting have separate requirements. Runtime
-installation investigations are retained under `research/reports/`, outside the learner guides.
+installation investigations are working records and are not part of the published repository.

@@ -17,7 +17,7 @@ from pycpt_tutorial.regions import score_regions, pool_years
 
 CASE = ROOT / "research/cases/indonesia-all-seasons-2021-2024-025deg"
 DEST = ROOT / "docs/data/regions"
-AUDIT = ROOT / "research/audits/regional-2023"
+AUDIT = ROOT / "temp/audits/regional-2023"
 SOURCE = Path("/mnt/e/temp/chirps/rolling_dekad/wld_cli_chirps3_month3_bydekad_1981_2025.nc")
 BOUNDARY = Path("/mnt/f/temp/hybrid-bias-correction/data/subset/bnd/idn_bnd_adm1")
 COUNTRY = Path.home() / "CPT/cases/indonesia-ond-2023/inputs/indonesia_boundary.geojson"

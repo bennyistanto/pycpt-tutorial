@@ -59,7 +59,7 @@ def main():
           "target":"OND","forecast_years":"2021,2022,2023,2024","initialization_rule":"1September of target year","target_rule":"1October–31December of same year",
           "predictand_resolution_degrees":.25,"predictor_resolution_degrees":1.,"model":"CFSv2 ensemble mean","observations":"CHIRPS3 country-land seasonal accumulation",
           "validation_note":"Fixed training periods and modes; all forecast target years outside both training periods;2023 cached motivating case; primary additional holdouts2021,2022,2024",
-          "probability_note":"CPT category references: older fits1991–2010,recent1991–2020; rainfall auto-zero-bounded; see research/reports/METHODOLOGY_AUDIT.md; no probabilistic skill claim"}
+          "probability_note":"CPT category references: older fits1991–2010,recent1991–2020; rainfall auto-zero-bounded; see temp/reports/METHODOLOGY_AUDIT.md; no probabilistic skill claim"}
     def save(ds,name,attrs=None): return save_netcdf(ds,OUT/name,metadata={**meta,**(attrs or {})},overwrite=True)
     predictions={}; configs={}; checks={}; timings={}; inputs={}
     for period,settings in PERIODS.items():

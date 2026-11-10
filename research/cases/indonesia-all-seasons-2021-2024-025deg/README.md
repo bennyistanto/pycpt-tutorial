@@ -1,6 +1,6 @@
 # Indonesia: all twelve seasonal rainfall forecasts at 0.25°
 
-**Methodology audit, 2026-11-01:** see the [reference-based audit](../../reports/METHODOLOGY_AUDIT.md).
+**Methodology audit, 2026-11-01:** see the the tutorial's [Methods & limitations](https://bennyistanto.github.io/pycpt-tutorial/guides/methods.html).
 CPT uses a cyclic five-sample CV window and automatically zero-bounds rainfall.
 Native category climatologies are 1991–2010 / 1991–2020 for within-year seasons;
 DJF/NDJ use ending years 1992–2010 / 1992–2020. They are not necessarily the
@@ -252,7 +252,6 @@ source ~/miniforge3/etc/profile.d/conda.sh
 conda activate pycpt-tutorial
 python research/scripts/prepare_indonesia_all_seasons.py
 python research/scripts/run_indonesia_all_seasons.py
-python research/scripts/verify_indonesia_all_seasons.py
 ```
 
 Caches and raw CPT files remain under `/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg`. Completed preparations/fits are
@@ -281,6 +280,6 @@ calendar year. This remains a retrospective current-vintage experiment with
 28-versus 30 training samples and a mixed reforecast/operational archive.
 No test-year tuning, significance claim or probabilistic skill claim is made;
 category thresholds use the effective CPT climatological periods recorded in the
-methodology audit. Longer independent/blocked
+project's working records (not published). Longer independent/blocked
 validation and predefined regional diagnostics are needed before operational
 recommendations.

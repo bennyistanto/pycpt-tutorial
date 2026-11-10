@@ -5,8 +5,8 @@
 4. IRI. *PyCPT 2.10.4 source: `cpt-io/src/cptio/utilities/verify.py`* (`is_valid_cptv10_xyt`). Tag pycpt-2.10.4, commit 084bb5c. <https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/cpt-io/src/cptio/utilities/verify.py>
 5. IRI. *PyCPT documentation: Authentication: downloading protected data*. <https://iri-pycpt.github.io/authentication/>
 6. IRI. *PyCPT documentation: About*. <https://iri-pycpt.github.io/>
-7. PyCPT Tutorial. *Model availability check* (research/scripts/check_mme_availability.py) and its record (research/audits/learn-pycpt/mme-availability.json). <https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/check_mme_availability.py>
-8. PyCPT Tutorial. *Audit of the Indonesia experiments against CPT references* (research/reports/METHODOLOGY_AUDIT.md). <https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/reports/METHODOLOGY_AUDIT.md>
+7. PyCPT Tutorial. *Model availability check* (research/scripts/check_mme_availability.py) and its record (docs/data/learn/mme-availability.json). <https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/check_mme_availability.py>
+8. IRI. *CPT 17.8.3 source code archive*. Columbia University Academic Commons. <https://doi.org/10.7916/fdp6-v391>
 9. IRI Data Library. *UCSB CHIRPS version 2.0*. <https://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/> Browsing Data Library pages requires signing in (checked 10 November 2026); PyCPT's data requests in this tutorial succeeded without a key.
 10. Funk, C., Peterson, P., Landsfeld, M., et al. (2015). The climate hazards infrared precipitation with stations: a new environmental record for monitoring extremes. *Scientific Data*, 2, 150066. <https://doi.org/10.1038/sdata.2015.66>
 11. Climate Hazards Center, UC Santa Barbara. *CHIRPS: Rainfall Estimates from Rain Gauge and Satellite Observations* (CHIRPS version 3.0 page). <https://www.chc.ucsb.edu/data/chirps3>

@@ -364,6 +364,9 @@ h1.home-title em { font-style: italic; font-weight: 350; color: var(--accent); }
     flex: 0 0 auto; width: 100%; min-height: 0; margin: 0; text-align: center !important; justify-content: center !important; }
   .nav-footer .footer-items { justify-content: center !important; flex-wrap: wrap; padding-left: 0; margin: 0; }
   .nav-footer .footer-items .nav-item { display: inline-flex; }
+  .nav-footer .nav-footer-left { order: 1; }
+  .nav-footer .nav-footer-center { order: 2; }
+  .nav-footer .nav-footer-right { order: 3; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }

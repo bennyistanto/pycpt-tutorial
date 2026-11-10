@@ -88,7 +88,7 @@ CCA and PCR both retain **three predictor EOFs**. CCA also retains **three
 predictand EOFs and two CCA modes**. These counts stay fixed between OND and JJA.
 They make the comparison reproducible; they have not been shown to be optimal.
 
-Both fits use the audited **five-sample cross-validation window**. For each
+Both fits use CPT's **five-sample cross-validation window**. For each
 training target, the calculation omits that sample and two neighbours on either
 side, wrapping at the ends of the training sequence. It refits the model for
 that hindcast. The separate 2023 forecast is then made with the final model
@@ -200,7 +200,7 @@ It depends partly on retained dimensions, as the official CCA guidance explains.
 Full-training patterns are also distinct from the EOFs rebuilt inside each CV
 fold. We do not infer a climate mechanism, empirical probability reliability or
 optimized settings from these maps. A small absolute EOF-scale discrepancy in
-the independent audit remains unresolved, so amplitude reconstruction is outside
+an independent recomputation (a working record, not published) remains unresolved, so amplitude reconstruction is outside
 this lesson; correlation maps and variance percentages are checked separately.
 :::
 

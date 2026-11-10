@@ -21,7 +21,7 @@ def main():
         'code_cells_executed':sum(c.cell_type=='code' for c in nb.cells),'errors':0,'actual_fits':4,
         'notebook_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'native_directories':[r['native_directory'] for r in manifest['fits']],
         'netcdf_outputs':len(manifest['netcdf_outputs']),'offline_guard':manifest['offline_guard']}
-    dest=args.record or ROOT/'research/audits/fitting-tutorial-2023/execution.json';dest.parent.mkdir(parents=True,exist_ok=True)
+    dest=args.record or ROOT/'temp/audits/fitting-tutorial-2023/execution.json';dest.parent.mkdir(parents=True,exist_ok=True)
     dest.write_text(json.dumps(record,indent=2)+'\n');print(json.dumps(record,indent=2))
 
 if __name__=='__main__':main()

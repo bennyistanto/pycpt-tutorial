@@ -35,7 +35,7 @@ META={"case_id":ROOT.name,"year_convention":"Season ending year;NDJ/DJF start in
       "older_training_period":"1983–2010(28seasons)","recent_training_period":"1991–2020(30seasons)","verification_years":"2021,2022,2023,2024",
       "model":"CFSv2 ensemble mean at1degree","observations":"CHIRPS3 country-land weighted seasonal accumulation",
       "validation_note":"All holdouts after training target periods; seasonal training masks only; fixed mode counts; retrospective current-vintage data",
-      "archive_note":"Source appends operational forecasts fromApril2011; completeness does not establish homogeneity","probability_note":"Native categories use effective CPT climatological dates, not necessarily training dates; rainfall auto-zero-bounded; see research/reports/METHODOLOGY_AUDIT.md; no probabilistic skill claim"}
+      "archive_note":"Source appends operational forecasts fromApril2011; completeness does not establish homogeneity","probability_note":"Native categories use effective CPT climatological dates, not necessarily training dates; rainfall auto-zero-bounded; see temp/reports/METHODOLOGY_AUDIT.md; no probabilistic skill claim"}
 
 
 def save(ds,name,attrs=None):

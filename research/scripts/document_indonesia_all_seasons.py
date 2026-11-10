@@ -257,7 +257,6 @@ source ~/miniforge3/etc/profile.d/conda.sh
 conda activate pycpt-tutorial
 python scripts/prepare_indonesia_all_seasons.py
 python scripts/run_indonesia_all_seasons.py
-python scripts/verify_indonesia_all_seasons.py
 ```
 
 Caches and raw CPT files remain under `{ROOT}`. Completed preparations/fits are

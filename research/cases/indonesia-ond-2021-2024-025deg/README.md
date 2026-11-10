@@ -1,6 +1,6 @@
 # Indonesia OND 2021–2024: does the training-period improvement persist?
 
-**Methodology correction, 2026-11-01:** [reference audit](../../reports/METHODOLOGY_AUDIT.md).
+**Methodology correction, 2026-11-01:** the tutorial's [Methods & limitations](https://bennyistanto.github.io/pycpt-tutorial/guides/methods.html).
 Native probability categories use 1991–2010 for older fits and 1991–2020 for
 recent fits. CPT automatically zero-bounds rainfall and uses Student's t
 probabilities. Numeric checks do not demonstrate probability reliability.
@@ -179,7 +179,6 @@ source ~/miniforge3/etc/profile.d/conda.sh
 conda activate pycpt-tutorial
 python research/scripts/prepare_indonesia_ond_holdouts.py
 python research/scripts/run_indonesia_ond_holdouts.py
-python research/scripts/verify_indonesia_ond_holdouts.py
 ```
 
 Run from the repository root in Debian. Caches, raw requests, commands and CPT

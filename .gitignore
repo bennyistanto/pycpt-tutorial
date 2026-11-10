@@ -267,6 +267,7 @@ desktop.ini
 .idea/
 /docs/learn/*-failed.ipynb
 
-# Working audits and reports stay local (temp/ is ignored above)
-/research/audits/lead-time/
-/research/reports/LEAD_TIME_AUDIT.md
+# Audits, reports and their evidence are working records: they live in temp/ (ignored above)
+/research/audits/
+/research/reports/
+/docs/AUTHORING.md

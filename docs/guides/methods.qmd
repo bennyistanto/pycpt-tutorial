@@ -42,8 +42,9 @@ The engine refits within each fold, then constructs a model from all training
 samples for the later forecast inputs. The withheld 2023-centred targets are
 outside their training intervals. The
 [IRI CPT reference](https://iri.columbia.edu/~awr/pycpt/seasonal-jupyterbook/html_2sep2023/cpt.html)
-explains CCA/PCR and cross-validation. The project's source audit and eight
-executable perturbation checks verify the relevant CPT17 behavior.
+explains CCA/PCR and cross-validation. Checks made while preparing the tutorial
+(the CPT 17.8.3 source and eight perturbation runs; working records, not published)
+confirm this cross-validation behaviour.
 
 ## Scores and calendar conventions
 
@@ -87,7 +88,7 @@ hindcast errors. The detailed
 [CPT probability documentation](https://cptplus.org/Help/Tools_Forecast_Probs.html)
 describes Student's t errors and configurable error-variance choices.
 
-In the audited experiments, effective category-reference periods differ from
+In the earlier research experiments, effective category-reference periods differ from
 some training periods: within-year older fits use 1991–2010 and recent fits
 1991–2020; DJF/NDJ use ending years 1992–2010 and 1992–2020 respectively. These
 category periods are distinct from the full-training climatology baselines used
@@ -112,8 +113,8 @@ describes probabilistic verification as a separate task.
 ## Research evidence
 
 The source repository retains completed cases, with their NetCDF outputs and
-manifests, in `research/cases/`, numeric evidence in `research/audits/`, and the
-full methodology/notebook reviews in `research/reports/`. This tutorial's
+manifests, in `research/cases/`. Audits and reviews made while preparing the
+tutorial are working records and are not published. This tutorial's
 [input provenance](../data/provenance.json) identifies the exact fields and
 hashes used. The original files remain unchanged.
 

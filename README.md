@@ -86,9 +86,9 @@ The research benchmarks:
 | [indonesia-ond-2023](research/cases/indonesia-ond-2023/README.md) | 17 | The first full-Indonesia OND 2023 replay at 1° |
 | [indonesia-ond-2023-005deg-trial](research/cases/indonesia-ond-2023-005deg-trial/README.md) | 2 | Can the predictand be native 0.05° CHIRPS v3.0, and does it change the result? |
 
-The [research README](research/README.md) explains how these relate, and the
-[methodology audit](research/reports/METHODOLOGY_AUDIT.md) records what was checked
-against CPT's source and outputs.
+The [research README](research/README.md) explains how these relate. What was
+checked against CPT's source and outputs is summarised on the
+[Methods & limitations](https://bennyistanto.github.io/pycpt-tutorial/guides/methods.html) page.
 
 ## Running it yourself
 

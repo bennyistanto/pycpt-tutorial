@@ -52,7 +52,7 @@ def main():
             'reason':'Isolate generated Quarto cache from OneDrive/Windows file locks; source data and executed notebook are read-only copies.',
             'story_sha256':hashlib.sha256((source/'_book/chapters/indonesia-seasons-2023.html').read_bytes()).hexdigest(),
             'unused_static_widget_bootstrap_removed':static_removed}
-    audit=ROOT/'research/audits/interactive-story';audit.mkdir(parents=True,exist_ok=True)
+    audit=ROOT/'temp/audits/interactive-story';audit.mkdir(parents=True,exist_ok=True)
     (audit/'render.json').write_text(json.dumps(record,indent=2)+'\n')
     print(json.dumps(record,indent=2))
 

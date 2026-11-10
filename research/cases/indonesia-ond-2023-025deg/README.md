@@ -1,6 +1,6 @@
 # Indonesia OND2023: CCA and PCR refitted at 0.25°
 
-**Methodology correction, 2026-11-01:** [reference audit](../../reports/METHODOLOGY_AUDIT.md).
+**Methodology correction, 2026-11-01:** the tutorial's [Methods & limitations](https://bennyistanto.github.io/pycpt-tutorial/guides/methods.html).
 Native probability categories use 1991–2010, rather than the whole training
 period. CPT automatically zero-bounds rainfall and uses Student's t probabilities.
 Numeric checks do not demonstrate probability reliability.
@@ -168,7 +168,6 @@ source ~/miniforge3/etc/profile.d/conda.sh
 conda activate pycpt-tutorial
 python research/scripts/prepare_indonesia_025_case.py
 python research/scripts/run_indonesia_025_case.py
-python research/scripts/verify_indonesia_025_case.py
 ```
 
 Prepared/completed cases are retained. Detailed caches and CPT logs are under

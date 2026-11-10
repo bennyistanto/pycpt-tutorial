@@ -86,7 +86,7 @@ Model: NCEP CFSv2 via IRI Data Library. Source data retain their original terms.
     record={'date':__import__('datetime').date.today().isoformat(),'notebook_sha256':sha(nbpath),'kit':{'file':str(kit.relative_to(ROOT)),'sha256':sha(kit),'bytes':kit.stat().st_size,'files':len(files)+1},
        'output_archive':{'file':str(outputs.relative_to(ROOT)),'sha256':sha(outputs),'bytes':outputs.stat().st_size,'netcdf_files':30},
        'scope':'Only case-two downloads changed; no credentials or bulk native session inputs included.'}
-    (ROOT/'research/audits/fitting-tutorial-2023/kit.json').write_text(json.dumps(record,indent=2)+'\n')
+    (ROOT/'temp/audits/fitting-tutorial-2023/kit.json').write_text(json.dumps(record,indent=2)+'\n')
     print(json.dumps(record,indent=2))
 
 if __name__=='__main__':main()

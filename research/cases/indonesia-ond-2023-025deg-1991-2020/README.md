@@ -1,6 +1,6 @@
 # Indonesia OND 2023 at 0.25°: 1991–2020 training sensitivity
 
-**Methodology correction, 2026-11-01:** [reference audit](../../reports/METHODOLOGY_AUDIT.md).
+**Methodology correction, 2026-11-01:** the tutorial's [Methods & limitations](https://bennyistanto.github.io/pycpt-tutorial/guides/methods.html).
 Native probability categories use 1991–2010 for the older fit and 1991–2020 for
 the recent fit. CPT automatically zero-bounds rainfall and uses Student's t
 probabilities. Numeric checks do not demonstrate probability reliability.
@@ -185,7 +185,6 @@ source ~/miniforge3/etc/profile.d/conda.sh
 conda activate pycpt-tutorial
 python research/scripts/prepare_indonesia_1991_case.py
 python research/scripts/run_indonesia_1991_case.py
-python research/scripts/verify_indonesia_1991_case.py
 ```
 
 The preparer completes its audit before the runner can fit either method.

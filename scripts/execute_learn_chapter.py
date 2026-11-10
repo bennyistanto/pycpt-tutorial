@@ -19,7 +19,7 @@ import nbformat
 from nbclient import NotebookClient
 
 ROOT = Path(__file__).resolve().parents[1]
-AUDIT_DIR = ROOT / "research/audits/learn-pycpt"
+AUDIT_DIR = ROOT / "temp/audits/learn-pycpt"
 
 
 def redact_home(nb):

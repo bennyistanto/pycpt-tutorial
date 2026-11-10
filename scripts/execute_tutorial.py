@@ -27,7 +27,7 @@ def main():
     record={"notebook":str(output.relative_to(ROOT)),"python":platform.python_version(),"quarto":subprocess.check_output(["quarto","--version"],text=True).strip(),
             "code_cells_executed":sum(c.cell_type=="code" for c in nb.cells),"errors":0,"optional_cpt_rerun":args.test_rerun,
             "notebook_sha256":hashlib.sha256(output.read_bytes()).hexdigest()}
-    dest=ROOT/"research/audits/tutorial-2023"
+    dest=ROOT/"temp/audits/tutorial-2023"
     dest.mkdir(parents=True,exist_ok=True)
     (dest/("optional-rerun.json" if args.test_rerun else "execution.json")).write_text(json.dumps(record,indent=2)+"\n")
     print(json.dumps(record,indent=2))

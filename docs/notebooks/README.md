@@ -13,8 +13,8 @@ CCA/PCR calls for OND/JJA2023and saves every returned dataset plus checked
 diagnostics. Executing it requires the full PyCPT fitting environment and its
 compatible engine; local inputs need no credentials or source downloads.
 Refresh this notebook separately with `python scripts/execute_fitting_tutorial.py`.
-Package and verify its dedicated kit with `package_fitting_tutorial.py` and
-`verify_fitting_tutorial.py`; keep the first case unchanged.
+Package its dedicated kit with `package_fitting_tutorial.py`; keep the first case
+unchanged.
 
 The third [executed lead-time notebook](monthly-leads-2023.ipynb) builds November
 CHIRPS v3.0 totals from the local dekadal archive, downloads CFSv2 for six start
