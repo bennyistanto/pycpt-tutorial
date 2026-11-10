@@ -196,8 +196,6 @@ seasons, months and models was not tested.
 The next time scale is **subseasonal**: the [dekad case](dekad-leads-2023.qmd)
 forecasts each October-December dekad one to three dekads ahead with GEFSv12.
 
-The methods behind this page were checked independently in the [lead-time methods audit](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/reports/LEAD_TIME_AUDIT.md).
-
 ## Files
 
 - [Executed notebook](../notebooks/seasonal-leads-2023.ipynb): every number and figure on this page

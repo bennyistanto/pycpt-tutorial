@@ -209,8 +209,6 @@ by lead: the season's forecasts score much higher than the month's. The
 [dekad case](dekad-leads-2023.qmd) goes to the subseasonal scale: October-December
 dekads forecast one to three dekads ahead with GEFSv12.
 
-The methods behind this page were checked independently in the [lead-time methods audit](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/reports/LEAD_TIME_AUDIT.md).
-
 ## Files
 
 - [Executed notebook](../notebooks/monthly-leads-2023.ipynb): every number and figure on this page

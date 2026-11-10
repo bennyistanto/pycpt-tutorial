@@ -72,7 +72,7 @@ therefore converted to **anomalies** from the 2000-2018 mean of the same calenda
 dekad (and lead, for the model). These means include the year held out in
 cross-validation. For correlations that makes no difference: leaving a year out of
 its own dekad mean multiplies every anomaly by the same factor (19/18), and the
-[methods audit](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/reports/LEAD_TIME_AUDIT.md) found identical raw-model correlations either way. Inside
+raw-model correlations computed both ways were identical to four decimals. Inside
 CPT's cross-validated fits it shifts the training anomalies slightly; that effect
 was not measured.
 
@@ -182,8 +182,7 @@ raw model's correlation. The observations are retrospective CHIRPS v3.0 Final
 data, not what was available when each forecast was issued. The 2023 forecasts
 average 31 GEFS members while the hindcasts have 11; refitting lead 1 with only 11
 of the 2023 members changed the 2023 hit rate from 56.6% to 56.5% and left RPSS at
-0.22. These and the other method checks are in the
-[methods audit](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/reports/LEAD_TIME_AUDIT.md).
+0.22.
 
 Weekly targets, the international convention for subseasonal forecasts, would
 need daily observations. CHIRPS v3.0 daily values divide pentad totals using ERA5
