@@ -1,0 +1,11 @@
+logo:
+  images:
+    tutorial-light:
+      path: assets/logo/logo-light.png
+      alt: "PyCPT Tutorial: a person pointing to a forecast graph"
+    tutorial-dark:
+      path: assets/logo/logo-dark.png
+      alt: "PyCPT Tutorial: a person pointing to a forecast graph"
+  medium:
+    light: tutorial-light
+    dark: tutorial-dark

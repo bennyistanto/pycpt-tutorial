@@ -1,0 +1,73 @@
+---
+title: "About & credits"
+subtitle: "The project, its sources and how to use or contribute to the material"
+description: "Project purpose, upstream references, provenance, repository license and issue reporting for the PyCPT Tutorial."
+---
+
+## About the project
+
+PyCPT Tutorial connects readable climate-forecast stories with executed notebooks
+and traceable data to teach the use of PyCPT. CPT is the underlying engine for
+PyCPT model fitting; this is not a standalone CPT installation or operation guide.
+Its first case examines seasonal rainfall forecasts over
+Indonesia across twelve windows centred on 2023. Seasonal and subseasonal topics
+are part of the project's broader scope; only completed, verified material is
+presented as an available case.
+
+The current case is complete as a reproducible tutorial. Physical interpretation
+of fitted patterns, longer independent validation and probability reliability
+remain separate research questions. See [methods and limitations](methods.qmd)
+for the evidence supporting the published comparisons.
+
+The source is maintained in the [pycpt-tutorial repository](https://github.com/bennyistanto/pycpt-tutorial).
+This is a tutorial project, rather than a replacement for upstream software documentation.
+
+## Upstream software and teaching references
+
+- [PyCPT source and documentation](https://github.com/iri-pycpt/pycpt)
+- [IRI PyCPT example notebooks](https://github.com/iri-pycpt/notebooks)
+- [IRI teaching reference: CPT, calibration and cross-validation](https://iri.columbia.edu/~awr/pycpt/seasonal-jupyterbook/html_2sep2023/cpt.html)
+- [CPT help](https://cptplus.org/Help/CPT_use_contents.html)
+- [Quarto](https://quarto.org/), used to publish the story, notebook and guides
+
+The executed case and its recorded configuration determine the behavior described
+here. The [reader guide](start.qmd) separates browser reading, offline analysis,
+optional PyCPT fitting and conditional data-access requirements.
+
+## Data and boundary provenance
+
+The case uses CFSv2 model rainfall and CHIRPS3 observations. Country and province
+boundary files supplied for the project provide map context and regional assignments.
+The analysis and simplified display boundaries have separate provenance records.
+
+| Material | Source record |
+| --- | --- |
+| Packaged case inputs, calendars and hashes | [Data provenance](../data/provenance.json) |
+| Country, province and neighbouring-country map overlays | [Display-boundary provenance](../data/boundaries/provenance.json) |
+| Native province assignments, support and residual | [Province-analysis provenance](../data/regions/provenance.json) |
+| Browser-readable chart and map inputs | [Interactive-data provenance](../assets/story/provenance.json) |
+
+## Citation and reuse
+
+When referring to this work, identify **PyCPT Tutorial**, the case title
+**Twelve seasons over Indonesia**, the repository revision you used and your
+access date. Credit the upstream software and underlying data sources as appropriate.
+The [source repository](https://github.com/bennyistanto/pycpt-tutorial) records revisions.
+
+The repository includes a **Mozilla Public License 2.0**
+[license file](https://github.com/bennyistanto/pycpt-tutorial/blob/main/LICENSE).
+Upstream software and third-party data or boundaries have their own source terms;
+the provenance links above identify the supplied material. No additional license
+is introduced by this website layout.
+
+## Questions, corrections and contributions
+
+[Report an issue in the repository](https://github.com/bennyistanto/pycpt-tutorial/issues).
+Include the page or notebook cell, the selected season/metric/period if relevant,
+and what you expected to see. For execution problems, include the software
+versions and a concise error message; keep credentials and private paths out of
+public reports.
+
+For an explanation of the story/notebook approach, begin with the
+[reader guide](start.qmd). For runnable inputs and environment instructions,
+use [setup and downloads](reproduce.qmd).

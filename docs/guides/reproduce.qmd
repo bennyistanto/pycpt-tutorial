@@ -1,0 +1,191 @@
+---
+title: "Reproduce the tutorial"
+subtitle: "Requirements for reading, offline analysis and optional PyCPT fitting"
+---
+
+## Choose a starting point
+
+This is a PyCPT tutorial. Reading either story or already-executed notebook needs
+only a browser. Case one's default notebook recalculates verification and figures
+from saved results. Case two executes four PyCPT fits and requires the full fitting
+environment. The table separates these activities.
+
+| Activity | Required setup | PyCPT / CPT / IRIDL credentials |
+| --- | --- | --- |
+| Read the executed notebook | Browser | None |
+| Run the default saved-results cells | Scientific Python, Jupyter and the complete kit | None |
+| Optional OND model refit | Tested PyCPT environment with its CPT engine and the supplied inputs | PyCPT and CPT required; no IRIDL credentials |
+| Execute case-two OND/JJA fitting notebook | Full tested PyCPT environment and complete fitting kit | PyCPT and CPT required; no IRIDL credentials |
+| Download new data in an extended workflow | Network access and permissions for the chosen source | Authentication only when the dataset requires it |
+
+## Case one: run the saved-results notebook {#offline-analysis}
+
+Download and extract the [complete tutorial kit](../downloads/indonesia-seasons-2023-kit.zip).
+It includes the executed notebook, five national NetCDF inputs, four regional
+NetCDF inputs, display boundaries, helper code and environment specifications.
+The notebook file alone does not include those inputs and helpers.
+
+**Mandatory:** Python with NumPy, pandas, xarray, Matplotlib, netCDF4 and
+Jupyter/IPython, plus a writable copy of the kit or repository.
+**Helpful:** basic Python/Jupyter familiarity. **Not required:** PyCPT, a CPT
+executable, Quarto or an IRI Data Library key.
+
+From the extracted kit or repository root, create a separate analysis environment:
+
+```bash
+conda env create -f environment/offline-analysis.yml
+conda activate pycpt-tutorial-analysis
+python -m ipykernel install --user --name pycpt-tutorial-analysis --display-name "Python (Tutorial Analysis)"
+jupyter notebook docs/notebooks/indonesia-seasons-2023.ipynb
+```
+
+Select **Python (Tutorial Analysis)** and run the cells from top to bottom with
+`RERUN_CPT = False`. The [analysis environment file](../downloads/offline-analysis.yml)
+lists direct package versions used by the verified runtime; it contains no PyCPT
+or CPT dependency. It is a requirements specification, not a full cross-platform lock.
+If you already have a working tutorial environment, you can use it for this step.
+Initial package installation can require internet access; execution afterward uses
+the supplied local inputs and does not download data or fit models.
+
+The notebook checks input hashes, recalculates scores, and writes derived figures,
+tables and NetCDF outputs under `docs/assets/seasonal-2023/`. It also writes story
+findings under `docs/_includes/`. Run it in your own extracted kit or checkout.
+The original preparation drives are not needed for this workflow.
+
+::: {.callout-tip title="Verified in a fresh analysis-only environment"}
+On 2 November 2026, this complete kit was tested in a new conda environment on
+Debian under WSL2 (Linux x86-64), created from the analysis environment file above.
+All **22 original code cells** completed with PyCPT/CPT packages absent and no
+credential reads, remote connections or CPT launches. The three generated NetCDF
+files and eleven CSV tables matched the saved results within numerical tolerances;
+the findings and generated story text matched exactly. All nine PNG figures were
+generated successfully. The test ran a kit copy and preserved the published notebook.
+
+This verifies the default saved-results workflow on that platform. Package
+installation used internet access; notebook execution used local inputs.
+Other operating systems have not been tested with this smaller specification.
+:::
+
+## Prepare the full PyCPT fitting environment {#use-the-tested-debian-environment}
+
+PyCPT is the Python interface used to fit CCA and PCR in this case. Its calibration
+functions rely on a compatible CPT executable. Use the supplied environment
+specification so the Python packages and CPT engine are provided together; a manual
+CPT source build is not part of this tutorial.
+This environment is required to execute case two and optional for the case-one refit.
+
+The tested fitting environment uses **PyCPT 2.10.4, cptio 1.4.0 and CPT 17.8.3**.
+Its explicit lock targets the verified Linux x86-64 runtime. From a conda installation:
+
+```bash
+conda create -n pycpt-tutorial --file environment/conda-linux-64.lock
+conda activate pycpt-tutorial
+python -m ipykernel install --user --name pycpt-tutorial --display-name "Python (PyCPT Tutorial)"
+jupyter notebook docs/notebooks/indonesia-seasons-2023.ipynb
+```
+
+Activation selects the packaged CPT engine through `CPT_BIN_DIR`. These instructions
+describe the setup used to verify this fitting workflow. For platform-specific
+PyCPT environment instructions, consult the [upstream installation guide](https://iri-pycpt.github.io/installation/).
+
+## Optional: fit OND again
+
+In **Python (PyCPT Tutorial)**, set `RERUN_CPT = True` only in the optional notebook
+cell. PyCPT fits CCA and PCR using the supplied local OND inputs, records commands
+and logs in a unique scratch directory, checks deterministic forecasts against the
+saved case, and exports the new forecasts as NetCDF. It refits OND only and preserves
+the frozen research archive. No IRIDL authentication is needed for these local inputs.
+
+## Case two: execute the fitting notebook {#fitting-case-setup}
+
+Download and extract the [complete fitting kit](../downloads/fit-diagnose-2023-kit.zip).
+It contains the executed notebook, prepared OND/JJA training and 2023 inputs,
+frozen control forecasts/diagnostics, country/province/display boundaries, helper
+code and the tested Linux environment lock. The notebook alone is insufficient.
+
+**Mandatory for execution:** the full PyCPT fitting environment described above,
+the complete kit and a writable working folder. The analysis-only environment
+does not execute these fitting cells. Reading the executed pages needs only a browser.
+
+From the extracted fitting kit or repository root, using the full environment:
+
+```bash
+conda activate pycpt-tutorial
+python -m ipykernel install --user --name pycpt-tutorial --display-name "Python (PyCPT Tutorial)"
+jupyter notebook docs/notebooks/fit-diagnose-2023.ipynb
+```
+
+Choose **Python (PyCPT Tutorial)** and run all cells. There is no fitting switch:
+this notebook deliberately makes four actual calibration calls. Each execution
+creates a new scratch folder under `temp/`, checks the engine and wrapper identity,
+and compares the new results with the controls. Local inputs mean no IRIDL key
+or new source download is required. Never put credentials in the notebook or kit.
+
+The notebook saves 30 NetCDF files, tables, figures and an execution manifest
+under `docs/assets/fitting-2023/`. It retains all datasets returned by CCA/PCR,
+plus cleaned diagnostics with explicit mode axes and derived correlation maps.
+The fitting inputs and frozen controls are hash-checked and preserved.
+The conda release is PyCPT 2.10.4; the tested package's Python metadata reports
+`2.10.4.dev0`. Both identifiers and the checked engine/wrapper hashes are recorded.
+
+- [Executed fitting notebook](../downloads/fit-diagnose-2023.ipynb)
+- [Complete fitting kit](../downloads/fit-diagnose-2023-kit.zip)
+- [All fitted NetCDF outputs and provenance](../downloads/fit-diagnose-2023-outputs.zip)
+- [Execution manifest](../assets/fitting-2023/execution-manifest.json)
+- [Variable-specific control checks](../assets/fitting-2023/control-checks.csv)
+
+Other platforms have not been verified for this fitting case. Rendering Quarto
+uses the saved outputs and does not execute the fitting calls.
+
+::: {.callout-tip title="The complete fitting kit was executed separately"}
+The distributed kit was extracted to a new directory and all 18 code cells ran,
+including four actual fits. All 30 NetCDF datasets matched the canonical outputs
+exactly, the five CSV tables matched, and all six PNG figures were byte-identical.
+The interactive values and generated story findings also matched. The run used
+the tested full fitting environment with no credential reads or remote connections.
+:::
+
+## Optional: authenticate for protected downloads
+
+None of the local-input workflows above downloads new inputs. Authentication becomes relevant
+only when extending the workflow to a protected IRI Data Library dataset. The
+[official authentication guide](https://iri-pycpt.github.io/authentication/)
+explains that most datasets are public and protected datasets require authorization.
+The requirement depends on the dataset, rather than on a seasonal/S2S label alone.
+Keep credentials outside notebooks and repositories; do not add a key to this tutorial.
+
+## Optional: rebuild the website
+
+Quarto is needed only to render the website, not to read the published pages or
+execute the notebook. From the full repository with Quarto installed:
+
+```bash
+python scripts/render_tutorial.py
+```
+
+The tested renderer is Quarto 1.8.27. This uses saved, already-executed notebook
+outputs without executing cells, downloading data or fitting models. Use a local
+HTTP preview, such as `quarto preview docs`, for the interactive story.
+
+## Downloads
+
+- [Executed notebook file](../downloads/indonesia-seasons-2023.ipynb)
+- [Tutorial kit](../downloads/indonesia-seasons-2023-kit.zip)
+- [Twelve-season deterministic fields](../data/indonesia-seasons-2023.nc)
+- [Spatial scores as NetCDF](../assets/seasonal-2023/verification-2023.nc)
+- [Spatial scores as CSV](../assets/seasonal-2023/metrics-2023.csv)
+- [Local error reductions as NetCDF](../assets/seasonal-2023/local-error-reduction-2023.nc)
+- [Training-period sensitivity](../assets/seasonal-2023/training-period-sensitivity.csv)
+- [Original 2021–2024 context](../assets/seasonal-2023/context-ending-years-2021-2024.csv)
+- [Source and bundle hashes](../data/provenance.json)
+- [Province scores, 2023-centred windows (NetCDF)](../assets/seasonal-2023/province-verification-2023.nc)
+- [Province scores, 2023-centred windows (CSV)](../assets/seasonal-2023/province-metrics-2023.csv)
+- [Four-method OND province table](../assets/seasonal-2023/province-ond-2023-rmse.csv)
+- [Province annual context (NetCDF)](../data/regions/province-context-annual.nc)
+- [Province pooled context (NetCDF)](../data/regions/province-context-pooled.nc)
+- [Province weight/support data](../data/regions/province-weights.nc)
+- [Province improvement counts](../assets/seasonal-2023/province-improvement-counts.csv)
+
+## References {.unnumbered .reference-section}
+
+{{< include ../_includes/references/reproduce.qmd >}}

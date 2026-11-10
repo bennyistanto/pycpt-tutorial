@@ -1,0 +1,131 @@
+project:
+  type: book
+  output-dir: _book
+  render:
+    - index.qmd
+    - 404.qmd
+    - chapters/*.qmd
+    - learn/*.ipynb
+    - notebooks/*.ipynb
+    - guides/*.qmd
+  resources:
+    - data/**
+    - assets/seasonal-2023/**
+    - assets/story/**
+    - assets/fitting-2023/**
+    - assets/logo/**
+    - notebooks/*.ipynb
+    - downloads/**
+
+# Project type stays "book" (sidebar layout, no top navbar). Quarto 1.8 reads the
+# back-to-top switch only from the website key, so it is declared here.
+website:
+  back-to-top-navigation: true
+
+book:
+  title: "PyCPT Tutorial"
+  site-url: https://bennyistanto.github.io/pycpt-tutorial
+  subtitle: "Rainfall, evidence and reproducible workflows"
+  search: true
+  page-navigation: true
+  repo-url: https://github.com/bennyistanto/pycpt-tutorial
+  repo-subdir: docs
+  repo-branch: main
+  repo-actions: [source, issue]
+  sidebar:
+    style: docked
+    collapse-level: 2
+    logo-alt: "PyCPT Tutorial: a person pointing to a rainfall forecast graph"
+  chapters:
+    - href: index.qmd
+      text: Home
+    - part: "Start here"
+      chapters:
+        - href: guides/start.qmd
+          text: A guide to this tutorial
+    - part: "Learn PyCPT"
+      chapters:
+        - href: learn/01-first-case.ipynb
+          text: "1. Your first PyCPT case"
+        - href: learn/02-getting-data.ipynb
+          text: "2. Getting the data"
+        - href: learn/03-local-observations.ipynb
+          text: "3. Bring your own observations"
+        - href: learn/04-evaluate-models.ipynb
+          text: "4. Evaluate a model"
+        - href: learn/05-probabilistic-forecasts.ipynb
+          text: "5. Reading probabilistic forecasts"
+        - href: learn/06-multi-model-ensemble.ipynb
+          text: "6. Combining models"
+        - href: learn/07-adapt-your-region.ipynb
+          text: "7. Adapt it to your region"
+    - part: "Case studies: Indonesia Seasons 2023"
+      chapters:
+        - href: chapters/indonesia-seasons-2023.qmd
+          text: "Story"
+        - href: chapters/fit-diagnose-2023.qmd
+          text: "Fit & diagnose"
+    - part: "Computational notebooks"
+      chapters:
+        - href: notebooks/indonesia-seasons-2023.ipynb
+          text: "Story notebook"
+        - href: notebooks/fit-diagnose-2023.ipynb
+          text: "Fit & diagnose notebook"
+    - part: "Methods & resources"
+      chapters:
+        - href: guides/reproduce.qmd
+          text: Setup & downloads
+        - href: guides/methods.qmd
+          text: Methods & limitations
+        - href: guides/about.qmd
+          text: About & credits
+  page-footer:
+    left:
+      - icon: github
+        text: bennyistanto/pycpt-tutorial
+        href: https://github.com/bennyistanto/pycpt-tutorial
+        aria-label: "Source repository on GitHub"
+    center: "Built with [Quarto](https://quarto.org/)"
+    right:
+      - text: "License: MPL-2.0"
+        href: https://github.com/bennyistanto/pycpt-tutorial/blob/main/LICENSE
+      - text: "Not an official PyCPT tutorial"
+        href: guides/about.qmd
+
+format:
+  html:
+    theme:
+      light:
+        - cosmo
+        - styles/theme.scss
+      dark:
+        - cosmo
+        - styles/theme-dark.scss
+    respect-user-color-scheme: true
+    css: styles/styles.css
+    highlight-style: github
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+    toc: true
+    toc-depth: 2
+    number-sections: false
+    code-copy: true
+    code-overflow: wrap
+    fig-responsive: true
+    lightbox: true
+    link-external-icon: true
+    link-external-filter: '^(?:https?:)?\/\/(?:bennyistanto\.github\.io\/pycpt-tutorial|127\.0\.0\.1|localhost)'
+    smooth-scroll: true
+    grid:
+      body-width: 920px
+      sidebar-width: 260px
+      margin-width: 200px
+      gutter-width: 1.5rem
+
+execute:
+  enabled: false
+
+lang: en

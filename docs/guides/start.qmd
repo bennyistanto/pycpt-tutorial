@@ -1,0 +1,123 @@
+---
+title: "A guide to this tutorial"
+subtitle: "Choose a path, understand the evidence, and know what you need before running code"
+description: "A reader introduction to the PyCPT stories, executed notebooks, downloads and tested environment."
+---
+
+::: {.eyebrow}
+Start here
+:::
+
+This tutorial teaches **how to use PyCPT** to prepare, calibrate and evaluate
+climate forecasts. The first case focuses on seasonal rainfall over Indonesia.
+CPT is the calculation engine used by PyCPT when fitting models; operating or
+building the standalone CPT application is not the subject of this tutorial.
+
+## What you will learn
+
+The first case follows CFSv2 rainfall forecasts over Indonesia. It introduces
+CCA and PCR calibration, compares them with the raw model and climatology,
+and examines how outcomes vary by season, location and training interval.
+The notebook makes the calendars, common spatial support and scoring steps visible.
+
+The [second case](../chapters/fit-diagnose-2023.qmd) opens the fitting workflow:
+local X/Y/F inputs, actual CCA/PCR calls, model patterns and cross-validated
+residuals for OND and JJA 2023. Its executed notebook requires the full fitting
+environment when you run it; both cases can be read in a browser.
+
+## Choose your path
+
+| Your aim | Start here | What you need |
+| --- | --- | --- |
+| Learn to run PyCPT on your own forecast | [Learn PyCPT, chapter 1](../learn/01-first-case.ipynb) | A browser to read; the full PyCPT environment to run |
+| Understand the findings | [Read the story](../chapters/indonesia-seasons-2023.qmd) | A browser; no PyCPT installation |
+| Inspect how the results were produced | [Read the executed notebook](../notebooks/indonesia-seasons-2023.ipynb) | A browser; some familiarity with Python helps |
+| Reproduce the figures and scores from saved results | [Offline analysis setup](reproduce.qmd#offline-analysis) | Scientific Python/Jupyter and the complete kit; no PyCPT or CPT installation |
+| Fit the OND models through PyCPT | [Optional PyCPT refit](reproduce.qmd#optional-fit-ond-again) | Compatible PyCPT and its CPT engine, plus the supplied fitting inputs |
+| Work through actual OND/JJA fitting and diagnostics | [Case-two story and notebook](../chapters/fit-diagnose-2023.qmd) | Browser to read; full PyCPT fitting environment to execute |
+| Examine assumptions and provenance | [Methods and limitations](methods.qmd) | The case question and its verification context |
+
+::: {.callout-tip title="Reading and running are different activities"}
+Reading either already-executed notebook needs only a browser. Running the first case's default
+saved-results cells needs Python packages and the complete kit, but **no PyCPT,
+CPT executable or IRI Data Library authentication**. Fitting new models through
+PyCPT is an optional extension in case one and the central workflow in case two;
+executing fitting cells requires the full PyCPT environment and compatible engine.
+:::
+
+## Mandatory, optional and helpful
+
+| Status | Requirement | When it applies |
+| --- | --- | --- |
+| Mandatory | Browser | Reading the story or executed notebook |
+| Mandatory for offline execution | Python, NumPy, pandas, xarray, Matplotlib, netCDF4 and Jupyter/IPython; the complete kit and a writable working folder | Recalculating figures and scores from saved results |
+| Mandatory for model fitting | PyCPT with its compatible CPT executable | Case-two fitting notebook or the optional case-one OND refit |
+| Conditional | Internet access, dataset permissions and authentication for protected data | Downloading new inputs; not needed for this packaged case |
+| Optional | Quarto | Building the website locally; not needed to run the notebook |
+| Helpful | Basic Python/Jupyter skills and familiarity with forecast seasons, calibration and verification | Following and adapting the code |
+
+The [reproduction guide](reproduce.qmd) gives separate setup paths for offline
+analysis and PyCPT fitting. Installing Python packages initially can require
+internet access; "offline" refers to executing the saved-results workflow afterward.
+
+## The story and notebook belong together
+
+The **story** explains the question and findings in connected prose. Its controls
+let you inspect metrics, seasons, training periods and province views. Hover or
+tap a mark for details; focused charts also support keyboard navigation.
+
+The **executed notebook** shows the code, calculations and static reference
+figures. Read its outputs in the browser, or download the complete kit to run it.
+The story and notebook present the same verified case results.
+
+### Take a figure or a table with you
+
+- **PNG** saves the complete current view, including its selected labels and legend.
+- **SVG** is available for the six chart views, preserving vector marks and text.
+- **CSV** follows the filter in an expanded data table.
+- **NetCDF** provides the saved fields, scores and regional outputs through the [downloads section](reproduce.qmd#downloads).
+- **Notebook reference PNG** opens the original executed figure. Its link label
+  identifies its fixed metric or coverage, which can differ from your selections.
+
+## Why PyCPT needs a CPT engine for fitting
+
+PyCPT is the Python interface and workflow used in this tutorial. Its fitting
+functions call the CPT executable to perform the calibration calculations.
+The saved forecasts in this case were produced using **PyCPT 2.10.4, cptio 1.4.0
+and CPT 17.8.3**. Those versions describe the tested fitting workflow, not a
+requirement for browsing or running the offline analysis.
+
+For the optional refit, use the supplied PyCPT environment specification, which
+includes the compatible CPT engine. There is no need to compile CPT from source.
+See the [tested fitting environment](reproduce.qmd#use-the-tested-debian-environment).
+Upstream documentation describes [PyCPT's role](https://iri-pycpt.github.io/).
+
+## When is IRI Data Library authentication needed?
+
+No IRI Data Library key is needed to read this tutorial, execute case one's default
+notebook or fit OND/JJA using the supplied local inputs. Authentication is needed
+only if a workflow downloads a protected dataset that requires it. Do not infer
+that requirement from the seasonal or subseasonal label alone: the
+[official authentication guide](https://iri-pycpt.github.io/authentication/)
+distinguishes public datasets from protected datasets and their access permissions.
+
+## Read the calendar and the baseline first
+
+Seasons are three-month windows. In the main case, their midpoint falls in 2023:
+DJF starts in December 2022, while NDJ ends in January 2024. Adjacent windows
+share months. They are not twelve independent annual verification samples.
+
+The main training interval is 1991–2020; 1983–2010 is a sensitivity comparison.
+Each calibration is compared with its matched climatology on the same evaluated
+support. Read the [methods](methods.qmd) before interpreting a small difference
+or generalizing beyond the case.
+
+::: {.next-step}
+### Ready to explore?
+
+[Start with twelve seasons over Indonesia →](../chapters/indonesia-seasons-2023.qmd){.tutorial-button .tutorial-button-primary}
+:::
+
+## References {.unnumbered .reference-section}
+
+{{< include ../_includes/references/start.qmd >}}

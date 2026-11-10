@@ -1,0 +1,127 @@
+---
+title: "Methods and limitations"
+subtitle: "What the comparisons mean, and what they do not establish"
+---
+
+## Data and spatial support
+
+The predictor is CFSv2 ensemble-mean precipitation from the IRI Data Library.
+The [source archive](https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/)
+was checked for the requested months, locations and valid ensemble members in
+the research preparation. Observations are local CHIRPS3 seasonal accumulations,
+aggregated from native 0.05° country-land pixels to 0.25° cells. The
+[CHIRPS3 project](https://www.chc.ucsb.edu/data/chirps3) provides product background;
+the exact local preprocessing and source hashes are recorded in the research archive.
+
+The evaluation footprint contains 3,240 shared cells. Country-land weights account
+for the retained land support, and the same weights are used for all methods.
+Raw model forecasts are bilinearly interpolated to that grid; calibrated forecasts
+are produced at the predictand locations. This does not establish independent
+0.25° dynamical predictability or replace station-based verification.
+
+The archived model source appends operational forecasts from April 2011. Complete
+data and valid member counts do not demonstrate a statistically homogeneous
+reforecast/operational record. The observation and source vintages are retrospective.
+
+## Training and validation
+
+The main example uses 1991–2020, with 1983–2010 retained as a sensitivity check.
+The source begins with January 1982 initializations. Under the experiment's
+calendar, some 1982-labelled target seasons require unavailable 1981
+initializations; using 1983 as the common older start keeps sample availability
+consistent across all twelve seasons.
+
+Both methods retain three predictor EOFs. CCA retains three predictand EOFs and
+two CCA modes. Counts are fixed, not searched. The fits use no observation
+transformation, tailoring, dry mask or skill mask. CPT automatically enables a
+zero bound for rainfall.
+
+CPT uses a five-sample cyclic cross-validation window inside training: a target
+sample and two neighbours on each side are excluded, wrapping at the boundaries.
+The engine refits within each fold, then constructs a model from all training
+samples for the later forecast inputs. The withheld 2023-centred targets are
+outside their training intervals. The
+[IRI CPT reference](https://iri.columbia.edu/~awr/pycpt/seasonal-jupyterbook/html_2sep2023/cpt.html)
+explains CCA/PCR and cross-validation. The project's source audit and eight
+executable perturbation checks verify the relevant CPT17 behavior.
+
+## Scores and calendar conventions
+
+The notebook calculates country-land-weighted spatial RMSE, MAE and bias for
+each forecast window. Smaller RMSE/MAE is better; positive bias means too wet.
+Climatology is the corresponding training-period observed mean. Pooled errors
+over the original four-year context are computed before taking the square root.
+
+The main story selects midpoint year 2023, including NDJ ending in January 2024.
+The context figure retains the original ending-year labels 2021–2024. Those
+conventions are deliberately distinguished. Adjacent seasons overlap and spatial
+cells are correlated; neither twelve windows nor thousands of cells provide that
+many independent annual validation samples. No significance tests are claimed.
+
+## Province-weighted verification
+
+The province extension partitions the original native country-pixel weights using
+the unsimplified supplied 38-feature province file. Point-centre membership uses
+[Shapely containment](https://shapely.readthedocs.io/en/stable/reference/shapely.contains_xy.html);
+points outside every province or inside multiple provinces remain explicit residual
+categories. The original national footprint is unchanged. The
+[province provenance](../data/regions/provenance.json) records source hashes and counts.
+
+Within a coarse cell, province shares inherit the same saved forecast/observation
+error. These are province-weighted views of0.25° errors, not newly reconstructed
+province rainfall. For a province with little support, even a large percentage
+change may be driven by very few coarse cells. Cell counts and maximum cell-weight
+fractions are reported; neither is an independent validation sample count.
+
+Each region is normalized separately. Combining region MSE, MAE and bias with
+their national weight fractions reproduces national errors, including the
+unassigned residual. Combine MSE before taking its square root. The four-year
+regional context uses the original ending-year2021–2024 labels and includes2023;
+it is not independent confirmation. Forecasts, fitting choices and masks are unchanged.
+
+## Why probability scores are absent here
+
+Deterministic improvement does not establish probability reliability. Native CPT
+probabilities use an error distribution and information from cross-validated
+hindcast errors. The detailed
+[CPT probability documentation](https://cptplus.org/Help/Tools_Forecast_Probs.html)
+describes Student's t errors and configurable error-variance choices.
+
+In the audited experiments, effective category-reference periods differ from
+some training periods: within-year older fits use 1991–2010 and recent fits
+1991–2020; DJF/NDJ use ending years 1992–2010 and 1992–2020 respectively. These
+category periods are distinct from the full-training climatology baselines used
+in this deterministic tutorial. Probabilities are calculated before rainfall
+forecasts are zero-bounded, so a saved zero can conceal a negative distribution
+location. The saved prediction-error variance is the squared scale used by the
+engine, not simply the CV RMSE squared.
+
+The [official seasonal notebook](https://github.com/iri-pycpt/notebooks/blob/1c975316910b9e047ce685d9b8cdefb2c4b73551/Operations/pycpt-operational.ipynb)
+labels some probability scores as in-sample. Its high-level driver re-dates
+training predictors to construct fitted probability series. Our direct-core
+benchmark did not use that pathway. The installed flexible-exceedance helper
+also uses different t parameters from native CPT17: a same-threshold OND check
+found a difference up to 0.882 percentage points. That establishes a difference
+in construction, not a ranking of empirical reliability.
+
+Future probability comparisons need common events, explicit thresholds and
+distribution metadata, and a separately verified independent, retroactive or
+double-CV design. The [CPT verification guide](https://cptplus.org/Help/Tools_Verify.html)
+describes probabilistic verification as a separate task.
+
+## Research evidence
+
+The source repository retains completed cases, with their NetCDF outputs and
+manifests, in `research/cases/`, numeric evidence in `research/audits/`, and the
+full methodology/notebook reviews in `research/reports/`. This tutorial's
+[input provenance](../data/provenance.json) identifies the exact fields and
+hashes used. The original files remain unchanged.
+
+The next scientific work is a longer independent validation, deeper regional
+diagnostics and physical interpretation of the fitted EOF/CCA patterns.
+The present results should not be used directly to infer drought, planting
+dates, rainfall onset or operational probability reliability.
+
+## References {.unnumbered .reference-section}
+
+{{< include ../_includes/references/methods.qmd >}}
