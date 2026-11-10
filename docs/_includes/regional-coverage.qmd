@@ -1,0 +1,1 @@
+The province polygons contain **98.69%** of the original country weight. The remaining **1.31%** (803 native country pixels) is retained as an explicit unassigned category. There are no multiply assigned native pixels. Province plus residual errors recombine to the unchanged national scores.

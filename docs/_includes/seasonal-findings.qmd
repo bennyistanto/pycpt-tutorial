@@ -1,0 +1,3 @@
+Across the twelve windows centred on 2023, CCA reduced spatial RMSE relative to the raw model in **12 seasons**; PCR did so in **12**. Against the more demanding climatology baseline, CCA improved in **9 of 12** and PCR in **7 of 12**.
+
+Climatology had the lowest RMSE of all four methods in **DJF, JJA, JAS**. These are descriptive comparisons for these forecast windows, not a test of statistical significance.

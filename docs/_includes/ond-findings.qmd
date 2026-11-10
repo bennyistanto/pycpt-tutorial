@@ -1,0 +1,1 @@
+For OND, spatial RMSE was **292.4 mm** for the raw model and **226.5 mm** for climatology, compared with **120.3 mm** for CCA and **117.4 mm** for PCR. Those numbers describe errors over country-land cells; they are not national-mean rainfall totals.

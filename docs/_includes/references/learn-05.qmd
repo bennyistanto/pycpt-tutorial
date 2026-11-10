@@ -1,0 +1,15 @@
+::: {.reference-list}
+1. PyCPT Tutorial. *Audit of the Indonesia experiments against CPT references* (research/reports/METHODOLOGY_AUDIT.md). <https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/reports/METHODOLOGY_AUDIT.md>
+2. IRI. *PyCPT 2.10.4 source: `pycpt/src/pycpt/notebook.py`* (`setup`, `download_data`, `summarize_available_years`, `evaluate_models` and the plotting functions). Tag pycpt-2.10.4, commit 084bb5c. <https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/pycpt/notebook.py>
+3. IRI. *PyCPT 2.10.4 source: `pycpt/src/cptcore/functional/cca.py`* (`canonical_correlation_analysis`). Tag pycpt-2.10.4, commit 084bb5c. <https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptcore/functional/cca.py>
+4. IRI. *PyCPT operational seasonal notebook* (`Operations/pycpt-operational.ipynb`). iri-pycpt/notebooks, commit 1c97531. <https://github.com/iri-pycpt/notebooks/blob/1c975316910b9e047ce685d9b8cdefb2c4b73551/Operations/pycpt-operational.ipynb>
+5. CPT+. *Forecast Probabilities* (CPT help). <https://cptplus.org/Help/Tools_Forecast_Probs.html> Same page name as on the former cpthelp.iri.columbia.edu, which did not resolve when checked on 10 November 2026.
+6. CPT+. *Customising the Results* (CPT help). <https://cptplus.org/Help/CPT_use_custom.html>
+7. CPT+. *What's New* (CPT release history). <https://cptplus.org/whatsnew.html>
+8. IRI. *CPT 17.8.3 source code archive*. Columbia University Academic Commons. <https://doi.org/10.7916/fdp6-v391>
+9. SciPy. *scipy.stats.t* (SciPy manual). <https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html>
+10. NumPy. *numpy.quantile* (NumPy manual). <https://numpy.org/doc/stable/reference/generated/numpy.quantile.html>
+11. xarray. *xarray.DataArray.quantile* (API reference). <https://docs.xarray.dev/en/stable/generated/xarray.DataArray.quantile.html>
+12. Climate Hazards Center, UC Santa Barbara. *CHIRPS: Rainfall Estimates from Rain Gauge and Satellite Observations* (CHIRPS version 3.0 page). <https://www.chc.ucsb.edu/data/chirps3>
+13. Funk, C., Peterson, P., Landsfeld, M., et al. (2014). *A quasi-global precipitation time series for drought monitoring*. U.S. Geological Survey Data Series 832. <https://doi.org/10.3133/ds832>
+:::

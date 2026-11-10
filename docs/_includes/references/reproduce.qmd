@@ -1,0 +1,5 @@
+::: {.reference-list}
+1. IRI. *PyCPT documentation: Installing PyCPT 2.10.2* (the page title when checked; this tutorial uses 2.10.4). <https://iri-pycpt.github.io/installation/>
+2. IRI. *PyCPT documentation: Authentication: downloading protected data*. <https://iri-pycpt.github.io/authentication/>
+3. IRI. *PyCPT documentation: About*. <https://iri-pycpt.github.io/>
+:::
