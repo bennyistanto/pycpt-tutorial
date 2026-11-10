@@ -185,6 +185,10 @@ table, .table { font-variant-numeric: tabular-nums; font-size: .86rem; color: va
 .cell-output-display table td, .cell-output-display table th { font-family: var(--sans); font-size: .82rem; font-variant-numeric: tabular-nums; }
 .cell-output-display .dataframe tbody th { color: var(--ink-2); }
 .table-striped > tbody > tr:nth-of-type(odd) > * { --bs-table-accent-bg: transparent; }
+/* On phones a wide table scrolls inside itself instead of spilling past the text column. */
+@media (max-width: 767.98px) {
+  main.content table.table, .cell-output-display table { display: block; max-width: 100%; overflow-x: auto; }
+}
 
 /* ---------- Callouts ---------- */
 .callout { border: 0 !important; border-left: 3px solid var(--accent) !important; border-radius: 0 8px 8px 0 !important; background: var(--card) !important; box-shadow: var(--shadow); margin: 1.8rem 0; }
@@ -351,12 +355,15 @@ h1.home-title em { font-style: italic; font-weight: 350; color: var(--accent); }
   .case-facts { grid-template-columns: 1fr; gap: .9rem; }
   .home-intro { font-size: 1.05rem; }
   .featured-case h2 { font-size: 1.7rem; }
-  .nav-footer { flex-direction: column; gap: .75rem; padding: 1.2rem; }
-  .nav-footer > div { text-align: left !important; width: 100%; }
-  .nav-footer .nav-footer-left, .nav-footer .nav-footer-center, .nav-footer .nav-footer-right { flex: 0 0 auto; min-height: 0; margin: 0; }
-  .nav-footer .nav-footer-center { order: 1; }
-  .nav-footer .nav-footer-right { order: 2; }
   .cell-output-stdout, .cell-output-stderr { padding-left: .8rem; padding-right: .8rem; }
+}
+/* Footer on phones and small tablets: the three blocks stacked and centred, in their natural order. */
+@media (max-width: 767.98px) {
+  .nav-footer { flex-direction: column; align-items: center; gap: .6rem; padding: 1.2rem; }
+  .nav-footer > div, .nav-footer .nav-footer-left, .nav-footer .nav-footer-center, .nav-footer .nav-footer-right {
+    flex: 0 0 auto; width: 100%; min-height: 0; margin: 0; text-align: center !important; justify-content: center !important; }
+  .nav-footer .footer-items { justify-content: center !important; flex-wrap: wrap; padding-left: 0; margin: 0; }
+  .nav-footer .footer-items .nav-item { display: inline-flex; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
