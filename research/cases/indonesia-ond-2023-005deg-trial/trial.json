@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-10",
+  "predictor": "CFSv2.PRCP from PyCPT download_data (Learn PyCPT chapter 2)",
+  "settings": {
+    "cca": {
+      "x_eof_modes": "(3, 3)",
+      "validation": "CROSSVALIDATION",
+      "crossvalidation_window": "5",
+      "synchronous_predictors": "True",
+      "transform_predictand": "None",
+      "tailoring": "None",
+      "drymask_threshold": "None",
+      "skillmask_threshold": "None",
+      "y_eof_modes": "(3, 3)",
+      "cca_modes": "(2, 2)"
+    },
+    "pcr": {
+      "x_eof_modes": "(3, 3)",
+      "validation": "CROSSVALIDATION",
+      "crossvalidation_window": "5",
+      "synchronous_predictors": "True",
+      "transform_predictand": "None",
+      "tailoring": "None",
+      "drymask_threshold": "None",
+      "skillmask_threshold": "None"
+    }
+  },
+  "indonesia_pixels_0p05": 61192,
+  "complete_pixels_0p05": 61190,
+  "cells_0p25": 3240,
+  "aggregation_check_max_abs_mm": 0.0,
+  "fits": {
+    "cca_0p25": {
+      "seconds": 4.4,
+      "largest_child_process_rss_mb_so_far": 0.0,
+      "python_rss_mb_so_far": 604.8,
+      "cpt_output_folder_mb": 12.7
+    },
+    "cca_0p05": {
+      "seconds": 72.6,
+      "largest_child_process_rss_mb_so_far": 604.8,
+      "python_rss_mb_so_far": 773.9,
+      "cpt_output_folder_mb": 294.0
+    },
+    "pcr_0p25": {
+      "seconds": 3.7,
+      "largest_child_process_rss_mb_so_far": 604.8,
+      "python_rss_mb_so_far": 773.9,
+      "cpt_output_folder_mb": 11.8
+    },
+    "pcr_0p05": {
+      "seconds": 67.4,
+      "largest_child_process_rss_mb_so_far": 604.8,
+      "python_rss_mb_so_far": 1159.9,
+      "cpt_output_folder_mb": 273.0
+    }
+  },
+  "common_grid": {
+    "cca": {
+      "fit_at_0p25": {
+        "cv_rmse_mm": 167.40312956563682,
+        "median_cell_pearson_cv": 0.5880040631142096,
+        "rmse_2023_mm": 124.08124628733539
+      },
+      "fit_at_0p05_aggregated_to_0p25": {
+        "cv_rmse_mm": 167.2845844336082,
+        "median_cell_pearson_cv": 0.5874785464002726,
+        "rmse_2023_mm": 123.67120760176776
+      },
+      "max_abs_difference_2023_forecast_mm": 18.30595919999996,
+      "median_cpt_pearson_native_scale": {
+        "0p25_cells": 0.5880055,
+        "0p05_pixels": 0.5518315
+      }
+    },
+    "pcr": {
+      "fit_at_0p25": {
+        "cv_rmse_mm": 169.0953364987405,
+        "median_cell_pearson_cv": 0.5721749400844034,
+        "rmse_2023_mm": 118.68291801486572
+      },
+      "fit_at_0p05_aggregated_to_0p25": {
+        "cv_rmse_mm": 169.09530883500358,
+        "median_cell_pearson_cv": 0.5721742182472549,
+        "rmse_2023_mm": 118.68292607457074
+      },
+      "max_abs_difference_2023_forecast_mm": 0.002784421748629029,
+      "median_cpt_pearson_native_scale": {
+        "0p25_cells": 0.572175,
+        "0p05_pixels": 0.5367645
+      }
+    }
+  }
+}

@@ -29,6 +29,8 @@ with two verified full-Indonesia input checks, seven NetCDFs, rnl/sat sensitivit
 and proposed training/validation periods. It runs no fits.
 The earlier [OND2023 case](cases/indonesia-ond-2023/README.md) and its sensitivity
 experiments remain preserved controls.
+The [0.05° predictand trial](cases/indonesia-ond-2023-005deg-trial/README.md) tests
+fitting at the native CHIRPS v3.0 resolution against the 0.25° grid.
 
 Development-only runtime investigations are in
 [runtime development notes](reports/RUNTIME_DEVELOPMENT_NOTES.md) and

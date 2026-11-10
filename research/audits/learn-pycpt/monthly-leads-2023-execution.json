@@ -1,0 +1,13 @@
+{
+  "notebook": "docs/notebooks/monthly-leads-2023.ipynb",
+  "executed": "2026-11-10T11:37:41+00:00",
+  "elapsed_seconds": 449.9,
+  "kernel": "pycpt-tutorial",
+  "code_cells": 16,
+  "errors": 0,
+  "home_path_redacted_in_cells": [
+    10,
+    12
+  ],
+  "notebook_sha256": "91b680d49ee2c7355f39117b50cb4b2749ffecc698da3ad454a734908fdf8e7e"
+}
