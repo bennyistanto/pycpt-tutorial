@@ -13,6 +13,8 @@ project:
     - assets/seasonal-2023/**
     - assets/story/**
     - assets/fitting-2023/**
+    - assets/monthly-2023/**
+    - assets/ond-leads-2023/**
     - assets/logo/**
     - notebooks/*.ipynb
     - downloads/**
@@ -32,6 +34,8 @@ book:
   repo-subdir: docs
   repo-branch: main
   repo-actions: [source, issue]
+  # Google Analytics 4 (Quarto adds the gtag.js snippet to every page)
+  google-analytics: "G-H40VVVDBYG"
   sidebar:
     style: docked
     collapse-level: 2
@@ -65,12 +69,22 @@ book:
           text: "Story"
         - href: chapters/fit-diagnose-2023.qmd
           text: "Fit & diagnose"
+    - part: "Case studies: Lead time"
+      chapters:
+        - href: chapters/monthly-leads-2023.qmd
+          text: "November 2023, 1-6 months ahead"
+        - href: chapters/seasonal-leads-2023.qmd
+          text: "OND 2023, 1-6 months ahead"
     - part: "Computational notebooks"
       chapters:
         - href: notebooks/indonesia-seasons-2023.ipynb
           text: "Story notebook"
         - href: notebooks/fit-diagnose-2023.ipynb
           text: "Fit & diagnose notebook"
+        - href: notebooks/monthly-leads-2023.ipynb
+          text: "Monthly lead-time notebook"
+        - href: notebooks/seasonal-leads-2023.ipynb
+          text: "Seasonal lead-time notebook"
     - part: "Methods & resources"
       chapters:
         - href: guides/reproduce.qmd
@@ -81,16 +95,16 @@ book:
           text: About & credits
   page-footer:
     left:
-      - icon: github
-        text: bennyistanto/pycpt-tutorial
-        href: https://github.com/bennyistanto/pycpt-tutorial
-        aria-label: "Source repository on GitHub"
-    center: "Built with [Quarto](https://quarto.org/)"
-    right:
       - text: "License: MPL-2.0"
         href: https://github.com/bennyistanto/pycpt-tutorial/blob/main/LICENSE
       - text: "Not an official PyCPT tutorial"
         href: guides/about.qmd
+    center: "Built with [Quarto](https://quarto.org/)"
+    right:
+      - icon: github
+        text: bennyistanto/pycpt-tutorial
+        href: https://github.com/bennyistanto/pycpt-tutorial
+        aria-label: "Source repository on GitHub"
 
 format:
   html:
