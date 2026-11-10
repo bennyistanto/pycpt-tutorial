@@ -1,0 +1,319 @@
+{
+  "case_id": "indonesia-ond-2023-025deg",
+  "completed_at": "2026-10-31T11:12:44.493976+00:00",
+  "engine": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
+  "engine_sha256": "3457c93ee3d7a69005e32c231a976c50a056da53868c02757f344a46a81a139e",
+  "configurations": {
+    "cca": {
+      "x_eof_modes": [
+        3,
+        3
+      ],
+      "validation": "CROSSVALIDATION",
+      "crossvalidation_window": 5,
+      "synchronous_predictors": true,
+      "transform_predictand": null,
+      "tailoring": null,
+      "drymask_threshold": null,
+      "skillmask_threshold": null,
+      "y_eof_modes": [
+        3,
+        3
+      ],
+      "cca_modes": [
+        2,
+        2
+      ]
+    },
+    "pcr": {
+      "x_eof_modes": [
+        3,
+        3
+      ],
+      "validation": "CROSSVALIDATION",
+      "crossvalidation_window": 5,
+      "synchronous_predictors": true,
+      "transform_predictand": null,
+      "tailoring": null,
+      "drymask_threshold": null,
+      "skillmask_threshold": null
+    }
+  },
+  "frozen_model_and_boundary_input_sha256": {
+    "cfsv2_hindcasts_ond.nc": "0c6d3c9643c6c6253033f980d827f369e4f3b7c03fd86f322250e1e4a23bd296",
+    "cfsv2_forecasts_ond.nc": "538a548632084adc77c91e3bbd7518b4c75f8eb956d61c501731015397b6cb71",
+    "indonesia_boundary.geojson": "1b44b1d7e0ab4e7e3eff0efd9e0bff74c45ad7a390114e80b64b5369b51f4e78"
+  },
+  "unchanged_original_case_artifacts_sha256": {
+    "outputs/cca_forecast_2023.nc": "255c2ce2cc5423ceb06a6c0858e2420e3534c915df1acc1f96cb396944fa9911",
+    "outputs/cca_hindcasts.nc": "f0c5f27ee7c035af7a44460a2dde86b3f0b21395292a1a3ca82a4f440747e324",
+    "outputs/cca_native_skill.nc": "d698ac5ff8963b99ce1125d05bc7bdb0d3828c67121b69a031bf51a6a12f7c99",
+    "outputs/cca_predictand_patterns.nc": "ad6744986bb22000b6fa738a5731ba38c567e9c1c5eb26571f4cb7e7bc4d11e2",
+    "outputs/cca_predictor_patterns.nc": "7f8522bc7c693a3784e02435e2a5881f0ae99a9560e8a6bef37986437f5f6d46",
+    "outputs/cfsv2_forecast_predictor_2023.nc": "bbd128576146b8cf9a95c140f5ce7a82f4b1f18d4cbb72e8e4f8bf962abd8994",
+    "outputs/cfsv2_training_predictors.nc": "b4c1d68b6d5eb82eac3a75f7418f6cfcb14aad17f1c1582a8a239b80dce598b7",
+    "outputs/deterministic_hindcast_comparison.nc": "34914c4858e3d66e46e1208007fde51a0546e7b374ce8f65f2cbd089ae66a46a",
+    "outputs/forecast_2023_baselines_and_observed.nc": "6120a7ba07dd60a06231b636115fd90d2001ba89dbd70babeedad616636c4d3d",
+    "outputs/indonesia_analysis_mask.nc": "3809c585f7b9687e87b5365ba90257a880ab1637b31a146bd2a4bb3aa4671cd8",
+    "outputs/indonesia_ond_2023_comparison.png": "391e311bb0f99bebe71d0219fdd24b45a0f0b12463377aba794e9b38bbded272",
+    "outputs/observations_chirps3_ond.nc": "6dbecb82552fb55fcc0d8b3edb7582088741523a837c310497edf06a6b7a2a36",
+    "pcr-comparison/outputs/deterministic_hindcast_three_method_comparison.nc": "360d2c213ce08d1083373a5907ed2c71e056fcb52a61029c77719187470ebadb",
+    "pcr-comparison/outputs/forecast_2023_four_method_comparison.nc": "f60adeb2732947a19e4b4dd10820dc0f62d50bf55521cd55dd28ab4ee83ae8ef",
+    "pcr-comparison/outputs/indonesia_ond2023_four_method_comparison.png": "05c50e135607a983bf6dcd1b3b795a4c8f0957fb4781e075a914328edb46848b",
+    "pcr-comparison/outputs/pcr_forecast_2023.nc": "59355d711f63cbd5d4b512de08303070dc4606c18deb9417e5f7d8d65da0ef8b",
+    "pcr-comparison/outputs/pcr_hindcasts.nc": "78c84d5751fef39161680dfe097997cf8766979180626e0c8a8ff38db278ce97",
+    "pcr-comparison/outputs/pcr_minus_cca_error_comparison.png": "4116a1db1064a9529fd844a884eb55e05d75bc4205e356e25c34f253e168c8f7",
+    "pcr-comparison/outputs/pcr_native_skill.nc": "934ed596b90b9da524b3a4a3886c2d0dbf93cc236241c649bf4c3ad43d454908",
+    "pcr-comparison/outputs/pcr_predictor_patterns.nc": "9fce6dad87f40a5ff22df9f97e3b42bb4ebddac22432c3c339ac01c824a3a1b7"
+  },
+  "metrics": {
+    "case_id": "indonesia-ond-2023-025deg",
+    "training_years": [
+      1982,
+      2010
+    ],
+    "forecast_initialization": "2023-09-01",
+    "target": "OND2023",
+    "preparation": {
+      "case_id": "indonesia-ond-2023-025deg",
+      "created_at": "2026-10-31T11:09:11.279729+00:00",
+      "training_years": [
+        1982,
+        2010
+      ],
+      "verification_year": 2023,
+      "observations_source": "/mnt/e/temp/chirps/rolling_dekad/wld_cli_chirps3_month3_bydekad_1981_2025.nc",
+      "source_size_bytes": 24343763347,
+      "resolution_degrees": 0.25,
+      "native_block_factor": 5,
+      "grid_shape": {
+        "Y": 76,
+        "X": 192
+      },
+      "country_cells_with_land": 3242,
+      "included_cells": 3240,
+      "retained_native_country_land_weight_fraction": 0.9999672625628059,
+      "unchanged_model_and_boundary_input_sha256": {
+        "cfsv2_hindcasts_ond.nc": "0c6d3c9643c6c6253033f980d827f369e4f3b7c03fd86f322250e1e4a23bd296",
+        "cfsv2_forecasts_ond.nc": "538a548632084adc77c91e3bbd7518b4c75f8eb956d61c501731015397b6cb71",
+        "indonesia_boundary.geojson": "1b44b1d7e0ab4e7e3eff0efd9e0bff74c45ad7a390114e80b64b5369b51f4e78"
+      },
+      "predictor_resolution_degrees": 1.0,
+      "minimum_training_coverage": 0.99
+    },
+    "fit_elapsed_seconds": {
+      "cca": 4.906720049000796,
+      "pcr": 4.286246874999051
+    },
+    "native_025_forecast_metrics": {
+      "climatology": {
+        "rmse_mm": 222.0270390726227,
+        "mae_mm": 184.77934533837828,
+        "bias_mm": 149.79210828793487
+      },
+      "raw_cfsv2": {
+        "rmse_mm": 292.389469572019,
+        "mae_mm": 230.91776241573166,
+        "bias_mm": -83.90775518296125
+      },
+      "cca": {
+        "rmse_mm": 137.43211752090374,
+        "mae_mm": 102.08290083054234,
+        "bias_mm": -47.099710038752136
+      },
+      "pcr": {
+        "rmse_mm": 132.14920560800437,
+        "mae_mm": 98.82363708157006,
+        "bias_mm": -46.945610499877944
+      }
+    },
+    "native_025_historical_metrics": {
+      "raw_cfsv2": {
+        "mean_grid_rmse_mm": 341.39846841442477,
+        "mean_grid_pearson": 0.3886785570375967
+      },
+      "cca": {
+        "mean_grid_rmse_mm": 150.39394796197104,
+        "mean_grid_pearson": 0.5262352461754105
+      },
+      "pcr": {
+        "mean_grid_rmse_mm": 151.48632172154984,
+        "mean_grid_pearson": 0.5162835353592211
+      }
+    },
+    "common_1deg_forecast_metrics": {
+      "climatology_1deg": {
+        "rmse_mm": 214.10042921143463,
+        "mae_mm": 181.38604052075414,
+        "bias_mm": 149.80219869329
+      },
+      "raw_cfsv2_1deg": {
+        "rmse_mm": 267.68602556508523,
+        "mae_mm": 219.38698780202694,
+        "bias_mm": -87.40247364769586
+      },
+      "cca_1deg": {
+        "rmse_mm": 128.9881332464314,
+        "mae_mm": 97.14137659422096,
+        "bias_mm": -48.28150127998677
+      },
+      "pcr_1deg": {
+        "rmse_mm": 123.39549335196924,
+        "mae_mm": 94.1594544896691,
+        "bias_mm": -46.92355406193865
+      },
+      "cca_025_aggregated": {
+        "rmse_mm": 128.68270148189114,
+        "mae_mm": 97.10141602203312,
+        "bias_mm": -47.07869056075606
+      },
+      "pcr_025_aggregated": {
+        "rmse_mm": 123.3955206799544,
+        "mae_mm": 94.15948677753967,
+        "bias_mm": -46.92349860304512
+      }
+    },
+    "common_1deg_historical_metrics": {
+      "raw_cfsv2_1deg": {
+        "mean_grid_rmse_mm": 324.0698819395017,
+        "mean_grid_pearson": 0.40700080197109445
+      },
+      "cca_1deg": {
+        "mean_grid_rmse_mm": 141.0871827546099,
+        "mean_grid_pearson": 0.5489221472676864
+      },
+      "pcr_1deg": {
+        "mean_grid_rmse_mm": 142.14228107534572,
+        "mean_grid_pearson": 0.5441497503955318
+      },
+      "cca_025_aggregated": {
+        "mean_grid_rmse_mm": 141.27058605026295,
+        "mean_grid_pearson": 0.5538088933258
+      },
+      "pcr_025_aggregated": {
+        "mean_grid_rmse_mm": 142.1402697634734,
+        "mean_grid_pearson": 0.5441554443858361
+      }
+    },
+    "common_1deg_cells": 369,
+    "original_1deg_cells": 369,
+    "common_fraction_original_country_weight": 1.0,
+    "native_025_verification_cells": 3240,
+    "fine_aggregate_vs_original_observation_rmse_mm": 1.488198488701424e-13,
+    "native_score_checks": {
+      "cca": {
+        "maximum_native_direct_rmse_difference_mm": 0.00133564393260599,
+        "maximum_native_direct_pearson_difference": 7.346055684191721e-06
+      },
+      "pcr": {
+        "maximum_native_direct_rmse_difference_mm": 0.0012690099136705157,
+        "maximum_native_direct_pearson_difference": 8.450598246917407e-06
+      }
+    },
+    "probability_checks": {
+      "cca": {
+        "maximum_sum_error_percentage_points": 1.0000000116860974e-06,
+        "negative_forecast_cells": 0
+      },
+      "pcr": {
+        "maximum_sum_error_percentage_points": 1.0000000116860974e-06,
+        "negative_forecast_cells": 0
+      }
+    },
+    "interpretation": "Primary resolution comparison uses common 1-degree observations/grid/footprint. Native 0.25-degree RMSE measures a different spatial scale and must not be ranked directly against native 1-degree RMSE."
+  },
+  "outputs": {
+    "cca_forecast_2023_025.nc": {
+      "bytes": 190272,
+      "sha256": "c1e709a89665104da1610eba997d1b92e5011d4589355bb6c0da76402edc20c2"
+    },
+    "cca_hindcasts_025.nc": {
+      "bytes": 878396,
+      "sha256": "ae66e7241d440f4711c8ed594b38cee76a575db292e7cf0b06829ad09456487c"
+    },
+    "cca_native_skill_025.nc": {
+      "bytes": 209916,
+      "sha256": "a08f5d7773bdeb201e66436183bd543d7bebb25377b2525391302b439db4211b"
+    },
+    "cca_predictand_patterns_025.nc": {
+      "bytes": 210218,
+      "sha256": "cef7af54a67c05f7063b137fb8c31139fc7d6e867106e715ee4d3c353b6c75cf"
+    },
+    "cca_predictor_patterns_025.nc": {
+      "bytes": 148927,
+      "sha256": "7d8cde5185c29ca96229e60f81b3a831c9dfee8f81c3cd6e89e06893ae8dfdfe"
+    },
+    "cfsv2_forecast_predictor_2023.nc": {
+      "bytes": 39349,
+      "sha256": "d3b0c12cf91ca3970db1a6ec31bfdc969eb2d8f0d73f16ad22c12f2b41b1df1b"
+    },
+    "cfsv2_training_predictors.nc": {
+      "bytes": 586270,
+      "sha256": "0e4642f73a8aa33c5bb57fa10f811a4d811ecff72a4f4ea7319861075a23c99e"
+    },
+    "common_1deg_forecast_comparison.nc": {
+      "bytes": 101359,
+      "sha256": "d1be408dd5b586b2566c2cc2d3d824552c1b56540df6f7432da07d139c910550"
+    },
+    "common_1deg_hindcast_comparison.nc": {
+      "bytes": 99912,
+      "sha256": "7bb4aa70675856e9aff5d809b2d2ad4ea6d8354badcc59caebe260fdfb1dc366"
+    },
+    "common_grid_error_changes.png": {
+      "bytes": 296872,
+      "sha256": "38a27bd06977ee1c2ea020472bde4a67c0c3e0b671b92cb5f93efb0ee4363669"
+    },
+    "cross_resolution_evaluation_footprint.nc": {
+      "bytes": 45398,
+      "sha256": "953938ee64726794a8ac26bc19c435122040a5e9f283f22e93ad7f75020519f2"
+    },
+    "indonesia_analysis_mask_025.nc": {
+      "bytes": 60281,
+      "sha256": "b8dcf268e71ef4e42d3c5619569219d27be19dab80ecfec79158da1261049f43"
+    },
+    "native_025_forecast_comparison.nc": {
+      "bytes": 426123,
+      "sha256": "736dc876e8942cf6ef9842dd4887d3b1e6376a44803f91bb30ddc3c1aa72fdf3"
+    },
+    "native_025_hindcast_comparison.nc": {
+      "bytes": 390690,
+      "sha256": "dd63991baa472247646346d001ba7af2392ba8c61abb572e912b4dd80b9e7ac3"
+    },
+    "observations_chirps3_ond_025.nc": {
+      "bytes": 971577,
+      "sha256": "5806efddfe2f136b179c5b479e1373af9c9b7667d94a430fe41b81f217fac94d"
+    },
+    "pcr_forecast_2023_025.nc": {
+      "bytes": 190418,
+      "sha256": "2e1cc61af3c2375bc38117f65983d79607a5bc06ebc91ae410cebb2d66cc7c02"
+    },
+    "pcr_hindcasts_025.nc": {
+      "bytes": 878510,
+      "sha256": "20497b8ad3f7f5961812814fa6e437f1465d522e297a2bd68e5a5b8923e4abaa"
+    },
+    "pcr_native_skill_025.nc": {
+      "bytes": 210220,
+      "sha256": "269eac7439c601884068b8228e557eaf63e082eb947395096f63592506362904"
+    },
+    "pcr_predictor_patterns_025.nc": {
+      "bytes": 94641,
+      "sha256": "c34701c5d375f5b612f9ef9dc51bb4e2b8561128e6951c6391a8beff1af26482"
+    },
+    "resolution_forecasts.png": {
+      "bytes": 586385,
+      "sha256": "ba8c3f78612b7d8fd96f276860e7e749da865eb1e3866b2f0349a8dce622dbf2"
+    }
+  },
+  "pipeline_script_sha256": {
+    "scripts/run_indonesia_025_case.py": "d5e5cd08d8bae6a47f5b0f22846b239fd0e9a2d6786da66d14cd9f052c3ad0c7",
+    "scripts/prepare_indonesia_025_case.py": "25fc1e014b3718acfb6452f6a8080f7d7255ab1d07e40e4ba564bab853ed49ae",
+    "pycpt_tutorial/country_grid.py": "aed321c67bbfbf7309ffda699ef57716b75ab187b68dc7663c1fc41a1eab8e35"
+  },
+  "limitations": [
+    "One historical target, not a general forecast-skill claim",
+    "Fixed small mode counts, no tuning to2023 and no nested-CV claim",
+    "Native fine probabilities and variances are not averaged into coarse probabilities/uncertainties",
+    "Source products are retrospective, not exact 2023 data vintages",
+    "Fine and coarse country footprints can differ; common mask and coverage are saved"
+  ]
+}

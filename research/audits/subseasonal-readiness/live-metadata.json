@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-02",
+  "probes": [
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC/.hindcast/.weekly/.pr/dods.das",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_sampled": 1239,
+      "truncated": false,
+      "name": "GEFS_weekly_attributes",
+      "metadata_file": "temp/subseasonal-readiness/GEFS_weekly_attributes.txt",
+      "sha256": "66bdf008079fdb01bed606863ee382ced5346c4b9ee4ecc81c3d788ebb425681"
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC/.hindcast/.weekly/.pr/dods.ascii?S,L,M,X,Y",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_sampled": 1055,
+      "truncated": false,
+      "name": "GEFS_weekly_coordinates"
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC/.forecast/.pr/dods.das",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_sampled": 1356,
+      "truncated": false,
+      "name": "GEFS_forecast_attributes",
+      "metadata_file": "temp/subseasonal-readiness/GEFS_forecast_attributes.txt",
+      "sha256": "52d8a852dc2f13f30b00e74ebb09af15f9625b82d5624e94a7082b11601415ed"
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC/.forecast/.pr/dods.ascii?S,L,M,X,Y",
+      "status": 404,
+      "content_type": "text/html",
+      "bytes_sampled": 1036,
+      "truncated": false,
+      "name": "GEFS_forecast_coordinates"
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 13198,
+      "truncated": false,
+      "name": "SubX_index",
+      "dataset_links": [
+        ".CESM/",
+        ".ECCC/",
+        ".EMC/",
+        ".ESRL/",
+        ".GMAO/",
+        ".NCEP/",
+        ".NRL/",
+        ".RSMAS/",
+        ".dataset_documentation.html",
+        ".observed/",
+        "/SOURCES/.Models/.SubC/.dataset_documentation.html"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 15360,
+      "truncated": false,
+      "name": "S2S_index",
+      "dataset_links": [
+        ".BOM/",
+        ".CMA/",
+        ".CNRM/",
+        ".ECCC/",
+        ".ECMF/",
+        ".EI/",
+        ".HMCR/",
+        ".IAP-CAS/",
+        ".ISAC/",
+        ".JMA/",
+        ".KMA/",
+        ".NCEP/",
+        ".UKMO/",
+        ".climatologies/"
+      ]
+    }
+  ],
+  "fits_run": 0
+}

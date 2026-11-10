@@ -1,0 +1,14 @@
+{
+  "initialization_start": "1982-01-01",
+  "metadata_sha256": "8a0d7e3ca3a34125e88a6b4ff612b8b18891d7c6717568367467d29d6c54fe9f",
+  "source": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/",
+  "unavailable1982_target_seasons_under_ending_year_convention": [
+    "DJF",
+    "JFM",
+    "NDJ"
+  ],
+  "decision": "Use1983\u20132010(28seasons) and1991\u20132020(30seasons) for every season; preserve older1982\u20132010 OND cases",
+  "first_initialization_in_new_matrix": "1982-10-01T00:00:00",
+  "year_convention": "Season labelled by ending year; NDJ/DJF start in preceding year",
+  "archive_transition": "Operational forecasts appended fromApril2011; no homogeneity correction"
+}

@@ -1,0 +1,986 @@
+{
+  "OND_cca_1991_2020": {
+    "record": {
+      "season": "OND",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "config": {
+        "x_eof_modes": [
+          3,
+          3
+        ],
+        "validation": "CROSSVALIDATION",
+        "crossvalidation_window": 5,
+        "synchronous_predictors": true,
+        "transform_predictand": null,
+        "tailoring": null,
+        "drymask_threshold": null,
+        "skillmask_threshold": null,
+        "y_eof_modes": [
+          3,
+          3
+        ],
+        "cca_modes": [
+          2,
+          2
+        ]
+      },
+      "training_samples": 30,
+      "training_cells": 3240,
+      "forecast_cases": 4,
+      "elapsed_seconds": 6.909439955998096,
+      "native_direct_rmse_max_difference_mm": 0.0013195124074627529,
+      "native_direct_pearson_max_difference": 8.07531284596763e-06,
+      "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
+      "date_parsing_normalizations": [
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_probabilities.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+          "dates": [
+            "2021-09-01",
+            "2022-09-01",
+            "2023-09-01",
+            "2024-09-01"
+          ],
+          "source_sha256": "775b0d033284140e917f4b5f1709edd4f294260c5161da6eeaf4ea21eb6029ef",
+          "parsing_sha256": "e193083b929188b1ad90fb0da82b0059e400a59c71ad345b9c9f941eb3789f64"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_values.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_values.midnight-normalized.txt",
+          "dates": [
+            "2021-09-01",
+            "2022-09-01",
+            "2023-09-01",
+            "2024-09-01"
+          ],
+          "source_sha256": "c4255109ecefd745295a9ab177a9f28b87f4c4dedb7b9c084baf97a2513acf8c",
+          "parsing_sha256": "83e260dcb76109d9afc5798fbe5b5f1ed05ec4359e4adef7c6430fc0ba900a19"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_prediction_error_variance.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+          "dates": [
+            "2021-09-01",
+            "2022-09-01",
+            "2023-09-01",
+            "2024-09-01"
+          ],
+          "source_sha256": "e6dbe2ae54f0126707d45bccabd7c739080e7f391167cc4827665c5b57defd02",
+          "parsing_sha256": "e726306a42c852c700aa203ac1ae3ec6d9c9643b5da03e1d07f08b205025bbbd"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/hindcast_values.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+          "dates": [
+            "1991-09-01",
+            "1992-09-01",
+            "1993-09-01",
+            "1994-09-01",
+            "1995-09-01",
+            "1996-09-01",
+            "1997-09-01",
+            "1998-09-01",
+            "1999-09-01",
+            "2000-09-01",
+            "2001-09-01",
+            "2002-09-01",
+            "2003-09-01",
+            "2004-09-01",
+            "2005-09-01",
+            "2006-09-01",
+            "2007-09-01",
+            "2008-09-01",
+            "2009-09-01",
+            "2010-09-01",
+            "2011-09-01",
+            "2012-09-01",
+            "2013-09-01",
+            "2014-09-01",
+            "2015-09-01",
+            "2016-09-01",
+            "2017-09-01",
+            "2018-09-01",
+            "2019-09-01",
+            "2020-09-01"
+          ],
+          "source_sha256": "a382dcec559db394497fabe11a50707874211bebabdd49598208acf1ed46eab2",
+          "parsing_sha256": "0bf30da96ad7938f1df8b73310eeb05f33939ec5a0b8fa800a7967b7ffdfefda"
+        }
+      ],
+      "input_sha256": {
+        "predictors.nc": "169b677fa997f4648a688487f0f5567da685c4e7677033011bfaddbadaa83721",
+        "observations.nc": "666c49f640978ff142fdc5e6e70ac68fd2b872604454f525384b4466be3e93f7",
+        "footprint.nc": "b4c27f95b981183f676ae7818951f4d91b8774be2d5883d953d2812e14ff3e80"
+      },
+      "outputs_sha256": {
+        "OND_cca_1991_2020_forecasts.nc": "479d4d3d132538d2efa8484ce853923fada24ae455260ad8493c01b1b14d4bd5",
+        "OND_cca_1991_2020_hindcasts.nc": "f7ea557d457cf16756c3a2c291ba1d5d9f3a228fc7a1ec7b8589f67a92aa86c6",
+        "OND_cca_1991_2020_native_skill.nc": "ee14eaa05719710f02bf2f03323dbc13204f934d50e90d9540110becc93a0fad"
+      }
+    },
+    "native_output_directory": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020",
+    "files": [
+      {
+        "name": "cca_canonical_correlation.txt",
+        "bytes": 213,
+        "sha256": "cda46f76ef404dd343fd55330c2b4a67270caee973122f9a6acedce1d16fd039"
+      },
+      {
+        "name": "forecast_prediction_error_variance.midnight-normalized.txt",
+        "bytes": 721765,
+        "sha256": "e726306a42c852c700aa203ac1ae3ec6d9c9643b5da03e1d07f08b205025bbbd"
+      },
+      {
+        "name": "forecast_prediction_error_variance.txt",
+        "bytes": 721741,
+        "sha256": "e6dbe2ae54f0126707d45bccabd7c739080e7f391167cc4827665c5b57defd02"
+      },
+      {
+        "name": "forecast_probabilities.midnight-normalized.txt",
+        "bytes": 1766897,
+        "sha256": "e193083b929188b1ad90fb0da82b0059e400a59c71ad345b9c9f941eb3789f64"
+      },
+      {
+        "name": "forecast_probabilities.txt",
+        "bytes": 1766873,
+        "sha256": "775b0d033284140e917f4b5f1709edd4f294260c5161da6eeaf4ea21eb6029ef"
+      },
+      {
+        "name": "forecast_values.midnight-normalized.txt",
+        "bytes": 699855,
+        "sha256": "83e260dcb76109d9afc5798fbe5b5f1ed05ec4359e4adef7c6430fc0ba900a19"
+      },
+      {
+        "name": "forecast_values.txt",
+        "bytes": 699831,
+        "sha256": "c4255109ecefd745295a9ab177a9f28b87f4c4dedb7b9c084baf97a2513acf8c"
+      },
+      {
+        "name": "goodness_index.txt",
+        "bytes": 112,
+        "sha256": "e0bdc6d12570649c218ac56e4e15aca040300b733519e89b1bb062fd8871fa65"
+      },
+      {
+        "name": "hindcast_values.midnight-normalized.txt",
+        "bytes": 5240157,
+        "sha256": "0bf30da96ad7938f1df8b73310eeb05f33939ec5a0b8fa800a7967b7ffdfefda"
+      },
+      {
+        "name": "hindcast_values.txt",
+        "bytes": 5239977,
+        "sha256": "a382dcec559db394497fabe11a50707874211bebabdd49598208acf1ed46eab2"
+      },
+      {
+        "name": "original_forecast_predictor",
+        "bytes": 97500,
+        "sha256": "ccaedec1ed913fc8ed42f190f0ffa23905a66596f289d8fc25241de1b49ccd92"
+      },
+      {
+        "name": "original_predictand",
+        "bytes": 3913407,
+        "sha256": "4efecd256e8c0f3d3d663840435954cda02a0c0653211b3d9b608eba192a3c3b"
+      },
+      {
+        "name": "original_predictor",
+        "bytes": 730863,
+        "sha256": "0ff1e2a4f403118df373866692595aeb916123b7de3b7998f978ec0691724244"
+      },
+      {
+        "name": "pearson.txt",
+        "bytes": 164555,
+        "sha256": "9735ef6eda85ac4d62c2cf97a47d8c24bdee1d8db6ac42fa8465a765bab488f0"
+      },
+      {
+        "name": "predictand_cca_spatial_loadings.txt",
+        "bytes": 340173,
+        "sha256": "c8361857edc4f724198547b484544e05491e1309fbb934dc538fe96eaed7b274"
+      },
+      {
+        "name": "predictand_cca_timeseries.txt",
+        "bytes": 963,
+        "sha256": "9fab484c5abeb4190fbc5d1e860fee1abb4aac65b00314de47d9c149401ac172"
+      },
+      {
+        "name": "predictand_eof_spatial_loadings.txt",
+        "bytes": 496129,
+        "sha256": "29889f00f0342bde3049a96a0cad363756afbabc7d5262e903c4b79eb2717de1"
+      },
+      {
+        "name": "predictand_eof_timeseries.txt",
+        "bytes": 1348,
+        "sha256": "af9f623e230914334dbf1eb7aa95b6c3bd8b68e411f0879fa5d3a65099dd3a9b"
+      },
+      {
+        "name": "predictand_explained_variance.txt",
+        "bytes": 1106,
+        "sha256": "3270b0cbd574b75fa59fa024c2a6cdf28a857e8bc531bf0334f32483f923c5b3"
+      },
+      {
+        "name": "predictor_cca_spatial_loadings.txt",
+        "bytes": 56078,
+        "sha256": "3ff8d317bc5d13fa5acbfdb634186042af54205edad42e5e69eefa6684fdd2e8"
+      },
+      {
+        "name": "predictor_cca_timeseries.txt",
+        "bytes": 966,
+        "sha256": "06c3c8781769b3d75121069c3b99e7a7dcb86f31b4ae8aa9db9300fec6f54225"
+      },
+      {
+        "name": "predictor_eof_spatial_loadings.txt",
+        "bytes": 75597,
+        "sha256": "b7a72fa5c5bbecd1959beaa63f9004b72442cb6fa9fd9a04732b92267bbf0ac1"
+      },
+      {
+        "name": "predictor_eof_timeseries.txt",
+        "bytes": 1357,
+        "sha256": "add61542f3b1a1e28994526ad82db60852d111a6ac2855adc4adf5124bb511a5"
+      },
+      {
+        "name": "predictor_explained_variance.txt",
+        "bytes": 1095,
+        "sha256": "dff096d8bb7bb72cb57b72e3734f797f2742d124950da572e3860b66169db69d"
+      },
+      {
+        "name": "roc_area_above_normal.txt",
+        "bytes": 164313,
+        "sha256": "dc51d8fa101d304f9499360f71c9b1e7dce5259869212bccff3f1c8ce6eefc20"
+      },
+      {
+        "name": "roc_area_below_normal.txt",
+        "bytes": 164314,
+        "sha256": "0fb902b5bec8b4928f54dcd2b8a23da260ebcc8b26cb50a8031a74241d710d09"
+      },
+      {
+        "name": "root_mean_squared_error.txt",
+        "bytes": 173823,
+        "sha256": "5670cc25357e76c8a8015b9c81d5815fe9049f034f92f17fa5c42bd9d722c566"
+      },
+      {
+        "name": "spearman.txt",
+        "bytes": 164589,
+        "sha256": "4bd9dc0e9f47d721b329f29c663cb1ed634e5f1f7224288cee0dfdcac68786b2"
+      },
+      {
+        "name": "two_alternative_forced_choice.txt",
+        "bytes": 170780,
+        "sha256": "26c52495a42a814e0dc526470e7a44ff9958ca3fd6c7d2ae66c7d0f721814163"
+      }
+    ],
+    "wrapper_source": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/lib/python3.12/site-packages/cptcore/functional/cca.py"
+  },
+  "OND_pcr_1991_2020": {
+    "record": {
+      "season": "OND",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "config": {
+        "x_eof_modes": [
+          3,
+          3
+        ],
+        "validation": "CROSSVALIDATION",
+        "crossvalidation_window": 5,
+        "synchronous_predictors": true,
+        "transform_predictand": null,
+        "tailoring": null,
+        "drymask_threshold": null,
+        "skillmask_threshold": null
+      },
+      "training_samples": 30,
+      "training_cells": 3240,
+      "forecast_cases": 4,
+      "elapsed_seconds": 6.237907501999871,
+      "native_direct_rmse_max_difference_mm": 0.0013330556828350382,
+      "native_direct_pearson_max_difference": 6.840926817797133e-06,
+      "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
+      "date_parsing_normalizations": [
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_probabilities.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+          "dates": [
+            "2021-09-01",
+            "2022-09-01",
+            "2023-09-01",
+            "2024-09-01"
+          ],
+          "source_sha256": "f59ee56a030069e53345354444a6a98dc08e35347a7662e9439904ef6612d5e5",
+          "parsing_sha256": "307921b6a60bb254c3b7110a0af2e167d024ae1384df6f9c9a818714097e1d64"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_values.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+          "dates": [
+            "2021-09-01",
+            "2022-09-01",
+            "2023-09-01",
+            "2024-09-01"
+          ],
+          "source_sha256": "d3129be8577282766c55e41de9b1e6ea07d8193201840f8579c155d6e9b05bef",
+          "parsing_sha256": "7ebb05e639017d4628f0882231585143d6a343df27997f3d9f9588892ed49591"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_prediction_error_variance.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+          "dates": [
+            "2021-09-01",
+            "2022-09-01",
+            "2023-09-01",
+            "2024-09-01"
+          ],
+          "source_sha256": "dcf90de1028fe51f55d4c30d446a1be26a9a3011b96cb9fc5f68d7ea30f751db",
+          "parsing_sha256": "4151a130e1c9beee187a2a27109a5f30e3f45e4b9c506ab226ee51bec9d11d35"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/hindcast_values.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+          "dates": [
+            "1991-09-01",
+            "1992-09-01",
+            "1993-09-01",
+            "1994-09-01",
+            "1995-09-01",
+            "1996-09-01",
+            "1997-09-01",
+            "1998-09-01",
+            "1999-09-01",
+            "2000-09-01",
+            "2001-09-01",
+            "2002-09-01",
+            "2003-09-01",
+            "2004-09-01",
+            "2005-09-01",
+            "2006-09-01",
+            "2007-09-01",
+            "2008-09-01",
+            "2009-09-01",
+            "2010-09-01",
+            "2011-09-01",
+            "2012-09-01",
+            "2013-09-01",
+            "2014-09-01",
+            "2015-09-01",
+            "2016-09-01",
+            "2017-09-01",
+            "2018-09-01",
+            "2019-09-01",
+            "2020-09-01"
+          ],
+          "source_sha256": "9d6c15a9ac6f19892c5ee245b5548ef6c111b5350a0b91b71ab3ebad26226829",
+          "parsing_sha256": "24b98126b4855770a0fbbe34260d552f783d1cb39cdc4b55639a900c10626dd4"
+        }
+      ],
+      "input_sha256": {
+        "predictors.nc": "169b677fa997f4648a688487f0f5567da685c4e7677033011bfaddbadaa83721",
+        "observations.nc": "666c49f640978ff142fdc5e6e70ac68fd2b872604454f525384b4466be3e93f7",
+        "footprint.nc": "b4c27f95b981183f676ae7818951f4d91b8774be2d5883d953d2812e14ff3e80"
+      },
+      "outputs_sha256": {
+        "OND_pcr_1991_2020_forecasts.nc": "21bf760c6b09be9b5ae21296a7fc32ec7aeabdc3a5a1edc9050d3f3818aeb7a5",
+        "OND_pcr_1991_2020_hindcasts.nc": "498e9cbb10c2b03b68ba3d624e9d9a58b9bb810b8003482f73839c8f216bd5b8",
+        "OND_pcr_1991_2020_native_skill.nc": "99bcd8140fdc7013d1755686b418c62dd575a11df48cf82f4d3cd194059b8825"
+      }
+    },
+    "native_output_directory": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020",
+    "files": [
+      {
+        "name": "forecast_prediction_error_variance.midnight-normalized.txt",
+        "bytes": 721835,
+        "sha256": "4151a130e1c9beee187a2a27109a5f30e3f45e4b9c506ab226ee51bec9d11d35"
+      },
+      {
+        "name": "forecast_prediction_error_variance.txt",
+        "bytes": 721811,
+        "sha256": "dcf90de1028fe51f55d4c30d446a1be26a9a3011b96cb9fc5f68d7ea30f751db"
+      },
+      {
+        "name": "forecast_probabilities.midnight-normalized.txt",
+        "bytes": 1767112,
+        "sha256": "307921b6a60bb254c3b7110a0af2e167d024ae1384df6f9c9a818714097e1d64"
+      },
+      {
+        "name": "forecast_probabilities.txt",
+        "bytes": 1767088,
+        "sha256": "f59ee56a030069e53345354444a6a98dc08e35347a7662e9439904ef6612d5e5"
+      },
+      {
+        "name": "forecast_values.midnight-normalized.txt",
+        "bytes": 699894,
+        "sha256": "7ebb05e639017d4628f0882231585143d6a343df27997f3d9f9588892ed49591"
+      },
+      {
+        "name": "forecast_values.txt",
+        "bytes": 699870,
+        "sha256": "d3129be8577282766c55e41de9b1e6ea07d8193201840f8579c155d6e9b05bef"
+      },
+      {
+        "name": "goodness_index.txt",
+        "bytes": 112,
+        "sha256": "59899f916aa0449e87fff1e013462b16465ac30f5cf9cc3eccb4822f02377cce"
+      },
+      {
+        "name": "hindcast_values.midnight-normalized.txt",
+        "bytes": 5240436,
+        "sha256": "24b98126b4855770a0fbbe34260d552f783d1cb39cdc4b55639a900c10626dd4"
+      },
+      {
+        "name": "hindcast_values.txt",
+        "bytes": 5240256,
+        "sha256": "9d6c15a9ac6f19892c5ee245b5548ef6c111b5350a0b91b71ab3ebad26226829"
+      },
+      {
+        "name": "original_forecast_predictor",
+        "bytes": 97500,
+        "sha256": "ccaedec1ed913fc8ed42f190f0ffa23905a66596f289d8fc25241de1b49ccd92"
+      },
+      {
+        "name": "original_predictand",
+        "bytes": 3913407,
+        "sha256": "4efecd256e8c0f3d3d663840435954cda02a0c0653211b3d9b608eba192a3c3b"
+      },
+      {
+        "name": "original_predictor",
+        "bytes": 730863,
+        "sha256": "0ff1e2a4f403118df373866692595aeb916123b7de3b7998f978ec0691724244"
+      },
+      {
+        "name": "pearson.txt",
+        "bytes": 164569,
+        "sha256": "bfce178f9a925e41ced0b810866a861756fd9626bc40b998d6a113b9f2dafac3"
+      },
+      {
+        "name": "predictor_eof_spatial_loadings.txt",
+        "bytes": 75597,
+        "sha256": "b7a72fa5c5bbecd1959beaa63f9004b72442cb6fa9fd9a04732b92267bbf0ac1"
+      },
+      {
+        "name": "predictor_eof_timeseries.txt",
+        "bytes": 1357,
+        "sha256": "add61542f3b1a1e28994526ad82db60852d111a6ac2855adc4adf5124bb511a5"
+      },
+      {
+        "name": "predictor_explained_variance.txt",
+        "bytes": 1095,
+        "sha256": "dff096d8bb7bb72cb57b72e3734f797f2742d124950da572e3860b66169db69d"
+      },
+      {
+        "name": "roc_area_above_normal.txt",
+        "bytes": 164313,
+        "sha256": "e1e31a6ba4e1f1a1dd314e567e612ff8fbb207cb0f8e1eb5c3a83bf1eefec87f"
+      },
+      {
+        "name": "roc_area_below_normal.txt",
+        "bytes": 164314,
+        "sha256": "0bd9af692f247cc740bac76c2d401f78654bcc4a425fac872ca3f7e4851acda6"
+      },
+      {
+        "name": "root_mean_squared_error.txt",
+        "bytes": 173830,
+        "sha256": "3c87a6eeed4821ac921b05df1d51999bac686d34e00d6b65affa26a734e5265e"
+      },
+      {
+        "name": "spearman.txt",
+        "bytes": 164583,
+        "sha256": "26fa718325632a6253fee42a9afa866b89b849e83d6807d2dff828c055aeb087"
+      },
+      {
+        "name": "two_alternative_forced_choice.txt",
+        "bytes": 170780,
+        "sha256": "e0dfd5de72e0602955721a155df9c277628a2e873f82bc7b8f0142435d272c53"
+      }
+    ],
+    "wrapper_source": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/lib/python3.12/site-packages/cptcore/functional/pcr.py"
+  },
+  "JJA_cca_1991_2020": {
+    "record": {
+      "season": "JJA",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "config": {
+        "x_eof_modes": [
+          3,
+          3
+        ],
+        "validation": "CROSSVALIDATION",
+        "crossvalidation_window": 5,
+        "synchronous_predictors": true,
+        "transform_predictand": null,
+        "tailoring": null,
+        "drymask_threshold": null,
+        "skillmask_threshold": null,
+        "y_eof_modes": [
+          3,
+          3
+        ],
+        "cca_modes": [
+          2,
+          2
+        ]
+      },
+      "training_samples": 30,
+      "training_cells": 3240,
+      "forecast_cases": 4,
+      "elapsed_seconds": 6.887227807997988,
+      "native_direct_rmse_max_difference_mm": 0.001074181360422699,
+      "native_direct_pearson_max_difference": 4.0386220256233285e-06,
+      "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
+      "date_parsing_normalizations": [
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_probabilities.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+          "dates": [
+            "2021-05-01",
+            "2022-05-01",
+            "2023-05-01",
+            "2024-05-01"
+          ],
+          "source_sha256": "c00ae790c315b00fcd6fb556125f6cdebb890dbc427d5566e346dc63fc9c02ea",
+          "parsing_sha256": "9a03f303b0059913473dff723a70b87e7eb097194f405badc744e49800d2570d"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_values.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_values.midnight-normalized.txt",
+          "dates": [
+            "2021-05-01",
+            "2022-05-01",
+            "2023-05-01",
+            "2024-05-01"
+          ],
+          "source_sha256": "9ee9f624121c7aef0687b8256dfb8d8acdceb183b122205df66520947c9d1936",
+          "parsing_sha256": "de351e19663e7238fe34c3e49a527c7f86be72630f37a5b308bf5fd4f06d247d"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_prediction_error_variance.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+          "dates": [
+            "2021-05-01",
+            "2022-05-01",
+            "2023-05-01",
+            "2024-05-01"
+          ],
+          "source_sha256": "2dabc9176ae6de8522227408941a868eba8d5f09900ea2fcf9373225cbef488e",
+          "parsing_sha256": "b3abe5524ed021e891ebae09fc36a62ecdf1753744fe47fc6e18a48bc86e6b09"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/hindcast_values.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+          "dates": [
+            "1991-05-01",
+            "1992-05-01",
+            "1993-05-01",
+            "1994-05-01",
+            "1995-05-01",
+            "1996-05-01",
+            "1997-05-01",
+            "1998-05-01",
+            "1999-05-01",
+            "2000-05-01",
+            "2001-05-01",
+            "2002-05-01",
+            "2003-05-01",
+            "2004-05-01",
+            "2005-05-01",
+            "2006-05-01",
+            "2007-05-01",
+            "2008-05-01",
+            "2009-05-01",
+            "2010-05-01",
+            "2011-05-01",
+            "2012-05-01",
+            "2013-05-01",
+            "2014-05-01",
+            "2015-05-01",
+            "2016-05-01",
+            "2017-05-01",
+            "2018-05-01",
+            "2019-05-01",
+            "2020-05-01"
+          ],
+          "source_sha256": "ed7e369b173f6411abac42af7284b52cc293efa64d7d86a8102266d5e55fa755",
+          "parsing_sha256": "8dbccd2623b73c2d7b6cb882157d591f6de1b6c694450c7a32e3ab4f643f1758"
+        }
+      ],
+      "input_sha256": {
+        "predictors.nc": "4698b0e5af1b764557cc7a1156c1036966be6eb8b9ceaff2cfb8792f480e1523",
+        "observations.nc": "6647aaae5dceea7037408adc1c6d6cd38fc219d26e0b08524a4b002270a776c3",
+        "footprint.nc": "bdcaf6bca604dd874b49617d01f85e60d1698d07712aa23a43f1467b54579f19"
+      },
+      "outputs_sha256": {
+        "JJA_cca_1991_2020_forecasts.nc": "de529d9e3aa2175917b0901c7531614451d7cd35d35de1ac77e03a2ca3315245",
+        "JJA_cca_1991_2020_hindcasts.nc": "94b1a26b4ba6edffe648e51847bf041df44ce822ad2a92b203beef5147ad7038",
+        "JJA_cca_1991_2020_native_skill.nc": "49dc5d64d8bc1c2452210a320a9e07aae9db042c5ae3a21d05ec2497ef6ac067"
+      }
+    },
+    "native_output_directory": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020",
+    "files": [
+      {
+        "name": "cca_canonical_correlation.txt",
+        "bytes": 213,
+        "sha256": "ac44442d7668fc5103f292871094b94058940ae652fe466074a64b496c99b734"
+      },
+      {
+        "name": "forecast_prediction_error_variance.midnight-normalized.txt",
+        "bytes": 722868,
+        "sha256": "b3abe5524ed021e891ebae09fc36a62ecdf1753744fe47fc6e18a48bc86e6b09"
+      },
+      {
+        "name": "forecast_prediction_error_variance.txt",
+        "bytes": 722844,
+        "sha256": "2dabc9176ae6de8522227408941a868eba8d5f09900ea2fcf9373225cbef488e"
+      },
+      {
+        "name": "forecast_probabilities.midnight-normalized.txt",
+        "bytes": 1771347,
+        "sha256": "9a03f303b0059913473dff723a70b87e7eb097194f405badc744e49800d2570d"
+      },
+      {
+        "name": "forecast_probabilities.txt",
+        "bytes": 1771323,
+        "sha256": "c00ae790c315b00fcd6fb556125f6cdebb890dbc427d5566e346dc63fc9c02ea"
+      },
+      {
+        "name": "forecast_values.midnight-normalized.txt",
+        "bytes": 696816,
+        "sha256": "de351e19663e7238fe34c3e49a527c7f86be72630f37a5b308bf5fd4f06d247d"
+      },
+      {
+        "name": "forecast_values.txt",
+        "bytes": 696792,
+        "sha256": "9ee9f624121c7aef0687b8256dfb8d8acdceb183b122205df66520947c9d1936"
+      },
+      {
+        "name": "goodness_index.txt",
+        "bytes": 112,
+        "sha256": "b2faa4cf09c06e4282ac114824d421d8fe754c3d506bdf6a06465d98573983dc"
+      },
+      {
+        "name": "hindcast_values.midnight-normalized.txt",
+        "bytes": 5220625,
+        "sha256": "8dbccd2623b73c2d7b6cb882157d591f6de1b6c694450c7a32e3ab4f643f1758"
+      },
+      {
+        "name": "hindcast_values.txt",
+        "bytes": 5220445,
+        "sha256": "ed7e369b173f6411abac42af7284b52cc293efa64d7d86a8102266d5e55fa755"
+      },
+      {
+        "name": "original_forecast_predictor",
+        "bytes": 97489,
+        "sha256": "56c312c7e636f38b46f7b74318d46eb0063f44b41e865b2a186fa68c7c747111"
+      },
+      {
+        "name": "original_predictand",
+        "bytes": 3913347,
+        "sha256": "be96a3eaca5f9590e1c48211e6e70df8991f202dd971589d00c2428256eb3411"
+      },
+      {
+        "name": "original_predictor",
+        "bytes": 730799,
+        "sha256": "05e5363d87365288401bf509d3c6948242503986c3c9115f408aabae84a38ca4"
+      },
+      {
+        "name": "pearson.txt",
+        "bytes": 164555,
+        "sha256": "86c9dc49ccb0f2d562a1a0286df9cf279ab428e493139272b68c458301241f63"
+      },
+      {
+        "name": "predictand_cca_spatial_loadings.txt",
+        "bytes": 337607,
+        "sha256": "17c71371217977181a6596b887c5e778fc457470bae800fb10b3bacd1bbe8833"
+      },
+      {
+        "name": "predictand_cca_timeseries.txt",
+        "bytes": 962,
+        "sha256": "92741f204717c6a087b3f2114d33ce96ecbea94c9123033501b9bedbd391a65d"
+      },
+      {
+        "name": "predictand_eof_spatial_loadings.txt",
+        "bytes": 496080,
+        "sha256": "21ebbc3f7d67d83e30f6f89fbdb0b1e1418f062a8a99006db099a8995fbb0bb4"
+      },
+      {
+        "name": "predictand_eof_timeseries.txt",
+        "bytes": 1358,
+        "sha256": "2c26ce1fd4ee5e0883493604934019be15146dd07b8b850183863bc4b8e23e8f"
+      },
+      {
+        "name": "predictand_explained_variance.txt",
+        "bytes": 1102,
+        "sha256": "0fbfa483609a8c0e5323c1224abc3db05a9ec7ed20ee993c920fee9c1f386666"
+      },
+      {
+        "name": "predictor_cca_spatial_loadings.txt",
+        "bytes": 55647,
+        "sha256": "5e529b9200bb91e4237de5fcedeb9c19bcadaeee9ec4f2a840b18b484c8a61f5"
+      },
+      {
+        "name": "predictor_cca_timeseries.txt",
+        "bytes": 954,
+        "sha256": "ecde36f9238d57f822d66221151005ae09ea1f57d4ae03f718213abbbabc7797"
+      },
+      {
+        "name": "predictor_eof_spatial_loadings.txt",
+        "bytes": 74585,
+        "sha256": "39cfdfb6231b43cb5177b5d3675f660cdb0bcccfe0f135483fc24f3398b310af"
+      },
+      {
+        "name": "predictor_eof_timeseries.txt",
+        "bytes": 1370,
+        "sha256": "129ac4895ed6d784ff530e92e2fdcd44074076370acf72e665e39d36e89f2623"
+      },
+      {
+        "name": "predictor_explained_variance.txt",
+        "bytes": 1104,
+        "sha256": "259ad13051a490d71d7018985606d3817bab92477b697fda02769d423aaf2512"
+      },
+      {
+        "name": "roc_area_above_normal.txt",
+        "bytes": 164313,
+        "sha256": "8be48771e2a7341eda7c36d57bcc5e35b08f23e309454343ba07b1c3963dc526"
+      },
+      {
+        "name": "roc_area_below_normal.txt",
+        "bytes": 164313,
+        "sha256": "f12e8c966b5a85af5cbd435f6e2d6985880672be8700dc1e3201fe756538f406"
+      },
+      {
+        "name": "root_mean_squared_error.txt",
+        "bytes": 173652,
+        "sha256": "f44cfd72970910ed01f380bbbf652a3ae77d76086b52aa3ea0058ef9dc905a4a"
+      },
+      {
+        "name": "spearman.txt",
+        "bytes": 164638,
+        "sha256": "77cfcbe7524a6f15a26c20bf8dae2757904c532f340cad45b2ff87ddf41675f4"
+      },
+      {
+        "name": "two_alternative_forced_choice.txt",
+        "bytes": 170780,
+        "sha256": "fce7b0c9e995ba5a1080f399d3544102aad4697ea6bce843cbab52d0f89d63b4"
+      }
+    ],
+    "wrapper_source": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/lib/python3.12/site-packages/cptcore/functional/cca.py"
+  },
+  "JJA_pcr_1991_2020": {
+    "record": {
+      "season": "JJA",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "config": {
+        "x_eof_modes": [
+          3,
+          3
+        ],
+        "validation": "CROSSVALIDATION",
+        "crossvalidation_window": 5,
+        "synchronous_predictors": true,
+        "transform_predictand": null,
+        "tailoring": null,
+        "drymask_threshold": null,
+        "skillmask_threshold": null
+      },
+      "training_samples": 30,
+      "training_cells": 3240,
+      "forecast_cases": 4,
+      "elapsed_seconds": 6.317232743000204,
+      "native_direct_rmse_max_difference_mm": 0.0011767807466185332,
+      "native_direct_pearson_max_difference": 4.113747073875018e-06,
+      "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
+      "date_parsing_normalizations": [
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_probabilities.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+          "dates": [
+            "2021-05-01",
+            "2022-05-01",
+            "2023-05-01",
+            "2024-05-01"
+          ],
+          "source_sha256": "1172c6fa3e34745faeca723eaa3fe05e0349e98a5ff6d7b0b106c9eb5ab3af14",
+          "parsing_sha256": "e71e3f644bc1b3f8fbf45cbc0bac28bcc3c53b1e7302037a4b64ca6d1026ebc8"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_values.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+          "dates": [
+            "2021-05-01",
+            "2022-05-01",
+            "2023-05-01",
+            "2024-05-01"
+          ],
+          "source_sha256": "db78fff6dda5e44ecab441d0e188432fb7a42c4d994b0f77236c7960a80db08c",
+          "parsing_sha256": "4e135bb9d2e163f7c7d02423a94b9b7a12095ceafdc782d4375d165ce97a5068"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_prediction_error_variance.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+          "dates": [
+            "2021-05-01",
+            "2022-05-01",
+            "2023-05-01",
+            "2024-05-01"
+          ],
+          "source_sha256": "39df3997d29279aaca48a8a9ca9238a9b6cb099251f1b88ef3ce42fb76075eb6",
+          "parsing_sha256": "fb3940d924c29a1c73022e0a078c772732123f2c5a94c94113d3fea0b8c2c1ef"
+        },
+        {
+          "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/hindcast_values.txt",
+          "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+          "dates": [
+            "1991-05-01",
+            "1992-05-01",
+            "1993-05-01",
+            "1994-05-01",
+            "1995-05-01",
+            "1996-05-01",
+            "1997-05-01",
+            "1998-05-01",
+            "1999-05-01",
+            "2000-05-01",
+            "2001-05-01",
+            "2002-05-01",
+            "2003-05-01",
+            "2004-05-01",
+            "2005-05-01",
+            "2006-05-01",
+            "2007-05-01",
+            "2008-05-01",
+            "2009-05-01",
+            "2010-05-01",
+            "2011-05-01",
+            "2012-05-01",
+            "2013-05-01",
+            "2014-05-01",
+            "2015-05-01",
+            "2016-05-01",
+            "2017-05-01",
+            "2018-05-01",
+            "2019-05-01",
+            "2020-05-01"
+          ],
+          "source_sha256": "fa5bfc974c221bb273efff4069c3be84d6b3dbf146d9f81f4534447c667acb9b",
+          "parsing_sha256": "1599f6db28b35c64b088be643a20baccc0a542ab0039f78ebe5f68860531889f"
+        }
+      ],
+      "input_sha256": {
+        "predictors.nc": "4698b0e5af1b764557cc7a1156c1036966be6eb8b9ceaff2cfb8792f480e1523",
+        "observations.nc": "6647aaae5dceea7037408adc1c6d6cd38fc219d26e0b08524a4b002270a776c3",
+        "footprint.nc": "bdcaf6bca604dd874b49617d01f85e60d1698d07712aa23a43f1467b54579f19"
+      },
+      "outputs_sha256": {
+        "JJA_pcr_1991_2020_forecasts.nc": "eb3234364fe09d500812065bdc7dd15c6511df519a2ea772d68765f769cad38b",
+        "JJA_pcr_1991_2020_hindcasts.nc": "b08ef2865e16939fa1e06970574fb39315a193e83bd7473364eb42c22b2b657d",
+        "JJA_pcr_1991_2020_native_skill.nc": "a40ce32af40c2702f59a45b070c948f4341a3b15dd5bdf7fbba5051a016b2fd7"
+      }
+    },
+    "native_output_directory": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020",
+    "files": [
+      {
+        "name": "forecast_prediction_error_variance.midnight-normalized.txt",
+        "bytes": 723685,
+        "sha256": "fb3940d924c29a1c73022e0a078c772732123f2c5a94c94113d3fea0b8c2c1ef"
+      },
+      {
+        "name": "forecast_prediction_error_variance.txt",
+        "bytes": 723661,
+        "sha256": "39df3997d29279aaca48a8a9ca9238a9b6cb099251f1b88ef3ce42fb76075eb6"
+      },
+      {
+        "name": "forecast_probabilities.midnight-normalized.txt",
+        "bytes": 1771313,
+        "sha256": "e71e3f644bc1b3f8fbf45cbc0bac28bcc3c53b1e7302037a4b64ca6d1026ebc8"
+      },
+      {
+        "name": "forecast_probabilities.txt",
+        "bytes": 1771289,
+        "sha256": "1172c6fa3e34745faeca723eaa3fe05e0349e98a5ff6d7b0b106c9eb5ab3af14"
+      },
+      {
+        "name": "forecast_values.midnight-normalized.txt",
+        "bytes": 696895,
+        "sha256": "4e135bb9d2e163f7c7d02423a94b9b7a12095ceafdc782d4375d165ce97a5068"
+      },
+      {
+        "name": "forecast_values.txt",
+        "bytes": 696871,
+        "sha256": "db78fff6dda5e44ecab441d0e188432fb7a42c4d994b0f77236c7960a80db08c"
+      },
+      {
+        "name": "goodness_index.txt",
+        "bytes": 112,
+        "sha256": "d25ed05851a1ab77a52c9cb06924b24466df96508accb0752d7a60d8f8bbd482"
+      },
+      {
+        "name": "hindcast_values.midnight-normalized.txt",
+        "bytes": 5220710,
+        "sha256": "1599f6db28b35c64b088be643a20baccc0a542ab0039f78ebe5f68860531889f"
+      },
+      {
+        "name": "hindcast_values.txt",
+        "bytes": 5220530,
+        "sha256": "fa5bfc974c221bb273efff4069c3be84d6b3dbf146d9f81f4534447c667acb9b"
+      },
+      {
+        "name": "original_forecast_predictor",
+        "bytes": 97489,
+        "sha256": "56c312c7e636f38b46f7b74318d46eb0063f44b41e865b2a186fa68c7c747111"
+      },
+      {
+        "name": "original_predictand",
+        "bytes": 3913347,
+        "sha256": "be96a3eaca5f9590e1c48211e6e70df8991f202dd971589d00c2428256eb3411"
+      },
+      {
+        "name": "original_predictor",
+        "bytes": 730799,
+        "sha256": "05e5363d87365288401bf509d3c6948242503986c3c9115f408aabae84a38ca4"
+      },
+      {
+        "name": "pearson.txt",
+        "bytes": 164590,
+        "sha256": "9d996447433145a1af106ae64c15f0cfa33421124c27415affd206f34bdb9791"
+      },
+      {
+        "name": "predictor_eof_spatial_loadings.txt",
+        "bytes": 74585,
+        "sha256": "39cfdfb6231b43cb5177b5d3675f660cdb0bcccfe0f135483fc24f3398b310af"
+      },
+      {
+        "name": "predictor_eof_timeseries.txt",
+        "bytes": 1370,
+        "sha256": "129ac4895ed6d784ff530e92e2fdcd44074076370acf72e665e39d36e89f2623"
+      },
+      {
+        "name": "predictor_explained_variance.txt",
+        "bytes": 1104,
+        "sha256": "259ad13051a490d71d7018985606d3817bab92477b697fda02769d423aaf2512"
+      },
+      {
+        "name": "roc_area_above_normal.txt",
+        "bytes": 164313,
+        "sha256": "6403d214f8f9eca6da8af133c11006daf7e3f723aca164e23b8a32e5784090e0"
+      },
+      {
+        "name": "roc_area_below_normal.txt",
+        "bytes": 164313,
+        "sha256": "502d63e1f73fe3b51068d518c1c2fb2377e16e83ea98129a883a5fa564456d91"
+      },
+      {
+        "name": "root_mean_squared_error.txt",
+        "bytes": 173667,
+        "sha256": "970772fb65df1bfed76f46dfef42babe55a5e4502468da19908270a696b05807"
+      },
+      {
+        "name": "spearman.txt",
+        "bytes": 164623,
+        "sha256": "f67d614c66c28e75e4b82f1abc08cf3140454131ef620dc2ffd5471480a703a2"
+      },
+      {
+        "name": "two_alternative_forced_choice.txt",
+        "bytes": 170780,
+        "sha256": "c1f2d664a5f56b3886d7a3eb18f561431db4d91fb8dc52e00e2be27e625ed271"
+      }
+    ],
+    "wrapper_source": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/lib/python3.12/site-packages/cptcore/functional/pcr.py"
+  }
+}

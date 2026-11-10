@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-01",
+  "successful_real_case_sessions": 66,
+  "probability_reconstructions": 66,
+  "all_season_probability_reconstructions": 48,
+  "zero_bounded_forecast_cells": 472,
+  "unbounded_location_replays": 6,
+  "max_probability_difference_percentage_points": 0.00023266972713198442,
+  "withholding_experiments": 8,
+  "engine_sha256": "3457c93ee3d7a69005e32c231a976c50a056da53868c02757f344a46a81a139e",
+  "artifact_integrity": {
+    "all_season_output_files": 214,
+    "prior_output_files": 76,
+    "repo_all_season_output_files": 214
+  },
+  "scope_limit": "Numeric consistency and exclusion behavior, not empirical probability reliability or operational forecast certification."
+}

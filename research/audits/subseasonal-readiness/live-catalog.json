@@ -1,0 +1,250 @@
+{
+  "date": "2026-11-02",
+  "providers": [
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.CESM/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10210,
+      "truncated": false,
+      "name": "SubX_CESM",
+      "child_datasets": [
+        ".30LCESM1/",
+        ".46LCESM1/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.ECCC/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 11083,
+      "truncated": false,
+      "name": "SubX_ECCC",
+      "child_datasets": [
+        ".GEM/",
+        ".GEPS5/",
+        ".GEPS6/",
+        ".GEPS7/",
+        ".GEPS8/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10440,
+      "truncated": false,
+      "name": "SubX_EMC",
+      "child_datasets": [
+        ".GEFS/",
+        ".GEFSv12/",
+        ".GEFSv12_CPC/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.ESRL/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 9943,
+      "truncated": false,
+      "name": "SubX_ESRL",
+      "child_datasets": [
+        ".FIMr1p1/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.GMAO/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10259,
+      "truncated": false,
+      "name": "SubX_GMAO",
+      "child_datasets": [
+        ".GEOS_V2p1/",
+        ".GEOS_V2p1_5daily/",
+        ".GEOS_V3/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.NCEP/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 9926,
+      "truncated": false,
+      "name": "SubX_NCEP",
+      "child_datasets": [
+        ".CFSv2/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.NRL/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 9910,
+      "truncated": false,
+      "name": "SubX_NRL",
+      "child_datasets": [
+        ".NESM/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.RSMAS/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 9937,
+      "truncated": false,
+      "name": "SubX_RSMAS",
+      "child_datasets": [
+        ".CCSM4/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.BOM/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10814,
+      "truncated": false,
+      "name": "S2S_BOM",
+      "child_datasets": [
+        ".forecast/",
+        ".reforecast/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.CMA/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10265,
+      "truncated": false,
+      "name": "S2S_CMA",
+      "child_datasets": [
+        ".BCC-CPS-S2Sv1/",
+        ".BCC-CPS-S2Sv2/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.CNRM/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 11278,
+      "truncated": false,
+      "name": "S2S_CNRM",
+      "child_datasets": [
+        ".forecast/",
+        ".reforecast/",
+        ".reforecast_4bymo/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECCC/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10943,
+      "truncated": false,
+      "name": "S2S_ECCC",
+      "child_datasets": [
+        ".forecast/",
+        ".reforecast/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECMF/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10770,
+      "truncated": false,
+      "name": "S2S_ECMF",
+      "child_datasets": [
+        ".CY41-47/",
+        ".CY48/",
+        ".CY49/",
+        ".RMMS/",
+        ".SSW/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.HMCR/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10537,
+      "truncated": false,
+      "name": "S2S_HMCR",
+      "child_datasets": [
+        ".r1p5/",
+        ".r2p5/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.IAP-CAS/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10066,
+      "truncated": false,
+      "name": "S2S_IAP-CAS",
+      "child_datasets": [
+        ".r1p5/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ISAC/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10749,
+      "truncated": false,
+      "name": "S2S_ISAC",
+      "child_datasets": [
+        ".forecast/",
+        ".reforecast/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.JMA/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10680,
+      "truncated": false,
+      "name": "S2S_JMA",
+      "child_datasets": [
+        ".forecast/",
+        ".reforecast/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.KMA/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10893,
+      "truncated": false,
+      "name": "S2S_KMA",
+      "child_datasets": [
+        ".r1p5/",
+        ".r2p5/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.NCEP/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10080,
+      "truncated": false,
+      "name": "S2S_NCEP",
+      "child_datasets": [
+        ".forecast/",
+        ".reforecast/"
+      ]
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.UKMO/index.html",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes_sampled": 10998,
+      "truncated": false,
+      "name": "S2S_UKMO",
+      "child_datasets": [
+        ".forecast/",
+        ".reforecast/"
+      ]
+    }
+  ],
+  "fits_run": 0
+}

@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-02",
+  "probes": [
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECMF/.CY48/.reforecast/.perturbed/.sfc_precip/.tp/dods.dds",
+      "status": 302,
+      "content_type": "text/html",
+      "bytes_sampled": 593,
+      "truncated": false,
+      "redirect_path": "/auth/credential",
+      "version_branch": "CY48"
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/.ECMF/.CY49/.reforecast/.perturbed/.sfc_precip/.tp/dods.dds",
+      "status": 302,
+      "content_type": "text/html",
+      "bytes_sampled": 593,
+      "truncated": false,
+      "redirect_path": "/auth/credential",
+      "version_branch": "CY49"
+    }
+  ],
+  "fits_run": 0
+}

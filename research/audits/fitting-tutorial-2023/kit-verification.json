@@ -1,0 +1,66 @@
+{
+  "date": "2026-11-10",
+  "result": "PASS",
+  "kit_sha256": "38f4ebe4bfce2923ca6622634d62dca6a83bc9d19fb8a68e20b06359446cb016",
+  "scratch": "temp/fitting-kit-ss88hq7b",
+  "actual_fits_in_extracted_kit": 4,
+  "checks": {
+    "netcdf": [
+      "JJA-cca-canonical-correlations.nc",
+      "JJA-cca-forecasts.nc",
+      "JJA-cca-hindcasts.nc",
+      "JJA-cca-native-skill.nc",
+      "JJA-cca-predictand-diagnostics.nc",
+      "JJA-cca-predictor-diagnostics.nc",
+      "JJA-cca-x-patterns.nc",
+      "JJA-cca-y-patterns.nc",
+      "JJA-pcr-forecasts.nc",
+      "JJA-pcr-hindcasts.nc",
+      "JJA-pcr-native-skill.nc",
+      "JJA-pcr-predictor-diagnostics.nc",
+      "JJA-pcr-x-patterns.nc",
+      "OND-cca-canonical-correlations.nc",
+      "OND-cca-forecasts.nc",
+      "OND-cca-hindcasts.nc",
+      "OND-cca-native-skill.nc",
+      "OND-cca-predictand-diagnostics.nc",
+      "OND-cca-predictor-diagnostics.nc",
+      "OND-cca-x-patterns.nc",
+      "OND-cca-y-patterns.nc",
+      "OND-pcr-forecasts.nc",
+      "OND-pcr-hindcasts.nc",
+      "OND-pcr-native-skill.nc",
+      "OND-pcr-predictor-diagnostics.nc",
+      "OND-pcr-x-patterns.nc",
+      "cv-residual-summary.nc",
+      "cv-yearly-scores.nc",
+      "deterministic-scores.nc",
+      "forecast-comparison.nc"
+    ],
+    "csv": [
+      "canonical-correlations.csv",
+      "control-checks.csv",
+      "deterministic-scores.csv",
+      "diagnostic-summary.csv",
+      "input-summary.csv"
+    ],
+    "png_byte_identical": [
+      "cv-residuals.png",
+      "forecast-errors.png",
+      "forecast-scores.png",
+      "jja-cca-patterns.png",
+      "ond-cca-patterns.png",
+      "scree.png"
+    ]
+  },
+  "interactive_values_and_story_findings_identical": true,
+  "canonical_notebook_unchanged": true,
+  "baseline_date": "2026-11-02",
+  "case_one_files_unchanged_since_baseline": 47,
+  "case_one_files_changed_since_baseline": [
+    "docs/chapters/indonesia-seasons-2023.qmd",
+    "docs/downloads/indonesia-seasons-2023-kit.zip",
+    "docs/downloads/indonesia-seasons-2023.ipynb",
+    "docs/notebooks/indonesia-seasons-2023.ipynb"
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "status": "PASS",
+  "forecast_cases_verified": 192,
+  "seasons_verified": 12,
+  "output_hashes_verified": 214,
+  "prior_artifacts_unchanged": 76,
+  "shared_evaluation_cells": 3240,
+  "source_monthly_model_values_verified": 4401432,
+  "max_model_integration_difference_mm": 0.004498519992921501,
+  "max_annual_score_difference_mm": 1.8758328224066645e-12,
+  "date_only_parsing_copies_verified": 192,
+  "per_season": [
+    {
+      "season": "DJF",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        28,
+        28
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "JFM",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        24,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "FMA",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        24,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "MAM",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        24,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "AMJ",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        22,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "MJJ",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        24,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "JJA",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        24,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "JAS",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        24,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "ASO",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        24,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "SON",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        23,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "OND",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        24,
+        24
+      ],
+      "integration_max_difference_mm": 0.004498519992921501,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    },
+    {
+      "season": "NDJ",
+      "source_monthly_values": 366786,
+      "valid_members": [
+        24,
+        24
+      ],
+      "integration_max_difference_mm": 0.0,
+      "negative_forecast_cells_across4years": {
+        "cca_1983_2010": 0,
+        "pcr_1983_2010": 0,
+        "cca_1991_2020": 0,
+        "pcr_1991_2020": 0
+      }
+    }
+  ],
+  "checks": "Dates/leapyears/masks/trainingseparation/membercounts/probabilities/variances/rawbilinear/climatologies/annual-pooled-griderrors PASS",
+  "verification_script_sha256": "4864606aa0e87115b6dfe801b85072598a18aeaee7e411898ac1775d5d32a2be"
+}

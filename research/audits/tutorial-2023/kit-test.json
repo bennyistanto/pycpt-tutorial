@@ -1,0 +1,28 @@
+{
+  "tested": "2026-11-10T07:30:04+00:00",
+  "kit": "docs/downloads/indonesia-seasons-2023-kit.zip",
+  "kit_sha256": "8221aa07a0973774c5030c73d61f1018b347801180fc1e2b330887fbc8c8e2df",
+  "files_in_kit": 33,
+  "files_identical_to_repository": 32,
+  "notebook_cells_with_errors": 0,
+  "execution_seconds": 51.1,
+  "pycpt_installed": false,
+  "outputs_compared": {
+    "docs/assets/seasonal-2023/calendar.csv": "identical",
+    "docs/assets/seasonal-2023/context-ending-years-2021-2024.csv": "identical",
+    "docs/assets/seasonal-2023/findings.json": "identical",
+    "docs/assets/seasonal-2023/local-error-reduction-2023.nc": "numerically equal",
+    "docs/assets/seasonal-2023/metrics-2023.csv": "identical",
+    "docs/assets/seasonal-2023/province-improvement-counts.csv": "identical",
+    "docs/assets/seasonal-2023/province-metrics-2023.csv": "identical",
+    "docs/assets/seasonal-2023/province-metrics-context-annual.csv": "identical",
+    "docs/assets/seasonal-2023/province-metrics-context-pooled.csv": "identical",
+    "docs/assets/seasonal-2023/province-ond-2023-rmse.csv": "identical",
+    "docs/assets/seasonal-2023/province-support.csv": "identical",
+    "docs/assets/seasonal-2023/province-verification-2023.nc": "numerically equal",
+    "docs/assets/seasonal-2023/regional-findings.json": "identical",
+    "docs/assets/seasonal-2023/rmse-reduction-vs-climatology.csv": "identical",
+    "docs/assets/seasonal-2023/training-period-sensitivity.csv": "identical",
+    "docs/assets/seasonal-2023/verification-2023.nc": "numerically equal"
+  }
+}

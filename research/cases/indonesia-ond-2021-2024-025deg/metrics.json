@@ -1,0 +1,469 @@
+{
+  "case_id": "indonesia-ond-2021-2024-025deg",
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "new_holdout_years": [
+    2021,
+    2022,
+    2024
+  ],
+  "training_periods": {
+    "1982_2010": 29,
+    "1991_2020": 30
+  },
+  "evaluation_cells": 3240,
+  "per_year": {
+    "2021": {
+      "raw_cfsv2": {
+        "rmse_mm": 423.32707606764114,
+        "mae_mm": 340.0028928392756,
+        "bias_mm": -204.9068895515121
+      },
+      "climatology_1982_2010": {
+        "rmse_mm": 235.7814078194105,
+        "mae_mm": 181.4417709589225,
+        "bias_mm": -139.2237427644606
+      },
+      "climatology_1991_2020": {
+        "rmse_mm": 224.54299007967367,
+        "mae_mm": 172.58160189112942,
+        "bias_mm": -123.20594924828926
+      },
+      "cca_1982_2010": {
+        "rmse_mm": 180.19931169990414,
+        "mae_mm": 140.26736864049172,
+        "bias_mm": 6.384705566296044
+      },
+      "cca_1991_2020": {
+        "rmse_mm": 172.5889800650401,
+        "mae_mm": 136.70867624660494,
+        "bias_mm": 20.226257466357126
+      },
+      "pcr_1982_2010": {
+        "rmse_mm": 183.53478563229947,
+        "mae_mm": 142.26055528513282,
+        "bias_mm": 6.420384938841052
+      },
+      "pcr_1991_2020": {
+        "rmse_mm": 173.6827297106829,
+        "mae_mm": 137.5173224906484,
+        "bias_mm": 21.18548582652931
+      }
+    },
+    "2022": {
+      "raw_cfsv2": {
+        "rmse_mm": 498.29013154676227,
+        "mae_mm": 415.97386106509987,
+        "bias_mm": -243.7618860890052
+      },
+      "climatology_1982_2010": {
+        "rmse_mm": 271.2566791648634,
+        "mae_mm": 224.25374549757385,
+        "bias_mm": -207.06773861077068
+      },
+      "climatology_1991_2020": {
+        "rmse_mm": 257.10259835796825,
+        "mae_mm": 212.6507210087597,
+        "bias_mm": -191.04994509459925
+      },
+      "cca_1982_2010": {
+        "rmse_mm": 176.92611645428963,
+        "mae_mm": 140.8248482746009,
+        "bias_mm": -6.321137348485722
+      },
+      "cca_1991_2020": {
+        "rmse_mm": 172.0751726714086,
+        "mae_mm": 136.79185806547943,
+        "bias_mm": 2.631220365798825
+      },
+      "pcr_1982_2010": {
+        "rmse_mm": 179.37196085833165,
+        "mae_mm": 141.9193906559973,
+        "bias_mm": -5.5776151445645015
+      },
+      "pcr_1991_2020": {
+        "rmse_mm": 161.8878111222318,
+        "mae_mm": 128.37784542707894,
+        "bias_mm": 4.639977293195207
+      }
+    },
+    "2023": {
+      "raw_cfsv2": {
+        "rmse_mm": 292.389469572019,
+        "mae_mm": 230.91776241573166,
+        "bias_mm": -83.90775518296125
+      },
+      "climatology_1982_2010": {
+        "rmse_mm": 222.0270390726227,
+        "mae_mm": 184.77934533837828,
+        "bias_mm": 149.79210828793487
+      },
+      "climatology_1991_2020": {
+        "rmse_mm": 226.4960852681339,
+        "mae_mm": 190.4300180596266,
+        "bias_mm": 165.80990180410632
+      },
+      "cca_1982_2010": {
+        "rmse_mm": 137.43211752090374,
+        "mae_mm": 102.08290083054234,
+        "bias_mm": -47.099710038752136
+      },
+      "cca_1991_2020": {
+        "rmse_mm": 120.34602943146852,
+        "mae_mm": 89.18841098204766,
+        "bias_mm": -3.3764170786724583
+      },
+      "pcr_1982_2010": {
+        "rmse_mm": 132.14920560800437,
+        "mae_mm": 98.82363708157006,
+        "bias_mm": -46.945610499877944
+      },
+      "pcr_1991_2020": {
+        "rmse_mm": 117.35607280241405,
+        "mae_mm": 87.83840806093643,
+        "bias_mm": -3.4725199857096216
+      }
+    },
+    "2024": {
+      "raw_cfsv2": {
+        "rmse_mm": 399.9092184902436,
+        "mae_mm": 319.6798730428804,
+        "bias_mm": -172.7043506741285
+      },
+      "climatology_1982_2010": {
+        "rmse_mm": 179.4771955000521,
+        "mae_mm": 130.11184660222114,
+        "bias_mm": -92.66041153926297
+      },
+      "climatology_1991_2020": {
+        "rmse_mm": 171.94454402684383,
+        "mae_mm": 123.26849226252767,
+        "bias_mm": -76.64261802309163
+      },
+      "cca_1982_2010": {
+        "rmse_mm": 151.6758553902338,
+        "mae_mm": 119.2420667289702,
+        "bias_mm": 42.53151383806603
+      },
+      "cca_1991_2020": {
+        "rmse_mm": 152.51212819400465,
+        "mae_mm": 121.03074556389542,
+        "bias_mm": 56.993239571066304
+      },
+      "pcr_1982_2010": {
+        "rmse_mm": 154.27244528239774,
+        "mae_mm": 121.3946847964282,
+        "bias_mm": 42.01470988184779
+      },
+      "pcr_1991_2020": {
+        "rmse_mm": 157.7011527664174,
+        "mae_mm": 125.49223832956118,
+        "bias_mm": 57.384172210702026
+      }
+    }
+  },
+  "pooled_metrics": {
+    "new_holdouts": {
+      "raw_cfsv2": {
+        "pooled_rmse_mm": 442.50282543819065,
+        "mean_annual_rmse_mm": 440.508808701549,
+        "mae_mm": 358.5522089824187,
+        "bias_mm": -207.12437543821525,
+        "years": [
+          2021,
+          2022,
+          2024
+        ]
+      },
+      "climatology_1982_2010": {
+        "pooled_rmse_mm": 231.93757922439443,
+        "mean_annual_rmse_mm": 228.83842749477535,
+        "mae_mm": 178.60245435290582,
+        "bias_mm": -146.31729763816475,
+        "years": [
+          2021,
+          2022,
+          2024
+        ]
+      },
+      "climatology_1991_2020": {
+        "pooled_rmse_mm": 220.6703625296779,
+        "mean_annual_rmse_mm": 217.8633774881619,
+        "mae_mm": 169.5002717208056,
+        "bias_mm": -130.29950412199338,
+        "years": [
+          2021,
+          2022,
+          2024
+        ]
+      },
+      "cca_1982_2010": {
+        "pooled_rmse_mm": 170.07861685024292,
+        "mean_annual_rmse_mm": 169.60042784814252,
+        "mae_mm": 133.44476121468762,
+        "bias_mm": 14.198360685292117,
+        "years": [
+          2021,
+          2022,
+          2024
+        ]
+      },
+      "cca_1991_2020": {
+        "pooled_rmse_mm": 165.98872485407998,
+        "mean_annual_rmse_mm": 165.72542697681777,
+        "mae_mm": 131.5104266253266,
+        "bias_mm": 26.616905801074086,
+        "years": [
+          2021,
+          2022,
+          2024
+        ]
+      },
+      "pcr_1982_2010": {
+        "pooled_rmse_mm": 172.87693624142713,
+        "mean_annual_rmse_mm": 172.39306392434295,
+        "mae_mm": 135.1915435791861,
+        "bias_mm": 14.285826558708115,
+        "years": [
+          2021,
+          2022,
+          2024
+        ]
+      },
+      "pcr_1991_2020": {
+        "pooled_rmse_mm": 164.56306549320075,
+        "mean_annual_rmse_mm": 164.42389786644404,
+        "mae_mm": 130.4624687490962,
+        "bias_mm": 27.736545110142185,
+        "years": [
+          2021,
+          2022,
+          2024
+        ]
+      }
+    },
+    "all_four_years": {
+      "raw_cfsv2": {
+        "pooled_rmse_mm": 410.1578517714101,
+        "mean_annual_rmse_mm": 403.4789739191665,
+        "mae_mm": 326.6435973407469,
+        "bias_mm": -176.32022037440177,
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      "climatology_1982_2010": {
+        "pooled_rmse_mm": 229.50006974332965,
+        "mean_annual_rmse_mm": 227.13558038923716,
+        "mae_mm": 180.14667709927394,
+        "bias_mm": -72.28994615663984,
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      "climatology_1991_2020": {
+        "pooled_rmse_mm": 222.14111693849486,
+        "mean_annual_rmse_mm": 220.0215544331549,
+        "mae_mm": 174.73270830551087,
+        "bias_mm": -56.27215264046845,
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      "cca_1982_2010": {
+        "pooled_rmse_mm": 162.53291563199951,
+        "mean_annual_rmse_mm": 161.5583502663328,
+        "mae_mm": 125.6042961186513,
+        "bias_mm": -1.1261569957189455,
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      "cca_1991_2020": {
+        "pooled_rmse_mm": 155.83640230701096,
+        "mean_annual_rmse_mm": 154.38057759048047,
+        "mae_mm": 120.92992271450687,
+        "bias_mm": 19.11857508113745,
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      "pcr_1982_2010": {
+        "pooled_rmse_mm": 163.64803527349022,
+        "mean_annual_rmse_mm": 162.3320993452583,
+        "mae_mm": 126.09956695478208,
+        "bias_mm": -1.0220327059384005,
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024
+        ]
+      },
+      "pcr_1991_2020": {
+        "pooled_rmse_mm": 154.12288554686157,
+        "mean_annual_rmse_mm": 152.65694160043654,
+        "mae_mm": 119.80645357705625,
+        "bias_mm": 19.93427883617923,
+        "years": [
+          2021,
+          2022,
+          2023,
+          2024
+        ]
+      }
+    }
+  },
+  "period_changes": {
+    "cca": {
+      "per_year": {
+        "2021": {
+          "older_rmse_mm": 180.19931169990414,
+          "recent_rmse_mm": 172.5889800650401,
+          "recent_minus_older_rmse_mm": -7.610331634864053
+        },
+        "2022": {
+          "older_rmse_mm": 176.92611645428963,
+          "recent_rmse_mm": 172.0751726714086,
+          "recent_minus_older_rmse_mm": -4.850943782881018
+        },
+        "2023": {
+          "older_rmse_mm": 137.43211752090374,
+          "recent_rmse_mm": 120.34602943146852,
+          "recent_minus_older_rmse_mm": -17.086088089435222
+        },
+        "2024": {
+          "older_rmse_mm": 151.6758553902338,
+          "recent_rmse_mm": 152.51212819400465,
+          "recent_minus_older_rmse_mm": 0.8362728037708393
+        }
+      },
+      "recent_lower_rmse_new_holdout_years": [
+        2021,
+        2022
+      ]
+    },
+    "pcr": {
+      "per_year": {
+        "2021": {
+          "older_rmse_mm": 183.53478563229947,
+          "recent_rmse_mm": 173.6827297106829,
+          "recent_minus_older_rmse_mm": -9.852055921616568
+        },
+        "2022": {
+          "older_rmse_mm": 179.37196085833165,
+          "recent_rmse_mm": 161.8878111222318,
+          "recent_minus_older_rmse_mm": -17.48414973609985
+        },
+        "2023": {
+          "older_rmse_mm": 132.14920560800437,
+          "recent_rmse_mm": 117.35607280241405,
+          "recent_minus_older_rmse_mm": -14.793132805590318
+        },
+        "2024": {
+          "older_rmse_mm": 154.27244528239774,
+          "recent_rmse_mm": 157.7011527664174,
+          "recent_minus_older_rmse_mm": 3.428707484019668
+        }
+      },
+      "recent_lower_rmse_new_holdout_years": [
+        2021,
+        2022
+      ]
+    }
+  },
+  "fit_elapsed_seconds": {
+    "cca_1982_2010": {
+      "2021": 4.56519713599846,
+      "2022": 4.574823811999522,
+      "2024": 4.626381463000143
+    },
+    "pcr_1982_2010": {
+      "2021": 3.786686413001007,
+      "2022": 3.719285625997145,
+      "2024": 3.993935103997501
+    },
+    "cca_1991_2020": {
+      "2021": 4.54937197199979,
+      "2022": 4.564188768999884,
+      "2024": 4.3296564770025725
+    },
+    "pcr_1991_2020": {
+      "2021": 3.9607327269986854,
+      "2022": 3.855793512000673,
+      "2024": 3.8469478000006347
+    }
+  },
+  "frozen_hindcast_checks": {
+    "cca_1982_2010": {
+      "2021": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      },
+      "2022": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      },
+      "2024": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      }
+    },
+    "pcr_1982_2010": {
+      "2021": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      },
+      "2022": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      },
+      "2024": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      }
+    },
+    "cca_1991_2020": {
+      "2021": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      },
+      "2022": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      },
+      "2024": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      }
+    },
+    "pcr_1991_2020": {
+      "2021": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      },
+      "2022": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      },
+      "2024": {
+        "hindcast_maximum_difference_from_frozen_mm": 0.0
+      }
+    }
+  },
+  "limitations": [
+    "Three additional years and one motivating2023 case; no significance or general seasonal skill claim",
+    "Both training periods fixed; different sample counts29and30",
+    "1991\u20132020 mixes reforecast and operational archive segments",
+    "Current-vintage CHIRPS3/archived forecasts, not exact as-issued vintages",
+    "Period-specific probability categories differ; no probabilistic skill comparison"
+  ]
+}

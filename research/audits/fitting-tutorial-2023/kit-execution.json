@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-02",
+  "notebook": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-kit-ss88hq7b/docs/notebooks/fit-diagnose-2023.ipynb",
+  "elapsed_seconds": 103.1,
+  "code_cells_executed": 18,
+  "errors": 0,
+  "actual_fits": 4,
+  "notebook_sha256": "ed2fe99e29fa7c775fd5086cfc56443f797b2732f3d7c4f2fe464a51c29b185e",
+  "native_directories": [
+    "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-kit-ss88hq7b/temp/fitting-2023-2mdx9hqh/OND-cca",
+    "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-kit-ss88hq7b/temp/fitting-2023-2mdx9hqh/OND-pcr",
+    "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-kit-ss88hq7b/temp/fitting-2023-2mdx9hqh/JJA-cca",
+    "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-kit-ss88hq7b/temp/fitting-2023-2mdx9hqh/JJA-pcr"
+  ],
+  "netcdf_outputs": 30,
+  "offline_guard": {
+    "credential_reads": 0,
+    "remote_connections": 0
+  }
+}

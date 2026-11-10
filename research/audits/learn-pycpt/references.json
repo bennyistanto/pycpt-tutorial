@@ -1,0 +1,229 @@
+{
+  "checked": "2026-11-10T07:15:57+00:00",
+  "upstream_commit": "084bb5c380c200b5f65f11ba224a965547b91da1",
+  "modules": {
+    "pycpt.notebook": {
+      "upstream_path": "pycpt/src/pycpt/notebook.py",
+      "identical": true,
+      "sha256": "f3af8e851050098ade15a0003739d7fe291fb4c98639cf8589ada80724b7ef64"
+    },
+    "cptcore.functional.cca": {
+      "upstream_path": "pycpt/src/cptcore/functional/cca.py",
+      "identical": true,
+      "sha256": "938e2969bbbca4383657374f0c0ecec3cf2752a2acb5acb270874ad045e3253a"
+    },
+    "cptdl.utilities": {
+      "upstream_path": "pycpt/src/cptdl/utilities.py",
+      "identical": true,
+      "sha256": "a7cb48b5ae20db1010bd140bbb527a4f8a72ff4e217f17b30993f693a079df97"
+    },
+    "cptextras.view": {
+      "upstream_path": "pycpt/src/cptextras/view.py",
+      "identical": true,
+      "sha256": "48eb9bf282e82346a7fad54c5e10791c7d2a06a1f55f13002eb4c0663d684623"
+    },
+    "cptextras.redate": {
+      "upstream_path": "pycpt/src/cptextras/redate.py",
+      "identical": true,
+      "sha256": "c30afc67e5fd87d384fdfe18f309cf059a081835073b6e5ee5dfd57cec39df2f"
+    },
+    "cptextras.dlcolors": {
+      "upstream_path": "pycpt/src/cptextras/dlcolors.py",
+      "identical": true,
+      "sha256": "5c38c1355d9cbcd043635bd6ae30f56878493251635437b5e425479f35f3100c"
+    },
+    "cptdl.catalog": {
+      "upstream_path": "pycpt/src/cptdl/catalog.py",
+      "identical": true,
+      "sha256": "60f622aac75f3a9730402dcb56028ab4536ae774ba788d38846206101f6ed9f5"
+    },
+    "cptdl.targetleadconv": {
+      "upstream_path": "pycpt/src/cptdl/targetleadconv.py",
+      "identical": true,
+      "sha256": "5114b9be8700115d58788035038d425f549df0e764fa9fbb45e42ff3a13f0b79"
+    },
+    "cptio.utilities.verify": {
+      "upstream_path": "cpt-io/src/cptio/utilities/verify.py",
+      "identical": true,
+      "sha256": "1a85770a5abe3d744af0ea9fdca5d74822f2891ed04f706711758e7f80c28af3"
+    }
+  },
+  "urls": {
+    "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/pycpt/notebook.py": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/pycpt/notebook.py"
+    },
+    "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptcore/functional/cca.py": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptcore/functional/cca.py"
+    },
+    "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptdl/utilities.py": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptdl/utilities.py"
+    },
+    "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptextras/view.py": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptextras/view.py"
+    },
+    "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptextras/redate.py": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptextras/redate.py"
+    },
+    "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptextras/dlcolors.py": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptextras/dlcolors.py"
+    },
+    "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptdl/catalog.py": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptdl/catalog.py"
+    },
+    "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptdl/targetleadconv.py": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/cptdl/targetleadconv.py"
+    },
+    "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/cpt-io/src/cptio/utilities/verify.py": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/cpt-io/src/cptio/utilities/verify.py"
+    },
+    "https://github.com/iri-pycpt/notebooks/blob/1c975316910b9e047ce685d9b8cdefb2c4b73551/Operations/pycpt-operational.ipynb": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/notebooks/blob/1c975316910b9e047ce685d9b8cdefb2c4b73551/Operations/pycpt-operational.ipynb"
+    },
+    "https://github.com/iri-pycpt/notebooks/blob/1c975316910b9e047ce685d9b8cdefb2c4b73551/Demo/cptcore_demo.ipynb": {
+      "status": 200,
+      "final_url": "https://github.com/iri-pycpt/notebooks/blob/1c975316910b9e047ce685d9b8cdefb2c4b73551/Demo/cptcore_demo.ipynb"
+    },
+    "https://iri-pycpt.github.io/": {
+      "status": 200,
+      "final_url": "https://iri-pycpt.github.io/"
+    },
+    "https://iri-pycpt.github.io/authentication/": {
+      "status": 200,
+      "final_url": "https://iri-pycpt.github.io/authentication/"
+    },
+    "https://iri-pycpt.github.io/installation/": {
+      "status": 200,
+      "final_url": "https://iri-pycpt.github.io/installation/"
+    },
+    "https://iri.columbia.edu/~awr/pycpt/seasonal-jupyterbook/html_2sep2023/cpt.html": {
+      "status": 200,
+      "final_url": "https://iri.columbia.edu/~awr/pycpt/seasonal-jupyterbook/html_2sep2023/cpt.html"
+    },
+    "https://iri.columbia.edu/~awr/pycpt/seasonal-jupyterbook/html_2sep2023/configuration.html": {
+      "status": 200,
+      "final_url": "https://iri.columbia.edu/~awr/pycpt/seasonal-jupyterbook/html_2sep2023/configuration.html"
+    },
+    "https://iri.columbia.edu/our-expertise/climate/tools/cpt/": {
+      "status": 200,
+      "final_url": "https://cptplus.org"
+    },
+    "https://cptplus.org/Help/CPT_use_contents.html": {
+      "status": 200,
+      "final_url": "https://cptplus.org/Help/CPT_use_contents.html"
+    },
+    "https://cptplus.org/Help/Tools_Models_CCA.html": {
+      "status": 200,
+      "final_url": "https://cptplus.org/Help/Tools_Models_CCA.html"
+    },
+    "https://cptplus.org/Help/Tools_Models_Scree.html": {
+      "status": 200,
+      "final_url": "https://cptplus.org/Help/Tools_Models_Scree.html"
+    },
+    "https://cptplus.org/Help/Tools_Models_YEOF.html": {
+      "status": 200,
+      "final_url": "https://cptplus.org/Help/Tools_Models_YEOF.html"
+    },
+    "https://cptplus.org/Help/Tools_Forecast_Probs.html": {
+      "status": 200,
+      "final_url": "https://cptplus.org/Help/Tools_Forecast_Probs.html"
+    },
+    "https://cptplus.org/Help/Tools_Verify.html": {
+      "status": 200,
+      "final_url": "https://cptplus.org/Help/Tools_Verify.html"
+    },
+    "https://cptplus.org/Help/CPT_use_input_gridded.html": {
+      "status": 200,
+      "final_url": "https://cptplus.org/Help/CPT_use_input_gridded.html"
+    },
+    "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/": {
+      "status": 200,
+      "final_url": "https://iridl.ldeo.columbia.edu/auth/login?redirect=%2FSOURCES%2F.Models%2F.NMME%2F.NCEP-CFSv2%2F.HINDCAST%2F.PENTAD_SAMPLES_FULL%2F.prec%2F"
+    },
+    "https://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/": {
+      "status": 200,
+      "final_url": "https://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/"
+    },
+    "https://www.chc.ucsb.edu/data/chirps3": {
+      "status": 200,
+      "final_url": "https://www.chc.ucsb.edu/data/chirps3"
+    },
+    "https://cptplus.org/Help/CPT_use_custom.html": {
+      "status": 200,
+      "final_url": "https://cptplus.org/Help/CPT_use_custom.html"
+    },
+    "https://cptplus.org/whatsnew.html": {
+      "status": 200,
+      "final_url": "https://cptplus.org/whatsnew.html"
+    },
+    "https://doi.org/10.7916/fdp6-v391": {
+      "status": 200,
+      "final_url": "https://academiccommons.columbia.edu/doi/10.7916/fdp6-v391/download"
+    },
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html": {
+      "status": 200,
+      "final_url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.t.html"
+    },
+    "https://numpy.org/doc/stable/reference/generated/numpy.quantile.html": {
+      "status": 200,
+      "final_url": "https://numpy.org/doc/stable/reference/generated/numpy.quantile.html"
+    },
+    "https://docs.xarray.dev/en/stable/generated/xarray.DataArray.quantile.html": {
+      "status": 200,
+      "final_url": "https://docs.xarray.dev/en/stable/generated/xarray.DataArray.quantile.html"
+    },
+    "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/": {
+      "status": 200,
+      "final_url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/"
+    },
+    "https://iridl.ldeo.columbia.edu/SOURCES/.EU/.Copernicus/.CDS/.C3S/.ECMWF/.SEAS51_iri2/": {
+      "status": 200,
+      "final_url": "https://iridl.ldeo.columbia.edu/SOURCES/.EU/.Copernicus/.CDS/.C3S/.ECMWF/.SEAS51_iri2/"
+    },
+    "https://doi.org/10.5194/gmd-12-1087-2019": {
+      "status": 200,
+      "final_url": "https://gmd.copernicus.org/articles/12/1087/2019/"
+    },
+    "https://doi.org/10.1175/JCLI-D-12-00823.1": {
+      "status": 403,
+      "final_url": "https://journals.ametsoc.org:443/view/journals/clim/27/6/jcli-d-12-00823.1.xml"
+    },
+    "https://doi.org/10.1175/BAMS-D-12-00050.1": {
+      "status": 403,
+      "final_url": "https://journals.ametsoc.org:443/view/journals/bams/95/4/bams-d-12-00050.1.xml"
+    },
+    "https://doi.org/10.1038/sdata.2015.66": {
+      "status": 200,
+      "final_url": "https://www.nature.com/articles/sdata201566"
+    },
+    "https://doi.org/10.3133/ds832": {
+      "status": 200,
+      "final_url": "https://pubs.usgs.gov/publication/ds832"
+    },
+    "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/": {
+      "status": 200,
+      "final_url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/"
+    },
+    "https://scitools.org.uk/cartopy/docs/latest/": {
+      "status": 200,
+      "final_url": "https://scitools.org.uk/cartopy/docs/latest/"
+    },
+    "https://shapely.readthedocs.io/en/stable/reference/shapely.contains_xy.html": {
+      "status": 200,
+      "final_url": "https://shapely.readthedocs.io/en/stable/reference/shapely.contains_xy.html"
+    },
+    "https://docs.xarray.dev/en/stable/examples/area_weighted_temperature.html": {
+      "status": 200,
+      "final_url": "https://docs.xarray.dev/en/stable/examples/area_weighted_temperature.html"
+    }
+  }
+}

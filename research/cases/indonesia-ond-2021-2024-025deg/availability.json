@@ -1,0 +1,74 @@
+{
+  "case_id": "indonesia-ond-2021-2024-025deg",
+  "status": "PASS",
+  "checked_at": "2026-10-31T15:20:32.689581+00:00",
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "new_forecast_years": [
+    2021,
+    2022,
+    2024
+  ],
+  "monthly_records": 12,
+  "predictor_grid_cells": 2911,
+  "finite_monthly_values": 34932,
+  "valid_member_count_range": [
+    24,
+    24
+  ],
+  "training_masks_unchanged": true,
+  "common_training_cells": 3240,
+  "all_years_evaluation_cells": 3240,
+  "original_common_land_weight_retained": 1.0,
+  "forecast_2023_matches_frozen_case": true,
+  "observed_2023_matches_frozen_case": true,
+  "per_year": [
+    {
+      "year": 2021,
+      "finite_model_monthly_values": 8733,
+      "minimum_members": 24,
+      "maximum_members": 24,
+      "observed_common_cells": 3240
+    },
+    {
+      "year": 2022,
+      "finite_model_monthly_values": 8733,
+      "minimum_members": 24,
+      "maximum_members": 24,
+      "observed_common_cells": 3240
+    },
+    {
+      "year": 2023,
+      "finite_model_monthly_values": 8733,
+      "minimum_members": 24,
+      "maximum_members": 24,
+      "observed_common_cells": 3240
+    },
+    {
+      "year": 2024,
+      "finite_model_monthly_values": 8733,
+      "minimum_members": 24,
+      "maximum_members": 24,
+      "observed_common_cells": 3240
+    }
+  ],
+  "sources": {
+    "monthly_means": {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Sep%202021-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/-999/setmissing_value/%5BX/Y%5D%5BL/S/add%5D/cptv10.tsv",
+      "sha256": "a20f9d33425f154e0f3db19f43391d24ed6f87e5ee29d218714ed18f4992100e"
+    },
+    "valid_member_counts": {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Sep%202021-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/-999/setmissing_value/%5BX/Y%5D%5BL/S/add%5D/cptv10.tsv",
+      "sha256": "7a6006099caedbd45f0fe1d355f53e892650fcbb6b01f7ed651d45aa83d70ea6"
+    }
+  },
+  "limitations": [
+    "Retrospective current-vintage archive/CHIRPS3 replay",
+    "1991\u20132020 calibration retains previously audited reforecast/operational transition",
+    "Evaluation mask uses verification availability only, never refits models"
+  ]
+}

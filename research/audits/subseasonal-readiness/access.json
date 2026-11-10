@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-02",
+  "auth": {
+    "credential_file_present": true,
+    "credential_file_mode": "0o600",
+    "credential_loaded": true
+  },
+  "probes": [
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC/.hindcast/.weekly/.pr/dods.dds",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_sampled": 386,
+      "truncated": false,
+      "name": "SubX_GEFSv12_CPC_weekly",
+      "dds": "Dataset {\n    Float32 S[S = 1600];\n    Float32 M[M = 11];\n    Float32 X[X = 360];\n    Float32 Y[Y = 181];\n    Float32 L[L = 35];\n    Grid {\n     ARRAY:\n        Float32 pr[S = 1600][M = 11][L = 35][Y = 181][X = 360];\n     MAPS:\n        Float32 S[S = 1600];\n        Float32 M[M = 11];\n        Float32 L[L = 35];\n        Float32 Y[Y = 181];\n        Float32 X[X = 360];\n    } pr;\n} weekly;\n"
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC/.forecast/.pr/dods.dds",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_sampled": 388,
+      "truncated": false,
+      "name": "SubX_GEFSv12_CPC_forecast",
+      "dds": "Dataset {\n    Float32 M[M = 31];\n    Float32 X[X = 360];\n    Float32 S[S = 1674];\n    Float32 L[L = 34];\n    Float32 Y[Y = 181];\n    Grid {\n     ARRAY:\n        Float32 pr[S = 1674][M = 31][L = 34][Y = 181][X = 360];\n     MAPS:\n        Float32 S[S = 1674];\n        Float32 M[M = 31];\n        Float32 L[L = 34];\n        Float32 Y[Y = 181];\n        Float32 X[X = 360];\n    } pr;\n} forecast;\n"
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/dods.dds",
+      "error_type": "ReadTimeout",
+      "name": "SubX_root",
+      "access": "not_a_DDS_response"
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.ECMWF/.S2S/dods.dds",
+      "error_type": "ReadTimeout",
+      "name": "S2S_root",
+      "access": "not_a_DDS_response"
+    },
+    {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.UCSB/.CHIRPS/.v2p0/.daily-improved/.global/.0p25/.prcp/dods.dds",
+      "status": 200,
+      "content_type": "text/plain",
+      "bytes_sampled": 278,
+      "truncated": false,
+      "name": "CHIRPS_v2_daily",
+      "dds": "Dataset {\n    Float32 X[X = 1440];\n    Float32 T[T = 16709];\n    Float32 Y[Y = 400];\n    Grid {\n     ARRAY:\n        Float32 prcp[T = 16709][Y = 400][X = 1440];\n     MAPS:\n        Float32 T[T = 16709];\n        Float32 Y[Y = 400];\n        Float32 X[X = 1440];\n    } prcp;\n} 0p25;\n"
+    }
+  ],
+  "credentials_recorded": false,
+  "fits_run": 0
+}

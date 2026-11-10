@@ -1,0 +1,46 @@
+{
+  "installed_pycpt_version": "2.10.4",
+  "installed_module": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/lib/python3.12/site-packages/pycpt/notebook.py",
+  "installed_module_sha256": "f3af8e851050098ade15a0003739d7fe291fb4c98639cf8589ada80724b7ef64",
+  "function_line_ranges": {
+    "evaluate_models": [
+      366,
+      457
+    ],
+    "construct_mme_new": [
+      1559,
+      1651
+    ],
+    "evaluate_mme": [
+      1654,
+      1662
+    ],
+    "construct_mme": [
+      1667,
+      1675
+    ],
+    "construct_flex_fcst": [
+      1678,
+      1763
+    ]
+  },
+  "case": "OND2023_CCA_1991_2020",
+  "training_samples": 30,
+  "comparison_scope": "Same native67th-percentile physical thresholds, same positive forecast means and squared scales. Only helper versus native distribution parameters differ. No fitting or data downloads.",
+  "retained_cells": 3240,
+  "helper_degrees_of_freedom": 30,
+  "native_degrees_of_freedom": 26,
+  "helper_scale2_factor": 0.9333333333333333,
+  "native_reconstruction_max_difference_percentage_points": 0.0001227200785013094,
+  "max_native_vs_helper_difference_percentage_points": 0.8819851309150667,
+  "mean_absolute_native_vs_helper_difference_percentage_points": 0.6243281880977575,
+  "example_max_difference_cell": {
+    "row_index": 39,
+    "column_index": 158,
+    "threshold_mm": 732.814,
+    "deterministic_mm": 593.735021,
+    "native_squared_scale_mm2": 18598.289691,
+    "native_above_probability_percent": 15.860502000000002,
+    "flex_above_probability_percent": 14.978516869084935
+  }
+}

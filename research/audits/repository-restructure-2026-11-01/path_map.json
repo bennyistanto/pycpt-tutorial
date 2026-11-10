@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-01",
+  "mapping": {
+    "scripts/check_cpt.py": "scripts/check_cpt.py",
+    "cases": "research/cases",
+    "audits": "research/audits",
+    "scripts": "research/scripts",
+    "cache": "temp/cache",
+    "INSTALLATION.md": "docs/guides/INSTALLATION.md",
+    "CPT_COMPATIBILITY.md": "docs/guides/CPT_COMPATIBILITY.md",
+    "TOOLS.md": "docs/guides/TOOLS.md",
+    "METHODOLOGY_AUDIT.md": "research/reports/METHODOLOGY_AUDIT.md",
+    "NOTEBOOK_REFERENCE_REVIEW.md": "research/reports/NOTEBOOK_REFERENCE_REVIEW.md",
+    "SEASONAL_BENCHMARK_PLAN.md": "research/plans/SEASONAL_BENCHMARK_PLAN.md"
+  }
+}

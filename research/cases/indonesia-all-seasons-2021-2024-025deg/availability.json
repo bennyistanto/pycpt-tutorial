@@ -1,0 +1,545 @@
+{
+  "status": "PASS",
+  "case_id": "indonesia-all-seasons-2021-2024-025deg",
+  "calendar_decision": {
+    "initialization_start": "1982-01-01",
+    "metadata_sha256": "8a0d7e3ca3a34125e88a6b4ff612b8b18891d7c6717568367467d29d6c54fe9f",
+    "source": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/",
+    "unavailable1982_target_seasons_under_ending_year_convention": [
+      "DJF",
+      "JFM",
+      "NDJ"
+    ],
+    "decision": "Use1983\u20132010(28seasons) and1991\u20132020(30seasons) for every season; preserve older1982\u20132010 OND cases",
+    "first_initialization_in_new_matrix": "1982-10-01T00:00:00",
+    "year_convention": "Season labelled by ending year; NDJ/DJF start in preceding year",
+    "archive_transition": "Operational forecasts appended fromApril2011; no homogeneity correction"
+  },
+  "seasons": {
+    "DJF": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        28,
+        28
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "DJF",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1982-11-01T00:00:00",
+      "last_initialization": "2023-11-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Nov%201982-2023%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Nov%201982-2023%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "4d78bf06a84f07af8f7817d3027bd287531b2c2f7df4e66a50dbc3b2b641756a",
+        "member_counts": "cb8b7c6618f791b5d90c7ce3d13385317429665bfd94fa6aadbe0663cdde55aa"
+      },
+      "input_sha256": {
+        "predictors.nc": "f5c4c4299d6e187a620836453e0ac77c0390e370f6e2bace88a0c7091e08fba1",
+        "monthly_audit.nc": "25d922ce2f8d91580e084bd61b10fec09da8239968cae98a49b0ca81d2d56250",
+        "observations.nc": "bb79166cac0ca8ddd19104bb08d80fd13ff0b0f38bf89b0f2bbcf02aaa3b3dc8",
+        "footprint.nc": "9a25abb09fed2bb1839651d74ad7305d5534415e0165a74101d92518a22e73fd"
+      }
+    },
+    "JFM": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        24,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "JFM",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1982-12-01T00:00:00",
+      "last_initialization": "2023-12-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Dec%201982-2023%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Dec%201982-2023%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "8b3aa84eb96b516d1912dd3fe093ae934b14d9c80bf722c12e8d211271adc4b3",
+        "member_counts": "d1cc8eb1f0456e8adc42ffa0fbfe85c8ec96fcaca229b65f42a4ed81fa22a853"
+      },
+      "input_sha256": {
+        "predictors.nc": "33476724696aea14ee081f01d503cd3dcd1f921eeaa030a7fe298df2e485a0b8",
+        "monthly_audit.nc": "f5bcf6adc74c968baece7db1da084dcd1e82b56c74594a8640291b2f643fc23e",
+        "observations.nc": "add979d01970be9053fdaed48da57ab6775eeef332aa55762d9b2abd1c04f690",
+        "footprint.nc": "1524ed04c98380ccece447c2411b616602b45e4d1e5d83b5ebe5b80a24fe659c"
+      }
+    },
+    "FMA": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        24,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "FMA",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1983-01-01T00:00:00",
+      "last_initialization": "2024-01-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Jan%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Jan%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "65cfc6a79dd611ebc7ab2ebcf78ca6b92aebfe654b47cb46b79a09c34e81b7d0",
+        "member_counts": "33344cc94a2f1c558e414f94c761f8d7985d4bb05855dc73eaf5fbc9f164cb3b"
+      },
+      "input_sha256": {
+        "predictors.nc": "f9f6dda50d94e9c8d181e755dfaab8c69df7ca072177726b90d02b8762c8a94a",
+        "monthly_audit.nc": "2385e4f4c050155ecf41b2a2bf573b6171efd4735cd782572fc90dee9ee4bed1",
+        "observations.nc": "2963679743bcaaa3c0cc123d8827b75350cd004cdcb189246255c7b2032740ea",
+        "footprint.nc": "3a372812515941d6478afb82196ab14637d1d373bb2e7e05ac6c0da3001259bb"
+      }
+    },
+    "MAM": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        24,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "MAM",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1983-02-01T00:00:00",
+      "last_initialization": "2024-02-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Feb%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Feb%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "fd4e8fe957aee03a4579773cef30d4e287e3ed095940cdd5785a2c2f2fdfaf3c",
+        "member_counts": "d0d3f4de838ab7e5040c1b84a82ecd17a0b7ade3a9268b74b58b8be6a96d1e44"
+      },
+      "input_sha256": {
+        "predictors.nc": "33183cd89f7449a29a768e38c0d74fc425193761aae9610cfe744e9ff4a618c2",
+        "monthly_audit.nc": "4092af462339511407957b5c7a6e64750f843c2047935562f08d8894fe6befa6",
+        "observations.nc": "fef70b2e01269f4dcf02d78089ccf8ee8a255934d46baadc84f7ee3793d2c277",
+        "footprint.nc": "26409b904b862431681c5b6225cbe69cde980e1b7a2b6bc14f6ef03f917d2363"
+      }
+    },
+    "AMJ": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        22,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "AMJ",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1983-03-01T00:00:00",
+      "last_initialization": "2024-03-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Mar%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Mar%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "21fe156416007c6a42f7ed8f1d35cf65deadd8b75d03bb50a4d7ce4269443b2b",
+        "member_counts": "e0330cb6258ab6215f5d04eca88030a0e142f8c044f7d3bc92273c1e6315ed86"
+      },
+      "input_sha256": {
+        "predictors.nc": "fa5fa26e5607c741f517b213fa99b3e5693a0d7b67f70501a94e26036443ba00",
+        "monthly_audit.nc": "90d7e4740cdcdb9a9e57f38b03bd6b1cdb85a1c9f643cb421f41800d6029844f",
+        "observations.nc": "e714f46d80df56d56d7eb33ae1bc1fed34f561f39885d2b92e2a553fe2e468c3",
+        "footprint.nc": "9ddb1fcf34626bbc58025ec7a764b78fb7ea8d6dcfb27ca06b1518664b8f9c4a"
+      }
+    },
+    "MJJ": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        24,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "MJJ",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1983-04-01T00:00:00",
+      "last_initialization": "2024-04-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Apr%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Apr%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "a86144bf8b5ce585e37f3c9b650274331aa92dc883883db6b9f7cd1196d37c00",
+        "member_counts": "1041cc96e2c0930e56bb55a9aca56cffedd5aee4fa66bd5dd334a44e6ba38ac8"
+      },
+      "input_sha256": {
+        "predictors.nc": "1489f4ce13945363d963b916fd1c25d5ef0270bd3a2b3c73ad7f59a04032ccc3",
+        "monthly_audit.nc": "30b0ec49e08bea0c6a3f498532709cf726b8e698b07d6d1c64de9ffa91cb60d2",
+        "observations.nc": "0fe8552837a42877966aee6bd58743c3130495f8cbfeec801f869f78efbe8b94",
+        "footprint.nc": "054f7ed7b0a4743a5b52c369b233de6f196c8aa423db82aabfdb25097297d5c0"
+      }
+    },
+    "JJA": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        24,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "JJA",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1983-05-01T00:00:00",
+      "last_initialization": "2024-05-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20May%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20May%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "a6439600b3fafec5e1e80395e822289a7121b698d462b93b7c4007b2f3ab1bfe",
+        "member_counts": "036335459c8bbd2c7b97f20e919cda6e9f14e0a7bb5007607e069c3d06749d9a"
+      },
+      "input_sha256": {
+        "predictors.nc": "4698b0e5af1b764557cc7a1156c1036966be6eb8b9ceaff2cfb8792f480e1523",
+        "monthly_audit.nc": "3a36b65bf2fbf1038da5d123ea205084d27ba7b619e8ce3d004924082790ec6a",
+        "observations.nc": "6647aaae5dceea7037408adc1c6d6cd38fc219d26e0b08524a4b002270a776c3",
+        "footprint.nc": "bdcaf6bca604dd874b49617d01f85e60d1698d07712aa23a43f1467b54579f19"
+      }
+    },
+    "JAS": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        24,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "JAS",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1983-06-01T00:00:00",
+      "last_initialization": "2024-06-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Jun%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Jun%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "21be16ae5358ffb57236ec9ec2ddeac60973a205c9d793dad654ad1f0cfee6ad",
+        "member_counts": "1098e88990d74cae399b5196aae5069736799b721ed2c6cf95ff67d9d2e2b4f4"
+      },
+      "input_sha256": {
+        "predictors.nc": "cbbe0e8b9fd92f86b3a9a8bd058c00f6014d2da40007c193dd6d55527e8ce84e",
+        "monthly_audit.nc": "52e6d1fa53ad87bb99851c523e180e24bf480b99cc2b314df9303c41a1003e48",
+        "observations.nc": "2854868e3a3d6d5dd9c77d8e448d9835c757fcbecda68e21abcdb57475965594",
+        "footprint.nc": "a524325b69581f85d021ab75b9fa749224d71c412f851ae97c9a088d3466b50f"
+      }
+    },
+    "ASO": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        24,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "ASO",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1983-07-01T00:00:00",
+      "last_initialization": "2024-07-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Jul%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Jul%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "0baef3dc68f9f5d976d9db6152378ed474064ee61fc9ac57314f425c36148817",
+        "member_counts": "0f00fa98018010b9648a14e584545bbdc12546fc1705261885465c45255f9a54"
+      },
+      "input_sha256": {
+        "predictors.nc": "5a4c54722ad7673e2786b7efa2a6115b7222895c2fc0a0771cca98e51d9e8b66",
+        "monthly_audit.nc": "d56625ec4b00c717b0d7eaf3c57a355ac4b4dbd660195a6a252954b62a4d9d01",
+        "observations.nc": "3dfc5abad6890015a4f6341b466e72909c8a484c35b8a83c915b3f275b5f98c7",
+        "footprint.nc": "a4872b6319292062870710718ca8b9a6e98b104d7674fa58e0f31682a7e00c38"
+      }
+    },
+    "SON": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        23,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "SON",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1983-08-01T00:00:00",
+      "last_initialization": "2024-08-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Aug%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Aug%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "7288c0b78eee2dd52ee1c13e1ed041fff0fb8978a587e6fea7fb1a5a4617dc24",
+        "member_counts": "a1cad13420b3206afefc9475e1cf9692c675ec404ee0faa8b95cd308b175103d"
+      },
+      "input_sha256": {
+        "predictors.nc": "95a83e2bcb43192cbe7ba959467685ffc519d47a44cd03945842e09750350b7e",
+        "monthly_audit.nc": "f44d74027adec2ec802a6b9fe397456f04646704de1ed63fbb1e573f667a89d1",
+        "observations.nc": "79eba6c2f492da2bce75e39765066518e0a0e05e066e6f7da016e9a189a94827",
+        "footprint.nc": "871aa8ad337c029f26b1ae750e43f59d5c89cc0d3c2b41edcd52cb1bb8c35dec"
+      }
+    },
+    "OND": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        24,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.004498519992921501,
+      "ond_monthly_binary_vs_text_max_difference_mm_per_day": 5.0752067565440484e-05,
+      "ond_binary_vs_cached_seasonal_rounding_bound_mm": 0.005069207763671875,
+      "ond_monthly_rounding_bound_violations": 0,
+      "ond_rounding_rule": "Half quantum at6significantdigits plus2single-precision ULPs; every monthly value checked; original amounts reused exactly",
+      "ond_previous_monthly_source_sha256": {
+        "/home/bennyistanto/CPT/cases/indonesia-ond-2023/inputs/cfsv2_hindcasts_monthly.tsv": "f1918fc9f775769523e4a4c7cf6a7a0c8f7c7af4cb2dc178f85e6fca286c2049",
+        "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/inputs/cfsv2_hindcasts_monthly.tsv": "8843b29a3e3938ea39835c1c21b1665bc4711948a7cf9f74362af15aeb31e3b9",
+        "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/inputs/cfsv2_forecasts_monthly.tsv": "a20f9d33425f154e0f3db19f43391d24ed6f87e5ee29d218714ed18f4992100e"
+      },
+      "season": "OND",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1983-09-01T00:00:00",
+      "last_initialization": "2024-09-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Sep%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Sep%201983-2024%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "b4da49e291c08f5a72b7ffb5697bd2fdbbbd14c415d0748bee694e92c28d70f8",
+        "member_counts": "5881bf296dc961a8b104b6ca1014aedd54fe6bb0773dfeb53923cde48854b0cd"
+      },
+      "input_sha256": {
+        "predictors.nc": "169b677fa997f4648a688487f0f5567da685c4e7677033011bfaddbadaa83721",
+        "monthly_audit.nc": "25153cf135ad9aae23ec280ca0b7717f115bfff9c807e8599272b4e0227d2a12",
+        "observations.nc": "666c49f640978ff142fdc5e6e70ac68fd2b872604454f525384b4466be3e93f7",
+        "footprint.nc": "b4c27f95b981183f676ae7818951f4d91b8774be2d5883d953d2812e14ff3e80"
+      }
+    },
+    "NDJ": {
+      "model_finite_monthly_values": 366786,
+      "valid_member_count_range": [
+        24,
+        24
+      ],
+      "ond_binary_vs_cached_predictor_max_difference_mm": 0.0,
+      "season": "NDJ",
+      "training_masks": {
+        "1983_2010": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        },
+        "1991_2020": {
+          "included_cells": 3240,
+          "constant_cells_excluded": 0
+        }
+      },
+      "season_evaluation_cells": 3240,
+      "observation_windows_verified": 42,
+      "first_initialization": "1982-10-01T00:00:00",
+      "last_initialization": "2023-10-01T00:00:00",
+      "urls": {
+        "monthly_means": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Oct%201982-2023%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/data.nc",
+        "valid_member_counts": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Oct%201982-2023%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/0/mul/1/add/%5BM%5D/sum/data.nc"
+      },
+      "raw_sha256": {
+        "monthly_means": "07a4541769f4a4f439b0ab004f879d82a60294863244b7f4b782f01bf9006869",
+        "member_counts": "dc72b09fbea2f2d151e68e6d24cc895bd76e1c17d17162bd8eacb0e99010009b"
+      },
+      "input_sha256": {
+        "predictors.nc": "4f2c0df1d0034737ff5388c3706662e4e694d78f18ab88af2e4322290f484bbd",
+        "monthly_audit.nc": "3739286306deca959ec63352587b35c1c7350f4b19f2abdc1aeb0f7ecf226a12",
+        "observations.nc": "c30ad6fda9e70e853b1e2585d928c428a41d8a415cbc1fccc32b8b6388d64b0e",
+        "footprint.nc": "745ed457d990f01294db7c2a9729f1aaec965e94f29565799eb862e23d0e6bf4"
+      }
+    }
+  },
+  "common_evaluation_cells": 3240,
+  "approximate_country_land_weight_retained": 0.9999672625628059,
+  "training_periods": {
+    "1983_2010": [
+      1983,
+      1984,
+      1985,
+      1986,
+      1987,
+      1988,
+      1989,
+      1990,
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997,
+      1998,
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010
+    ],
+    "1991_2020": [
+      1991,
+      1992,
+      1993,
+      1994,
+      1995,
+      1996,
+      1997,
+      1998,
+      1999,
+      2000,
+      2001,
+      2002,
+      2003,
+      2004,
+      2005,
+      2006,
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2015,
+      2016,
+      2017,
+      2018,
+      2019,
+      2020
+    ]
+  },
+  "evaluation_years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ]
+}

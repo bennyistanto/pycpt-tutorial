@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "output_hashes_verified": 15,
+  "benchmark_artifacts_unchanged": 61,
+  "years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "new_holdout_years": [
+    2021,
+    2022,
+    2024
+  ],
+  "shared_evaluation_cells": 3240,
+  "finite_monthly_model_values": 34932,
+  "independent_numpy_monthly_integration_max_difference_mm": 0.0,
+  "independent_numpy_score_maximum_difference_mm": 1.2505552149377763e-12,
+  "cached2023_forecasts_unchanged": true,
+  "holdouts_disjoint_from_training": true,
+  "dates_counts_probabilities_variances_grid_fields_and_pooled_scores": "PASS",
+  "verification_script_sha256": "ee6b3c69836b62a25bb1ba52e18046291cff999a40885aeecbba972b93d2636a"
+}

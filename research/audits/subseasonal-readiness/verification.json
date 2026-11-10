@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "model_version_entries": 17,
+  "coordinate_branch_profiles": 31,
+  "model_netcdf_samples_rechecked": 9,
+  "daily_index_year_directories": 83,
+  "daily_raster_sample_hashes_rechecked": 2,
+  "case_one_files_byte_identical": 51,
+  "appearance_notebook_kit_logo_files_unchanged": 7,
+  "styles_moved_byte_identically": 3,
+  "network_requests": 0,
+  "fits_run": 0,
+  "model_case_selected": false,
+  "limits": "Readiness metadata and bounded samples; not complete all-date/member/country-cell data QC or forecast-skill validation."
+}

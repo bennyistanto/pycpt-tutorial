@@ -1,0 +1,27 @@
+{
+  "case_id": "indonesia-ond-2023-025deg",
+  "created_at": "2026-10-31T11:09:11.279729+00:00",
+  "training_years": [
+    1982,
+    2010
+  ],
+  "verification_year": 2023,
+  "observations_source": "/mnt/e/temp/chirps/rolling_dekad/wld_cli_chirps3_month3_bydekad_1981_2025.nc",
+  "source_size_bytes": 24343763347,
+  "resolution_degrees": 0.25,
+  "native_block_factor": 5,
+  "grid_shape": {
+    "Y": 76,
+    "X": 192
+  },
+  "country_cells_with_land": 3242,
+  "included_cells": 3240,
+  "retained_native_country_land_weight_fraction": 0.9999672625628059,
+  "unchanged_model_and_boundary_input_sha256": {
+    "cfsv2_hindcasts_ond.nc": "0c6d3c9643c6c6253033f980d827f369e4f3b7c03fd86f322250e1e4a23bd296",
+    "cfsv2_forecasts_ond.nc": "538a548632084adc77c91e3bbd7518b4c75f8eb956d61c501731015397b6cb71",
+    "indonesia_boundary.geojson": "1b44b1d7e0ab4e7e3eff0efd9e0bff74c45ad7a390114e80b64b5369b51f4e78"
+  },
+  "predictor_resolution_degrees": 1.0,
+  "minimum_training_coverage": 0.99
+}

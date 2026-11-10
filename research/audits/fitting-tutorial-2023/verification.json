@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "case_one_files_byte_identical": 51,
+  "code_cells": 18,
+  "authoring_fits_in_current_notebook": 4,
+  "netcdf_outputs_verified": 30,
+  "prepared_files_hash_verified": 26,
+  "independent_numpy_max_score_gap_mm": 7.389644451905042e-13,
+  "native_cv_rmse_max_gap_mm": 0.0013330556828350382,
+  "browser_values_exactly_matched": 142298,
+  "standardized_series_values_checked": 600,
+  "interactive_panels": 6,
+  "canonical_notebook_sha256": "f2e5d99136f7ed74596692557ee929a47e87eeb847b8708e2aaba304a8f6eaa6",
+  "kit_sha256": "32d5e711e6ebdafb0fd4be32d5a56621d72ee28d8e71f93fea5ca66451953e64",
+  "source_code_sha256": {
+    "pycpt_tutorial/fitting.py": "3b4029a169ad09c747d221bb996ecc06de28204ecdd0b9f864a7f7fa4b977c60",
+    "docs/assets/fitting-2023/fitting.js": "58ac4e7ef5dd952bc0709474461ecd8e6b8822918f615b17c9f7b2d3a11fcfac",
+    "scripts/verify_fitting_tutorial.py": "c62a4b509a253f6b202c2a99d896356a228f1e16b8eb42a0228d1ae8c48f1646"
+  }
+}

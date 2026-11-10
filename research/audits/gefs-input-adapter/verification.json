@@ -1,0 +1,112 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "fits_run": 0,
+  "network_requests": 0,
+  "netcdf_outputs_verified": 7,
+  "daily_country_caches_verified": 84,
+  "model_checks": [
+    {
+      "kind": "hindcast",
+      "members": 11,
+      "daily_values_verified": 231000,
+      "weekly_values_verified": 33000
+    },
+    {
+      "kind": "forecast",
+      "members": 31,
+      "daily_values_verified": 651000,
+      "weekly_values_verified": 93000
+    }
+  ],
+  "observation_checks": [
+    {
+      "kind": "hindcast",
+      "variant": "rnl",
+      "valid_cells_per_week": [
+        3240,
+        3240,
+        3240
+      ],
+      "country_area_coverage_per_week": [
+        0.9999672625628887,
+        0.9999672625628887,
+        0.9999672625628887
+      ]
+    },
+    {
+      "kind": "hindcast",
+      "variant": "sat",
+      "valid_cells_per_week": [
+        3240,
+        3240,
+        3240
+      ],
+      "country_area_coverage_per_week": [
+        0.9999672625628887,
+        0.9999672625628887,
+        0.9999672625628887
+      ]
+    },
+    {
+      "kind": "forecast",
+      "variant": "rnl",
+      "valid_cells_per_week": [
+        3240,
+        3240,
+        3240
+      ],
+      "country_area_coverage_per_week": [
+        0.9999672625628887,
+        0.9999672625628887,
+        0.9999672625628887
+      ]
+    },
+    {
+      "kind": "forecast",
+      "variant": "sat",
+      "valid_cells_per_week": [
+        3240,
+        3240,
+        3240
+      ],
+      "country_area_coverage_per_week": [
+        0.9999672625628887,
+        0.9999672625628887,
+        0.9999672625628887
+      ]
+    }
+  ],
+  "missing_native_pixels": [
+    {
+      "native_longitude": 107.775,
+      "native_latitude": 3.0249999999999995,
+      "cell_longitude": 107.875,
+      "cell_latitude": 3.125
+    },
+    {
+      "native_longitude": 120.625,
+      "native_latitude": 1.0749999999999993,
+      "cell_longitude": 120.625,
+      "cell_latitude": 1.125
+    }
+  ],
+  "reference_sensitivity": [
+    {
+      "kind": "hindcast",
+      "max_absolute_difference_mm": 73.30635641441195,
+      "mean_absolute_difference_mm": 5.752999722251417,
+      "scope": "Reference sensitivity only; not forecast skill or independent validation"
+    },
+    {
+      "kind": "forecast",
+      "max_absolute_difference_mm": 137.23096715067874,
+      "mean_absolute_difference_mm": 5.442303268395899,
+      "scope": "Reference sensitivity only; not forecast skill or independent validation"
+    }
+  ],
+  "case_one_files_unchanged": 51,
+  "notebooks_kits_logos_unchanged": 7,
+  "native_case_two_outputs_unchanged": 30,
+  "scope": "Two bounded input checks only; no full-cohort pixel QC, calibration, or skill validation."
+}

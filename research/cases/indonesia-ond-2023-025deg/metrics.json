@@ -1,0 +1,156 @@
+{
+  "case_id": "indonesia-ond-2023-025deg",
+  "training_years": [
+    1982,
+    2010
+  ],
+  "forecast_initialization": "2023-09-01",
+  "target": "OND2023",
+  "preparation": {
+    "case_id": "indonesia-ond-2023-025deg",
+    "created_at": "2026-10-31T11:09:11.279729+00:00",
+    "training_years": [
+      1982,
+      2010
+    ],
+    "verification_year": 2023,
+    "observations_source": "/mnt/e/temp/chirps/rolling_dekad/wld_cli_chirps3_month3_bydekad_1981_2025.nc",
+    "source_size_bytes": 24343763347,
+    "resolution_degrees": 0.25,
+    "native_block_factor": 5,
+    "grid_shape": {
+      "Y": 76,
+      "X": 192
+    },
+    "country_cells_with_land": 3242,
+    "included_cells": 3240,
+    "retained_native_country_land_weight_fraction": 0.9999672625628059,
+    "unchanged_model_and_boundary_input_sha256": {
+      "cfsv2_hindcasts_ond.nc": "0c6d3c9643c6c6253033f980d827f369e4f3b7c03fd86f322250e1e4a23bd296",
+      "cfsv2_forecasts_ond.nc": "538a548632084adc77c91e3bbd7518b4c75f8eb956d61c501731015397b6cb71",
+      "indonesia_boundary.geojson": "1b44b1d7e0ab4e7e3eff0efd9e0bff74c45ad7a390114e80b64b5369b51f4e78"
+    },
+    "predictor_resolution_degrees": 1.0,
+    "minimum_training_coverage": 0.99
+  },
+  "fit_elapsed_seconds": {
+    "cca": 4.906720049000796,
+    "pcr": 4.286246874999051
+  },
+  "native_025_forecast_metrics": {
+    "climatology": {
+      "rmse_mm": 222.0270390726227,
+      "mae_mm": 184.77934533837828,
+      "bias_mm": 149.79210828793487
+    },
+    "raw_cfsv2": {
+      "rmse_mm": 292.389469572019,
+      "mae_mm": 230.91776241573166,
+      "bias_mm": -83.90775518296125
+    },
+    "cca": {
+      "rmse_mm": 137.43211752090374,
+      "mae_mm": 102.08290083054234,
+      "bias_mm": -47.099710038752136
+    },
+    "pcr": {
+      "rmse_mm": 132.14920560800437,
+      "mae_mm": 98.82363708157006,
+      "bias_mm": -46.945610499877944
+    }
+  },
+  "native_025_historical_metrics": {
+    "raw_cfsv2": {
+      "mean_grid_rmse_mm": 341.39846841442477,
+      "mean_grid_pearson": 0.3886785570375967
+    },
+    "cca": {
+      "mean_grid_rmse_mm": 150.39394796197104,
+      "mean_grid_pearson": 0.5262352461754105
+    },
+    "pcr": {
+      "mean_grid_rmse_mm": 151.48632172154984,
+      "mean_grid_pearson": 0.5162835353592211
+    }
+  },
+  "common_1deg_forecast_metrics": {
+    "climatology_1deg": {
+      "rmse_mm": 214.10042921143463,
+      "mae_mm": 181.38604052075414,
+      "bias_mm": 149.80219869329
+    },
+    "raw_cfsv2_1deg": {
+      "rmse_mm": 267.68602556508523,
+      "mae_mm": 219.38698780202694,
+      "bias_mm": -87.40247364769586
+    },
+    "cca_1deg": {
+      "rmse_mm": 128.9881332464314,
+      "mae_mm": 97.14137659422096,
+      "bias_mm": -48.28150127998677
+    },
+    "pcr_1deg": {
+      "rmse_mm": 123.39549335196924,
+      "mae_mm": 94.1594544896691,
+      "bias_mm": -46.92355406193865
+    },
+    "cca_025_aggregated": {
+      "rmse_mm": 128.68270148189114,
+      "mae_mm": 97.10141602203312,
+      "bias_mm": -47.07869056075606
+    },
+    "pcr_025_aggregated": {
+      "rmse_mm": 123.3955206799544,
+      "mae_mm": 94.15948677753967,
+      "bias_mm": -46.92349860304512
+    }
+  },
+  "common_1deg_historical_metrics": {
+    "raw_cfsv2_1deg": {
+      "mean_grid_rmse_mm": 324.0698819395017,
+      "mean_grid_pearson": 0.40700080197109445
+    },
+    "cca_1deg": {
+      "mean_grid_rmse_mm": 141.0871827546099,
+      "mean_grid_pearson": 0.5489221472676864
+    },
+    "pcr_1deg": {
+      "mean_grid_rmse_mm": 142.14228107534572,
+      "mean_grid_pearson": 0.5441497503955318
+    },
+    "cca_025_aggregated": {
+      "mean_grid_rmse_mm": 141.27058605026295,
+      "mean_grid_pearson": 0.5538088933258
+    },
+    "pcr_025_aggregated": {
+      "mean_grid_rmse_mm": 142.1402697634734,
+      "mean_grid_pearson": 0.5441554443858361
+    }
+  },
+  "common_1deg_cells": 369,
+  "original_1deg_cells": 369,
+  "common_fraction_original_country_weight": 1.0,
+  "native_025_verification_cells": 3240,
+  "fine_aggregate_vs_original_observation_rmse_mm": 1.488198488701424e-13,
+  "native_score_checks": {
+    "cca": {
+      "maximum_native_direct_rmse_difference_mm": 0.00133564393260599,
+      "maximum_native_direct_pearson_difference": 7.346055684191721e-06
+    },
+    "pcr": {
+      "maximum_native_direct_rmse_difference_mm": 0.0012690099136705157,
+      "maximum_native_direct_pearson_difference": 8.450598246917407e-06
+    }
+  },
+  "probability_checks": {
+    "cca": {
+      "maximum_sum_error_percentage_points": 1.0000000116860974e-06,
+      "negative_forecast_cells": 0
+    },
+    "pcr": {
+      "maximum_sum_error_percentage_points": 1.0000000116860974e-06,
+      "negative_forecast_cells": 0
+    }
+  },
+  "interpretation": "Primary resolution comparison uses common 1-degree observations/grid/footprint. Native 0.25-degree RMSE measures a different spatial scale and must not be ranked directly against native 1-degree RMSE."
+}

@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-02",
+  "browser": "ChatGPT in-app browser",
+  "preview": "http://localhost:8767/?review=20261102-layout-final",
+  "desktop_viewport": [1280, 720],
+  "mobile_viewport": [390, 844],
+  "observations": [
+    "Home has three reader paths and a featured existing case with the frozen RMSE preview.",
+    "Sidebar groups Start here, Case studies, Methods & resources; story and notebook remain paired.",
+    "Reader-guide/footer/credits links and notebook/story navigation open the expected pages.",
+    "Mobile menu expands and opens the reader guide and notebook.",
+    "Mobile reader-guide table fits the 324px main content column.",
+    "Home buttons stack; learning paths use one column; sampled pages have no horizontal body overflow.",
+    "Mobile Bias heatmap scrolls within a 312px panel, retaining its 640px chart extent.",
+    "Mobile NDJ rainfall maps load five canvases in one column and retain November2023–January2024 dates.",
+    "Executed notebook retains nine output images and has no horizontal body overflow.",
+    "Keyboard Tab moves between home actions with a visible solid focus outline.",
+    "Mobile footer is compact (about179px high), ordered brand, reader links, source/credits.",
+    "National MAE PNG and SVG downloads succeed; PNG hash matches the pre-layout export.",
+    "Body uses system fonts; active stylesheets have no external imports.",
+    "Viewport override reset; final home left at1280x720 with zero console errors."
+  ],
+  "png_regression_sha256": "7842d75a96c38266bbc1697c3d286ee4568057992b0b4df8e8f1b11931729744",
+  "svg_download": "pycpt-national-mae-2023-1991-2020 (1).svg",
+  "console_errors": [],
+  "screenshots": ["temp/site-home-desktop.png", "temp/site-home-mobile.png", "temp/site-footer-desktop.png", "temp/site-footer-mobile.png"],
+  "limits": "Physical touchscreen and print/PDF rendering were not tested. Native clicks, keyboard and responsive browser layouts were checked."
+}

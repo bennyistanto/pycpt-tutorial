@@ -1,0 +1,355 @@
+{
+  "case_id": "indonesia-ond-2023-025deg-1991-2020",
+  "completed_at": "2026-10-31T15:09:19.025619+00:00",
+  "engine": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
+  "engine_sha256": "3457c93ee3d7a69005e32c231a976c50a056da53868c02757f344a46a81a139e",
+  "configurations": {
+    "cca": {
+      "x_eof_modes": [
+        3,
+        3
+      ],
+      "validation": "CROSSVALIDATION",
+      "crossvalidation_window": 5,
+      "synchronous_predictors": true,
+      "transform_predictand": null,
+      "tailoring": null,
+      "drymask_threshold": null,
+      "skillmask_threshold": null,
+      "y_eof_modes": [
+        3,
+        3
+      ],
+      "cca_modes": [
+        2,
+        2
+      ]
+    },
+    "pcr": {
+      "x_eof_modes": [
+        3,
+        3
+      ],
+      "validation": "CROSSVALIDATION",
+      "crossvalidation_window": 5,
+      "synchronous_predictors": true,
+      "transform_predictand": null,
+      "tailoring": null,
+      "drymask_threshold": null,
+      "skillmask_threshold": null
+    }
+  },
+  "input_sha256": {
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/inputs/cfsv2_hindcasts_ond.nc": "c93788d7154201c9de5ece0489e5b369163fb3bb18316fe3f8ea96cc576655c3",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/inputs/observations_chirps3_ond_025.nc": "ff52fa9b197b5b65609ac4932c7272fe8f73cf47093d6f2ffe89067a9345c3b7",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/inputs/indonesia_analysis_mask_025.nc": "69048d3b40059617f2a3b82a01056d357ff407df4e31dc48baeeddc4889d363e",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/inputs/cfsv2_forecasts_ond.nc": "538a548632084adc77c91e3bbd7518b4c75f8eb956d61c501731015397b6cb71",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/inputs/indonesia_boundary.geojson": "1b44b1d7e0ab4e7e3eff0efd9e0bff74c45ad7a390114e80b64b5369b51f4e78"
+  },
+  "unchanged_benchmark_artifacts_sha256": {
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_forecast_2023.nc": "255c2ce2cc5423ceb06a6c0858e2420e3534c915df1acc1f96cb396944fa9911",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_hindcasts.nc": "f0c5f27ee7c035af7a44460a2dde86b3f0b21395292a1a3ca82a4f440747e324",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_native_skill.nc": "d698ac5ff8963b99ce1125d05bc7bdb0d3828c67121b69a031bf51a6a12f7c99",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_predictand_patterns.nc": "ad6744986bb22000b6fa738a5731ba38c567e9c1c5eb26571f4cb7e7bc4d11e2",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_predictor_patterns.nc": "7f8522bc7c693a3784e02435e2a5881f0ae99a9560e8a6bef37986437f5f6d46",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cfsv2_forecast_predictor_2023.nc": "bbd128576146b8cf9a95c140f5ce7a82f4b1f18d4cbb72e8e4f8bf962abd8994",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cfsv2_training_predictors.nc": "b4c1d68b6d5eb82eac3a75f7418f6cfcb14aad17f1c1582a8a239b80dce598b7",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/deterministic_hindcast_comparison.nc": "34914c4858e3d66e46e1208007fde51a0546e7b374ce8f65f2cbd089ae66a46a",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/forecast_2023_baselines_and_observed.nc": "6120a7ba07dd60a06231b636115fd90d2001ba89dbd70babeedad616636c4d3d",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/indonesia_analysis_mask.nc": "3809c585f7b9687e87b5365ba90257a880ab1637b31a146bd2a4bb3aa4671cd8",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/indonesia_ond_2023_comparison.png": "391e311bb0f99bebe71d0219fdd24b45a0f0b12463377aba794e9b38bbded272",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/observations_chirps3_ond.nc": "6dbecb82552fb55fcc0d8b3edb7582088741523a837c310497edf06a6b7a2a36",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/deterministic_hindcast_three_method_comparison.nc": "360d2c213ce08d1083373a5907ed2c71e056fcb52a61029c77719187470ebadb",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/forecast_2023_four_method_comparison.nc": "f60adeb2732947a19e4b4dd10820dc0f62d50bf55521cd55dd28ab4ee83ae8ef",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/indonesia_ond2023_four_method_comparison.png": "05c50e135607a983bf6dcd1b3b795a4c8f0957fb4781e075a914328edb46848b",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_forecast_2023.nc": "59355d711f63cbd5d4b512de08303070dc4606c18deb9417e5f7d8d65da0ef8b",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_hindcasts.nc": "78c84d5751fef39161680dfe097997cf8766979180626e0c8a8ff38db278ce97",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_minus_cca_error_comparison.png": "4116a1db1064a9529fd844a884eb55e05d75bc4205e356e25c34f253e168c8f7",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_native_skill.nc": "934ed596b90b9da524b3a4a3886c2d0dbf93cc236241c649bf4c3ad43d454908",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_predictor_patterns.nc": "9fce6dad87f40a5ff22df9f97e3b42bb4ebddac22432c3c339ac01c824a3a1b7",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_forecast_2023_025.nc": "c1e709a89665104da1610eba997d1b92e5011d4589355bb6c0da76402edc20c2",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_hindcasts_025.nc": "ae66e7241d440f4711c8ed594b38cee76a575db292e7cf0b06829ad09456487c",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_native_skill_025.nc": "a08f5d7773bdeb201e66436183bd543d7bebb25377b2525391302b439db4211b",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_predictand_patterns_025.nc": "cef7af54a67c05f7063b137fb8c31139fc7d6e867106e715ee4d3c353b6c75cf",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_predictor_patterns_025.nc": "7d8cde5185c29ca96229e60f81b3a831c9dfee8f81c3cd6e89e06893ae8dfdfe",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cfsv2_forecast_predictor_2023.nc": "d3b0c12cf91ca3970db1a6ec31bfdc969eb2d8f0d73f16ad22c12f2b41b1df1b",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cfsv2_training_predictors.nc": "0e4642f73a8aa33c5bb57fa10f811a4d811ecff72a4f4ea7319861075a23c99e",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/common_1deg_forecast_comparison.nc": "d1be408dd5b586b2566c2cc2d3d824552c1b56540df6f7432da07d139c910550",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/common_1deg_hindcast_comparison.nc": "7bb4aa70675856e9aff5d809b2d2ad4ea6d8354badcc59caebe260fdfb1dc366",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/common_grid_error_changes.png": "38a27bd06977ee1c2ea020472bde4a67c0c3e0b671b92cb5f93efb0ee4363669",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cross_resolution_evaluation_footprint.nc": "953938ee64726794a8ac26bc19c435122040a5e9f283f22e93ad7f75020519f2",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/indonesia_analysis_mask_025.nc": "b8dcf268e71ef4e42d3c5619569219d27be19dab80ecfec79158da1261049f43",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/native_025_forecast_comparison.nc": "736dc876e8942cf6ef9842dd4887d3b1e6376a44803f91bb30ddc3c1aa72fdf3",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/native_025_hindcast_comparison.nc": "dd63991baa472247646346d001ba7af2392ba8c61abb572e912b4dd80b9e7ac3",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/observations_chirps3_ond_025.nc": "5806efddfe2f136b179c5b479e1373af9c9b7667d94a430fe41b81f217fac94d",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/pcr_forecast_2023_025.nc": "2e1cc61af3c2375bc38117f65983d79607a5bc06ebc91ae410cebb2d66cc7c02",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/pcr_hindcasts_025.nc": "20497b8ad3f7f5961812814fa6e437f1465d522e297a2bd68e5a5b8923e4abaa",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/pcr_native_skill_025.nc": "269eac7439c601884068b8228e557eaf63e082eb947395096f63592506362904",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/pcr_predictor_patterns_025.nc": "c34701c5d375f5b612f9ef9dc51bb4e2b8561128e6951c6391a8beff1af26482",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/resolution_forecasts.png": "ba8c3f78612b7d8fd96f276860e7e749da865eb1e3866b2f0349a8dce622dbf2"
+  },
+  "outputs": {
+    "cca_forecast_2023_025.nc": {
+      "bytes": 189710,
+      "sha256": "956245e5b057ac0cc5131c2f86bfde0e8d439e5efc6840d7e3223070e2fdf5f3"
+    },
+    "cca_hindcasts_025.nc": {
+      "bytes": 906862,
+      "sha256": "203c60d3a5c25f72446dfcbee8ce70e9e1d0853e40ab7da9551a0d1344645dd9"
+    },
+    "cca_native_skill_025.nc": {
+      "bytes": 207354,
+      "sha256": "ef3acbf33a041269d540d0c6ee92f4351f063f5df009ce8c3fb22fcb34572f06"
+    },
+    "cca_predictand_patterns_025.nc": {
+      "bytes": 210423,
+      "sha256": "c442f8b3ac1fc83b6bffcf15b65f479126d6e1af40681d4ba310780778ba6065"
+    },
+    "cca_predictor_patterns_025.nc": {
+      "bytes": 149124,
+      "sha256": "7b3731e00c7e37f963f2f87dfed09ea8acee262cd630d099034bb6a82c08f93c"
+    },
+    "cfsv2_forecast_predictor_2023.nc": {
+      "bytes": 39494,
+      "sha256": "17c2a5277095ba00cd4cd642fc06e228e541a3642e1c37fce449f8a7d09982f0"
+    },
+    "cfsv2_monthly_continuity.nc": {
+      "bytes": 1816983,
+      "sha256": "2d834a917d52afbd5e1ebfebd9ffe0fdb42a98b6db03d405262b86ca77bdf5cd"
+    },
+    "cfsv2_training_predictors.nc": {
+      "bytes": 605513,
+      "sha256": "d6e991a7b36a0b82b5ef4a1846fa5edf3785f98d029131f355ee2992eb725d78"
+    },
+    "indonesia_analysis_mask_025.nc": {
+      "bytes": 60318,
+      "sha256": "7a83823e0f09dbc5af2b733f6552543b521b354ff6f5e31e36b40fd691358d51"
+    },
+    "observations_chirps3_ond_025.nc": {
+      "bytes": 1001950,
+      "sha256": "9c85cea8fedd987aad3d07bc4e1dccfda2b4e4c50ceaeedc7fd783b2d0fdc95e"
+    },
+    "pcr_forecast_2023_025.nc": {
+      "bytes": 189878,
+      "sha256": "c0917a08f836c607a67bc403537d274ce431f026e0f26bfbf47dd754f37943ac"
+    },
+    "pcr_hindcasts_025.nc": {
+      "bytes": 907085,
+      "sha256": "cdc6036b652d99df4a9b31cedad66ab0e6f67f2809f5c690e9178adbc2348caa"
+    },
+    "pcr_native_skill_025.nc": {
+      "bytes": 207437,
+      "sha256": "02cadff8945a4b0260adee6cfadc525595e0c2535703b891d561c0bfe052c8ba"
+    },
+    "pcr_predictor_patterns_025.nc": {
+      "bytes": 94645,
+      "sha256": "f1855f26db0d91e3b8cdac10691396e963df9be14f477efc88b44d9b62784c6f"
+    },
+    "period_comparison_footprint_025.nc": {
+      "bytes": 57489,
+      "sha256": "140cc58d15fd7cd2d98409e437ff21b238f80e1dab7aa55e6d3fb143abb745d2"
+    },
+    "period_forecast_comparison_025.nc": {
+      "bytes": 694013,
+      "sha256": "f1f99e6a5d0b5fd1cffbf680b301fa09ec13c615f01ae8949d7c2887d8dffe53"
+    },
+    "shared_year_hindcasts_1991_2010_025.nc": {
+      "bytes": 4127460,
+      "sha256": "88f588883992a87e1a33dc89f65bc7537d2348833766499d0f47e7429c7e6e26"
+    },
+    "shared_year_historical_diagnostics_025.nc": {
+      "bytes": 753459,
+      "sha256": "a3f5ab132da38b1fc9321fcda2b0f0893b0d2f2b0483f5f66651b5a3b845719a"
+    },
+    "training_period_error_changes.png": {
+      "bytes": 336171,
+      "sha256": "62ade9defbe3309507d8a9b91ba36d3fcb05800471231850636d2ba54ac5f3c5"
+    },
+    "training_period_forecasts.png": {
+      "bytes": 606719,
+      "sha256": "c52117cb5971e76124416a6001b33a195c44e87d480369e11dd4054b46ccaf8b"
+    },
+    "training_period_historical_diagnostics_025.nc": {
+      "bytes": 753489,
+      "sha256": "43c0d04ddc62de0d036ad97583b94004f84d17b2d064a22e0f685c574907c5df"
+    }
+  },
+  "pipeline_script_sha256": {
+    "scripts/run_indonesia_1991_case.py": "86a948adbab04cd81b2e9a751575073552f410f113ec7d7793a54032470b4c29",
+    "scripts/prepare_indonesia_1991_case.py": "8daa4dc3a3e9c26d8b15c739a3c7a2959528cb071ee84c0b02ec5f1f0e18048d",
+    "scripts/prepare_indonesia_025_case.py": "25fc1e014b3718acfb6452f6a8080f7d7255ab1d07e40e4ba564bab853ed49ae",
+    "scripts/run_indonesia_025_case.py": "d5e5cd08d8bae6a47f5b0f22846b239fd0e9a2d6786da66d14cd9f052c3ad0c7",
+    "pycpt_tutorial/country_grid.py": "aed321c67bbfbf7309ffda699ef57716b75ab187b68dc7663c1fc41a1eab8e35",
+    "pycpt_tutorial/export.py": "26cdab9fb9053b681bc7efe6971710aeb75f9e341f376400c2bb81351ed0ff3e"
+  },
+  "metrics": {
+    "case_id": "indonesia-ond-2023-025deg-1991-2020",
+    "training_years": [
+      1991,
+      2020
+    ],
+    "comparison_training_years": [
+      1982,
+      2010
+    ],
+    "training_sample_counts": {
+      "old": 29,
+      "new": 30
+    },
+    "target": "OND2023",
+    "new_training_cells": 3240,
+    "old_training_cells": 3240,
+    "common_training_cells": 3240,
+    "evaluation_cells": 3240,
+    "fraction_original_fine_land_weight_retained": 1.0,
+    "forecast_metrics_common_025": {
+      "climatology_1982_2010": {
+        "rmse_mm": 222.0270390726227,
+        "mae_mm": 184.77934533837828,
+        "bias_mm": 149.79210828793487
+      },
+      "climatology_1991_2020": {
+        "rmse_mm": 226.4960852681339,
+        "mae_mm": 190.4300180596266,
+        "bias_mm": 165.80990180410632
+      },
+      "raw_cfsv2": {
+        "rmse_mm": 292.389469572019,
+        "mae_mm": 230.91776241573166,
+        "bias_mm": -83.90775518296125
+      },
+      "cca_1982_2010": {
+        "rmse_mm": 137.43211752090374,
+        "mae_mm": 102.08290083054234,
+        "bias_mm": -47.099710038752136
+      },
+      "pcr_1982_2010": {
+        "rmse_mm": 132.14920560800437,
+        "mae_mm": 98.82363708157006,
+        "bias_mm": -46.945610499877944
+      },
+      "cca_1991_2020": {
+        "rmse_mm": 120.34602943146852,
+        "mae_mm": 89.18841098204766,
+        "bias_mm": -3.3764170786724583
+      },
+      "pcr_1991_2020": {
+        "rmse_mm": 117.35607280241405,
+        "mae_mm": 87.83840806093643,
+        "bias_mm": -3.4725199857096216
+      }
+    },
+    "training_period_historical_metrics_descriptive_only": {
+      "raw_cfsv2_1982_2010": {
+        "mean_grid_rmse_mm": 341.39846841442477,
+        "mean_grid_pearson": 0.3886785570375967,
+        "years": [
+          1982,
+          2010
+        ]
+      },
+      "cca_1982_2010": {
+        "mean_grid_rmse_mm": 150.39394796197104,
+        "mean_grid_pearson": 0.5262352461754105,
+        "years": [
+          1982,
+          2010
+        ]
+      },
+      "pcr_1982_2010": {
+        "mean_grid_rmse_mm": 151.48632172154984,
+        "mean_grid_pearson": 0.5162835353592211,
+        "years": [
+          1982,
+          2010
+        ]
+      },
+      "raw_cfsv2_1991_2020": {
+        "mean_grid_rmse_mm": 350.37126796728194,
+        "mean_grid_pearson": 0.3908867196602467,
+        "years": [
+          1991,
+          2020
+        ]
+      },
+      "cca_1991_2020": {
+        "mean_grid_rmse_mm": 161.35919649000508,
+        "mean_grid_pearson": 0.47693334792942627,
+        "years": [
+          1991,
+          2020
+        ]
+      },
+      "pcr_1991_2020": {
+        "mean_grid_rmse_mm": 163.41206547360773,
+        "mean_grid_pearson": 0.4649268829978118,
+        "years": [
+          1991,
+          2020
+        ]
+      }
+    },
+    "shared_1991_2010_historical_metrics": {
+      "raw_cfsv2_1982_2010": {
+        "mean_grid_rmse_mm": 352.26490221841584,
+        "mean_grid_pearson": 0.39814484528615723
+      },
+      "cca_1982_2010": {
+        "mean_grid_rmse_mm": 155.32432501409457,
+        "mean_grid_pearson": 0.5552964582426981
+      },
+      "pcr_1982_2010": {
+        "mean_grid_rmse_mm": 155.95505494611734,
+        "mean_grid_pearson": 0.5472312540895445
+      },
+      "raw_cfsv2_1991_2020": {
+        "mean_grid_rmse_mm": 352.26490221841584,
+        "mean_grid_pearson": 0.39814484528615723
+      },
+      "cca_1991_2020": {
+        "mean_grid_rmse_mm": 157.3882502295928,
+        "mean_grid_pearson": 0.55393070960208
+      },
+      "pcr_1991_2020": {
+        "mean_grid_rmse_mm": 158.6324959199386,
+        "mean_grid_pearson": 0.5468378489077644
+      }
+    },
+    "fit_elapsed_seconds": {
+      "cca": 4.888270449999254,
+      "pcr": 4.560551024998858
+    },
+    "native_score_checks": {
+      "cca": {
+        "maximum_native_direct_rmse_difference_mm": 0.0013195124074627529,
+        "maximum_native_direct_pearson_difference": 8.07531284596763e-06
+      },
+      "pcr": {
+        "maximum_native_direct_rmse_difference_mm": 0.0013330556828350382,
+        "maximum_native_direct_pearson_difference": 6.840926817797133e-06
+      }
+    },
+    "probability_checks": {
+      "cca": {
+        "maximum_sum_error_percentage_points": 1.0000000116860974e-06,
+        "negative_forecast_cells": 0
+      },
+      "pcr": {
+        "maximum_sum_error_percentage_points": 1.0000000116860974e-06,
+        "negative_forecast_cells": 0
+      }
+    },
+    "continuity_status": "PASS_COMPLETENESS_WITH_SOURCE_TRANSITION",
+    "limitations": [
+      "1991\u20132020 blends reforecasts and operational forecasts",
+      "Changing period also changes training sample count29to30",
+      "One held-out2023 target is not general skill evidence",
+      "Probability categories depend on calibration period; no probabilistic skill comparison",
+      "Historical CV samples/folds differ, even on shared verification years"
+    ]
+  },
+  "figure_refresh": {
+    "at": "2026-10-31T15:12:10.144858+00:00",
+    "reason": "Shorter colourbar labels and separate sign legend after visual review; all model/NetCDF outputs retained"
+  }
+}

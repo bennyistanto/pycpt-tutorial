@@ -1,0 +1,129 @@
+{
+  "date": "2026-11-02",
+  "url": "http://localhost:8767/chapters/indonesia-seasons-2023.html",
+  "browser": "ChatGPT in-app browser",
+  "method": "Native UI selections and download clicks; all actual downloaded PNGs decoded; representative PNGs visually inspected.",
+  "panels_checked": 8,
+  "cases": [
+    "National MAE",
+    "National Bias",
+    "Gains: 1983–2010",
+    "Rainfall: NDJ, 1983–2010, dates November 2023–January 2024",
+    "Error atlas: all 24 maps, 1983–2010",
+    "All 38 provinces: 1983–2010",
+    "Jakarta 2023: 1983–2010",
+    "Jakarta pooled 2021–2024: 1983–2010",
+    "PCR sensitivity: both periods",
+    "National pooled Bias"
+  ],
+  "checks": [
+    "Selection-specific filename and labels",
+    "Legends and units",
+    "Full SVG extents despite viewport scrolling",
+    "All map cards and boundaries",
+    "Grey neighbours",
+    "No hover crosshair in map exports",
+    "Province coarse-cell support note",
+    "Original reference PNG links labelled by coverage",
+    "No console errors"
+  ],
+  "large_atlas_responsiveness": "Yields between maps. Final 24-map download completed in approximately 5 seconds including UI automation overhead.",
+  "earlier_failed_attempt": "Synchronous 24-map drawing blocked UI automation; fixed by yielding between maps, then retested successfully.",
+  "source_js_sha256": "8606241d77793bfbd1399f701a473b41eefae068ca02e57b9e18b98e448a0137",
+  "scientific_preservation": "See verification.json and ../tutorial-2023/verification.json; no notebook execution or model fits.",
+  "scratch_download_copies": "temp/png-export-checks/",
+  "browser_screenshot": "temp/current-view-download-preview.png",
+  "final_ui": "All ten dropdown controls restored to defaults; no viewport override set; tab 7 retained.",
+  "files": [
+    {
+      "name": "pycpt-context-bias-original-ending-year-2021-2024-pooled-context.png",
+      "pixels": [
+        1828,
+        1262
+      ],
+      "bytes": 171049,
+      "sha256": "5d697efc0364c84744d99e0a41998f48260ebf214a082485dcd075d87a1d6cab"
+    },
+    {
+      "name": "pycpt-error-maps-all-1983-2010-2023.png",
+      "pixels": [
+        2528,
+        7740
+      ],
+      "bytes": 6878059,
+      "sha256": "63ec26319c9799859807c6ab597381bd059c15ef8c9816da281e545e60c7aec2"
+    },
+    {
+      "name": "pycpt-gains-2023-1983-2010.png",
+      "pixels": [
+        1828,
+        1212
+      ],
+      "bytes": 75299,
+      "sha256": "22770d42ff35872828704066ab0aa84aec2a0615573d8ff968add2b8a84d9353"
+    },
+    {
+      "name": "pycpt-national-bias-2023-1991-2020.png",
+      "pixels": [
+        1828,
+        1086
+      ],
+      "bytes": 123692,
+      "sha256": "537066e05a632ba4c409d6094d216bedc8140c38fa8ac2912038538f19a62fa5"
+    },
+    {
+      "name": "pycpt-national-mae-2023-1991-2020.png",
+      "pixels": [
+        1828,
+        1086
+      ],
+      "bytes": 122733,
+      "sha256": "7842d75a96c38266bbc1697c3d286ee4568057992b0b4df8e8f1b11931729744"
+    },
+    {
+      "name": "pycpt-province-all-provinces-1983-2010-2023.png",
+      "pixels": [
+        2408,
+        2676
+      ],
+      "bytes": 250856,
+      "sha256": "a2e1206de4ca5096a826c48c992eb5252d67f88c107a008d1e2b34051f46dace"
+    },
+    {
+      "name": "pycpt-province-context-daerah-khusus-ibukota-jakarta-1983-2010-2021-2024.png",
+      "pixels": [
+        1828,
+        1362
+      ],
+      "bytes": 169674,
+      "sha256": "7347c6e3aef54d0d6c88b1fe989fd32a48d92f48857319101d3f2aef2b4b113d"
+    },
+    {
+      "name": "pycpt-province-daerah-khusus-ibukota-jakarta-1983-2010-2023.png",
+      "pixels": [
+        1828,
+        1362
+      ],
+      "bytes": 182409,
+      "sha256": "68912f580c3a9344c99fe9816fb392d8f8a9c8e4b84e969077fff3545cd2bf7a"
+    },
+    {
+      "name": "pycpt-rainfall-ndj-1983-2010-2023.png",
+      "pixels": [
+        2528,
+        2382
+      ],
+      "bytes": 1610192,
+      "sha256": "4948cf4150f6a789b0942b05b6c00f0ec89980a9e94cbaf227421a8720a3cc40"
+    },
+    {
+      "name": "pycpt-sensitivity-rmse-pcr-training-period-sensitivity-2023-centred-windows.png",
+      "pixels": [
+        1828,
+        1162
+      ],
+      "bytes": 111292,
+      "sha256": "a4c4b871a5fa7f3b60ef38e0afc3d1d6e063658e852b9e7055830c5baacbd795"
+    }
+  ]
+}

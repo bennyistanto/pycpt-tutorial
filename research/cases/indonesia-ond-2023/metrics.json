@@ -1,0 +1,37 @@
+{
+  "forecast_year": 2023,
+  "training_years": [
+    1982,
+    2010
+  ],
+  "training_sample_count": 29,
+  "country_grid_cells": 369,
+  "forecast_metrics": {
+    "training_climatology": {
+      "area_weighted_rmse_mm": 214.10042921143463,
+      "area_weighted_mae_mm": 181.38604052075414,
+      "area_weighted_bias_mm": 149.80219869329
+    },
+    "raw_cfsv2": {
+      "area_weighted_rmse_mm": 267.68602556508523,
+      "area_weighted_mae_mm": 219.38698780202694,
+      "area_weighted_bias_mm": -87.40247364769586
+    },
+    "cca_cfsv2": {
+      "area_weighted_rmse_mm": 128.9881332464314,
+      "area_weighted_mae_mm": 97.14137659422096,
+      "area_weighted_bias_mm": -48.28150127998677
+    }
+  },
+  "hindcast_metrics": {
+    "cca_area_weighted_mean_grid_rmse_mm": 141.0871827546099,
+    "raw_area_weighted_mean_grid_rmse_mm": 324.0698819395017,
+    "cca_area_weighted_mean_grid_pearson": 0.5489221472676864,
+    "raw_area_weighted_mean_grid_pearson": 0.40700080197109445,
+    "fraction_country_weight_with_lower_cca_rmse": 0.9976079307440945
+  },
+  "cpt_elapsed_seconds": 1.2453072680000332,
+  "negative_calibrated_forecast_cells": 0,
+  "probability_sum_max_absolute_error_percent": 1.0000000116860974e-06,
+  "interpretation": "Single historical replay, not independent evidence of operational national forecast skill. Built-in CPT cross-validation is not claimed to be nested model-selection validation."
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "original_notebook_code_cells_executed": 22,
+  "guard_cells": 2,
+  "scratch": "temp/offline-requirements-gggbsule",
+  "guarded_packages": [
+    "cptbin",
+    "cptcore",
+    "cptdl",
+    "cptextras",
+    "cptio",
+    "pycpt"
+  ],
+  "attempts": {
+    "cpt_launch": 0,
+    "credential_read": 0,
+    "remote_network": 0
+  },
+  "import_guard_negative_control": true,
+  "loaded_pycpt_packages": [],
+  "findings_and_regional_findings_match_saved": true,
+  "canonical_notebook_execution": "Not performed; only an extracted-kit copy executed.",
+  "limitation": "The existing kernel has PyCPT installed but every listed package import was blocked. A fresh conda solve of the smaller environment file was not performed.",
+  "analysis_environment_sha256": "1829a39d170ae6294f8aa5a9bddf05da54ab8804c8ae2f873654f45b731190fd",
+  "kit_sha256": "66131d92f2d30c37fc1ab3d930a9036c13cdc2254ff03c281ec4c4d5df97b096"
+}

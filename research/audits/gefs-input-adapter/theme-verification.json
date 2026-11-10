@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "dark_body_background": "#121212",
+  "dark_surface": "#191919",
+  "light_body_background": "#fbfcfa",
+  "desktop_and_mobile_reviewed": true,
+  "mobile_width": 390,
+  "mobile_page_width": 375,
+  "console_errors": 0,
+  "rendered_pages": 9,
+  "links_checked": 975,
+  "broken_links": 0,
+  "tests_passed": 35,
+  "notebook_execution": false,
+  "fits_run": 0,
+  "screenshot": "temp/neutral-dark-preview.png",
+  "style_sha256": {
+    "docs\\styles\\styles.css": "7eb3151076ad7d5be740361ab3446d37f382ccd8d4a1bf0c4baf9256e0fd0771",
+    "docs\\styles\\theme-dark.scss": "a91a93e021e752af6b970b163376a1fd824cf8b5ab8d70a4afe606c73a62c119"
+  }
+}

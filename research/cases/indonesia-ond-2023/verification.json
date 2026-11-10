@@ -1,0 +1,52 @@
+{
+  "status": "PASS",
+  "output_hashes_verified": 12,
+  "country_mask_and_probability_checks": "PASS",
+  "forecast_year_excluded_from_training": true,
+  "native_vs_direct_rmse_tolerance_mm": 0.002,
+  "native_vs_direct_pearson_tolerance": 1e-05,
+  "independent_dekad_sum_checks": [
+    {
+      "year": 1990,
+      "requested_lon": 101.5,
+      "requested_lat": 0.5,
+      "raw_sum_mm": 849.5469970703125,
+      "rolling_total_mm": 849.5469970703125
+    },
+    {
+      "year": 1990,
+      "requested_lon": 110.5,
+      "requested_lat": -7.5,
+      "raw_sum_mm": 562.5802612304688,
+      "rolling_total_mm": 562.5802612304688
+    },
+    {
+      "year": 1990,
+      "requested_lon": 137.5,
+      "requested_lat": -3.5,
+      "raw_sum_mm": 753.8638916015625,
+      "rolling_total_mm": 753.8638916015625
+    },
+    {
+      "year": 2023,
+      "requested_lon": 101.5,
+      "requested_lat": 0.5,
+      "raw_sum_mm": 965.6890869140625,
+      "rolling_total_mm": 965.6890869140625
+    },
+    {
+      "year": 2023,
+      "requested_lon": 110.5,
+      "requested_lat": -7.5,
+      "raw_sum_mm": 455.91162109375,
+      "rolling_total_mm": 455.9116516113281
+    },
+    {
+      "year": 2023,
+      "requested_lon": 137.5,
+      "requested_lat": -3.5,
+      "raw_sum_mm": 760.96533203125,
+      "rolling_total_mm": 760.96533203125
+    }
+  ]
+}

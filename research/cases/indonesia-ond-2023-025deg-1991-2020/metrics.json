@@ -1,0 +1,166 @@
+{
+  "case_id": "indonesia-ond-2023-025deg-1991-2020",
+  "training_years": [
+    1991,
+    2020
+  ],
+  "comparison_training_years": [
+    1982,
+    2010
+  ],
+  "training_sample_counts": {
+    "old": 29,
+    "new": 30
+  },
+  "target": "OND2023",
+  "new_training_cells": 3240,
+  "old_training_cells": 3240,
+  "common_training_cells": 3240,
+  "evaluation_cells": 3240,
+  "fraction_original_fine_land_weight_retained": 1.0,
+  "forecast_metrics_common_025": {
+    "climatology_1982_2010": {
+      "rmse_mm": 222.0270390726227,
+      "mae_mm": 184.77934533837828,
+      "bias_mm": 149.79210828793487
+    },
+    "climatology_1991_2020": {
+      "rmse_mm": 226.4960852681339,
+      "mae_mm": 190.4300180596266,
+      "bias_mm": 165.80990180410632
+    },
+    "raw_cfsv2": {
+      "rmse_mm": 292.389469572019,
+      "mae_mm": 230.91776241573166,
+      "bias_mm": -83.90775518296125
+    },
+    "cca_1982_2010": {
+      "rmse_mm": 137.43211752090374,
+      "mae_mm": 102.08290083054234,
+      "bias_mm": -47.099710038752136
+    },
+    "pcr_1982_2010": {
+      "rmse_mm": 132.14920560800437,
+      "mae_mm": 98.82363708157006,
+      "bias_mm": -46.945610499877944
+    },
+    "cca_1991_2020": {
+      "rmse_mm": 120.34602943146852,
+      "mae_mm": 89.18841098204766,
+      "bias_mm": -3.3764170786724583
+    },
+    "pcr_1991_2020": {
+      "rmse_mm": 117.35607280241405,
+      "mae_mm": 87.83840806093643,
+      "bias_mm": -3.4725199857096216
+    }
+  },
+  "training_period_historical_metrics_descriptive_only": {
+    "raw_cfsv2_1982_2010": {
+      "mean_grid_rmse_mm": 341.39846841442477,
+      "mean_grid_pearson": 0.3886785570375967,
+      "years": [
+        1982,
+        2010
+      ]
+    },
+    "cca_1982_2010": {
+      "mean_grid_rmse_mm": 150.39394796197104,
+      "mean_grid_pearson": 0.5262352461754105,
+      "years": [
+        1982,
+        2010
+      ]
+    },
+    "pcr_1982_2010": {
+      "mean_grid_rmse_mm": 151.48632172154984,
+      "mean_grid_pearson": 0.5162835353592211,
+      "years": [
+        1982,
+        2010
+      ]
+    },
+    "raw_cfsv2_1991_2020": {
+      "mean_grid_rmse_mm": 350.37126796728194,
+      "mean_grid_pearson": 0.3908867196602467,
+      "years": [
+        1991,
+        2020
+      ]
+    },
+    "cca_1991_2020": {
+      "mean_grid_rmse_mm": 161.35919649000508,
+      "mean_grid_pearson": 0.47693334792942627,
+      "years": [
+        1991,
+        2020
+      ]
+    },
+    "pcr_1991_2020": {
+      "mean_grid_rmse_mm": 163.41206547360773,
+      "mean_grid_pearson": 0.4649268829978118,
+      "years": [
+        1991,
+        2020
+      ]
+    }
+  },
+  "shared_1991_2010_historical_metrics": {
+    "raw_cfsv2_1982_2010": {
+      "mean_grid_rmse_mm": 352.26490221841584,
+      "mean_grid_pearson": 0.39814484528615723
+    },
+    "cca_1982_2010": {
+      "mean_grid_rmse_mm": 155.32432501409457,
+      "mean_grid_pearson": 0.5552964582426981
+    },
+    "pcr_1982_2010": {
+      "mean_grid_rmse_mm": 155.95505494611734,
+      "mean_grid_pearson": 0.5472312540895445
+    },
+    "raw_cfsv2_1991_2020": {
+      "mean_grid_rmse_mm": 352.26490221841584,
+      "mean_grid_pearson": 0.39814484528615723
+    },
+    "cca_1991_2020": {
+      "mean_grid_rmse_mm": 157.3882502295928,
+      "mean_grid_pearson": 0.55393070960208
+    },
+    "pcr_1991_2020": {
+      "mean_grid_rmse_mm": 158.6324959199386,
+      "mean_grid_pearson": 0.5468378489077644
+    }
+  },
+  "fit_elapsed_seconds": {
+    "cca": 4.888270449999254,
+    "pcr": 4.560551024998858
+  },
+  "native_score_checks": {
+    "cca": {
+      "maximum_native_direct_rmse_difference_mm": 0.0013195124074627529,
+      "maximum_native_direct_pearson_difference": 8.07531284596763e-06
+    },
+    "pcr": {
+      "maximum_native_direct_rmse_difference_mm": 0.0013330556828350382,
+      "maximum_native_direct_pearson_difference": 6.840926817797133e-06
+    }
+  },
+  "probability_checks": {
+    "cca": {
+      "maximum_sum_error_percentage_points": 1.0000000116860974e-06,
+      "negative_forecast_cells": 0
+    },
+    "pcr": {
+      "maximum_sum_error_percentage_points": 1.0000000116860974e-06,
+      "negative_forecast_cells": 0
+    }
+  },
+  "continuity_status": "PASS_COMPLETENESS_WITH_SOURCE_TRANSITION",
+  "limitations": [
+    "1991\u20132020 blends reforecasts and operational forecasts",
+    "Changing period also changes training sample count29to30",
+    "One held-out2023 target is not general skill evidence",
+    "Probability categories depend on calibration period; no probabilistic skill comparison",
+    "Historical CV samples/folds differ, even on shared verification years"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "notebook": "docs/learn/04-evaluate-models.ipynb",
+  "executed": "2026-11-10T06:57:01+00:00",
+  "elapsed_seconds": 59.7,
+  "kernel": "pycpt-tutorial",
+  "code_cells": 13,
+  "errors": 0,
+  "home_path_redacted_in_cells": [
+    2
+  ],
+  "notebook_sha256": "629b783b564c77d831415276342ed39579807a9a1849851ab9fee2748911f14d"
+}

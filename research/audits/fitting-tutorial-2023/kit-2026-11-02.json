@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-02",
+  "notebook_sha256": "f2e5d99136f7ed74596692557ee929a47e87eeb847b8708e2aaba304a8f6eaa6",
+  "kit": {
+    "file": "docs/downloads/fit-diagnose-2023-kit.zip",
+    "sha256": "32d5e711e6ebdafb0fd4be32d5a56621d72ee28d8e71f93fea5ca66451953e64",
+    "bytes": 14452837,
+    "files": 44
+  },
+  "output_archive": {
+    "file": "docs/downloads/fit-diagnose-2023-outputs.zip",
+    "sha256": "a4a6d22cc62c4fc4e03492123575a4612658352c30748c6a969c15e4f4599fb8",
+    "bytes": 10494052,
+    "netcdf_files": 30
+  },
+  "scope": "Only case-two downloads changed; no credentials or bulk native session inputs included."
+}

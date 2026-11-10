@@ -1,0 +1,23 @@
+{
+  "recent_period_lower_pooled_rmse_seasons": {
+    "cca": 11,
+    "pcr": 11
+  },
+  "lower_error_than_matched_climatology_seasons": {
+    "cca_1983_2010": 11,
+    "cca_1991_2020": 10,
+    "pcr_1983_2010": 11,
+    "pcr_1991_2020": 10
+  },
+  "lower_error_than_raw_seasons": {
+    "cca_1983_2010": 12,
+    "cca_1991_2020": 12,
+    "pcr_1983_2010": 12,
+    "pcr_1991_2020": 12
+  },
+  "bias_tradeoff_seasons": [
+    "CCA: JFM, FMA, MJJ, ASO, OND, NDJ",
+    "PCR: JFM, FMA, ASO, OND"
+  ],
+  "fit_records_sha256": "94a85a1317bf74e1c0d884a14452d7ba762c9a82a3b0e36450791ce45fcf199d"
+}

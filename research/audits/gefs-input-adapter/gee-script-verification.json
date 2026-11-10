@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "scope": "Offline JavaScript planning and metadata-rejection checks only",
+  "script_sha256": "4084a78290fd7d6c252456bc368c6750359b8810b63609758a353d8e269240ef",
+  "pilot_image_tasks": 6,
+  "pilot_daily_bands_both_variants": 84,
+  "proposed_image_tasks_all_years": 532,
+  "proposed_unique_dates_per_variant": 8064,
+  "exact_match_with_verified_url_lists": true,
+  "exact_match_with_prepared_pilot_dates": true,
+  "leap_day_and_year_filters_checked": true,
+  "rejected_inventory_cases": [
+    "missing_day",
+    "duplicate_day",
+    "nonmidnight_timestamp",
+    "changed_projection",
+    "wrong_crs"
+  ],
+  "earth_engine_authenticated_execution": false,
+  "drive_tasks_created": 0,
+  "fits_run": 0
+}

@@ -1,0 +1,9 @@
+{
+  "notebook": "docs/notebooks/indonesia-seasons-2023.ipynb",
+  "python": "3.12.5",
+  "quarto": "1.8.27",
+  "code_cells_executed": 22,
+  "errors": 0,
+  "optional_cpt_rerun": false,
+  "notebook_sha256": "692875ce7fa5197187f9aa44a874dc67293f22be58985495cc77e8fa15775974"
+}

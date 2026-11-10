@@ -1,0 +1,220 @@
+{
+  "case_id": "indonesia-ond-2023",
+  "completed_at": "2026-10-31T10:35:55.997644+00:00",
+  "availability": {
+    "case_id": "indonesia-ond-2023",
+    "forecast_initialization": "2023-09-01",
+    "target_start": "2023-10-01",
+    "target_end": "2023-12-31",
+    "training_years": [
+      1982,
+      2010
+    ],
+    "forecast_year": 2023,
+    "model": "CFSv2.PRCP",
+    "model_sources": {
+      "hindcasts": {
+        "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Sep%201982-2010%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/-999/setmissing_value/%5BX/Y%5D%5BL/S/add%5D/cptv10.tsv",
+        "bytes": 3617326,
+        "sha256": "f1918fc9f775769523e4a4c7cf6a7a0c8f7c7af4cb2dc178f85e6fca286c2049",
+        "years": [
+          1982,
+          1983,
+          1984,
+          1985,
+          1986,
+          1987,
+          1988,
+          1989,
+          1990,
+          1991,
+          1992,
+          1993,
+          1994,
+          1995,
+          1996,
+          1997,
+          1998,
+          1999,
+          2000,
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010
+        ],
+        "shape": {
+          "T": 29,
+          "Y": 41,
+          "X": 71
+        }
+      },
+      "forecasts": {
+        "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Sep%202023%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/-999/setmissing_value/%5BX/Y%5D%5BL/S/add%5D/cptv10.tsv",
+        "bytes": 124858,
+        "sha256": "7db5d364c4f4ada214bface85af176a149ba91cc8fa5d760526c43a52633f1c0",
+        "years": [
+          2023
+        ],
+        "shape": {
+          "T": 1,
+          "Y": 41,
+          "X": 71
+        }
+      }
+    },
+    "observations": {
+      "product": "CHIRPS v3.0",
+      "available_years": [
+        1981,
+        2025
+      ],
+      "local_source": "/mnt/e/temp/chirps/rolling_dekad/wld_cli_chirps3_month3_bydekad_1981_2025.nc",
+      "original_source_size_bytes": 24343763347
+    },
+    "country_bounds": {
+      "west": 94,
+      "east": 142,
+      "south": -12,
+      "north": 7
+    },
+    "predictor_bounds": {
+      "west": 85,
+      "east": 155,
+      "south": -20,
+      "north": 20
+    },
+    "output_resolution_degrees": 1.0,
+    "prepared_at": "2026-10-31T10:32:43.896372+00:00",
+    "interpretation": "Historical replay using retrospectively available model/observation products, not an as-issued 2023 operational record"
+  },
+  "cpt_config": {
+    "x_eof_modes": [
+      3,
+      3
+    ],
+    "y_eof_modes": [
+      3,
+      3
+    ],
+    "cca_modes": [
+      2,
+      2
+    ],
+    "validation": "CROSSVALIDATION",
+    "crossvalidation_window": 5,
+    "synchronous_predictors": true,
+    "transform_predictand": null,
+    "tailoring": null,
+    "drymask_threshold": null,
+    "skillmask_threshold": null
+  },
+  "engine": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
+  "engine_sha256": "3457c93ee3d7a69005e32c231a976c50a056da53868c02757f344a46a81a139e",
+  "outputs": {
+    "cca_forecast_2023.nc": {
+      "bytes": 57108,
+      "sha256": "255c2ce2cc5423ceb06a6c0858e2420e3534c915df1acc1f96cb396944fa9911"
+    },
+    "cca_hindcasts.nc": {
+      "bytes": 121194,
+      "sha256": "f0c5f27ee7c035af7a44460a2dde86b3f0b21395292a1a3ca82a4f440747e324"
+    },
+    "cca_native_skill.nc": {
+      "bytes": 54568,
+      "sha256": "d698ac5ff8963b99ce1125d05bc7bdb0d3828c67121b69a031bf51a6a12f7c99"
+    },
+    "cca_predictand_patterns.nc": {
+      "bytes": 67843,
+      "sha256": "ad6744986bb22000b6fa738a5731ba38c567e9c1c5eb26571f4cb7e7bc4d11e2"
+    },
+    "cca_predictor_patterns.nc": {
+      "bytes": 148880,
+      "sha256": "7f8522bc7c693a3784e02435e2a5881f0ae99a9560e8a6bef37986437f5f6d46"
+    },
+    "cfsv2_forecast_predictor_2023.nc": {
+      "bytes": 39330,
+      "sha256": "bbd128576146b8cf9a95c140f5ce7a82f4b1f18d4cbb72e8e4f8bf962abd8994"
+    },
+    "cfsv2_training_predictors.nc": {
+      "bytes": 586242,
+      "sha256": "b4c1d68b6d5eb82eac3a75f7418f6cfcb14aad17f1c1582a8a239b80dce598b7"
+    },
+    "deterministic_hindcast_comparison.nc": {
+      "bytes": 49660,
+      "sha256": "34914c4858e3d66e46e1208007fde51a0546e7b374ce8f65f2cbd089ae66a46a"
+    },
+    "forecast_2023_baselines_and_observed.nc": {
+      "bytes": 86209,
+      "sha256": "6120a7ba07dd60a06231b636115fd90d2001ba89dbd70babeedad616636c4d3d"
+    },
+    "indonesia_analysis_mask.nc": {
+      "bytes": 22732,
+      "sha256": "3809c585f7b9687e87b5365ba90257a880ab1637b31a146bd2a4bb3aa4671cd8"
+    },
+    "indonesia_ond_2023_comparison.png": {
+      "bytes": 586916,
+      "sha256": "391e311bb0f99bebe71d0219fdd24b45a0f0b12463377aba794e9b38bbded272"
+    },
+    "observations_chirps3_ond.nc": {
+      "bytes": 123049,
+      "sha256": "6dbecb82552fb55fcc0d8b3edb7582088741523a837c310497edf06a6b7a2a36"
+    }
+  },
+  "metrics": {
+    "forecast_year": 2023,
+    "training_years": [
+      1982,
+      2010
+    ],
+    "training_sample_count": 29,
+    "country_grid_cells": 369,
+    "forecast_metrics": {
+      "training_climatology": {
+        "area_weighted_rmse_mm": 214.10042921143463,
+        "area_weighted_mae_mm": 181.38604052075414,
+        "area_weighted_bias_mm": 149.80219869329
+      },
+      "raw_cfsv2": {
+        "area_weighted_rmse_mm": 267.68602556508523,
+        "area_weighted_mae_mm": 219.38698780202694,
+        "area_weighted_bias_mm": -87.40247364769586
+      },
+      "cca_cfsv2": {
+        "area_weighted_rmse_mm": 128.9881332464314,
+        "area_weighted_mae_mm": 97.14137659422096,
+        "area_weighted_bias_mm": -48.28150127998677
+      }
+    },
+    "hindcast_metrics": {
+      "cca_area_weighted_mean_grid_rmse_mm": 141.0871827546099,
+      "raw_area_weighted_mean_grid_rmse_mm": 324.0698819395017,
+      "cca_area_weighted_mean_grid_pearson": 0.5489221472676864,
+      "raw_area_weighted_mean_grid_pearson": 0.40700080197109445,
+      "fraction_country_weight_with_lower_cca_rmse": 0.9976079307440945
+    },
+    "cpt_elapsed_seconds": 1.2453072680000332,
+    "negative_calibrated_forecast_cells": 0,
+    "probability_sum_max_absolute_error_percent": 1.0000000116860974e-06,
+    "interpretation": "Single historical replay, not independent evidence of operational national forecast skill. Built-in CPT cross-validation is not claimed to be nested model-selection validation."
+  },
+  "limitations": [
+    "CHIRPS v3 and current archive revisions make this a retrospective replay, not exact reproduction of information available in September 2023",
+    "1-degree country-only land averages do not resolve small islands or local administrative detail",
+    "29 training seasons from 1982\u20132010; 2011\u20132022 are not appended to this hindcast product",
+    "Fixed small mode counts were chosen before looking at forecast outcomes; no tuning to 2023",
+    "CPT deterministic built-in CV diagnostics are reported; no in-sample probabilistic hindcast scores are presented as out-of-sample",
+    "The supplied 1991\u20132020 LTA was not used to fit calibration or the matched-period climatology baseline"
+  ],
+  "pipeline_script_sha256": {
+    "scripts/prepare_indonesia_case.py": "16e79465dbbe58402bb7918acf1f9f13eb66a735eff85d8861db15b59f2cb71f",
+    "scripts/run_indonesia_case.py": "769ac3488b83cf42866b1061dba683970d1ff586a2aebd828720d8ecd71008dc",
+    "scripts/verify_indonesia_case.py": "a99a0a3e0331b1236823105039547545a3b65eda4e6ff791a531069499b6c894",
+    "pycpt_tutorial/export.py": "26cdab9fb9053b681bc7efe6971710aeb75f9e341f376400c2bb81351ed0ff3e"
+  }
+}

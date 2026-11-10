@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "output_hashes_verified": 20,
+  "original_case_artifacts_unchanged": 20,
+  "fine_grid_cells": 3240,
+  "common_1deg_cells": 369,
+  "probabilities_dates_counts_and_variances": "PASS",
+  "independent_numpy_aggregation_maximum_difference_mm": {
+    "cca": 0.0,
+    "pcr": 0.0
+  },
+  "all_30_seasons_fine_observations_reconstruct_original_1deg_max_difference_mm": 1.3642420526593924e-12,
+  "training_years": [
+    1982,
+    2010
+  ],
+  "verification_year_excluded_from_fitting": 2023,
+  "verification_script_sha256": "8ec0b56326ce0eb862eb414e4eb6d761823a4599325a2ea4de805e1e61aef343"
+}

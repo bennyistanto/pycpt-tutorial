@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-02",
+  "score_values_exactly_matched": 20160,
+  "map_values_exactly_matched": 311040,
+  "map_weight_shares_verified": 3240,
+  "protected_notebook_scientific_artifacts_unchanged": 35,
+  "interactive_story_panels": 8,
+  "static_fallback_images": 8,
+  "published_runtime_assets_match_source": 7,
+  "required_external_scripts": [],
+  "notebook_execution": "No canonical execution performed by this verifier; current preservation baseline matched.",
+  "code_sha256": {
+    "docs/assets/story/story.js": "21ca14a906fa01b731cba60994790c03f7c9d0d6c5bf7eaf1e4d76c43e621122",
+    "scripts/export_story_interactives.py": "d85d61032c5ad70f4c954a66d8314dcddbc41d6e271bbe66c3727a5f3e1975d7",
+    "scripts/render_tutorial.py": "e6d9e9919ca7bb7a843a4352896e2ab0a5a00d7aabeeeed3291a51fadc252fbe"
+  }
+}

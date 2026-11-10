@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-02",
+  "independent_numpy_max_score_difference_mm": 1.0800249583553523e-12,
+  "forecast_windows": 12,
+  "cells": 3240,
+  "calendar_ndj": "November2023\u2013January2024; source ending-year2024",
+  "code_cells_executed": 22,
+  "notebook_errors": 0,
+  "protected_research_files_unchanged": 328,
+  "source_files_hash_verified": 17,
+  "book_html_pages": 9,
+  "local_html_links_checked": 1091,
+  "broken_html_links": [],
+  "static_story_fallbacks_with_alt": 8,
+  "interactive_story_panels": 8,
+  "kit_execution": "PASS: complete kit executed in fresh analysis-only Debian environment; PyCPT/CPT absent; numerical outputs and findings matched. See research/audits/analysis-environment/execution.json",
+  "boundary_layers_hash_verified": 3,
+  "kit_sha256": "66131d92f2d30c37fc1ab3d930a9036c13cdc2254ff03c281ec4c4d5df97b096",
+  "book_story_sha256": "b3d6f9779193061a463fb495f63284de5c122bc2d5467c0323a6549d40fa6d56",
+  "findings": {
+    "CCA": 9,
+    "PCR": 7
+  }
+}

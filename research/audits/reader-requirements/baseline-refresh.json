@@ -1,0 +1,6 @@
+{
+  "reason": "Three notebook markdown cells clarified; all code cells and their execution metadata/outputs identical.",
+  "previous_baseline": "research/audits/interactive-story/baseline-9bf37c4821c6.json",
+  "old_sha256": "9bf37c4821c6dd03bd5706af381c407da2fb32f5b43ca96ba3d959ff9e7c304d",
+  "new_sha256": "c2c2f7a32c969fbab6d9af2424c4dad79449e13c9a40a93d2f88d3045a22cbb1"
+}

@@ -1,0 +1,9 @@
+{
+  "tag": "pycpt-2.10.4",
+  "commit": "084bb5c380c200b5f65f11ba224a965547b91da1",
+  "raw_url": "https://raw.githubusercontent.com/iri-pycpt/pycpt/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/pycpt/notebook.py",
+  "source_url": "https://github.com/iri-pycpt/pycpt/blob/084bb5c380c200b5f65f11ba224a965547b91da1/pycpt/src/pycpt/notebook.py",
+  "upstream_sha256": "f3af8e851050098ade15a0003739d7fe291fb4c98639cf8589ada80724b7ef64",
+  "installed_sha256": "f3af8e851050098ade15a0003739d7fe291fb4c98639cf8589ada80724b7ef64",
+  "identical": true
+}

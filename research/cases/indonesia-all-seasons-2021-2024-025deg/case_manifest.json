@@ -1,0 +1,1723 @@
+{
+  "case_id": "indonesia-all-seasons-2021-2024-025deg",
+  "completed_at": "2026-10-31T16:39:48.112775+00:00",
+  "engine": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
+  "engine_sha256": "3457c93ee3d7a69005e32c231a976c50a056da53868c02757f344a46a81a139e",
+  "unchanged_benchmark_artifacts_sha256": {
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_forecast_2023.nc": "255c2ce2cc5423ceb06a6c0858e2420e3534c915df1acc1f96cb396944fa9911",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_hindcasts.nc": "f0c5f27ee7c035af7a44460a2dde86b3f0b21395292a1a3ca82a4f440747e324",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_native_skill.nc": "d698ac5ff8963b99ce1125d05bc7bdb0d3828c67121b69a031bf51a6a12f7c99",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_predictand_patterns.nc": "ad6744986bb22000b6fa738a5731ba38c567e9c1c5eb26571f4cb7e7bc4d11e2",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cca_predictor_patterns.nc": "7f8522bc7c693a3784e02435e2a5881f0ae99a9560e8a6bef37986437f5f6d46",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cfsv2_forecast_predictor_2023.nc": "bbd128576146b8cf9a95c140f5ce7a82f4b1f18d4cbb72e8e4f8bf962abd8994",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/cfsv2_training_predictors.nc": "b4c1d68b6d5eb82eac3a75f7418f6cfcb14aad17f1c1582a8a239b80dce598b7",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/deterministic_hindcast_comparison.nc": "34914c4858e3d66e46e1208007fde51a0546e7b374ce8f65f2cbd089ae66a46a",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/forecast_2023_baselines_and_observed.nc": "6120a7ba07dd60a06231b636115fd90d2001ba89dbd70babeedad616636c4d3d",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/indonesia_analysis_mask.nc": "3809c585f7b9687e87b5365ba90257a880ab1637b31a146bd2a4bb3aa4671cd8",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/indonesia_ond_2023_comparison.png": "391e311bb0f99bebe71d0219fdd24b45a0f0b12463377aba794e9b38bbded272",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/outputs/observations_chirps3_ond.nc": "6dbecb82552fb55fcc0d8b3edb7582088741523a837c310497edf06a6b7a2a36",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/deterministic_hindcast_three_method_comparison.nc": "360d2c213ce08d1083373a5907ed2c71e056fcb52a61029c77719187470ebadb",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/forecast_2023_four_method_comparison.nc": "f60adeb2732947a19e4b4dd10820dc0f62d50bf55521cd55dd28ab4ee83ae8ef",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/indonesia_ond2023_four_method_comparison.png": "05c50e135607a983bf6dcd1b3b795a4c8f0957fb4781e075a914328edb46848b",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_forecast_2023.nc": "59355d711f63cbd5d4b512de08303070dc4606c18deb9417e5f7d8d65da0ef8b",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_hindcasts.nc": "78c84d5751fef39161680dfe097997cf8766979180626e0c8a8ff38db278ce97",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_minus_cca_error_comparison.png": "4116a1db1064a9529fd844a884eb55e05d75bc4205e356e25c34f253e168c8f7",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_native_skill.nc": "934ed596b90b9da524b3a4a3886c2d0dbf93cc236241c649bf4c3ad43d454908",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison/outputs/pcr_predictor_patterns.nc": "9fce6dad87f40a5ff22df9f97e3b42bb4ebddac22432c3c339ac01c824a3a1b7",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_forecast_2023_025.nc": "c1e709a89665104da1610eba997d1b92e5011d4589355bb6c0da76402edc20c2",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_hindcasts_025.nc": "ae66e7241d440f4711c8ed594b38cee76a575db292e7cf0b06829ad09456487c",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_native_skill_025.nc": "a08f5d7773bdeb201e66436183bd543d7bebb25377b2525391302b439db4211b",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_predictand_patterns_025.nc": "cef7af54a67c05f7063b137fb8c31139fc7d6e867106e715ee4d3c353b6c75cf",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cca_predictor_patterns_025.nc": "7d8cde5185c29ca96229e60f81b3a831c9dfee8f81c3cd6e89e06893ae8dfdfe",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cfsv2_forecast_predictor_2023.nc": "d3b0c12cf91ca3970db1a6ec31bfdc969eb2d8f0d73f16ad22c12f2b41b1df1b",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cfsv2_training_predictors.nc": "0e4642f73a8aa33c5bb57fa10f811a4d811ecff72a4f4ea7319861075a23c99e",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/common_1deg_forecast_comparison.nc": "d1be408dd5b586b2566c2cc2d3d824552c1b56540df6f7432da07d139c910550",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/common_1deg_hindcast_comparison.nc": "7bb4aa70675856e9aff5d809b2d2ad4ea6d8354badcc59caebe260fdfb1dc366",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/common_grid_error_changes.png": "38a27bd06977ee1c2ea020472bde4a67c0c3e0b671b92cb5f93efb0ee4363669",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/cross_resolution_evaluation_footprint.nc": "953938ee64726794a8ac26bc19c435122040a5e9f283f22e93ad7f75020519f2",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/indonesia_analysis_mask_025.nc": "b8dcf268e71ef4e42d3c5619569219d27be19dab80ecfec79158da1261049f43",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/native_025_forecast_comparison.nc": "736dc876e8942cf6ef9842dd4887d3b1e6376a44803f91bb30ddc3c1aa72fdf3",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/native_025_hindcast_comparison.nc": "dd63991baa472247646346d001ba7af2392ba8c61abb572e912b4dd80b9e7ac3",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/observations_chirps3_ond_025.nc": "5806efddfe2f136b179c5b479e1373af9c9b7667d94a430fe41b81f217fac94d",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/pcr_forecast_2023_025.nc": "2e1cc61af3c2375bc38117f65983d79607a5bc06ebc91ae410cebb2d66cc7c02",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/pcr_hindcasts_025.nc": "20497b8ad3f7f5961812814fa6e437f1465d522e297a2bd68e5a5b8923e4abaa",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/pcr_native_skill_025.nc": "269eac7439c601884068b8228e557eaf63e082eb947395096f63592506362904",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/pcr_predictor_patterns_025.nc": "c34701c5d375f5b612f9ef9dc51bb4e2b8561128e6951c6391a8beff1af26482",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg/outputs/resolution_forecasts.png": "ba8c3f78612b7d8fd96f276860e7e749da865eb1e3866b2f0349a8dce622dbf2",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/cca_forecast_2023_025.nc": "956245e5b057ac0cc5131c2f86bfde0e8d439e5efc6840d7e3223070e2fdf5f3",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/cca_hindcasts_025.nc": "203c60d3a5c25f72446dfcbee8ce70e9e1d0853e40ab7da9551a0d1344645dd9",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/cca_native_skill_025.nc": "ef3acbf33a041269d540d0c6ee92f4351f063f5df009ce8c3fb22fcb34572f06",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/cca_predictand_patterns_025.nc": "c442f8b3ac1fc83b6bffcf15b65f479126d6e1af40681d4ba310780778ba6065",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/cca_predictor_patterns_025.nc": "7b3731e00c7e37f963f2f87dfed09ea8acee262cd630d099034bb6a82c08f93c",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/cfsv2_forecast_predictor_2023.nc": "17c2a5277095ba00cd4cd642fc06e228e541a3642e1c37fce449f8a7d09982f0",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/cfsv2_monthly_continuity.nc": "2d834a917d52afbd5e1ebfebd9ffe0fdb42a98b6db03d405262b86ca77bdf5cd",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/cfsv2_training_predictors.nc": "d6e991a7b36a0b82b5ef4a1846fa5edf3785f98d029131f355ee2992eb725d78",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/indonesia_analysis_mask_025.nc": "7a83823e0f09dbc5af2b733f6552543b521b354ff6f5e31e36b40fd691358d51",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/observations_chirps3_ond_025.nc": "9c85cea8fedd987aad3d07bc4e1dccfda2b4e4c50ceaeedc7fd783b2d0fdc95e",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/pcr_forecast_2023_025.nc": "c0917a08f836c607a67bc403537d274ce431f026e0f26bfbf47dd754f37943ac",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/pcr_hindcasts_025.nc": "cdc6036b652d99df4a9b31cedad66ab0e6f67f2809f5c690e9178adbc2348caa",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/pcr_native_skill_025.nc": "02cadff8945a4b0260adee6cfadc525595e0c2535703b891d561c0bfe052c8ba",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/pcr_predictor_patterns_025.nc": "f1855f26db0d91e3b8cdac10691396e963df9be14f477efc88b44d9b62784c6f",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/period_comparison_footprint_025.nc": "140cc58d15fd7cd2d98409e437ff21b238f80e1dab7aa55e6d3fb143abb745d2",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/period_forecast_comparison_025.nc": "f1f99e6a5d0b5fd1cffbf680b301fa09ec13c615f01ae8949d7c2887d8dffe53",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/shared_year_hindcasts_1991_2010_025.nc": "88f588883992a87e1a33dc89f65bc7537d2348833766499d0f47e7429c7e6e26",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/shared_year_historical_diagnostics_025.nc": "a3f5ab132da38b1fc9321fcda2b0f0893b0d2f2b0483f5f66651b5a3b845719a",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/training_period_error_changes.png": "62ade9defbe3309507d8a9b91ba36d3fcb05800471231850636d2ba54ac5f3c5",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/training_period_forecasts.png": "c52117cb5971e76124416a6001b33a195c44e87d480369e11dd4054b46ccaf8b",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/outputs/training_period_historical_diagnostics_025.nc": "43c0d04ddc62de0d036ad97583b94004f84d17b2d064a22e0f685c574907c5df",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/cca_1982_2010_forecasts_2021_2024.nc": "e87775f2a2618a4edf2824aff94a41a2c610f364522d1b1bbb5393c0e8826c2f",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/cca_1991_2020_forecasts_2021_2024.nc": "f4973a501a268dfa48f5cd989bf39e4332a14f35538e63deac961839e277aec5",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/cfsv2_forecast_monthly_audit.nc": "6adf181752f2f9773d760774c6017b4489f5ed30dd3e6cf32df802e7b1232a4c",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/cfsv2_forecast_predictors.nc": "1632f7d3dc9d50cf9d66cf53e664d5c0314adcd01ed4abaa467ae52b689fe023",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/evaluation_footprint.nc": "da2ccfb44d4621152d2aff1844f9293e6a61ed56a03d02ba91582fb3eed87131",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/forecast_comparison_025.nc": "109c818faaaf78c79c9765f57e627335430ec81f6b167c7b7964a8afbe125b47",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/holdout_error_changes.png": "fabfabb775adc841294897c2a113bdbcd819e1e058375c00813787d907165705",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/holdout_scores.png": "bb9f5c4318ea850396b7bc4aa6e61e27046715b8729ce2232bde5a5724c6b6f6",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/multiyear_error_fields.nc": "0ce3f1e849f8b16aeac3ed1a427206d323e1cd95f240f104d855d082c0bda283",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/observations_chirps3_ond_2021_2024.nc": "1d416ad7c3f8db2d8823d7f3e387d9e96f22a0715da4f6a11e0858babae3cd15",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/pcr_1982_2010_forecasts_2021_2024.nc": "859e52a5ab4bb33fdec64f6637391946fa3bdd3d20d74d02afc34428e93f2e8d",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/pcr_1991_2020_forecasts_2021_2024.nc": "89d2ea4425bd88ceda98dc6649df94ed9631d9d07b204307c3af85fb0be6c5e6",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/training_hindcasts_1982_2010.nc": "253f0f84354dc143502d171499efcad57b37c4ad16f7cacbb4831801de7128e9",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/training_hindcasts_1991_2020.nc": "6828952ccc81a8c068a48898c97d3a1e4db0e905c4481b3a6ba52dea1bae3192",
+    "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/outputs/verification_scores.nc": "af7911ab1193eb74de70c1ea3f531edcd895d38ec015da7aaeed31f3c5075bbd"
+  },
+  "outputs": {
+    "AMJ_cca_1983_2010_forecasts.nc": {
+      "bytes": 632054,
+      "sha256": "1588da54a2c71ee5c9f024acfe8a72c9cdabcccb28da05ffd3b616819bf6ff0b"
+    },
+    "AMJ_cca_1983_2010_hindcasts.nc": {
+      "bytes": 844531,
+      "sha256": "580e614cadabc8151792673f2b80c94649422778c37049184e917b4034563be4"
+    },
+    "AMJ_cca_1983_2010_native_skill.nc": {
+      "bytes": 211576,
+      "sha256": "90764ba64b9142cbdd962126d81456d10e4865522430da57a3a09ea0e3e141b8"
+    },
+    "AMJ_cca_1991_2020_forecasts.nc": {
+      "bytes": 626989,
+      "sha256": "6f6a7bdd58c30bb07d39c3c907b1f0e5de481d04709ca4977f8d6f3a39b307b4"
+    },
+    "AMJ_cca_1991_2020_hindcasts.nc": {
+      "bytes": 903378,
+      "sha256": "479c58910bd532873773a1bd6db51ced58e4718d34dd8ccc4d303df122fca581"
+    },
+    "AMJ_cca_1991_2020_native_skill.nc": {
+      "bytes": 208767,
+      "sha256": "c0626249abe811ab64e85497f8fd9fb9f830ac32edf642ccc60b4025dcaeb8c4"
+    },
+    "AMJ_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "faadf96ac47964b972d54e09a3c2b8d95ba5e7e849cbbab0c3209137bf14c60c"
+    },
+    "AMJ_forecast_comparison.nc": {
+      "bytes": 2467791,
+      "sha256": "72e46c226c1cd9e57d9edc5f44cbee84cfd48c12c2f88a8f63baaf405ba28efe"
+    },
+    "AMJ_monthly_audit.nc": {
+      "bytes": 1808982,
+      "sha256": "b6c498be8f55b5562f55b40481e00d67aafee22da9b08e6c43d585c1431357ec"
+    },
+    "AMJ_observations.nc": {
+      "bytes": 1342074,
+      "sha256": "53d903b91c56163f898cde30b8391cde22f690e9cc92aadb4598cb3dd1ea87a0"
+    },
+    "AMJ_pcr_1983_2010_forecasts.nc": {
+      "bytes": 633997,
+      "sha256": "aae1b279fd19d84ad8f77c2e23b6c1c72c2dfed12fdbb1a67cf5810f1a5fb8e6"
+    },
+    "AMJ_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 847303,
+      "sha256": "c6a6516aee07fcd599d16a3032a811fde04d1d0606f6e0d7d4da127308e540c9"
+    },
+    "AMJ_pcr_1983_2010_native_skill.nc": {
+      "bytes": 211858,
+      "sha256": "3396fc0bf48155b7cd10c86745f5ca41355a4dd5e0315a2c3ee2ff024ef334c9"
+    },
+    "AMJ_pcr_1991_2020_forecasts.nc": {
+      "bytes": 633721,
+      "sha256": "513c51364d9e29a0c7610ce6919df5e7a4e1ec26b72e40a198c76d3347eefcfc"
+    },
+    "AMJ_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 905409,
+      "sha256": "520ac244bb4867ccce7ff0d39e286b4b3989897b9e90c10462a513360a03f9d9"
+    },
+    "AMJ_pcr_1991_2020_native_skill.nc": {
+      "bytes": 209436,
+      "sha256": "edd1f1d58f996e93b1ab04ccc5916fad0f0c7b322aea8f37b36c2a30ed2db4a8"
+    },
+    "AMJ_predictors.nc": {
+      "bytes": 706932,
+      "sha256": "4958ad11d7848ade48e2b0c3753c17ccbb6c65eda35995d6d601076434d3a72b"
+    },
+    "ASO_cca_1983_2010_forecasts.nc": {
+      "bytes": 641117,
+      "sha256": "92bf7b086f6fd23a8b2c818de9902e961659501de87de1adaacfb7bf404077e0"
+    },
+    "ASO_cca_1983_2010_hindcasts.nc": {
+      "bytes": 856463,
+      "sha256": "a1814267b1ec317aa766fba0650d1a90d665b76c0e277ff8aee98a2b6c8e8b44"
+    },
+    "ASO_cca_1983_2010_native_skill.nc": {
+      "bytes": 205478,
+      "sha256": "6bb5c2c65bd5caea5ef9d0b3f9b0317fb095cd326b7f7314905c21f31f151142"
+    },
+    "ASO_cca_1991_2020_forecasts.nc": {
+      "bytes": 638269,
+      "sha256": "5abba47324da0b88609c4eeec86daebded38f7e04dda353e68af629f513360cb"
+    },
+    "ASO_cca_1991_2020_hindcasts.nc": {
+      "bytes": 918145,
+      "sha256": "b5a93139430b1460e077f93f19a507bb84036862d9a9f9a057c5896064d87969"
+    },
+    "ASO_cca_1991_2020_native_skill.nc": {
+      "bytes": 201688,
+      "sha256": "5e9e8e6c916faf773ea271fa8896bfa7ac2f29cd4ae0456681be89d69e6068e4"
+    },
+    "ASO_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "0e0ea4a6171c5734d79603b5b164914aebffa68223cbb3bc96303dfc6ef7fadc"
+    },
+    "ASO_forecast_comparison.nc": {
+      "bytes": 2492063,
+      "sha256": "4f243214378f725669a20bb190c0c1e2da6e9a57a75267d599f467afd27fdc7a"
+    },
+    "ASO_monthly_audit.nc": {
+      "bytes": 1798308,
+      "sha256": "9d074047c3c84415603d5ca3cb68947be93b7c49f992a7c995e46b606d626765"
+    },
+    "ASO_observations.nc": {
+      "bytes": 1356793,
+      "sha256": "f2c39a2cced0c7fa6430e282e796de1af591a924fbca76920949403d2c721777"
+    },
+    "ASO_pcr_1983_2010_forecasts.nc": {
+      "bytes": 640166,
+      "sha256": "cf43e7493ddc6a52ecf4be8b4e99689e3f69aeb58da32d8b5bb61be16958eb5a"
+    },
+    "ASO_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 857078,
+      "sha256": "ff9d96b36e0128000bba6b6c4911e1811a353ad063c08d01fe9804ced945efdb"
+    },
+    "ASO_pcr_1983_2010_native_skill.nc": {
+      "bytes": 206599,
+      "sha256": "a0de4d2ba971fcdba63d48a3d38f579fcfec14050fbd456da34b3786508d233f"
+    },
+    "ASO_pcr_1991_2020_forecasts.nc": {
+      "bytes": 640549,
+      "sha256": "b5257a3cf8afc1f79abea218b7cf0a7ef1a26d1e12b9da0066beb804a7e530a5"
+    },
+    "ASO_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 917914,
+      "sha256": "be6b2ca96b09568018ce22c9aa82e0ac0e85a45a2c940e0f0ab867917913772f"
+    },
+    "ASO_pcr_1991_2020_native_skill.nc": {
+      "bytes": 202707,
+      "sha256": "00959b90a32b749af089f88a0b2c0335f525b2c5303c0cd18b51c31639fcabde"
+    },
+    "ASO_predictors.nc": {
+      "bytes": 708352,
+      "sha256": "9255efc810123dd6fffe226105772f61b85ca45a0f324be44dc6566efedfed58"
+    },
+    "DJF_cca_1983_2010_forecasts.nc": {
+      "bytes": 633209,
+      "sha256": "cfd9454b930532d89f5ae86e4f42bed0f0aece6867c943e47376c3d9fa052a68"
+    },
+    "DJF_cca_1983_2010_hindcasts.nc": {
+      "bytes": 843889,
+      "sha256": "2ae7e354f2ff40ecf0d2b98961597b5e16e8e6889cc93a809692af89062ee9f0"
+    },
+    "DJF_cca_1983_2010_native_skill.nc": {
+      "bytes": 210711,
+      "sha256": "f95d16cb1e15cc98165c26d96a4af7630e811dcfa2ff5090cad7f59e5651e351"
+    },
+    "DJF_cca_1991_2020_forecasts.nc": {
+      "bytes": 635450,
+      "sha256": "10b010aee92d436c3cbd3012e381d61489573604fe2b123572c197287cceb4c2"
+    },
+    "DJF_cca_1991_2020_hindcasts.nc": {
+      "bytes": 902649,
+      "sha256": "c72c5ebbfa8aa92dc4357f80ad6bed53f8d593e35ee537dddaf4dc53cfd71d2b"
+    },
+    "DJF_cca_1991_2020_native_skill.nc": {
+      "bytes": 208443,
+      "sha256": "0875c0cc750c3a88052c7425c7ff05133aff61c33c302a759656e0d79bd72f66"
+    },
+    "DJF_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "129639efbe3436ce5aab886fec19c5d9cf5648b8db39cc718f3d2b7da7bde0b6"
+    },
+    "DJF_forecast_comparison.nc": {
+      "bytes": 2463582,
+      "sha256": "ea46fb1292a5245f546fc5fca074ac121d5a98a68c481479027974134f1ea9ff"
+    },
+    "DJF_monthly_audit.nc": {
+      "bytes": 1947773,
+      "sha256": "b14069eddaf9daf3d65bcbe3cc9ff4195a895b2e54c740b5a173bfd7de3c133d"
+    },
+    "DJF_observations.nc": {
+      "bytes": 1338734,
+      "sha256": "5d883b43d6c061bf514711edec6f8dbfe1828341a8edf1b7119d8c5dfd463b46"
+    },
+    "DJF_pcr_1983_2010_forecasts.nc": {
+      "bytes": 631248,
+      "sha256": "7fb128831ac95b179c683a883db93e47e7193bf6bb02cd4ee524d73b33ea2820"
+    },
+    "DJF_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 845181,
+      "sha256": "efa18b8ad8b18693c57518eefb985a408dad9ec9bc98a5bf5742d87e3ae56dab"
+    },
+    "DJF_pcr_1983_2010_native_skill.nc": {
+      "bytes": 211115,
+      "sha256": "7974a115ce5cc97ecf74b44d5ccae4fe346f4c3a37410b6d597780e2ea81d12a"
+    },
+    "DJF_pcr_1991_2020_forecasts.nc": {
+      "bytes": 633495,
+      "sha256": "42f458756da24014c9198b19dda80ec6b08be8480f14a0fa3c480cd1a9b3f33e"
+    },
+    "DJF_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 904832,
+      "sha256": "db7a011f6a2e7344874512a11d885c4eab3e6386b4f71c97ed99415b71e7b7b2"
+    },
+    "DJF_pcr_1991_2020_native_skill.nc": {
+      "bytes": 208480,
+      "sha256": "5477e39b29a5c871e8a1b5db186827ccaf642b8f8fc872c6b9e1e94fed6dce1f"
+    },
+    "DJF_predictors.nc": {
+      "bytes": 740019,
+      "sha256": "f12ffab512681f67d5c1a6b3c3e5b538aad9a4a31cb6372cf8bd6e703d6fd534"
+    },
+    "FMA_cca_1983_2010_forecasts.nc": {
+      "bytes": 632680,
+      "sha256": "0aefed26e545d891e74bc6acbcddb4d99c24219714039100c1bb68a213294b7e"
+    },
+    "FMA_cca_1983_2010_hindcasts.nc": {
+      "bytes": 843699,
+      "sha256": "524719495cb25bd6c010facd8677b1255be3502ec38f6d71e89d39ebe085631e"
+    },
+    "FMA_cca_1983_2010_native_skill.nc": {
+      "bytes": 210589,
+      "sha256": "1069c4f822e90e6b0c4fb94059f7701a0752b33ef93e56bf56fde17e6c3470eb"
+    },
+    "FMA_cca_1991_2020_forecasts.nc": {
+      "bytes": 628372,
+      "sha256": "8a8b5a2c5ae2f9bb94e2ea706efadc7852f547a7c6cf685657723846aa62ba8c"
+    },
+    "FMA_cca_1991_2020_hindcasts.nc": {
+      "bytes": 901172,
+      "sha256": "0d2981ef49c5269a7e0cac2fea698f9e6a499cdadd121f0404086ca34e92be61"
+    },
+    "FMA_cca_1991_2020_native_skill.nc": {
+      "bytes": 208640,
+      "sha256": "d2c8630fc9cc8a71215d7ea99f4d8a77304d685a8171f8b572ee7d3f833d4faf"
+    },
+    "FMA_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "78f05fe31116b8af137d0eb526033b97cd07ab3d03739d7aad5fae0c6a94e9be"
+    },
+    "FMA_forecast_comparison.nc": {
+      "bytes": 2459852,
+      "sha256": "627657fc50b2c2502e3e9aa1d8df35a3574b2f0f59e59b4d1ebba5bfe482bdff"
+    },
+    "FMA_monthly_audit.nc": {
+      "bytes": 1815090,
+      "sha256": "1c276c80859ea8ed736b1816c6df3f3df926ab26caa4c4292f7da73eda247d9e"
+    },
+    "FMA_observations.nc": {
+      "bytes": 1337921,
+      "sha256": "7e3a3b25209e0c07557812738f948bd84246c990fa51fed71d8432137ce0cad0"
+    },
+    "FMA_pcr_1983_2010_forecasts.nc": {
+      "bytes": 633168,
+      "sha256": "916c185977967163d701dd57690be5774e6344fad2c6f7e852619a454db2d378"
+    },
+    "FMA_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 845027,
+      "sha256": "74d507e3bf5042b321bfd72ba247858121704889018bfe4497f95a9fda58f492"
+    },
+    "FMA_pcr_1983_2010_native_skill.nc": {
+      "bytes": 210669,
+      "sha256": "34d79c74807b28fe1eba3b6f36a6a9df70a5f77255acdef7ecb23b385ccdadac"
+    },
+    "FMA_pcr_1991_2020_forecasts.nc": {
+      "bytes": 633045,
+      "sha256": "0b1def7cf6699236491adb6180fa8e28c742635b018dce7f7c420a8bd9975caf"
+    },
+    "FMA_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 904390,
+      "sha256": "93f5b6ffb5808cbe27d063c62f6a14b154716902f3554c446a4497aa3caf61dc"
+    },
+    "FMA_pcr_1991_2020_native_skill.nc": {
+      "bytes": 208759,
+      "sha256": "09dd5f8d9b6be07d769f27651abd0d13db21de13fe37f60aa196b9527c8d4be8"
+    },
+    "FMA_predictors.nc": {
+      "bytes": 704787,
+      "sha256": "9e32c024a16bdaf12bf46b76bf54549dfac8a2dcd2326399f980b794468da618"
+    },
+    "JAS_cca_1983_2010_forecasts.nc": {
+      "bytes": 640441,
+      "sha256": "e3e1a1b9f91e5fca1e981eb9317698445a75430da983f1f0fbab9789427d97c1"
+    },
+    "JAS_cca_1983_2010_hindcasts.nc": {
+      "bytes": 853923,
+      "sha256": "d796c4447a7120a573de19ba7e97116d90bed097084a6b625ec0e224c5f84391"
+    },
+    "JAS_cca_1983_2010_native_skill.nc": {
+      "bytes": 207939,
+      "sha256": "e5176b56b26bb1761d91a558a282af4f36a46d047430decf9d4d181b7e92b800"
+    },
+    "JAS_cca_1991_2020_forecasts.nc": {
+      "bytes": 635423,
+      "sha256": "c3a6194a20c71d68bbab55a89ebf599976857514eb9647771962ab036f3828c0"
+    },
+    "JAS_cca_1991_2020_hindcasts.nc": {
+      "bytes": 913728,
+      "sha256": "ae965a5947073150070c05ef640334cfef52a75559cd74ac811a81118548916a"
+    },
+    "JAS_cca_1991_2020_native_skill.nc": {
+      "bytes": 204850,
+      "sha256": "fb662ce5a6f129e8e6833351eb995f8786dc3802520034a38e53b4f145a26141"
+    },
+    "JAS_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "e50476a8739cbefd592f7a5c90042bae7d6f7710a2ddc62fd15244ea289b71cc"
+    },
+    "JAS_forecast_comparison.nc": {
+      "bytes": 2492986,
+      "sha256": "439fb9740ec4857af979c9ad581870812991c2058e036c7de33ed752bde0f889"
+    },
+    "JAS_monthly_audit.nc": {
+      "bytes": 1794825,
+      "sha256": "090bf25f6ddd6293ee9c75200abc5c9705570d2e116da40b3569974138130fce"
+    },
+    "JAS_observations.nc": {
+      "bytes": 1356906,
+      "sha256": "796fdc3d203dd0ae9c62dffb900024480f045d3afa3252cc115b54dd8c1f5169"
+    },
+    "JAS_pcr_1983_2010_forecasts.nc": {
+      "bytes": 640643,
+      "sha256": "1cbd0e90284315b86d50ff9e23c53a064d3b78229bc947bd3555b1d32d9207cb"
+    },
+    "JAS_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 854318,
+      "sha256": "60ea0b970d2f565eb81b86e1f5a6edd78fd4cee103e7571d189d518385769d23"
+    },
+    "JAS_pcr_1983_2010_native_skill.nc": {
+      "bytes": 208099,
+      "sha256": "50d4d5b4b8618fa01d324226e03004eff98876569a9ec9f25726f673131517f1"
+    },
+    "JAS_pcr_1991_2020_forecasts.nc": {
+      "bytes": 637517,
+      "sha256": "007210e379f99b6721f050e284eda83afcee49e8d927b008f1c2f5c0a897301c"
+    },
+    "JAS_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 913446,
+      "sha256": "37678b5a21be4f9f25ee1548a5d4171cac8f17ee99b010e56374c51b86ce3cb9"
+    },
+    "JAS_pcr_1991_2020_native_skill.nc": {
+      "bytes": 205869,
+      "sha256": "65e7530b91afcccf31a19989a48fb49665ad4a9e47455bc7961df0f3a56ffe25"
+    },
+    "JAS_predictors.nc": {
+      "bytes": 702650,
+      "sha256": "d2007486a694b7f0a31c2bd51f2fb4a65d9269fac53dccfb94c3961c3177d546"
+    },
+    "JFM_cca_1983_2010_forecasts.nc": {
+      "bytes": 633475,
+      "sha256": "06127b28d449bbb9aa2534536b5e4145ed64a9fb1486b4dbe0eb172937324002"
+    },
+    "JFM_cca_1983_2010_hindcasts.nc": {
+      "bytes": 844046,
+      "sha256": "266e0c902fa45f1a9f0c7614887b17e4dc5c7972f533a160362f192f8be91190"
+    },
+    "JFM_cca_1983_2010_native_skill.nc": {
+      "bytes": 211478,
+      "sha256": "db54b299497d84daa354bc7e7c61b325e503ee93590444c91de7919d971a4d8c"
+    },
+    "JFM_cca_1991_2020_forecasts.nc": {
+      "bytes": 632046,
+      "sha256": "b1cb423f8836d7dd4cc8294f738170d94239649ae98213c702e3c5efc64f4ff7"
+    },
+    "JFM_cca_1991_2020_hindcasts.nc": {
+      "bytes": 902231,
+      "sha256": "b474e42eef8ba260667ac28b7ff2640c510f371d7159411c6ffdc3a0fa52864d"
+    },
+    "JFM_cca_1991_2020_native_skill.nc": {
+      "bytes": 208876,
+      "sha256": "e5977a77c3f7cdc23c29be2d5da4653967c4db1f628b6f590b72e3d739a09aa7"
+    },
+    "JFM_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "1f230c088654b53f8f8beeb65b84b31c09c66a019766dcfd232e3c8126172770"
+    },
+    "JFM_forecast_comparison.nc": {
+      "bytes": 2459654,
+      "sha256": "4d4b0e78eb3e4174e06ab8d80f6258689c8d598f93cdde34a0cfcf44f8933a16"
+    },
+    "JFM_monthly_audit.nc": {
+      "bytes": 1816570,
+      "sha256": "7a6a9f8ba742a79b1501c50c685a8c62fa6cf5bf200118deeff90317852b8084"
+    },
+    "JFM_observations.nc": {
+      "bytes": 1339325,
+      "sha256": "a468d93b43ccafcad2bcfbedcdf455f5b3d111ed563c1ff0356a7ea893182297"
+    },
+    "JFM_pcr_1983_2010_forecasts.nc": {
+      "bytes": 631537,
+      "sha256": "9cb496a067d95d5ace139ad66d0049c2c19bab7060f5a12d54297069c1850b0b"
+    },
+    "JFM_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 844863,
+      "sha256": "e3fd5e93b03517504b9fbe49b69d4c22f592ece08693a2527c1168dc67075ddc"
+    },
+    "JFM_pcr_1983_2010_native_skill.nc": {
+      "bytes": 211592,
+      "sha256": "991600a898262cc58367f50c16d3180a9ed4a2449c943950f2769264772ac4c1"
+    },
+    "JFM_pcr_1991_2020_forecasts.nc": {
+      "bytes": 627671,
+      "sha256": "984cc9a694728fbfb78995af359aa5fc23e909308c9d83e9e253a45894a6f3bc"
+    },
+    "JFM_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 904739,
+      "sha256": "54b5d789111cd6f31a516386b77300c44808875ff5139b2641f7223592b583e2"
+    },
+    "JFM_pcr_1991_2020_native_skill.nc": {
+      "bytes": 209167,
+      "sha256": "8738189d184d3cdd55e439bb6fcf27851c22e8efe35f666928f5041ee8ea3b53"
+    },
+    "JFM_predictors.nc": {
+      "bytes": 715998,
+      "sha256": "364309cf61af8e1b94a4093ac0323ca1c9b4361874e08545460ac87ad7a97b67"
+    },
+    "JJA_cca_1983_2010_forecasts.nc": {
+      "bytes": 639306,
+      "sha256": "adc4360cb4fa5ec2c6082445fc58e98185ffe5d75a692a13110e398097f83c81"
+    },
+    "JJA_cca_1983_2010_hindcasts.nc": {
+      "bytes": 855843,
+      "sha256": "9f348ddead0dfd0dbdae5b83677c83243bf4a50977b8b86cc0f0f82680e89c32"
+    },
+    "JJA_cca_1983_2010_native_skill.nc": {
+      "bytes": 208566,
+      "sha256": "8a9ee69b01afac1dccfbc24b58ddf1d2f57ed97553dca38f7cc17fbef565c922"
+    },
+    "JJA_cca_1991_2020_forecasts.nc": {
+      "bytes": 637130,
+      "sha256": "de529d9e3aa2175917b0901c7531614451d7cd35d35de1ac77e03a2ca3315245"
+    },
+    "JJA_cca_1991_2020_hindcasts.nc": {
+      "bytes": 915230,
+      "sha256": "94b1a26b4ba6edffe648e51847bf041df44ce822ad2a92b203beef5147ad7038"
+    },
+    "JJA_cca_1991_2020_native_skill.nc": {
+      "bytes": 206292,
+      "sha256": "49dc5d64d8bc1c2452210a320a9e07aae9db042c5ae3a21d05ec2497ef6ac067"
+    },
+    "JJA_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "ee9f1d8ce6c54daa92f56de6d2bdf6c63e60ebe2dd5b9414dd612da0bc3d3a88"
+    },
+    "JJA_forecast_comparison.nc": {
+      "bytes": 2493090,
+      "sha256": "9cea8548cc1ca91c32f4703bf8683715c79b6b58d859e3a22545efb32f2e56eb"
+    },
+    "JJA_monthly_audit.nc": {
+      "bytes": 1795951,
+      "sha256": "fa9c03bf887fedcfe111bbbf16f04e31564748f17cc614016fdacd60265be25d"
+    },
+    "JJA_observations.nc": {
+      "bytes": 1354232,
+      "sha256": "c9f7d7dfb25a1b91ff7b0107eba11f1dbb690b0e6d80875982b42cd79134a5e0"
+    },
+    "JJA_pcr_1983_2010_forecasts.nc": {
+      "bytes": 640748,
+      "sha256": "72bc822680ab64a9872490d83782a02f9f8e635626524a995e1512f6decbd73a"
+    },
+    "JJA_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 856631,
+      "sha256": "0cecfe4f9b391dd36c89ef3ca486a5b37a72806f5b06b02ce0ce47194ff879b6"
+    },
+    "JJA_pcr_1983_2010_native_skill.nc": {
+      "bytes": 209569,
+      "sha256": "b0f91f0a80d10c616ccd5fb222a0f6698caa31ac9ad6e26503b98f7fd1b21197"
+    },
+    "JJA_pcr_1991_2020_forecasts.nc": {
+      "bytes": 638507,
+      "sha256": "eb3234364fe09d500812065bdc7dd15c6511df519a2ea772d68765f769cad38b"
+    },
+    "JJA_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 916524,
+      "sha256": "b08ef2865e16939fa1e06970574fb39315a193e83bd7473364eb42c22b2b657d"
+    },
+    "JJA_pcr_1991_2020_native_skill.nc": {
+      "bytes": 206922,
+      "sha256": "a40ce32af40c2702f59a45b070c948f4341a3b15dd5bdf7fbba5051a016b2fd7"
+    },
+    "JJA_predictors.nc": {
+      "bytes": 708490,
+      "sha256": "307f64f6c2103638c9f0d4fec8022374ce4481e40ca69d2d6c8693bf84e4a487"
+    },
+    "MAM_cca_1983_2010_forecasts.nc": {
+      "bytes": 632812,
+      "sha256": "940801d6d551ed9c168783c0f063ffd89ae758b5f22b2a0b0fdabcf4ad54802c"
+    },
+    "MAM_cca_1983_2010_hindcasts.nc": {
+      "bytes": 843282,
+      "sha256": "a0023dd80221d6ca7f86fc76778e37f369ad2a8f2b0a3f3eb6714df3701bd734"
+    },
+    "MAM_cca_1983_2010_native_skill.nc": {
+      "bytes": 211306,
+      "sha256": "abfd8f4e42762c5b7f061d28cf5967c745e01382624eca5b8131b65217a0e510"
+    },
+    "MAM_cca_1991_2020_forecasts.nc": {
+      "bytes": 631872,
+      "sha256": "b7c75331cab50db51053c10373a9c3bf07df816c30bf51f09a63c36999c39ea5"
+    },
+    "MAM_cca_1991_2020_hindcasts.nc": {
+      "bytes": 902237,
+      "sha256": "04d4fba8d27d56aa7b7bc62e2abfba923216432c2f78c3b3c06c2d1ed23b6e92"
+    },
+    "MAM_cca_1991_2020_native_skill.nc": {
+      "bytes": 208688,
+      "sha256": "06c9ae78d3b0f30cb095c3b918f527b71ba3a6245a2c533a8c074e37e12b8050"
+    },
+    "MAM_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "0889ae1e9fd409059d5be3403a9d1f34669b10bc225f33a1ce3db3a999fc96a0"
+    },
+    "MAM_forecast_comparison.nc": {
+      "bytes": 2460771,
+      "sha256": "2b24dfea2617e1fbf2c14bb8ed16b28581ba2aef5768295f3ba4da2855cc554b"
+    },
+    "MAM_monthly_audit.nc": {
+      "bytes": 1807404,
+      "sha256": "09fcdc066dbc50095c5a47824862b622bafc9f6e483e282940ade450e5ca5cde"
+    },
+    "MAM_observations.nc": {
+      "bytes": 1337683,
+      "sha256": "c49c090b33cf65570e2512b5de7944371367bee0f020fc16c2635d4851d7a0e9"
+    },
+    "MAM_pcr_1983_2010_forecasts.nc": {
+      "bytes": 632157,
+      "sha256": "45716ef0ecd098adca86f47f2a65183642e1c0b4fe6df2144ddef1a031b0bbb9"
+    },
+    "MAM_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 844778,
+      "sha256": "68a5ac5141488f2f5bfcf57c390c91b02861fc9d53a59d21b551280bcbc24b45"
+    },
+    "MAM_pcr_1983_2010_native_skill.nc": {
+      "bytes": 211144,
+      "sha256": "2d77271a842f95e76d33bb2d734feb5671612ab1a1084f63df16fde1c4898d60"
+    },
+    "MAM_pcr_1991_2020_forecasts.nc": {
+      "bytes": 632776,
+      "sha256": "958d6219be2032881f00fe32710303499605dcad5c035ba8535fe401de12e27d"
+    },
+    "MAM_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 903798,
+      "sha256": "d8b8ebf4e296af65c64707be24f0c7a989aef4d981ff217b1754c659cb103d0b"
+    },
+    "MAM_pcr_1991_2020_native_skill.nc": {
+      "bytes": 209005,
+      "sha256": "f49e16dd996cbd061139b4835919d1b44a6b20fb33a2e111a741dd575849bf99"
+    },
+    "MAM_predictors.nc": {
+      "bytes": 710584,
+      "sha256": "9e7bdb348547426ca7fa62d0c2e22b8be8086cf28941b4b65ea387888e8c2bcc"
+    },
+    "MJJ_cca_1983_2010_forecasts.nc": {
+      "bytes": 633529,
+      "sha256": "b6d8660848b42195d3df1d804e050d86403e7589d6d30acf5babb43bc412417b"
+    },
+    "MJJ_cca_1983_2010_hindcasts.nc": {
+      "bytes": 851047,
+      "sha256": "b4b69a26b0a9788c4e43eb6acd5eaf03da0dea35e9f20e004c4b9c6db4d55fae"
+    },
+    "MJJ_cca_1983_2010_native_skill.nc": {
+      "bytes": 210816,
+      "sha256": "fc4dc49baafb006f3cf79b85e36e3ddcf9f4bc5a964c9ea58b3f250f69f89f0c"
+    },
+    "MJJ_cca_1991_2020_forecasts.nc": {
+      "bytes": 632853,
+      "sha256": "692c30cb1b06df7a4c58965a3a0bd1501f6325059e9213e990b9a8795d2e089f"
+    },
+    "MJJ_cca_1991_2020_hindcasts.nc": {
+      "bytes": 906945,
+      "sha256": "15659aefdbe35f3fce7de679abb49617763dd7e8b501e96fe5422c41d9a919a0"
+    },
+    "MJJ_cca_1991_2020_native_skill.nc": {
+      "bytes": 208858,
+      "sha256": "301e455860be582508ddc7b6e318995dc1eb4fae0b44f732c76fc085fd598afe"
+    },
+    "MJJ_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "89af8d0dc632bfabbd9750ab3fefae3c1a6c664b968e8900e7527cc52403d806"
+    },
+    "MJJ_forecast_comparison.nc": {
+      "bytes": 2482690,
+      "sha256": "e2907d7b2cb6b392e3280b2e5972d69a3d597b556cfa0444fbbb0c42c6b48129"
+    },
+    "MJJ_monthly_audit.nc": {
+      "bytes": 1798853,
+      "sha256": "5957b11a238e915e64a85041a2670249b3f9aa449b0fc713f6091074cbf5cbe9"
+    },
+    "MJJ_observations.nc": {
+      "bytes": 1348429,
+      "sha256": "8c704a9b2e0e7cb0af510b77366947fe337c4c7029b0c8d87b3c2ceed193c0d6"
+    },
+    "MJJ_pcr_1983_2010_forecasts.nc": {
+      "bytes": 634805,
+      "sha256": "e7a90524d7164066348f751ea130438fbaacf546ad9b97bf77186d175383ee2c"
+    },
+    "MJJ_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 853018,
+      "sha256": "4e05433bc442e8cf18fdcd024995e0d1dc07d74895d5bc1a24da797f0630a89a"
+    },
+    "MJJ_pcr_1983_2010_native_skill.nc": {
+      "bytes": 211427,
+      "sha256": "218e58fb5b234178b584b82a5329ae5ebb1866d29c8ef76b24b264f14b842606"
+    },
+    "MJJ_pcr_1991_2020_forecasts.nc": {
+      "bytes": 635636,
+      "sha256": "87d68584a165506d9413b58a9c0147c5bbdfff9a499a432311de292cad5148ae"
+    },
+    "MJJ_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 910642,
+      "sha256": "93ab0b1d2db6c12e2d7008dbf2a2cd9ca96f23d1bfb644329d7278699e4e5028"
+    },
+    "MJJ_pcr_1991_2020_native_skill.nc": {
+      "bytes": 209237,
+      "sha256": "4ef4d07ce9600bcfdd148a1177ea33ce4d15e8dfe18e1a39aa4d36f54d1ae4da"
+    },
+    "MJJ_predictors.nc": {
+      "bytes": 713587,
+      "sha256": "221d324af872f89312570a12bb9c6f71fd41a08e08a5dec1a9fcc5717e2a411f"
+    },
+    "NDJ_cca_1983_2010_forecasts.nc": {
+      "bytes": 631854,
+      "sha256": "2aa885aed6a55df479dcff4fb9c6b291b4efc042ee13397d623f4e69fffd6fd5"
+    },
+    "NDJ_cca_1983_2010_hindcasts.nc": {
+      "bytes": 841957,
+      "sha256": "36abef36e24c455cda13578e4892b5d437b86ea67c8bfc297d1753e01c05e39c"
+    },
+    "NDJ_cca_1983_2010_native_skill.nc": {
+      "bytes": 210639,
+      "sha256": "96f392e5b069993c8c6a97d995423ad85318cd9312648246b9aef9c62b94b58e"
+    },
+    "NDJ_cca_1991_2020_forecasts.nc": {
+      "bytes": 633553,
+      "sha256": "6e00625f9a1b768ec6d1a82d3eb0c7ab4b1ebaa23410077f60fea2c23948f6f8"
+    },
+    "NDJ_cca_1991_2020_hindcasts.nc": {
+      "bytes": 903342,
+      "sha256": "5aedb3cd8aeaab53365318382867f7c825cd3a0efabe9a4ac02492adceb2dab4"
+    },
+    "NDJ_cca_1991_2020_native_skill.nc": {
+      "bytes": 207887,
+      "sha256": "4c542fe403a1f4f2d32223146b7df0c005bd3755ff4b270c5cbef9a01e52907d"
+    },
+    "NDJ_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "57eda465fa5bc93ba1c6d049517dde65968b5cfba9475d7680e01767d7d90615"
+    },
+    "NDJ_forecast_comparison.nc": {
+      "bytes": 2461029,
+      "sha256": "6a2ef6edc49f1096a8ce50c247f3be060e11322988bd55d40dd50945db38bcf7"
+    },
+    "NDJ_monthly_audit.nc": {
+      "bytes": 1811256,
+      "sha256": "5e9595f81c79ffa751a7edb847c46723e74f8d01714e9c6c6a08d9f71398e9e9"
+    },
+    "NDJ_observations.nc": {
+      "bytes": 1338816,
+      "sha256": "cf41f73ea4bf7c2bca113c2652ec03775e0f738e830d647cfcad5c8a37f2acde"
+    },
+    "NDJ_pcr_1983_2010_forecasts.nc": {
+      "bytes": 636188,
+      "sha256": "d7b4a8e635032c60f8f1e492c4e88fe7c579716d72ce4c9d84ea5305a46f961c"
+    },
+    "NDJ_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 844920,
+      "sha256": "049ae59173a788bf86406e7e70a42fca766c6d0fdf95633edd9d1899ebc75278"
+    },
+    "NDJ_pcr_1983_2010_native_skill.nc": {
+      "bytes": 211026,
+      "sha256": "6011b87c581d755ab81e8353e787130e66e146d0ce7f835898f3964f720db615"
+    },
+    "NDJ_pcr_1991_2020_forecasts.nc": {
+      "bytes": 635779,
+      "sha256": "65453c7554e4def34c4d068c33570e0a1e5aa23704772e3e860dc68d8ef80ef0"
+    },
+    "NDJ_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 904663,
+      "sha256": "a9206c220479e112d2e48daabd2088f3ab61666b8163cf2db90532d32808395f"
+    },
+    "NDJ_pcr_1991_2020_native_skill.nc": {
+      "bytes": 208378,
+      "sha256": "3980a39a1c628d89ed02af7ed85326605a53b53f469187986f0da63d5dacb16d"
+    },
+    "NDJ_predictors.nc": {
+      "bytes": 716987,
+      "sha256": "7a6e323882b25cd90a64791d81da5c3f60b6fec5e6db57988c38e71db8ed8d14"
+    },
+    "OND_cca_1983_2010_forecasts.nc": {
+      "bytes": 637439,
+      "sha256": "5d89ff099c30d93ab68019cd37d2ce613abfd33c164736c2da9379291bdd21f2"
+    },
+    "OND_cca_1983_2010_hindcasts.nc": {
+      "bytes": 847972,
+      "sha256": "821f8d3e67e93c8517296ed9b649386ef66d029129be83ddd3121c2079134bdc"
+    },
+    "OND_cca_1983_2010_native_skill.nc": {
+      "bytes": 208191,
+      "sha256": "23141835ae1ad967d84b1f0387cbab99c67938f073106b20e077fcae0294ff6c"
+    },
+    "OND_cca_1991_2020_forecasts.nc": {
+      "bytes": 637890,
+      "sha256": "479d4d3d132538d2efa8484ce853923fada24ae455260ad8493c01b1b14d4bd5"
+    },
+    "OND_cca_1991_2020_hindcasts.nc": {
+      "bytes": 906782,
+      "sha256": "f7ea557d457cf16756c3a2c291ba1d5d9f3a228fc7a1ec7b8589f67a92aa86c6"
+    },
+    "OND_cca_1991_2020_native_skill.nc": {
+      "bytes": 205805,
+      "sha256": "ee14eaa05719710f02bf2f03323dbc13204f934d50e90d9540110becc93a0fad"
+    },
+    "OND_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "e97d37b5990798a9fddd0bc83f0910e6a5674320bc13450ef7ab58b5f882739d"
+    },
+    "OND_forecast_comparison.nc": {
+      "bytes": 2480981,
+      "sha256": "d7d4896b3750f1bfb0ae28500a0e10847f63652221c945ef572173f14c6bf863"
+    },
+    "OND_monthly_audit.nc": {
+      "bytes": 1810299,
+      "sha256": "b677f3884932c023c0082078223ee4a215eb31534de20c9bd8c468e6d9dd07f2"
+    },
+    "OND_observations.nc": {
+      "bytes": 1342243,
+      "sha256": "d627dcbe4d3e3ccce503043b5e5bef68dfd7b16fd7b3d5a9a3d8e9c99199ad20"
+    },
+    "OND_pcr_1983_2010_forecasts.nc": {
+      "bytes": 637225,
+      "sha256": "8eb09a7f7d613d7f2f8aa5e9e752e6bb328dbc9c1ad13fbd83d927927ad5ef57"
+    },
+    "OND_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 848496,
+      "sha256": "0a9737e32a141d43b28aab410adfdb3f815f2d60f76ab49ed74232be1d42483b"
+    },
+    "OND_pcr_1983_2010_native_skill.nc": {
+      "bytes": 208464,
+      "sha256": "a77ef444f1ace63ec6754ea367016a133d001481cb2c19096121aa411e5f4c33"
+    },
+    "OND_pcr_1991_2020_forecasts.nc": {
+      "bytes": 638455,
+      "sha256": "21bf760c6b09be9b5ae21296a7fc32ec7aeabdc3a5a1edc9050d3f3818aeb7a5"
+    },
+    "OND_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 907580,
+      "sha256": "498e9cbb10c2b03b68ba3d624e9d9a58b9bb810b8003482f73839c8f216bd5b8"
+    },
+    "OND_pcr_1991_2020_native_skill.nc": {
+      "bytes": 205888,
+      "sha256": "99bcd8140fdc7013d1755686b418c62dd575a11df48cf82f4d3cd194059b8825"
+    },
+    "OND_predictors.nc": {
+      "bytes": 841018,
+      "sha256": "5e8fab243faad64926a689247b2a537b4abe92b07113f133753ea822d8a0d3e1"
+    },
+    "OND_training_period_bridge.nc": {
+      "bytes": 3461633,
+      "sha256": "d028ced4a12b6c3fa8577c1cbc52ebe323fc734a846e58419e8767523abcc581"
+    },
+    "SON_cca_1983_2010_forecasts.nc": {
+      "bytes": 639499,
+      "sha256": "21ad5d59727e910774a6e2e1c7bcf3dff998e7d92c0c8b7d0555cbb514669963"
+    },
+    "SON_cca_1983_2010_hindcasts.nc": {
+      "bytes": 846027,
+      "sha256": "1a6f8b359f1a45ee91171d4d0e501446948b7cf212e594953092dcbffc3ab389"
+    },
+    "SON_cca_1983_2010_native_skill.nc": {
+      "bytes": 206165,
+      "sha256": "093891a03d14cecd7298c4a7cf7efc711cbd40a39809443fa644029b51921964"
+    },
+    "SON_cca_1991_2020_forecasts.nc": {
+      "bytes": 635230,
+      "sha256": "f7b92f3c417a7cc42be2eb20ef07403b42a5e46bd26d7476a4b7200fb694490d"
+    },
+    "SON_cca_1991_2020_hindcasts.nc": {
+      "bytes": 904722,
+      "sha256": "3abbc82dec9dd8f0bf904bae011b6e6c6cd29057226bd647d3cb2ff08cd14d07"
+    },
+    "SON_cca_1991_2020_native_skill.nc": {
+      "bytes": 203084,
+      "sha256": "c3c83feccbb725c4fd1f510b89e1a8103e6674f71d9dc722b6fd5b9539d2edbd"
+    },
+    "SON_footprint.nc": {
+      "bytes": 64054,
+      "sha256": "e89b8ff3c7148f4cce7c481621deb41716f68386c4a77e5ea3662b31ca4ba2f7"
+    },
+    "SON_forecast_comparison.nc": {
+      "bytes": 2482760,
+      "sha256": "a60c1e122e91df27e9db82c2551c8481314298136fb5635df0c8090e4c47b6f0"
+    },
+    "SON_monthly_audit.nc": {
+      "bytes": 1811352,
+      "sha256": "919115d394b8518d2d1edef4f1e75f0a1520de2d020d3536e580eae5711cfcff"
+    },
+    "SON_observations.nc": {
+      "bytes": 1350188,
+      "sha256": "6bfa4b73af8d91fb80de1c606cb0f88932bdb52d8bab0a5fcd29b7e437d0a16f"
+    },
+    "SON_pcr_1983_2010_forecasts.nc": {
+      "bytes": 637018,
+      "sha256": "23d4e554725e19071674ef38b1817199da005533c687d9f1d6b6c4c178fbe226"
+    },
+    "SON_pcr_1983_2010_hindcasts.nc": {
+      "bytes": 846087,
+      "sha256": "7d414b1ed1cf9e8f62591275385abed500f782b01bc44f15caba435fc67a0a0f"
+    },
+    "SON_pcr_1983_2010_native_skill.nc": {
+      "bytes": 206994,
+      "sha256": "3818195ec0732e7605b9ab9733b70878786a4a58a67432717869d4a4c8bb41fd"
+    },
+    "SON_pcr_1991_2020_forecasts.nc": {
+      "bytes": 636914,
+      "sha256": "59e9bc1b066c7cdecdd9bc1ee228f65024fbe255adb2fb33635dd4e6f79fb74c"
+    },
+    "SON_pcr_1991_2020_hindcasts.nc": {
+      "bytes": 904832,
+      "sha256": "7bb685f99cf835af70a6f38139163791688d66b03db9c9b55625b2772c40d28a"
+    },
+    "SON_pcr_1991_2020_native_skill.nc": {
+      "bytes": 203510,
+      "sha256": "f611246ef8159c6466f2d28c67582a01850de336ea5b15067641d36e1a58f384"
+    },
+    "SON_predictors.nc": {
+      "bytes": 709477,
+      "sha256": "54eb67af068bd47cb5917a906aefe4d4cf02e6e61f166164587f9f034447f64e"
+    },
+    "calibration_gains.nc": {
+      "bytes": 25037,
+      "sha256": "0da723ffd21cd535bd6a0aa67952dfe23127f7f7539e838543e69508bad4b321"
+    },
+    "cca_period_gain_maps.png": {
+      "bytes": 1293020,
+      "sha256": "b664e125d5f85b14a5d1515e8043ba1d67d50507cb1608b47b34f79faabf5055"
+    },
+    "evaluation_footprint.nc": {
+      "bytes": 79312,
+      "sha256": "0f69f12ab4da5b4140876e2cfc2d45d47ed40e1ca7361ad7d67063ceea7f2acb"
+    },
+    "multiyear_error_fields.nc": {
+      "bytes": 15241440,
+      "sha256": "9e56114247b9b621d9351507071ed269b282f5383b5b980ab0d103314b8f0fec"
+    },
+    "pcr_period_gain_maps.png": {
+      "bytes": 1290402,
+      "sha256": "88ff78e80d1823693fc3f10621c82c7482421b51ce457568d97f982c9acfe122"
+    },
+    "seasonal_bias.png": {
+      "bytes": 219529,
+      "sha256": "38e0edb5289a4224ae868a83cbbc4426ba1abbf0a6706bd553574f92bf450073"
+    },
+    "seasonal_rmse_matrix.png": {
+      "bytes": 193687,
+      "sha256": "18e913cf4f5b513b72218e637c6ebd16e34ce651bd3ce8247f6c4deb2a073d8c"
+    },
+    "training_period_sensitivity.png": {
+      "bytes": 66410,
+      "sha256": "da9db0fad60abf0616d61eee69fae4c45d719ff9c052113ebaea7a107ca7213b"
+    },
+    "verification_scores.nc": {
+      "bytes": 50491,
+      "sha256": "9d5a4b3207e9a737aa48f51df97a739660a89fe2f12cc7ba03c4d2148f0f583d"
+    }
+  },
+  "input_sha256": {
+    "DJF/footprint.nc": "9a25abb09fed2bb1839651d74ad7305d5534415e0165a74101d92518a22e73fd",
+    "DJF/predictors.nc": "f5c4c4299d6e187a620836453e0ac77c0390e370f6e2bace88a0c7091e08fba1",
+    "DJF/observations.nc": "bb79166cac0ca8ddd19104bb08d80fd13ff0b0f38bf89b0f2bbcf02aaa3b3dc8",
+    "DJF/monthly_audit.nc": "25d922ce2f8d91580e084bd61b10fec09da8239968cae98a49b0ca81d2d56250",
+    "JFM/footprint.nc": "1524ed04c98380ccece447c2411b616602b45e4d1e5d83b5ebe5b80a24fe659c",
+    "JFM/predictors.nc": "33476724696aea14ee081f01d503cd3dcd1f921eeaa030a7fe298df2e485a0b8",
+    "JFM/observations.nc": "add979d01970be9053fdaed48da57ab6775eeef332aa55762d9b2abd1c04f690",
+    "JFM/monthly_audit.nc": "f5bcf6adc74c968baece7db1da084dcd1e82b56c74594a8640291b2f643fc23e",
+    "FMA/footprint.nc": "3a372812515941d6478afb82196ab14637d1d373bb2e7e05ac6c0da3001259bb",
+    "FMA/predictors.nc": "f9f6dda50d94e9c8d181e755dfaab8c69df7ca072177726b90d02b8762c8a94a",
+    "FMA/observations.nc": "2963679743bcaaa3c0cc123d8827b75350cd004cdcb189246255c7b2032740ea",
+    "FMA/monthly_audit.nc": "2385e4f4c050155ecf41b2a2bf573b6171efd4735cd782572fc90dee9ee4bed1",
+    "MAM/footprint.nc": "26409b904b862431681c5b6225cbe69cde980e1b7a2b6bc14f6ef03f917d2363",
+    "MAM/predictors.nc": "33183cd89f7449a29a768e38c0d74fc425193761aae9610cfe744e9ff4a618c2",
+    "MAM/observations.nc": "fef70b2e01269f4dcf02d78089ccf8ee8a255934d46baadc84f7ee3793d2c277",
+    "MAM/monthly_audit.nc": "4092af462339511407957b5c7a6e64750f843c2047935562f08d8894fe6befa6",
+    "AMJ/footprint.nc": "9ddb1fcf34626bbc58025ec7a764b78fb7ea8d6dcfb27ca06b1518664b8f9c4a",
+    "AMJ/predictors.nc": "fa5fa26e5607c741f517b213fa99b3e5693a0d7b67f70501a94e26036443ba00",
+    "AMJ/observations.nc": "e714f46d80df56d56d7eb33ae1bc1fed34f561f39885d2b92e2a553fe2e468c3",
+    "AMJ/monthly_audit.nc": "90d7e4740cdcdb9a9e57f38b03bd6b1cdb85a1c9f643cb421f41800d6029844f",
+    "MJJ/footprint.nc": "054f7ed7b0a4743a5b52c369b233de6f196c8aa423db82aabfdb25097297d5c0",
+    "MJJ/predictors.nc": "1489f4ce13945363d963b916fd1c25d5ef0270bd3a2b3c73ad7f59a04032ccc3",
+    "MJJ/observations.nc": "0fe8552837a42877966aee6bd58743c3130495f8cbfeec801f869f78efbe8b94",
+    "MJJ/monthly_audit.nc": "30b0ec49e08bea0c6a3f498532709cf726b8e698b07d6d1c64de9ffa91cb60d2",
+    "JJA/footprint.nc": "bdcaf6bca604dd874b49617d01f85e60d1698d07712aa23a43f1467b54579f19",
+    "JJA/predictors.nc": "4698b0e5af1b764557cc7a1156c1036966be6eb8b9ceaff2cfb8792f480e1523",
+    "JJA/observations.nc": "6647aaae5dceea7037408adc1c6d6cd38fc219d26e0b08524a4b002270a776c3",
+    "JJA/monthly_audit.nc": "3a36b65bf2fbf1038da5d123ea205084d27ba7b619e8ce3d004924082790ec6a",
+    "JAS/footprint.nc": "a524325b69581f85d021ab75b9fa749224d71c412f851ae97c9a088d3466b50f",
+    "JAS/predictors.nc": "cbbe0e8b9fd92f86b3a9a8bd058c00f6014d2da40007c193dd6d55527e8ce84e",
+    "JAS/observations.nc": "2854868e3a3d6d5dd9c77d8e448d9835c757fcbecda68e21abcdb57475965594",
+    "JAS/monthly_audit.nc": "52e6d1fa53ad87bb99851c523e180e24bf480b99cc2b314df9303c41a1003e48",
+    "ASO/footprint.nc": "a4872b6319292062870710718ca8b9a6e98b104d7674fa58e0f31682a7e00c38",
+    "ASO/predictors.nc": "5a4c54722ad7673e2786b7efa2a6115b7222895c2fc0a0771cca98e51d9e8b66",
+    "ASO/observations.nc": "3dfc5abad6890015a4f6341b466e72909c8a484c35b8a83c915b3f275b5f98c7",
+    "ASO/monthly_audit.nc": "d56625ec4b00c717b0d7eaf3c57a355ac4b4dbd660195a6a252954b62a4d9d01",
+    "SON/footprint.nc": "871aa8ad337c029f26b1ae750e43f59d5c89cc0d3c2b41edcd52cb1bb8c35dec",
+    "SON/predictors.nc": "95a83e2bcb43192cbe7ba959467685ffc519d47a44cd03945842e09750350b7e",
+    "SON/observations.nc": "79eba6c2f492da2bce75e39765066518e0a0e05e066e6f7da016e9a189a94827",
+    "SON/monthly_audit.nc": "f44d74027adec2ec802a6b9fe397456f04646704de1ed63fbb1e573f667a89d1",
+    "OND/footprint.nc": "b4c27f95b981183f676ae7818951f4d91b8774be2d5883d953d2812e14ff3e80",
+    "OND/predictors.nc": "169b677fa997f4648a688487f0f5567da685c4e7677033011bfaddbadaa83721",
+    "OND/observations.nc": "666c49f640978ff142fdc5e6e70ac68fd2b872604454f525384b4466be3e93f7",
+    "OND/monthly_audit.nc": "25153cf135ad9aae23ec280ca0b7717f115bfff9c807e8599272b4e0227d2a12",
+    "NDJ/footprint.nc": "745ed457d990f01294db7c2a9729f1aaec965e94f29565799eb862e23d0e6bf4",
+    "NDJ/predictors.nc": "4f2c0df1d0034737ff5388c3706662e4e694d78f18ab88af2e4322290f484bbd",
+    "NDJ/observations.nc": "c30ad6fda9e70e853b1e2585d928c428a41d8a415cbc1fccc32b8b6388d64b0e",
+    "NDJ/monthly_audit.nc": "3739286306deca959ec63352587b35c1c7350f4b19f2abdc1aeb0f7ecf226a12"
+  },
+  "pipeline_script_sha256": {
+    "scripts/run_indonesia_all_seasons.py": "f191b193f434b9e8447dde3d4ecf2d8b8fb74b3a8278202ed7d2077bbdd2722f",
+    "scripts/prepare_indonesia_all_seasons.py": "0ccfd7f585c795fd62d4f0474868f42fb465d2d34dc53ee34ca0e1f752479c9d",
+    "pycpt_tutorial/seasons.py": "3b4a1bd22158163f7431ac80c056a1230202eaed685f5f404b0da1e095554ecd",
+    "pycpt_tutorial/country_grid.py": "aed321c67bbfbf7309ffda699ef57716b75ab187b68dc7663c1fc41a1eab8e35",
+    "pycpt_tutorial/cpt_dates.py": "83961ebd6fde5a7b87e25644e6372f3f5e496333d84dbba4814d67ba2fccf460",
+    "pycpt_tutorial/export.py": "26cdab9fb9053b681bc7efe6971710aeb75f9e341f376400c2bb81351ed0ff3e"
+  },
+  "metrics": {
+    "case_id": "indonesia-all-seasons-2021-2024-025deg",
+    "training_periods": {
+      "1983_2010": [
+        1983,
+        2010,
+        28
+      ],
+      "1991_2020": [
+        1991,
+        2020,
+        30
+      ]
+    },
+    "evaluation_years": [
+      2021,
+      2022,
+      2023,
+      2024
+    ],
+    "seasons": [
+      {
+        "season": "DJF",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 465.9208541083398,
+            "mae_mm": 382.85768740459577,
+            "bias_mm": -129.04744010909025
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 176.10278625177443,
+            "mae_mm": 134.819247217636,
+            "bias_mm": -54.31486094378813
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 170.23719105941169,
+            "mae_mm": 130.24577758761063,
+            "bias_mm": -50.20293377766563
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 169.95980847291128,
+            "mae_mm": 135.52701655708978,
+            "bias_mm": -1.303279099471414
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 174.06844457487188,
+            "mae_mm": 138.50450047579986,
+            "bias_mm": 10.717647183401063
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 172.90008517188778,
+            "mae_mm": 137.5180216532857,
+            "bias_mm": -2.03986255311381
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 175.3669497404612,
+            "mae_mm": 138.92082621995948,
+            "bias_mm": 2.6067593111033354
+          }
+        },
+        "lowest_rmse_variant": "cca_1983_2010",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2024
+          ],
+          "pcr": [
+            2024
+          ]
+        }
+      },
+      {
+        "season": "JFM",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 492.4502839476455,
+            "mae_mm": 398.4903085590478,
+            "bias_mm": -118.63205424008875
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 161.0281925277311,
+            "mae_mm": 124.92066877277716,
+            "bias_mm": -65.52451765801928
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 159.31236647356099,
+            "mae_mm": 123.49994955486125,
+            "bias_mm": -67.77994427701442
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 155.19289185178533,
+            "mae_mm": 118.93862144835,
+            "bias_mm": -24.203342315557634
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 151.30806283934933,
+            "mae_mm": 115.158222827403,
+            "bias_mm": -30.829217075438038
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 153.83442436284787,
+            "mae_mm": 118.60580676150423,
+            "bias_mm": -12.582175603820836
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 151.74983981064864,
+            "mae_mm": 116.40203704598696,
+            "bias_mm": -23.25074962321515
+          }
+        },
+        "lowest_rmse_variant": "cca_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2022,
+            2024
+          ],
+          "pcr": [
+            2022,
+            2024
+          ]
+        }
+      },
+      {
+        "season": "FMA",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 430.0063789755941,
+            "mae_mm": 343.7601082933066,
+            "bias_mm": -114.76292356520848
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 156.25506764400708,
+            "mae_mm": 119.9360500571438,
+            "bias_mm": -49.3025836606504
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 151.10500345231299,
+            "mae_mm": 115.51022560940552,
+            "bias_mm": -38.75004782858059
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 147.45401090120694,
+            "mae_mm": 114.53805215557773,
+            "bias_mm": -4.291877957881432
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 141.00743964929433,
+            "mae_mm": 109.51071519512509,
+            "bias_mm": -7.674880795131325
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 151.22127622141633,
+            "mae_mm": 118.05526267334784,
+            "bias_mm": -2.8620398006700487
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 145.23738588203577,
+            "mae_mm": 113.07219423790625,
+            "bias_mm": 3.081243483175828
+          }
+        },
+        "lowest_rmse_variant": "cca_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2021,
+            2022,
+            2024
+          ],
+          "pcr": [
+            2021,
+            2022,
+            2023,
+            2024
+          ]
+        }
+      },
+      {
+        "season": "MAM",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 389.168400349256,
+            "mae_mm": 298.38710927621,
+            "bias_mm": -104.75517253210798
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 172.20790543444934,
+            "mae_mm": 128.1934415480842,
+            "bias_mm": -78.07226900416782
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 162.09382164217345,
+            "mae_mm": 121.18664034698504,
+            "bias_mm": -62.979271218595954
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 153.52729676503984,
+            "mae_mm": 117.66076428199783,
+            "bias_mm": -23.5745113795692
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 151.1305131787037,
+            "mae_mm": 115.28314916593986,
+            "bias_mm": -22.47464733206739
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 156.19332482864218,
+            "mae_mm": 121.4170355873834,
+            "bias_mm": -11.143139402798454
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 150.1503140656779,
+            "mae_mm": 114.64029661868071,
+            "bias_mm": -7.541747398241437
+          }
+        },
+        "lowest_rmse_variant": "pcr_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2021,
+            2023,
+            2024
+          ],
+          "pcr": [
+            2021,
+            2023,
+            2024
+          ]
+        }
+      },
+      {
+        "season": "AMJ",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 356.57996373547394,
+            "mae_mm": 281.02970389126324,
+            "bias_mm": -187.6957696692205
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 183.7460058895439,
+            "mae_mm": 144.40563136050224,
+            "bias_mm": -93.21189555293577
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 171.80512689123023,
+            "mae_mm": 134.1986037888162,
+            "bias_mm": -75.29449003201131
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 195.93068793840803,
+            "mae_mm": 150.05739200858335,
+            "bias_mm": -61.54895908933525
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 182.4998474798197,
+            "mae_mm": 141.0443098032344,
+            "bias_mm": -54.049339733840085
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 193.97719591733068,
+            "mae_mm": 147.46383449865817,
+            "bias_mm": -59.14591449959727
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 187.907923322776,
+            "mae_mm": 143.4790379546295,
+            "bias_mm": -58.52991365258593
+          }
+        },
+        "lowest_rmse_variant": "climatology_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "pcr": [
+            2021,
+            2022,
+            2024
+          ]
+        }
+      },
+      {
+        "season": "MJJ",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 415.37260380455166,
+            "mae_mm": 309.62434486573943,
+            "bias_mm": -244.76333983034456
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 206.36530243068057,
+            "mae_mm": 150.50228473638563,
+            "bias_mm": -107.61062168025735
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 196.79359183899467,
+            "mae_mm": 146.43952125906057,
+            "bias_mm": -105.28856959544231
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 180.70140982682796,
+            "mae_mm": 133.1999370792801,
+            "bias_mm": -68.2077024489526
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 167.8533638976626,
+            "mae_mm": 125.74112509216096,
+            "bias_mm": -70.03005949776305
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 188.7575529466463,
+            "mae_mm": 138.01986708904795,
+            "bias_mm": -67.08121095921396
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 168.16039980846364,
+            "mae_mm": 125.24825368586109,
+            "bias_mm": -62.00663965071288
+          }
+        },
+        "lowest_rmse_variant": "cca_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2021,
+            2022,
+            2023
+          ],
+          "pcr": [
+            2021,
+            2022,
+            2023
+          ]
+        }
+      },
+      {
+        "season": "JJA",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 447.7347182166558,
+            "mae_mm": 309.57963141368447,
+            "bias_mm": -239.47144960236065
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 272.23260967495247,
+            "mae_mm": 180.2227006900173,
+            "bias_mm": -128.1700419016858
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 272.27758211054476,
+            "mae_mm": 183.73063220783206,
+            "bias_mm": -139.32670285002152
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 227.1630932728777,
+            "mae_mm": 161.5265961128312,
+            "bias_mm": -95.49568940426833
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 198.34781716824332,
+            "mae_mm": 140.22450045930984,
+            "bias_mm": -74.16162560078413
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 238.1496444001846,
+            "mae_mm": 175.41947371060724,
+            "bias_mm": -95.6556432315606
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 203.5676947703215,
+            "mae_mm": 149.60436528636905,
+            "bias_mm": -63.850010242508084
+          }
+        },
+        "lowest_rmse_variant": "cca_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2021,
+            2023,
+            2024
+          ],
+          "pcr": [
+            2021,
+            2022,
+            2023,
+            2024
+          ]
+        }
+      },
+      {
+        "season": "JAS",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 417.13337754221953,
+            "mae_mm": 281.1044726039218,
+            "bias_mm": -155.65577095180402
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 315.9591119586674,
+            "mae_mm": 206.11696081550326,
+            "bias_mm": -138.91666805871841
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 324.5298229429227,
+            "mae_mm": 212.89834717496166,
+            "bias_mm": -161.9535347485793
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 205.7773413716955,
+            "mae_mm": 144.5921221489495,
+            "bias_mm": -46.87865839825426
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 189.49758698611592,
+            "mae_mm": 135.3849354919404,
+            "bias_mm": -39.12612271264187
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 218.31021899485114,
+            "mae_mm": 154.59348625100375,
+            "bias_mm": -46.892087969415016
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 207.85712175760239,
+            "mae_mm": 147.49054886331498,
+            "bias_mm": -38.23767206228884
+          }
+        },
+        "lowest_rmse_variant": "cca_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2021,
+            2022,
+            2023,
+            2024
+          ],
+          "pcr": [
+            2021,
+            2022,
+            2023,
+            2024
+          ]
+        }
+      },
+      {
+        "season": "ASO",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 420.9192993586619,
+            "mae_mm": 302.480179119187,
+            "bias_mm": -124.45046805706603
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 315.9561155109628,
+            "mae_mm": 233.64822246350076,
+            "bias_mm": -124.4736425200322
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 325.8286594601216,
+            "mae_mm": 239.308760532541,
+            "bias_mm": -147.6114044543651
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 195.2922238977227,
+            "mae_mm": 143.91437486261506,
+            "bias_mm": 52.73324827870757
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 191.86166844699216,
+            "mae_mm": 140.34133756890427,
+            "bias_mm": 58.21935706531546
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 199.04173602888318,
+            "mae_mm": 146.56871894409406,
+            "bias_mm": 53.18327035082235
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 192.02365582845948,
+            "mae_mm": 142.87853940633843,
+            "bias_mm": 59.132608166872586
+          }
+        },
+        "lowest_rmse_variant": "cca_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2022,
+            2023
+          ],
+          "pcr": [
+            2022,
+            2023
+          ]
+        }
+      },
+      {
+        "season": "SON",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 408.9977635214109,
+            "mae_mm": 309.5903306151234,
+            "bias_mm": -147.32241378721213
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 272.1037553655149,
+            "mae_mm": 214.26937323155286,
+            "bias_mm": -93.00000728006422
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 272.2254194721565,
+            "mae_mm": 213.80155843001353,
+            "bias_mm": -99.12276684522348
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 161.05389164841205,
+            "mae_mm": 126.37618405642645,
+            "bias_mm": -34.332192728924895
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 152.06283902414677,
+            "mae_mm": 118.09935348585796,
+            "bias_mm": -4.015160197758647
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 168.79805359866504,
+            "mae_mm": 131.75950039110214,
+            "bias_mm": -32.47096023300758
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 155.8514059131192,
+            "mae_mm": 121.13874360381544,
+            "bias_mm": -2.0937899642700337
+          }
+        },
+        "lowest_rmse_variant": "cca_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2021,
+            2022,
+            2023
+          ],
+          "pcr": [
+            2021,
+            2022,
+            2023
+          ]
+        }
+      },
+      {
+        "season": "OND",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 410.1578517714101,
+            "mae_mm": 326.6435973407469,
+            "bias_mm": -176.32022037440177
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 226.3799011131343,
+            "mae_mm": 177.8562019172947,
+            "bias_mm": -63.25824374424751
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 222.14111693849486,
+            "mae_mm": 174.73270830551087,
+            "bias_mm": -56.27215264046845
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 162.1450273148129,
+            "mae_mm": 124.88151557610875,
+            "bias_mm": -1.799951483457173
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 155.83640230701096,
+            "mae_mm": 120.92992271450687,
+            "bias_mm": 19.11857508113745
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 164.04572637478518,
+            "mae_mm": 126.01219093446466,
+            "bias_mm": -1.7176245738829952
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 154.12288554686157,
+            "mae_mm": 119.80645357705625,
+            "bias_mm": 19.93427883617923
+          }
+        },
+        "lowest_rmse_variant": "pcr_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2021,
+            2022,
+            2023
+          ],
+          "pcr": [
+            2021,
+            2022,
+            2023
+          ]
+        }
+      },
+      {
+        "season": "NDJ",
+        "pooled_four_year_metrics": {
+          "raw_cfsv2": {
+            "rmse_mm": 429.7513037196035,
+            "mae_mm": 352.8767142642161,
+            "bias_mm": -151.88314497395913
+          },
+          "climatology_1983_2010": {
+            "rmse_mm": 195.33736337524064,
+            "mae_mm": 148.79758292343695,
+            "bias_mm": -72.51958723649324
+          },
+          "climatology_1991_2020": {
+            "rmse_mm": 185.08623408888315,
+            "mae_mm": 142.27006761872065,
+            "bias_mm": -58.36325342265866
+          },
+          "cca_1983_2010": {
+            "rmse_mm": 168.06566161664517,
+            "mae_mm": 129.12688343224804,
+            "bias_mm": -19.250274005462547
+          },
+          "cca_1991_2020": {
+            "rmse_mm": 166.84128724711738,
+            "mae_mm": 132.99423901407812,
+            "bias_mm": 22.365890545506932
+          },
+          "pcr_1983_2010": {
+            "rmse_mm": 170.49241689449883,
+            "mae_mm": 132.76512425446612,
+            "bias_mm": -20.827538501481214
+          },
+          "pcr_1991_2020": {
+            "rmse_mm": 165.7827703981164,
+            "mae_mm": 130.57477663739593,
+            "bias_mm": 4.283780156035096
+          }
+        },
+        "lowest_rmse_variant": "pcr_1991_2020",
+        "recent_training_lower_rmse_years": {
+          "cca": [
+            2021,
+            2024
+          ],
+          "pcr": [
+            2021,
+            2023,
+            2024
+          ]
+        }
+      }
+    ],
+    "common_evaluation_cells": 3240,
+    "country_land_weight_retained": 0.9999672625628059,
+    "calibrated_forecast_cases": 192,
+    "CPT_calls": 48,
+    "fit_elapsed_seconds_total": 315.3451345289941,
+    "ond_control": {
+      "cca": {
+        "recent_four_year_batch_vs_prior_max_difference_mm": 0.0,
+        "per_year_old82_old83_recent_rmse_mm": {
+          "2021": {
+            "1982_2010": 180.19931169990414,
+            "1983_2010": 181.16214254371337,
+            "1991_2020": 172.5889800650401
+          },
+          "2022": {
+            "1982_2010": 176.92611645428963,
+            "1983_2010": 173.86400542961835,
+            "1991_2020": 172.0751726714086
+          },
+          "2023": {
+            "1982_2010": 137.43211752090374,
+            "1983_2010": 138.3060217292003,
+            "1991_2020": 120.34602943146852
+          },
+          "2024": {
+            "1982_2010": 151.6758553902338,
+            "1983_2010": 151.61487265459334,
+            "1991_2020": 152.51212819400465
+          }
+        }
+      },
+      "pcr": {
+        "recent_four_year_batch_vs_prior_max_difference_mm": 0.0,
+        "per_year_old82_old83_recent_rmse_mm": {
+          "2021": {
+            "1982_2010": 183.53478563229947,
+            "1983_2010": 185.51070738492928,
+            "1991_2020": 173.6827297106829
+          },
+          "2022": {
+            "1982_2010": 179.37196085833165,
+            "1983_2010": 177.29676808361918,
+            "1991_2020": 161.8878111222318
+          },
+          "2023": {
+            "1982_2010": 132.14920560800437,
+            "1983_2010": 132.7308396960595,
+            "1991_2020": 117.35607280241405
+          },
+          "2024": {
+            "1982_2010": 154.27244528239774,
+            "1983_2010": 155.49327648985027,
+            "1991_2020": 157.7011527664174
+          }
+        }
+      }
+    },
+    "limitations": [
+      "Four ending-year labels; adjacent rolling seasons share months and are not independent",
+      "Common older period changed to1983\u20132010 because1981initializations unavailable",
+      "28vs30trainingseasons; fixed mode counts, no test-year tuning",
+      "Current-vintage observations/forecast archive; source operational append fromApril2011",
+      "No significance or probabilistic skill claim"
+    ]
+  },
+  "figure_refresh": {
+    "at": "2026-10-31T16:44:30.754175+00:00",
+    "reason": "Final labels, geographic maps and MSE-skill diagnostics from saved scores; no model fits repeated"
+  }
+}

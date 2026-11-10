@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-02",
+  "svg_downloads": 8,
+  "chart_panels": 6,
+  "vector_mark_values_exactly_matched": 1200,
+  "raster_images_scripts_foreign_objects_external_links": 0,
+  "ui_cases": [
+    "MAE",
+    "Bias",
+    "Older-period gains",
+    "All38provinces/older",
+    "Jakarta2023/older",
+    "Jakarta pooled/older",
+    "PCR sensitivity",
+    "National pooled Bias"
+  ],
+  "standalone_browser_review": "National MAE and full province matrix; labels, legends and complete SVG extents checked.",
+  "office_application_import": "Not tested; the SVG text remains text elements with Arial/sans-serif fallback.",
+  "png_regression": "MAE PNG SHA256 unchanged: 7842d75a96c38266bbc1697c3d286ee4568057992b0b4df8e8f1b11931729744",
+  "console_errors": 0,
+  "screenshot": "temp/svg-download-preview.png",
+  "source_js_sha256": "21ca14a906fa01b731cba60994790c03f7c9d0d6c5bf7eaf1e4d76c43e621122",
+  "files": [
+    {
+      "name": "pycpt-context-bias-original-ending-year-2021-2024-pooled-context.svg",
+      "bytes": 17612,
+      "viewBox": "0 0 914 631",
+      "vector_marks_matched": 48,
+      "text_elements": 25,
+      "sha256": "f57c2fe70fc3a815c5779031607f7846766cd0fadfcd69f631ad97f2f4daa99d"
+    },
+    {
+      "name": "pycpt-gains-2023-1983-2010.svg",
+      "bytes": 10263,
+      "viewBox": "0 0 914 606",
+      "vector_marks_matched": 24,
+      "text_elements": 23,
+      "sha256": "b1eff2b34134e683f49dbcc8eb4cf76ce4611c1832fc575de73f0cb35b72ea7c"
+    },
+    {
+      "name": "pycpt-national-bias-2023-1991-2020.svg",
+      "bytes": 20914,
+      "viewBox": "0 0 914 543",
+      "vector_marks_matched": 48,
+      "text_elements": 71,
+      "sha256": "d1eb6f926316ff660a543c9468db7e8b91ed30aa6693bce20d7419d307707797"
+    },
+    {
+      "name": "pycpt-national-mae-2023-1991-2020.svg",
+      "bytes": 20862,
+      "viewBox": "0 0 914 543",
+      "vector_marks_matched": 48,
+      "text_elements": 71,
+      "sha256": "b032be6ca90b350c0694037f6109e7cd9874538cc27f04ac1b5e882498ce5d31"
+    },
+    {
+      "name": "pycpt-province-all-provinces-1983-2010-2023.svg",
+      "bytes": 315328,
+      "viewBox": "0 0 1204 1338",
+      "vector_marks_matched": 912,
+      "text_elements": 71,
+      "sha256": "abf97036fd60ac5a42a4063c3801cbc63247504f68350f24a6c9967eaf12c9ee"
+    },
+    {
+      "name": "pycpt-province-context-daerah-khusus-ibukota-jakarta-1983-2010-2021-2024.svg",
+      "bytes": 17827,
+      "viewBox": "0 0 914 681",
+      "vector_marks_matched": 48,
+      "text_elements": 27,
+      "sha256": "2f3a8731921c3bb39114e235f7bdfb0e7e80865d85dd24f5f1350e2d92e49d11"
+    },
+    {
+      "name": "pycpt-province-daerah-khusus-ibukota-jakarta-1983-2010-2023.svg",
+      "bytes": 17778,
+      "viewBox": "0 0 914 681",
+      "vector_marks_matched": 48,
+      "text_elements": 27,
+      "sha256": "ff8e4bcc4f48ea345afe0fe4f0c2e01ec45d4c7e77481fff31aded05e03af5c9"
+    },
+    {
+      "name": "pycpt-sensitivity-rmse-pcr-training-period-sensitivity-2023-centred-windows.svg",
+      "bytes": 11162,
+      "viewBox": "0 0 914 581",
+      "vector_marks_matched": 24,
+      "text_elements": 23,
+      "sha256": "63e8f2685cdf5a2c86863f4fd717a48c92953ec7cc002e43c0de9d3da259df5b"
+    }
+  ]
+}

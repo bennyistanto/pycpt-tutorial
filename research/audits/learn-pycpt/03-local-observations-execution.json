@@ -1,0 +1,12 @@
+{
+  "notebook": "docs/learn/03-local-observations.ipynb",
+  "executed": "2026-11-10T06:48:44+00:00",
+  "elapsed_seconds": 17.0,
+  "kernel": "pycpt-tutorial",
+  "code_cells": 12,
+  "errors": 0,
+  "home_path_redacted_in_cells": [
+    2
+  ],
+  "notebook_sha256": "fd0422cce349abac48c1bbaba14985e1348b52b4afcdf7b405cdf5fd29d32c7e"
+}

@@ -1,0 +1,19 @@
+{
+  "official_sha256": "58423f04b517ae63d1e6ff17f81e29dceaeb5ad74aad9945d44a8eb4c4ca5512",
+  "official_file_count": 4507,
+  "bundled_file_count": 4507,
+  "different_files": {
+    "CPT/17.8.3/data_version.F95": [
+      "65d1e30dc78f9950fc8540ddcbe1569f58c15ede53e644e64a1193ce8867b3bb",
+      "c343162b573f9ef47d6c1974eca9386eebce2c92d9d4f896658ec0ecc9f2163a"
+    ],
+    "CPT/17.8.3/maps.F95": [
+      "e815a39d1baf9614f52c9b97183740af4a4a7da7dfbdbcf9a2d14080a0bf7fc8",
+      "4a1559489aebd9e2f91e70fa92515fdd36e4604a9067b1675cce7967bf9a0774"
+    ],
+    "CPT/17.8.3/verif.F95": [
+      "bfcbfbcaf42a3ad0bafc14f6b06c5be598b656e88e3afc766571894e8ad04c2f",
+      "be2fffc3f15a3f40856f54ddfcae78aebe556f258bba035cd3b949713628d79a"
+    ]
+  }
+}

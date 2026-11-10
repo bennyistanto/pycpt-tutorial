@@ -1,0 +1,344 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "fits": {
+    "OND_cca_1991_2020": {
+      "season": "OND",
+      "method": "cca",
+      "source_files_hash_verified": 29,
+      "training_years": [
+        1991,
+        2020
+      ],
+      "x_grid_cells": 2911,
+      "y_valid_cells": 3240,
+      "sides": {
+        "predictor": {
+          "retained_eof_variance_percent": 73.277595,
+          "first_three_eof_variance_percent": [
+            47.024095,
+            17.600517,
+            8.652983
+          ],
+          "independent_eigenvalue_max_gap": 0.01700587533809994,
+          "independent_variance_percent_max_gap": 4.907846631874158e-07,
+          "independent_pc_absolute_correlations": [
+            0.9999999999999997,
+            1.0,
+            0.9999999999999996
+          ],
+          "finite_input_cells": 2911,
+          "decoded_missing_weight_values": 0,
+          "native_weight_range": [
+            -0.03648,
+            0.059649
+          ],
+          "derived_correlation_range": [
+            -0.8772497427555058,
+            0.9743362995344581
+          ]
+        },
+        "predictand": {
+          "retained_eof_variance_percent": 64.354505,
+          "first_three_eof_variance_percent": [
+            51.333532,
+            7.169518,
+            5.851455
+          ],
+          "independent_eigenvalue_max_gap": 0.0013161868967017654,
+          "independent_variance_percent_max_gap": 4.952327515850286e-07,
+          "independent_pc_absolute_correlations": [
+            1.0,
+            0.9999999999999999,
+            0.9999999999999998
+          ],
+          "finite_input_cells": 3240,
+          "decoded_missing_weight_values": 34056,
+          "native_weight_range": [
+            -0.045781,
+            0.05291
+          ],
+          "derived_correlation_range": [
+            -0.6328328548718157,
+            0.9275525260838182
+          ]
+        }
+      },
+      "wrapper_source_sha256": "938e2969bbbca4383657374f0c0ecec3cf2752a2acb5acb270874ad045e3253a",
+      "session_log_sha256": "6179fb764504fd55e05f68edfee98acd4c755080d6ca5fa2837ecdc75c4f9b89",
+      "commands_sha256": "e0c397644f1624f597cd6609e05105dfc2dd4b0341e985d6d0cfbfe5c4a36e87",
+      "canonical_correlations": [
+        0.945254,
+        0.469345
+      ],
+      "score_correlation_max_gap": 9.244564532218114e-07
+    },
+    "OND_pcr_1991_2020": {
+      "season": "OND",
+      "method": "pcr",
+      "source_files_hash_verified": 21,
+      "training_years": [
+        1991,
+        2020
+      ],
+      "x_grid_cells": 2911,
+      "y_valid_cells": 3240,
+      "sides": {
+        "predictor": {
+          "retained_eof_variance_percent": 73.277595,
+          "first_three_eof_variance_percent": [
+            47.024095,
+            17.600517,
+            8.652983
+          ],
+          "independent_eigenvalue_max_gap": 0.01700587533809994,
+          "independent_variance_percent_max_gap": 4.907846631874158e-07,
+          "independent_pc_absolute_correlations": [
+            0.9999999999999997,
+            1.0,
+            0.9999999999999996
+          ],
+          "finite_input_cells": 2911,
+          "decoded_missing_weight_values": 0,
+          "native_weight_range": [
+            -0.03648,
+            0.059649
+          ],
+          "derived_correlation_range": [
+            -0.8772497427555058,
+            0.9743362995344581
+          ]
+        }
+      },
+      "wrapper_source_sha256": "e8393bac45c1e5fe5007e6c672f3f2b8dae27c1d6299f7f608006b696063e2c7",
+      "session_log_sha256": "905d8e707a7368a3598c15ae52161d719914a069e4a6a74b7e14aa3887621b10",
+      "commands_sha256": "3e4d4946cf9f44e2bb9026ec4fae5dc5e62066f652aba3d1a0f9ed035f0bfa7e",
+      "x_eof_files_identical_to_cca": true
+    },
+    "JJA_cca_1991_2020": {
+      "season": "JJA",
+      "method": "cca",
+      "source_files_hash_verified": 29,
+      "training_years": [
+        1991,
+        2020
+      ],
+      "x_grid_cells": 2911,
+      "y_valid_cells": 3240,
+      "sides": {
+        "predictor": {
+          "retained_eof_variance_percent": 63.78964,
+          "first_three_eof_variance_percent": [
+            34.52306,
+            19.643324,
+            9.623256
+          ],
+          "independent_eigenvalue_max_gap": 0.01248547297143432,
+          "independent_variance_percent_max_gap": 4.849177566157437e-07,
+          "independent_pc_absolute_correlations": [
+            1.0,
+            0.9999999999999999,
+            1.0
+          ],
+          "finite_input_cells": 2911,
+          "decoded_missing_weight_values": 0,
+          "native_weight_range": [
+            -0.044148,
+            0.049928
+          ],
+          "derived_correlation_range": [
+            -0.9404848479942071,
+            0.9628973414637136
+          ]
+        },
+        "predictand": {
+          "retained_eof_variance_percent": 67.982988,
+          "first_three_eof_variance_percent": [
+            50.645893,
+            10.009929,
+            7.327166
+          ],
+          "independent_eigenvalue_max_gap": 0.0012986482431642798,
+          "independent_variance_percent_max_gap": 4.4487001904514045e-07,
+          "independent_pc_absolute_correlations": [
+            0.9999999999999997,
+            0.9999999999999998,
+            0.9999999999999994
+          ],
+          "finite_input_cells": 3240,
+          "decoded_missing_weight_values": 34056,
+          "native_weight_range": [
+            -0.044107,
+            0.047383
+          ],
+          "derived_correlation_range": [
+            -0.6791279624627456,
+            0.9511324653072637
+          ]
+        }
+      },
+      "wrapper_source_sha256": "938e2969bbbca4383657374f0c0ecec3cf2752a2acb5acb270874ad045e3253a",
+      "session_log_sha256": "414acee6a828cee0d97995bb2f72815b870b396c7c3ad9ff79a59da7aadfc16a",
+      "commands_sha256": "475286d28fffa5df4880612ecd66ddeae2cf2bd65346d3996e5787b6bfeb8995",
+      "canonical_correlations": [
+        0.739972,
+        0.596654
+      ],
+      "score_correlation_max_gap": 9.473331663567564e-08
+    },
+    "JJA_pcr_1991_2020": {
+      "season": "JJA",
+      "method": "pcr",
+      "source_files_hash_verified": 21,
+      "training_years": [
+        1991,
+        2020
+      ],
+      "x_grid_cells": 2911,
+      "y_valid_cells": 3240,
+      "sides": {
+        "predictor": {
+          "retained_eof_variance_percent": 63.78964,
+          "first_three_eof_variance_percent": [
+            34.52306,
+            19.643324,
+            9.623256
+          ],
+          "independent_eigenvalue_max_gap": 0.01248547297143432,
+          "independent_variance_percent_max_gap": 4.849177566157437e-07,
+          "independent_pc_absolute_correlations": [
+            1.0,
+            0.9999999999999999,
+            1.0
+          ],
+          "finite_input_cells": 2911,
+          "decoded_missing_weight_values": 0,
+          "native_weight_range": [
+            -0.044148,
+            0.049928
+          ],
+          "derived_correlation_range": [
+            -0.9404848479942071,
+            0.9628973414637136
+          ]
+        }
+      },
+      "wrapper_source_sha256": "e8393bac45c1e5fe5007e6c672f3f2b8dae27c1d6299f7f608006b696063e2c7",
+      "session_log_sha256": "57d789d80bc60205bd08fef5313b3e352f99817f204a1c51302efb1abf90ce68",
+      "commands_sha256": "d29d0bab9c6afa68ee7263e92ffac42e3d5dcf79ecea96441b5dadb7f3a5c1ba",
+      "x_eof_files_identical_to_cca": true
+    }
+  },
+  "comparison_2023_rmse_mm": {
+    "OND": {
+      "raw_cfsv2": 292.3894695720194,
+      "climatology_1991_2020": 226.4960852681342,
+      "cca_1991_2020": 120.34602943146868,
+      "pcr_1991_2020": 117.3560728024142
+    },
+    "JJA": {
+      "raw_cfsv2": 377.8240117124377,
+      "climatology_1991_2020": 130.6911679638871,
+      "cca_1991_2020": 177.9792807923039,
+      "pcr_1991_2020": 175.58692962737044
+    }
+  },
+  "recovered_outputs": [
+    {
+      "file": "research/audits/fitting-diagnostics/outputs/OND_cca_1991_2020_predictor_diagnostics.nc",
+      "sha256": "f56e947467035ebaf97917dd8a4a5c770c09272877c1ebed6c8d3129f39cf764",
+      "variables": [
+        "eof_native_weight",
+        "eof_score",
+        "eof_correlation",
+        "eigenvalue",
+        "explained_variance_percent",
+        "cumulative_variance_percent",
+        "cca_score",
+        "cca_native_weight",
+        "cca_correlation"
+      ]
+    },
+    {
+      "file": "research/audits/fitting-diagnostics/outputs/OND_cca_1991_2020_predictand_diagnostics.nc",
+      "sha256": "2ffcc183c3b0070375c2b9dc646f3b78f9deb46a50f9f262010558af7c105bf5",
+      "variables": [
+        "eof_native_weight",
+        "eof_score",
+        "eof_correlation",
+        "eigenvalue",
+        "explained_variance_percent",
+        "cumulative_variance_percent",
+        "cca_score",
+        "cca_native_weight",
+        "cca_correlation"
+      ]
+    },
+    {
+      "file": "research/audits/fitting-diagnostics/outputs/OND_pcr_1991_2020_predictor_diagnostics.nc",
+      "sha256": "b3948913c237d9c31b248ddf070eae0c60f57b0778da8f27edd28366cb035119",
+      "variables": [
+        "eof_native_weight",
+        "eof_score",
+        "eof_correlation",
+        "eigenvalue",
+        "explained_variance_percent",
+        "cumulative_variance_percent"
+      ]
+    },
+    {
+      "file": "research/audits/fitting-diagnostics/outputs/JJA_cca_1991_2020_predictor_diagnostics.nc",
+      "sha256": "3de1337f61ff82b05c90a9f87fb6eaa0e006bd1520dd860a211c5ff6b7ced1e1",
+      "variables": [
+        "eof_native_weight",
+        "eof_score",
+        "eof_correlation",
+        "eigenvalue",
+        "explained_variance_percent",
+        "cumulative_variance_percent",
+        "cca_score",
+        "cca_native_weight",
+        "cca_correlation"
+      ]
+    },
+    {
+      "file": "research/audits/fitting-diagnostics/outputs/JJA_cca_1991_2020_predictand_diagnostics.nc",
+      "sha256": "da13cb95101d7153abe551bec1dbb259ba6c241ae8cf8f58450d15b8a8e70762",
+      "variables": [
+        "eof_native_weight",
+        "eof_score",
+        "eof_correlation",
+        "eigenvalue",
+        "explained_variance_percent",
+        "cumulative_variance_percent",
+        "cca_score",
+        "cca_native_weight",
+        "cca_correlation"
+      ]
+    },
+    {
+      "file": "research/audits/fitting-diagnostics/outputs/JJA_pcr_1991_2020_predictor_diagnostics.nc",
+      "sha256": "db02d50b8621d9f66525d713e0bfedc5d98acf1993b7575efabbce57e06d9f30",
+      "variables": [
+        "eof_native_weight",
+        "eof_score",
+        "eof_correlation",
+        "eigenvalue",
+        "explained_variance_percent",
+        "cumulative_variance_percent"
+      ]
+    }
+  ],
+  "new_fits": 0,
+  "protected_files_unchanged": 216,
+  "audit_script_sha256": "cb644aeb67af0125bb0853cdb5712a7dbfc963dca0d60ffe52d9b0af0ad5e2f9",
+  "numeric_tolerances": {
+    "spectrum_cumulative_percent_atol": 2e-05,
+    "independent_eigenvalue_atol": 0.002,
+    "independent_eigenvalue_rtol": 2e-05,
+    "independent_variance_percent_atol": 2e-05,
+    "canonical_correlation_atol": 2e-06
+  },
+  "checks": "Raw hashes, fitting input/output hashes, mode/time counts, variance arithmetic, independent full-training weighted standardized SVD, CCA score correlations, CCA/PCR X equality, existing case preservation.",
+  "scope": "Saved full-training diagnostics recovered; no physical attribution, optimized setting, per-fold pattern or new independent skill claim."
+}

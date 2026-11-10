@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "renderer": "Quarto 1.8.27",
+  "logo_source": "Existing user-provided logo-light.png and logo-dark.png retained byte-identical; generated candidates not used",
+  "native_theme_toggle": true,
+  "native_brand_logo_switch": true,
+  "respect_user_color_scheme": true,
+  "reviewed_pages": [
+    "index.html",
+    "chapters/indonesia-seasons-2023.html",
+    "chapters/fit-diagnose-2023.html",
+    "notebooks/indonesia-seasons-2023.html",
+    "notebooks/fit-diagnose-2023.html"
+  ],
+  "notebook_figures": [
+    9,
+    6
+  ],
+  "notebook_errors": 0,
+  "story_panels": [
+    8,
+    6
+  ],
+  "mobile_viewport": [
+    390,
+    844
+  ],
+  "mobile_document_width": 375,
+  "mobile_toggle_verified": true,
+  "viewport_reset": true,
+  "console_errors": [],
+  "export_evidence": "research/audits/appearance/exports.json",
+  "navigation_evidence": "research/audits/fitting-tutorial-2023/navigation.json",
+  "local_links_checked": 975,
+  "broken_links": 0,
+  "case_one_files_unchanged": 51,
+  "both_notebooks_and_kits_unchanged": true,
+  "notebook_execution": false,
+  "proof": [
+    "temp/appearance-light.png",
+    "temp/appearance-dark.png"
+  ],
+  "references": [
+    "https://quarto.org/docs/output-formats/html-themes.html",
+    "https://quarto.org/docs/authoring/brand.html"
+  ],
+  "retained_browser": "2",
+  "retained_tab": "16"
+}

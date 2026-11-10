@@ -1,0 +1,92 @@
+{
+  "case_id": "indonesia-ond-2023",
+  "forecast_initialization": "2023-09-01",
+  "target_start": "2023-10-01",
+  "target_end": "2023-12-31",
+  "training_years": [
+    1982,
+    2010
+  ],
+  "forecast_year": 2023,
+  "model": "CFSv2.PRCP",
+  "model_sources": {
+    "hindcasts": {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Sep%201982-2010%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/-999/setmissing_value/%5BX/Y%5D%5BL/S/add%5D/cptv10.tsv",
+      "bytes": 3617326,
+      "sha256": "f1918fc9f775769523e4a4c7cf6a7a0c8f7c7af4cb2dc178f85e6fca286c2049",
+      "years": [
+        1982,
+        1983,
+        1984,
+        1985,
+        1986,
+        1987,
+        1988,
+        1989,
+        1990,
+        1991,
+        1992,
+        1993,
+        1994,
+        1995,
+        1996,
+        1997,
+        1998,
+        1999,
+        2000,
+        2001,
+        2002,
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010
+      ],
+      "shape": {
+        "T": 29,
+        "Y": 41,
+        "X": 71
+      }
+    },
+    "forecasts": {
+      "url": "https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/S/%280000%201%20Sep%202023%29/VALUES/L/1.5/3.5/RANGEEDGES/Y/-20/20/RANGEEDGES/X/85/155/RANGEEDGES/%5BM%5D/average/-999/setmissing_value/%5BX/Y%5D%5BL/S/add%5D/cptv10.tsv",
+      "bytes": 124858,
+      "sha256": "7db5d364c4f4ada214bface85af176a149ba91cc8fa5d760526c43a52633f1c0",
+      "years": [
+        2023
+      ],
+      "shape": {
+        "T": 1,
+        "Y": 41,
+        "X": 71
+      }
+    }
+  },
+  "observations": {
+    "product": "CHIRPS v3.0",
+    "available_years": [
+      1981,
+      2025
+    ],
+    "local_source": "/mnt/e/temp/chirps/rolling_dekad/wld_cli_chirps3_month3_bydekad_1981_2025.nc",
+    "original_source_size_bytes": 24343763347
+  },
+  "country_bounds": {
+    "west": 94,
+    "east": 142,
+    "south": -12,
+    "north": 7
+  },
+  "predictor_bounds": {
+    "west": 85,
+    "east": 155,
+    "south": -20,
+    "north": 20
+  },
+  "output_resolution_degrees": 1.0,
+  "prepared_at": "2026-10-31T10:32:43.896372+00:00",
+  "interpretation": "Historical replay using retrospectively available model/observation products, not an as-issued 2023 operational record"
+}

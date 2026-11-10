@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "output_hashes_verified": 21,
+  "benchmark_artifacts_unchanged": 40,
+  "training_years": [
+    1991,
+    2020
+  ],
+  "verification_year_excluded_from_fitting": 2023,
+  "fine_training_cells": 3240,
+  "common_evaluation_cells": 3240,
+  "full_domain_monthly_values_checked": 261990,
+  "missing_monthly_values": 0,
+  "member_count_range": [
+    24,
+    24
+  ],
+  "independent_numpy_monthly_to_seasonal_max_difference_mm": 0.0,
+  "independent_numpy_forecast_metrics_max_difference_mm": 6.252776074688882e-13,
+  "dates_counts_probability_bounds_sums_and_variances": "PASS",
+  "shared_verification_years": [
+    1991,
+    2010
+  ],
+  "verification_script_sha256": "ea2fe1b32bbc3f57def5be741dad3e1f93d9cc7a15c5ce0decf2a4dcb30f2a47"
+}

@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "svg_downloads": [
+    {
+      "file": "pycpt-fitting-scores-cross_validation-mae.svg",
+      "vector_values": 8,
+      "raster_images": 0,
+      "external_resources": 0,
+      "sha256": "93d237f7efe04202db6a3c75bf03d365172d13880cbb2027d3d81bb612daafc9"
+    },
+    {
+      "file": "pycpt-fitting-scree-JJA-predictand-cumulative.svg",
+      "vector_values": 30,
+      "raster_images": 0,
+      "external_resources": 0,
+      "sha256": "da639c51630b76ecdd4c063c855651e54b7b33e8ed65918a74fa33dccedbfec7"
+    },
+    {
+      "file": "pycpt-fitting-patterns-JJA-eof-3.svg",
+      "vector_values": 60,
+      "raster_images": 0,
+      "external_resources": 0,
+      "sha256": "d7a483e405da167db00499643047f25fd8dc51048cb20f36e43017ef4729466c"
+    },
+    {
+      "file": "cv-bias.svg",
+      "vector_values": 120,
+      "raster_images": 0,
+      "external_resources": 0,
+      "sha256": "afbed63e296e2b3bc889113d358f9b5f8cd2df3622ab55c922cfe5fc4e0dbf67"
+    },
+    {
+      "file": "cca-pair.svg",
+      "vector_values": 60,
+      "raster_images": 0,
+      "external_resources": 0,
+      "sha256": "bca536e5a19cb068f95e94d2b09529b36f25549e2d04a033d238c487d9c43cd8"
+    }
+  ],
+  "vector_values_exactly_matched": 278,
+  "png_downloads": [
+    {
+      "file": "pycpt-fitting-scores-cross_validation-mae.png",
+      "width": 1828,
+      "height": 1392,
+      "sha256": "627fbcc0d1d56b5b42ddd9abc984d0a7a7f164d83f2faf49b939cdcf18b74492"
+    },
+    {
+      "file": "pycpt-fitting-patterns-JJA-eof-3.png",
+      "width": 2328,
+      "height": 2192,
+      "sha256": "673ee3d05da008199569a1f31f91bc7a16c4709fc7ad11792c859bc46cf60852"
+    },
+    {
+      "file": "cca-pair.png",
+      "width": 2328,
+      "height": 2216,
+      "sha256": "df36875cbeb49586d4f1debf67bee14b0ecba5a9c157d54caf0f6986917a0de8"
+    },
+    {
+      "file": "signed-errors.png",
+      "width": 2328,
+      "height": 1862,
+      "sha256": "56fb57b35b14926ba0acf669091a67e0b4fb167bf2eb9a3319bde8f4923ac3f6"
+    }
+  ],
+  "csv_exports": {
+    "CV_JJA_PCR": 30,
+    "JJA_CCA2_Y_correlations": 3240,
+    "JJA_CCA_signed_errors": 3240
+  },
+  "csv_values_exactly_match_source": true,
+  "notes": "Actual UI downloads; CV CSV includes all30filtered years, not only the25visible rows. All diagnostic coordinate/mode/year columns present."
+}

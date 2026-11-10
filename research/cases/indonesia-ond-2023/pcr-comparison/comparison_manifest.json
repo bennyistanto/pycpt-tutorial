@@ -1,0 +1,144 @@
+{
+  "case_id": "indonesia-ond-2023-pcr-comparison",
+  "completed_at": "2026-10-31T10:53:27.589445+00:00",
+  "pcr_config": {
+    "x_eof_modes": [
+      3,
+      3
+    ],
+    "validation": "CROSSVALIDATION",
+    "crossvalidation_window": 5,
+    "synchronous_predictors": true,
+    "transform_predictand": null,
+    "tailoring": null,
+    "drymask_threshold": null,
+    "skillmask_threshold": null
+  },
+  "frozen_input_sha256": {
+    "observations_chirps3_ond.nc": "a2ddf1065a3847ad1c7e43dabe84e0328fb27cde828b7818c95b3266b446c53e",
+    "cfsv2_hindcasts_ond.nc": "0c6d3c9643c6c6253033f980d827f369e4f3b7c03fd86f322250e1e4a23bd296",
+    "cfsv2_forecasts_ond.nc": "538a548632084adc77c91e3bbd7518b4c75f8eb956d61c501731015397b6cb71",
+    "indonesia_analysis_mask.nc": "7555ae911c5a70e0d555e198be51ff0c2bcdbb790f1e7609b386344afbcc5666"
+  },
+  "unchanged_cca_output_sha256": {
+    "cca_forecast_2023.nc": "255c2ce2cc5423ceb06a6c0858e2420e3534c915df1acc1f96cb396944fa9911",
+    "cca_hindcasts.nc": "f0c5f27ee7c035af7a44460a2dde86b3f0b21395292a1a3ca82a4f440747e324",
+    "cca_native_skill.nc": "d698ac5ff8963b99ce1125d05bc7bdb0d3828c67121b69a031bf51a6a12f7c99",
+    "cca_predictand_patterns.nc": "ad6744986bb22000b6fa738a5731ba38c567e9c1c5eb26571f4cb7e7bc4d11e2",
+    "cca_predictor_patterns.nc": "7f8522bc7c693a3784e02435e2a5881f0ae99a9560e8a6bef37986437f5f6d46",
+    "cfsv2_forecast_predictor_2023.nc": "bbd128576146b8cf9a95c140f5ce7a82f4b1f18d4cbb72e8e4f8bf962abd8994",
+    "cfsv2_training_predictors.nc": "b4c1d68b6d5eb82eac3a75f7418f6cfcb14aad17f1c1582a8a239b80dce598b7",
+    "deterministic_hindcast_comparison.nc": "34914c4858e3d66e46e1208007fde51a0546e7b374ce8f65f2cbd089ae66a46a",
+    "forecast_2023_baselines_and_observed.nc": "6120a7ba07dd60a06231b636115fd90d2001ba89dbd70babeedad616636c4d3d",
+    "indonesia_analysis_mask.nc": "3809c585f7b9687e87b5365ba90257a880ab1637b31a146bd2a4bb3aa4671cd8",
+    "indonesia_ond_2023_comparison.png": "391e311bb0f99bebe71d0219fdd24b45a0f0b12463377aba794e9b38bbded272",
+    "observations_chirps3_ond.nc": "6dbecb82552fb55fcc0d8b3edb7582088741523a837c310497edf06a6b7a2a36"
+  },
+  "engine": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
+  "engine_sha256": "3457c93ee3d7a69005e32c231a976c50a056da53868c02757f344a46a81a139e",
+  "script_sha256": "d0b3724b7bdaacaa72eb50f3e17a121e290bae504a061b953c93389546187066",
+  "outputs": {
+    "deterministic_hindcast_three_method_comparison.nc": {
+      "bytes": 73782,
+      "sha256": "360d2c213ce08d1083373a5907ed2c71e056fcb52a61029c77719187470ebadb"
+    },
+    "forecast_2023_four_method_comparison.nc": {
+      "bytes": 86342,
+      "sha256": "f60adeb2732947a19e4b4dd10820dc0f62d50bf55521cd55dd28ab4ee83ae8ef"
+    },
+    "indonesia_ond2023_four_method_comparison.png": {
+      "bytes": 593593,
+      "sha256": "05c50e135607a983bf6dcd1b3b795a4c8f0957fb4781e075a914328edb46848b"
+    },
+    "pcr_forecast_2023.nc": {
+      "bytes": 57133,
+      "sha256": "59355d711f63cbd5d4b512de08303070dc4606c18deb9417e5f7d8d65da0ef8b"
+    },
+    "pcr_hindcasts.nc": {
+      "bytes": 121077,
+      "sha256": "78c84d5751fef39161680dfe097997cf8766979180626e0c8a8ff38db278ce97"
+    },
+    "pcr_minus_cca_error_comparison.png": {
+      "bytes": 295768,
+      "sha256": "4116a1db1064a9529fd844a884eb55e05d75bc4205e356e25c34f253e168c8f7"
+    },
+    "pcr_native_skill.nc": {
+      "bytes": 54564,
+      "sha256": "934ed596b90b9da524b3a4a3886c2d0dbf93cc236241c649bf4c3ad43d454908"
+    },
+    "pcr_predictor_patterns.nc": {
+      "bytes": 94622,
+      "sha256": "9fce6dad87f40a5ff22df9f97e3b42bb4ebddac22432c3c339ac01c824a3a1b7"
+    }
+  },
+  "metrics": {
+    "forecast_year": 2023,
+    "training_years": [
+      1982,
+      2010
+    ],
+    "training_sample_count": 29,
+    "resolution_degrees": 1.0,
+    "country_grid_cells": 369,
+    "forecast_metrics": {
+      "climatology": {
+        "area_weighted_rmse_mm": 214.10042921143463,
+        "area_weighted_mae_mm": 181.38604052075414,
+        "area_weighted_bias_mm": 149.80219869329
+      },
+      "raw_cfsv2": {
+        "area_weighted_rmse_mm": 267.68602556508523,
+        "area_weighted_mae_mm": 219.38698780202694,
+        "area_weighted_bias_mm": -87.40247364769586
+      },
+      "cca": {
+        "area_weighted_rmse_mm": 128.9881332464314,
+        "area_weighted_mae_mm": 97.14137659422096,
+        "area_weighted_bias_mm": -48.28150127998677
+      },
+      "pcr": {
+        "area_weighted_rmse_mm": 123.39549335196924,
+        "area_weighted_mae_mm": 94.1594544896691,
+        "area_weighted_bias_mm": -46.92355406193865
+      }
+    },
+    "hindcast_metrics": {
+      "raw_cfsv2": {
+        "area_weighted_mean_grid_rmse_mm": 324.0698819395017,
+        "area_weighted_mean_grid_pearson": 0.40700080197109445
+      },
+      "cca": {
+        "area_weighted_mean_grid_rmse_mm": 141.0871827546099,
+        "area_weighted_mean_grid_pearson": 0.5489221472676864
+      },
+      "pcr": {
+        "area_weighted_mean_grid_rmse_mm": 142.14228107534572,
+        "area_weighted_mean_grid_pearson": 0.5441497503955318
+      }
+    },
+    "pcr_config": {
+      "x_eof_modes": [
+        3,
+        3
+      ],
+      "validation": "CROSSVALIDATION",
+      "crossvalidation_window": 5,
+      "synchronous_predictors": true,
+      "transform_predictand": null,
+      "tailoring": null,
+      "drymask_threshold": null,
+      "skillmask_threshold": null
+    },
+    "cpt_elapsed_seconds": 1.03118883299976,
+    "negative_pcr_forecast_cells": 0,
+    "probability_sum_max_absolute_error_percent": 1.0000000116860974e-06,
+    "interpretation": "Same-input comparison of one held-out historical forecast; not a general ranking of methods or nested-CV skill assessment"
+  },
+  "verification": {
+    "input_and_cca_output_hashes_unchanged": true,
+    "all_exports_readback_verified": true,
+    "forecast_dates_and_probability_bounds": "PASS",
+    "native_vs_direct_skill": "PASS",
+    "prior_three_method_metrics_unchanged": true
+  }
+}

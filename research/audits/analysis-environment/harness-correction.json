@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-02",
+  "initial_run": "Stopped in original score cell when numpy.testing imported and attempted ['lscpu'].",
+  "cause": "Verification guard rejected a local CPU capability probe; not a missing notebook dependency.",
+  "evidence": "Fresh interpreter audit-hook trace of import numpy.testing reported subprocess.Popen executable lscpu, argv ['lscpu'].",
+  "correction": "Permit that exact local query alongside Matplotlib font queries; all other subprocesses, credential reads and remote connections remain blocked.",
+  "environment_or_notebook_changes": "None. Same fresh environment and unchanged original notebook cells."
+}

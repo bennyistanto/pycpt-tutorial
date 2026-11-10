@@ -1,0 +1,12 @@
+{
+  "notebook": "docs/learn/06-multi-model-ensemble.ipynb",
+  "executed": "2026-11-10T07:12:36+00:00",
+  "elapsed_seconds": 263.9,
+  "kernel": "pycpt-tutorial",
+  "code_cells": 10,
+  "errors": 0,
+  "home_path_redacted_in_cells": [
+    4
+  ],
+  "notebook_sha256": "788f04be5b652f676017046b278978e501379f7dc1f17f0667eacca8549bce71"
+}

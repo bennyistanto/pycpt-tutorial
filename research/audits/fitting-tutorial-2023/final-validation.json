@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-02",
+  "result": "PASS",
+  "fitting_verification": "research/audits/fitting-tutorial-2023/verification.json",
+  "kit_verification": "research/audits/fitting-tutorial-2023/kit-verification.json",
+  "browser_verification": "research/audits/fitting-tutorial-2023/browser-validation.json",
+  "download_verification": "research/audits/fitting-tutorial-2023/download-verification.json",
+  "render": "research/audits/interactive-story/render.json",
+  "book_pages": 9,
+  "local_links": 1091,
+  "broken_links": 0,
+  "unit_tests_passed": 25,
+  "preserved_case_one_files": 51,
+  "handoff_updated": true,
+  "staged_or_committed": false,
+  "deployed": false
+}
