@@ -1,0 +1,14 @@
+# Saved-results notebook only: no PyCPT or CPT engine dependency.
+# Direct package versions match the audited tutorial runtime.
+name: pycpt-tutorial-analysis
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.5
+  - numpy=2.1.0
+  - pandas=2.2.2
+  - xarray=2024.10.0
+  - matplotlib=3.9.2
+  - netcdf4=1.7.1
+  - ipykernel=6.29.5
+  - notebook=7.2.2
