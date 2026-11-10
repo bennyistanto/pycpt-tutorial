@@ -1,0 +1,178 @@
+{
+  "sources": {
+    "idn_bnd_adm0": {
+      "directory": "/mnt/f/temp/hybrid-bias-correction/data/subset/bnd",
+      "credits_from_metadata": [
+        "The original district dataset came from Badan Informasi Geospasial, and modified by Benny Istanto"
+      ],
+      "files": {
+        "idn_bnd_adm0.shp": "77559d9880f2d7462fc83d9f26056d1539dd4e198d4f8651b30f765210a38d6e",
+        "idn_bnd_adm0.shx": "9dabd11035a5325f93daa96b8931c902096b91ab2044e2393562372401dd8b15",
+        "idn_bnd_adm0.dbf": "c08b9ef070839154fe6c21cb68e32690a9e88f7563c121e73c2ef737bb802a67",
+        "idn_bnd_adm0.prj": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+        "idn_bnd_adm0.shp.xml": "0ecf14fc913f7ffb59d693b873677a773cc10b47626dd19506ca89e1b5db7fa8"
+      }
+    },
+    "idn_bnd_adm1": {
+      "directory": "/mnt/f/temp/hybrid-bias-correction/data/subset/bnd",
+      "credits_from_metadata": [
+        "The original district dataset came from Badan Informasi Geospasial, and modified by Benny Istanto"
+      ],
+      "files": {
+        "idn_bnd_adm1.shp": "ef83c52bb78133afeece4d1b4fae3d1a52d84a059692b6f9e7c249417845b97a",
+        "idn_bnd_adm1.shx": "263289eaf4fe2775ccf9dd783c8ec3289266522d12a7e64c6c80c4aae0fb90f6",
+        "idn_bnd_adm1.dbf": "2103102c478d367f549ccbb172e5411ba85eee4cb1a059b0aa0a94367adbd962",
+        "idn_bnd_adm1.prj": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+        "idn_bnd_adm1.shp.xml": "b018d33ace96365061048f43b017537268b34f215a409ffb43d5e64aa67f1842"
+      }
+    },
+    "wld_bnd_adm0": {
+      "directory": "/mnt/f/temp/hybrid-bias-correction/data/subset/bnd",
+      "credits_from_metadata": [],
+      "files": {
+        "wld_bnd_adm0.shp": "a0db1ad85b353b9469e1ab2adc912c41c59f61726484f486913c42d978dc8b1f",
+        "wld_bnd_adm0.shx": "00c1f58650d4e5b83dbb6c6c8b88d56615d2641fe22f1f0d33ec603f7bf7e728",
+        "wld_bnd_adm0.dbf": "d0e8929a3b298709f217ab54c9c6841068231a31c391d988da6d9ea1630c71f4",
+        "wld_bnd_adm0.prj": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+        "wld_bnd_adm0.shp.xml": "418cf5ad7d8df9dc22f24ee113be985112788d8b9a877eaef005d4ba94310015"
+      }
+    }
+  },
+  "outputs": {
+    "indonesia.geojson": {
+      "sha256": "698ae6bed42f126d6d66b74744bb1ddd5b6a8505697ba5453621ed441a217558",
+      "features": 1,
+      "bytes": 3749457
+    },
+    "provinces.geojson": {
+      "sha256": "b720625d1c095dfae526d398ecdd09becc2969b738ef18a8f0d41e5510281d5a",
+      "features": 38,
+      "bytes": 3910366
+    },
+    "neighbours.geojson": {
+      "sha256": "198956ab4f1a7d8424a57eb87f9bd319efa115561aecdbd8e86f3e778ac51d14",
+      "features": 11,
+      "bytes": 681357
+    }
+  },
+  "geometry_repairs": [
+    {
+      "source": "idn_bnd_adm0",
+      "record": 0,
+      "stage": "display derivative",
+      "reason": "Nested shells[116.923876481 -9.05238875799995]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 0,
+      "stage": "display derivative",
+      "reason": "Nested shells[95.3139093280001 5.87491822400006]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 2,
+      "stage": "display derivative",
+      "reason": "Nested shells[105.580277352 -6.65289748499993]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 10,
+      "stage": "display derivative",
+      "reason": "Nested shells[112.481472788 -8.39668350599993]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 12,
+      "stage": "display derivative",
+      "reason": "Nested shells[116.12900289 -4.03439924599996]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 14,
+      "stage": "display derivative",
+      "reason": "Nested shells[117.381654273 -0.830069441999967]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 17,
+      "stage": "display derivative",
+      "reason": "Nested shells[104.351765881 0.288890124000034]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 19,
+      "stage": "display derivative",
+      "reason": "Nested shells[134.680467929 -5.57119587399995]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 20,
+      "stage": "display derivative",
+      "reason": "Nested shells[127.127097523 0.13093916400004]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 21,
+      "stage": "display derivative",
+      "reason": "Nested shells[116.923876481 -9.05238875799995]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 22,
+      "stage": "display derivative",
+      "reason": "Nested shells[124.823583182 -8.38796100699994]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 29,
+      "stage": "display derivative",
+      "reason": "Nested shells[117.190945648 -7.50302983499995]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 30,
+      "stage": "display derivative",
+      "reason": "Nested shells[123.205425796 -1.61729073299995]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 32,
+      "stage": "display derivative",
+      "reason": "Nested shells[125.570612188 3.75507783500007]"
+    },
+    {
+      "source": "idn_bnd_adm1",
+      "record": 36,
+      "stage": "display derivative",
+      "reason": "Nested shells[134.244467683 -4.00596067399994]"
+    },
+    {
+      "source": "wld_bnd_adm0",
+      "record": 34,
+      "stage": "display derivative",
+      "reason": "Nested shells[115.0268651 4.9476885]"
+    },
+    {
+      "source": "wld_bnd_adm0",
+      "record": 158,
+      "stage": "display derivative",
+      "reason": "Nested shells[117.955424 5.80502249999999]"
+    },
+    {
+      "source": "wld_bnd_adm0",
+      "record": 177,
+      "stage": "display derivative",
+      "reason": "Nested shells[120.9978095 5.72044880000003]"
+    }
+  ],
+  "coordinate_system": "WGS84 longitude/latitude (EPSG:4326)",
+  "extent": [
+    94,
+    -12,
+    142,
+    7
+  ],
+  "simplification_tolerance_degrees": 0.01,
+  "purpose": "Display-only overlays. Not used for masks, area weights, forecasts or verification.",
+  "world_filter": "Exclude iso_3=IDN before clipping. Indonesia is outlined, never filled by the boundary layer."
+}

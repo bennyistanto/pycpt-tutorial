@@ -1,0 +1,62 @@
+{
+  "case": "indonesia-all-seasons-2021-2024-025deg",
+  "source_manifest_sha256": "bd4b06d94537e0def2aa0f5d5c313dd6d29cc25880ba64116e0144a6bec2b9a3",
+  "source_files": {
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/evaluation_footprint.nc": "0f69f12ab4da5b4140876e2cfc2d45d47ed40e1ca7361ad7d67063ceea7f2acb",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/verification_scores.nc": "9d5a4b3207e9a737aa48f51df97a739660a89fe2f12cc7ba03c4d2148f0f583d",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/DJF_forecast_comparison.nc": "ea46fb1292a5245f546fc5fca074ac121d5a98a68c481479027974134f1ea9ff",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JFM_forecast_comparison.nc": "4d4b0e78eb3e4174e06ab8d80f6258689c8d598f93cdde34a0cfcf44f8933a16",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/FMA_forecast_comparison.nc": "627657fc50b2c2502e3e9aa1d8df35a3574b2f0f59e59b4d1ebba5bfe482bdff",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/MAM_forecast_comparison.nc": "2b24dfea2617e1fbf2c14bb8ed16b28581ba2aef5768295f3ba4da2855cc554b",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/AMJ_forecast_comparison.nc": "72e46c226c1cd9e57d9edc5f44cbee84cfd48c12c2f88a8f63baaf405ba28efe",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/MJJ_forecast_comparison.nc": "e2907d7b2cb6b392e3280b2e5972d69a3d597b556cfa0444fbbb0c42c6b48129",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JJA_forecast_comparison.nc": "9cea8548cc1ca91c32f4703bf8683715c79b6b58d859e3a22545efb32f2e56eb",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JAS_forecast_comparison.nc": "439fb9740ec4857af979c9ad581870812991c2058e036c7de33ed752bde0f889",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/ASO_forecast_comparison.nc": "4f243214378f725669a20bb190c0c1e2da6e9a57a75267d599f467afd27fdc7a",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/SON_forecast_comparison.nc": "a60c1e122e91df27e9db82c2551c8481314298136fb5635df0c8090e4c47b6f0",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_forecast_comparison.nc": "d7d4896b3750f1bfb0ae28500a0e10847f63652221c945ef572173f14c6bf863",
+    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/NDJ_forecast_comparison.nc": "6a2ef6edc49f1096a8ce50c247f3be060e11322988bd55d40dd50945db38bcf7",
+    "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_predictor": "0ff1e2a4f403118df373866692595aeb916123b7de3b7998f978ec0691724244",
+    "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_predictand": "4efecd256e8c0f3d3d663840435954cda02a0c0653211b3d9b608eba192a3c3b",
+    "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_forecast_predictor": "ccaedec1ed913fc8ed42f190f0ffa23905a66596f289d8fc25241de1b49ccd92"
+  },
+  "outputs": {
+    "indonesia-seasons-2023.nc": {
+      "sha256": "4ce8ee7414d242095ce0da30f0eb2d0a9fe81938059b5df91939d2adafa26d50",
+      "bytes": 2852157
+    },
+    "ond-forecast-predictor.nc": {
+      "sha256": "1cad26b5b885f87e52f524fdb7788194578fb44ed2a2d3fd881cee0b86995c59",
+      "bytes": 36321
+    },
+    "ond-training-observations.nc": {
+      "sha256": "0ac68c7c509a904aada881e8847e6a849a993bfa46447ddfdcc36780e85ebbef",
+      "bytes": 835945
+    },
+    "ond-training-predictor.nc": {
+      "sha256": "40f62d26dd3f9333ada8affd95004e25aa70de75970e6c28c3fe3bb029645aa8",
+      "bytes": 570530
+    },
+    "verification-context-2021-2024.nc": {
+      "sha256": "81ca50784ab5dfa94a0841e80a3275cb770b6eeff13654b3fd86debb2f78ce76",
+      "bytes": 50491
+    }
+  },
+  "calendar_selection": {
+    "DJF": 2023,
+    "JFM": 2023,
+    "FMA": 2023,
+    "MAM": 2023,
+    "AMJ": 2023,
+    "MJJ": 2023,
+    "JJA": 2023,
+    "JAS": 2023,
+    "ASO": 2023,
+    "SON": 2023,
+    "OND": 2023,
+    "NDJ": 2024
+  },
+  "main_selection_midpoint_year": 2023,
+  "retained_cells": 3240,
+  "note": "Derived teaching copy; source case files unchanged. Only deterministic comparisons are bundled; native probabilities remain in research archive."
+}
