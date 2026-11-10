@@ -218,3 +218,51 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local credentials; keep only the safe example in version control
+.env.*
+!.env.example
+.pycpt_dlauth*
+.IRIDLAUTH*
+
+# Scratch work and publishing build products
+/temp/
+/docs/_site/
+/docs/_book/
+/docs/_build/
+/docs/.quarto/
+/docs/.jupyter_cache/
+
+# Learner downloads are intentional publication assets
+!/docs/downloads/
+!/docs/downloads/**
+
+# AI agent working files: kept locally for continuity, never published
+/AGENTS.md
+/HANDOFF.md
+/PLANS.md
+CLAUDE.md
+CLAUDE.local.md
+GEMINI.md
+.claude/
+.codex/
+.cursor/
+.cursorrules
+.windsurf/
+.windsurfrules
+.continue/
+.aider*
+.github/copilot-instructions.md
+/research/plans/
+
+# Temporary, scratch and editor files
+*.tmp
+*.bak
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+/docs/learn/*-failed.ipynb
