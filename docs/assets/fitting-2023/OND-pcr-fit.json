@@ -4,7 +4,7 @@
   "method": "pcr",
   "training_samples": 30,
   "forecast_samples": 1,
-  "native_directory": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr",
+  "native_directory": "<repo>/temp/fitting-2023-jfvpzqwj/OND-pcr",
   "configuration": {
     "x_eof_modes": [
       3,
@@ -122,18 +122,18 @@
       "bytes": 158417
     },
     "sessions/OND-pcr.log": {
-      "sha256": "02c43db760588b4118bc06f3c866888ea6cec7e69139cb7012863b814fb84f3e",
-      "bytes": 452975
+      "sha256": "5388d9b92cdeabf73b26aaea2816524bfd994499e38f02ab03114cf588739af9",
+      "bytes": 451226
     },
     "sessions/OND-pcr-commands.txt": {
-      "sha256": "0f7c0df6f5b8655f17625c0119f36544909ddebb13ded15b298738145fed960b",
-      "bytes": 2281
+      "sha256": "512dd551c9ed8f3563dbc64b25a106f228f347a5d20ae021aa582c475127a24e",
+      "bytes": 1380
     }
   },
   "date_parsing": [
     {
-      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_probabilities.txt",
-      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_probabilities.midnight-normalized.txt",
+      "source": "<repo>/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_probabilities.txt",
+      "parsing_copy": "<repo>/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_probabilities.midnight-normalized.txt",
       "dates": [
         "2023-09-01"
       ],
@@ -141,8 +141,8 @@
       "parsing_sha256": "7d021d1abfd53d9838f7d0d3c7f0edf68443bdbe6501d47e26b978f27b282198"
     },
     {
-      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_values.txt",
-      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_values.midnight-normalized.txt",
+      "source": "<repo>/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_values.txt",
+      "parsing_copy": "<repo>/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_values.midnight-normalized.txt",
       "dates": [
         "2023-09-01"
       ],
@@ -150,8 +150,8 @@
       "parsing_sha256": "47436ff343f3a1b4948a0d5e1712d9d40f7c3d23e978a46e14ac54a56b345b86"
     },
     {
-      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_prediction_error_variance.txt",
-      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_prediction_error_variance.midnight-normalized.txt",
+      "source": "<repo>/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_prediction_error_variance.txt",
+      "parsing_copy": "<repo>/temp/fitting-2023-jfvpzqwj/OND-pcr/forecast_prediction_error_variance.midnight-normalized.txt",
       "dates": [
         "2023-09-01"
       ],
@@ -159,8 +159,8 @@
       "parsing_sha256": "40323e268ba21be6641587e44bb41f1262ad67b174f3d1c6869352724457d635"
     },
     {
-      "source": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/hindcast_values.txt",
-      "parsing_copy": "/mnt/c/Users/benny/OneDrive/Documents/Github/pycpt-tutorial/temp/fitting-2023-jfvpzqwj/OND-pcr/hindcast_values.midnight-normalized.txt",
+      "source": "<repo>/temp/fitting-2023-jfvpzqwj/OND-pcr/hindcast_values.txt",
+      "parsing_copy": "<repo>/temp/fitting-2023-jfvpzqwj/OND-pcr/hindcast_values.midnight-normalized.txt",
       "dates": [
         "1991-09-01",
         "1992-09-01",
