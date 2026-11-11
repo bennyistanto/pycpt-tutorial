@@ -99,8 +99,7 @@ pentad's rain falls inside a week comes from ERA5's timing, not from stations. T
 weekly totals, and the skill measured against them, carry that dependence; how much
 it matters was not measured here. The same readme notes that the daily dates follow
 ERA5's UTC days (00 to 00 UTC), while the stations behind the pentad totals do not
-all report on UTC days, so the match with GEFSv12's model days is approximate. The
-[pentad case](pentad-leads-2023.qmd) uses the pentad product itself.
+all report on UTC days, so the match with GEFSv12's model days is approximate.
 :::
 
 Rainfall rises through October-December, so model and observations are turned into

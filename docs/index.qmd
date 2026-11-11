@@ -165,23 +165,21 @@ separate forecast errors and explains what each diagnostic can establish.
 
 ::: {.featured-case}
 ::: {.eyebrow}
-Cases 03 to 07 · Lead time · Monthly, seasonal, dekad, weekly and pentad rainfall
+Cases 03 to 06 · Lead time · Monthly, seasonal, dekad and weekly rainfall
 :::
 
 ## How far ahead?
 
 One CFSv2 run issued on 1 November 2023, calibrated for each of the next six
 months and the next six seasons; every October-December dekad forecast one to
-three dekads ahead; and weekly and pentad forecasts up to a month ahead at 0.05°.
-Skill by lead for CCA, PCR and the raw model, and each forecast against what
-happened.
+three dekads ahead; and weekly forecasts one to four weeks ahead at 0.05°. Skill
+by lead for CCA, PCR and the raw model, and each forecast against what happened.
 
 ::: {.home-actions}
 [Read the monthly story](chapters/monthly-leads-2023.qmd){.tutorial-button .tutorial-button-primary}
 [Read the seasonal story](chapters/seasonal-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
 [Read the dekad story](chapters/dekad-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
 [Read the weekly story](chapters/week-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
-[Read the pentad story](chapters/pentad-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
 :::
 :::
 
