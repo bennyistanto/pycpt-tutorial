@@ -15,7 +15,8 @@ weekData = loadWeekData("../assets/week-leads-2023/")
 geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
   provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
   neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
-issueChoices = weekData.issues.map(d => [d.issued, `Issued ${d.label}${d.targets.length < weekData.leads.length ? ` (${d.targets.length} of ${weekData.leads.length} leads in October-December)` : ""}`])
+// Only issue dates whose leads all fall in October-December 2023, the period forecast and verified here
+issueChoices = weekData.issues.filter(d => d.targets.length === weekData.leads.length).map(d => [d.issued, `Issued ${d.label}`])
 ```
 
 ::: {.eyebrow}
@@ -55,7 +56,9 @@ be downloaded as it is set. Maps load when you choose them, one small file per m
 
 A forecast is issued at 00 UTC on a Wednesday. Model day *d* covers roughly the same
 24 hours as observed day issue + *d*, so each lead is a window of days after the
-issue date. Choose another Wednesday to see its targets.
+issue date. Choose another Wednesday to see its targets: the menus list the ten
+Wednesdays, 4 October to 6 December 2023, whose five leads all fall in
+October-December, the period forecast and verified here.
 
 ::: {.story-interactive}
 ```{ojs}
@@ -165,10 +168,11 @@ weekSkillMaps(weekData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMet
 
 ## Every Wednesday of late 2023
 
-Sixteen Wednesdays, from 13 September to 27 December 2023, issued at least one
-forecast whose target falls in October-December; ten of them, 4 October to
-6 December, cover all five leads (choose them in the maps above). Over the 13 targets
-of each lead, scored over every pixel and target (area-weighted):
+Every week of October-December 2023 is forecast at every lead, so the scores below
+also use the Wednesdays of September and December whose forecasts reach into the
+season only in part: sixteen issue dates in all, from 13 September to 27 December.
+Over the 13 targets of each lead, scored over every pixel and target
+(area-weighted):
 
 | Lead | Method | Hit rate (%) | Reference (%) | RPSS 2023 | RMSE 2023 (mm) | Mean forecast (mm) | Observed mean (mm) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
