@@ -15,8 +15,8 @@ dekadData = loadWeekData("../assets/dekad-leads-2023/")
 geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
   provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
   neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
-// Only issue dates whose leads all fall in October-December 2023, the period forecast and verified here
-issueChoices = dekadData.issues.filter(d => d.targets.length === dekadData.leads.length).map(d => [d.issued, `Issued ${d.label}`])
+// This page's issue date and later ones whose leads all fall in October-December 2023 (the period forecast and verified)
+issueChoices = dekadData.issues.filter(d => d.issued >= "2023-10-31" && d.targets.length === dekadData.leads.length).map(d => [d.issued, `Issued ${d.label}`])
 ```
 
 ::: {.eyebrow}
@@ -58,9 +58,9 @@ A forecast is issued on the last day of a dekad, from the GEFSv12 run started at
 00 UTC that day. Dekad +1 starts the next day, dekad +2 eleven or twelve days later,
 dekad +3 twenty-one or twenty-two days later; the third ends by model day 31, inside
 the model's 35 days. GEFSv12 runs every day, so every 2023 issue date uses its own
-run. Choose another issue date to see its targets: the menus list the seven issue
-dates, 30 September to 30 November 2023, whose three leads all fall in
-October-December, the period forecast and verified here.
+run. The menus start at this forecast and add the three later issue dates, up to
+30 November 2023, the last whose three leads all fall in October-December, the
+period forecast and verified here.
 
 ::: {.story-interactive}
 ```{ojs}
@@ -162,7 +162,7 @@ weekSkillMaps(dekadData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMe
 ```
 :::
 
-## Every issue date of late 2023
+## The whole season: October-December 2023
 
 Every dekad of October-December 2023 is forecast at every lead, so the scores below
 also use the issue dates of September and December whose forecasts reach into the
