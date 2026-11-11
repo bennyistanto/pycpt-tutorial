@@ -1,0 +1,61 @@
+{
+  "target": "October-December 2023, weekly",
+  "model": "GEFSv12 (IRI SubX GEFSv12_CPC)",
+  "grid": "CHIRPS v3.0 native 0.05 degree",
+  "issue_rule": "issued Wednesday 00 UTC; week 1-4 = days 1-7, 8-14, 15-21, 22-28; weeks 3-4 = days 15-28",
+  "training_years": [
+    2000,
+    2018
+  ],
+  "training_targets_per_lead": 249,
+  "pixels": 61190,
+  "cross_validation_window": 27,
+  "settings": {
+    "x_eof_modes": "(3, 3)",
+    "validation": "CROSSVALIDATION",
+    "crossvalidation_window": "27",
+    "synchronous_predictors": "True",
+    "transform_predictand": "None",
+    "tailoring": "None",
+    "drymask_threshold": "None",
+    "skillmask_threshold": "None",
+    "y_eof_modes": "(3, 3)",
+    "cca_modes": "(2, 2)"
+  },
+  "observed_category_percent_2023": {
+    "7-day": {
+      "below normal": 49.35,
+      "near normal": 32.55,
+      "above normal": 18.11
+    },
+    "14-day": {
+      "below normal": 52.19,
+      "near normal": 30.73,
+      "above normal": 17.09
+    }
+  },
+  "fit_minutes": {
+    "week1-CCA": 75.8,
+    "week1-PCR": 23.2,
+    "week2-CCA": 75.5,
+    "week2-PCR": 23.8,
+    "week3-CCA": 90.1,
+    "week3-PCR": 25.5,
+    "week4-CCA": 88.3,
+    "week4-PCR": 25.6,
+    "week34-CCA": 89.8,
+    "week34-PCR": 23.5
+  },
+  "clipped_pixel_targets": {
+    "week1-CCA": 4627,
+    "week1-PCR": 9415,
+    "week2-CCA": 3669,
+    "week2-PCR": 9615,
+    "week3-CCA": 3024,
+    "week3-PCR": 4970,
+    "week4-CCA": 3597,
+    "week4-PCR": 4534,
+    "week34-CCA": 2418,
+    "week34-PCR": 3662
+  }
+}

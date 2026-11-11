@@ -1,0 +1,7 @@
+lead,target,observed mean (mm),1991-2020 mean (mm),observed below normal (% of area),observed near normal (% of area),observed above normal (% of area),reference hit rate (%),reference category
+1,Dec 2023,254.6413,294.4272,52.8176,30.8922,16.2902,52.8176,below normal
+2,Jan 2024,306.7361,276.3207,24.1044,32.1529,43.7427,43.7427,above normal
+3,Feb 2024,241.8049,250.4248,37.1478,33.839,29.0132,37.1478,below normal
+4,Mar 2024,293.2467,277.2116,27.5309,32.7686,39.7005,39.7005,above normal
+5,Apr 2024,311.9122,269.3946,18.1499,27.9779,53.8722,53.8722,above normal
+6,May 2024,293.9706,235.2065,13.8431,22.9776,63.1794,63.1794,above normal

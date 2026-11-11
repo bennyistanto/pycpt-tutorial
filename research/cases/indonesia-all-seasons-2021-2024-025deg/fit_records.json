@@ -33,8 +33,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -45,8 +45,8 @@
         "parsing_sha256": "14080e8ff5fcd7ffbd32518832df4971c01c2986d1523573172bd0302eaca494"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -57,8 +57,8 @@
         "parsing_sha256": "cff092a847eacb6ec0b5b68bb04173cf7d631131837bbcf73b857e41982da25a"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -69,8 +69,8 @@
         "parsing_sha256": "bd4f5b53ca338a7d256cf21a69fc9384006d16b57ccc02128fc17f81c4b03ab3"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1982-11-01",
           "1983-11-01",
@@ -150,8 +150,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -162,8 +162,8 @@
         "parsing_sha256": "1925def92b1fef21547c6a5144c73e25244ac67d2aa8897599c5e7ba53fb6b34"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -174,8 +174,8 @@
         "parsing_sha256": "cf436c55b3b57c41e76cb3bb7ba40092981a51547c595789825782c69ce8aea5"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -186,8 +186,8 @@
         "parsing_sha256": "fb96912c9c4fd1c531ba90fc44635ecf08882371609a931b86e552c95980389c"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1990-11-01",
           "1991-11-01",
@@ -261,8 +261,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -273,8 +273,8 @@
         "parsing_sha256": "0ebfe808b05f55581fc04855b5f83189f72cff1c15c0f8849c5609da6edd782f"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -285,8 +285,8 @@
         "parsing_sha256": "5d6445583b9ac75fc44a49a23fd331ea98beadf52474379650e80d458f8c262d"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -297,8 +297,8 @@
         "parsing_sha256": "66a2948a59cfcbbe6024b0658205dfd8d6609959af7a93db7b59cd3f61791530"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1982-11-01",
           "1983-11-01",
@@ -370,8 +370,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -382,8 +382,8 @@
         "parsing_sha256": "def07b5a7452bd8b92dd0e9391b34daba629bddf4c5ff0fef13976aeafa8bf95"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -394,8 +394,8 @@
         "parsing_sha256": "1f5baeed03a80fb577de121d33212a51788b3d2a80038ad89a66bd49432b561e"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-11-01",
           "2021-11-01",
@@ -406,8 +406,8 @@
         "parsing_sha256": "7a07ec454de879589cffdc1c0b0c2c4fdd402629a119ee7d507cd27eb19bd0e0"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-DJF_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1990-11-01",
           "1991-11-01",
@@ -489,8 +489,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -501,8 +501,8 @@
         "parsing_sha256": "f70f88c5acea22ded905828e37183206e448e5f330e621a6c77d56d0c8c21491"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -513,8 +513,8 @@
         "parsing_sha256": "c62e421698f421ac6352887bf47a90e134ee9560bd4ccd887795bfd31f2981ce"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -525,8 +525,8 @@
         "parsing_sha256": "4014c371af7f2fd6ee9173d450a08c90a1c9ae2eec9e69e6df2c4a2efe2c4d2b"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1982-12-01",
           "1983-12-01",
@@ -606,8 +606,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -618,8 +618,8 @@
         "parsing_sha256": "08d9f814d25c76569f4332e9a2a0a35599a65324ec4958c32d7f2e6978a557a6"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -630,8 +630,8 @@
         "parsing_sha256": "9c8546a5dd24e68b8c5be619d3c6c4e1e0fe46cf5c3b5d24ac5ef75ae4a89e76"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -642,8 +642,8 @@
         "parsing_sha256": "028b2c67479b06ff72cc0656c2b083639150d5042f27283a7e4707de3effbea0"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1990-12-01",
           "1991-12-01",
@@ -717,8 +717,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -729,8 +729,8 @@
         "parsing_sha256": "53f77ecda074d385e03aaf8e17835e93aa16a208458f5a6ad46e18b7fa3a7be8"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -741,8 +741,8 @@
         "parsing_sha256": "b716e232d436aa475fa87fef71d83db375be1854a0e108e5cbb8283e7cc1cf45"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -753,8 +753,8 @@
         "parsing_sha256": "ea5d94e9962206717320634fae480db026531a50061a347b14aba5c95879cb2d"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1982-12-01",
           "1983-12-01",
@@ -826,8 +826,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -838,8 +838,8 @@
         "parsing_sha256": "ff211ee2cd8a2c87a74f747c9d9df75f5191cb2ee5d8f8e1b7c3f82a8e3a6b75"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -850,8 +850,8 @@
         "parsing_sha256": "1d4becd866d4f76b7353542b1e34768231174a401419d5a24a2be6590c885db6"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-12-01",
           "2021-12-01",
@@ -862,8 +862,8 @@
         "parsing_sha256": "de18d877a77c0ad9c5b1c69806fc0f67baec28e75526617c342ae8ae3fdfc25c"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JFM_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1990-12-01",
           "1991-12-01",
@@ -945,8 +945,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -957,8 +957,8 @@
         "parsing_sha256": "94f38baf912962effdcc31d7bb9de60ee7b6a565ab0f962d49e2628f29200142"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -969,8 +969,8 @@
         "parsing_sha256": "bd4843f31ef4469f0351ddbc26ae5738722a97477449f483ad502b246be434e6"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -981,8 +981,8 @@
         "parsing_sha256": "271a7dbea04c68e35b3e27d561c4be6f3e78ee73febd870e1a1ba492b78d33a5"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-01-01",
           "1984-01-01",
@@ -1062,8 +1062,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -1074,8 +1074,8 @@
         "parsing_sha256": "3df5581aa1357c90530674c3a5c1839f5a2a23eee418e992ee33ceae98214061"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -1086,8 +1086,8 @@
         "parsing_sha256": "b801218de4dc8343713b5acdb0c61747ff1c5ebc4ea766e6f4fc50b869f06f84"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -1098,8 +1098,8 @@
         "parsing_sha256": "54d52c5d5c68f0e649c96f9f57234d3f4c85e56a201ffe95886bda6570966d76"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-01-01",
           "1992-01-01",
@@ -1173,8 +1173,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -1185,8 +1185,8 @@
         "parsing_sha256": "de5fd9c0df8569473247a1fbea4ad6cd974ae415deb72afa54e710dd243c6e00"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -1197,8 +1197,8 @@
         "parsing_sha256": "7b132681b3f5440c803216bd551a484db88a52469f18a232829eaeb3d2d81a21"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -1209,8 +1209,8 @@
         "parsing_sha256": "a964f244767f41a654b2666f855e14ffb57f98fc5764a21067bf9f47cdd03645"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-01-01",
           "1984-01-01",
@@ -1282,8 +1282,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -1294,8 +1294,8 @@
         "parsing_sha256": "76ca41f885ccfe410a7bb5f36cc05a3c6648a5ae0596686888ca610bae614735"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -1306,8 +1306,8 @@
         "parsing_sha256": "eca246042a98f5f0730118f6de41019101aa30211232125974237ee6420bdf9c"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-01-01",
           "2022-01-01",
@@ -1318,8 +1318,8 @@
         "parsing_sha256": "a1b01c0f33467899b7d72b3e29ea82828b7645b7f1e408319c6308d1dd65068b"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-FMA_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-01-01",
           "1992-01-01",
@@ -1401,8 +1401,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1413,8 +1413,8 @@
         "parsing_sha256": "7629e02cf5193993739c8a8e2f15e6a85785975d15c99f5cd29f8b1ca9091982"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1425,8 +1425,8 @@
         "parsing_sha256": "488db40b30c2d762dc5fa932f66cd41c44ffe4acbcc991b3129d7ce945a6a47e"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1437,8 +1437,8 @@
         "parsing_sha256": "a946bce7780ae5b871099356cd5f56912a3eb97ee08d8df1d325d51c4858beb4"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-02-01",
           "1984-02-01",
@@ -1518,8 +1518,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1530,8 +1530,8 @@
         "parsing_sha256": "9f998e0cd7628ef7b59e716b8d83b30826b7320f50d549462665659fdb26393d"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1542,8 +1542,8 @@
         "parsing_sha256": "ac3758c6983169b7350394bb0853f018071fa0763e3de13c259f0dd069a44d06"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1554,8 +1554,8 @@
         "parsing_sha256": "9468c69b99771009fe8927d027bd57d0c4bffc496c59e5c60bbab2343fddb3c7"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-02-01",
           "1992-02-01",
@@ -1629,8 +1629,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1641,8 +1641,8 @@
         "parsing_sha256": "56918e907e6bfb7ebb88f0ca89f6171a4af4f4cab68fcdc093722f06ef774b00"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1653,8 +1653,8 @@
         "parsing_sha256": "db3e27e89d4884528149ebff876a1abff96d7d13a7caab62ec28f86aef812cc2"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1665,8 +1665,8 @@
         "parsing_sha256": "6a1b990acaa358c23a08bd817d203ce4506e42fac5b62485c76317c92b50df89"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-02-01",
           "1984-02-01",
@@ -1738,8 +1738,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1750,8 +1750,8 @@
         "parsing_sha256": "90f17eb4ffb6a60963695b1295ff0f1cc36d2136d2145254c35770abb396e093"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1762,8 +1762,8 @@
         "parsing_sha256": "8d82e9ae79101a29f4df6862a4d8e1e5817b524c42e9cc2140175cdb8a256d75"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-02-01",
           "2022-02-01",
@@ -1774,8 +1774,8 @@
         "parsing_sha256": "ade24284f5af74d5c24af01ea024e8be1070e70f8492ee01becae638dde88540"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MAM_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-02-01",
           "1992-02-01",
@@ -1857,8 +1857,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -1869,8 +1869,8 @@
         "parsing_sha256": "7ed637ed81f93778e9188b1b499f89caf9ff325f072b8a0daac0218925d6ed5e"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -1881,8 +1881,8 @@
         "parsing_sha256": "4f658c6b7ce4d0382bc525b1e68ce1b97360642f71c30fc883d9f9a1ee28676e"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -1893,8 +1893,8 @@
         "parsing_sha256": "6ec18e6256607b235405c6791724b8d94791bcdfdef11c778d15517e500b6cef"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-03-01",
           "1984-03-01",
@@ -1974,8 +1974,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -1986,8 +1986,8 @@
         "parsing_sha256": "7b5e51043b74a1d23df60fcc4b3c03bee0e89ad5f007ebeae0e1932d3055c36e"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -1998,8 +1998,8 @@
         "parsing_sha256": "3cbbdf72fa7a97ad9e545e1d573b84b8c531aa55a05b095a0402e0fbef64c0ca"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -2010,8 +2010,8 @@
         "parsing_sha256": "1085cb06b9f0208fdcd104bb8cc0322ad1965f14da2ca582213c1470167e5158"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-03-01",
           "1992-03-01",
@@ -2085,8 +2085,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -2097,8 +2097,8 @@
         "parsing_sha256": "47d008764d676b9b1d3d8eb22b4d22e90ff667e38ece125680c66d0a3fbb83c0"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -2109,8 +2109,8 @@
         "parsing_sha256": "e533d51ed6ac2e9cc4e2838445c33ce4b6a405e5f2fa2881336b19da2954448e"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -2121,8 +2121,8 @@
         "parsing_sha256": "b190250aeebca0cbfbdb2018a0e2cdbad55dd1b3e6a3d6a6cbffc7fc467de695"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-03-01",
           "1984-03-01",
@@ -2194,8 +2194,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -2206,8 +2206,8 @@
         "parsing_sha256": "55ec90b15369ec4a114b9e920de2f2297e9b3a236ae5ee950c3abd9451d093d9"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -2218,8 +2218,8 @@
         "parsing_sha256": "a73630e67eeb88ef64e1f152787b31e9eea3d375261d4fba8bcb467349c401e8"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-03-01",
           "2022-03-01",
@@ -2230,8 +2230,8 @@
         "parsing_sha256": "a5fc59778895b2171c00dadded7fba19aca24e757b8b3e9dbcd331cc6ff2e698"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-AMJ_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-03-01",
           "1992-03-01",
@@ -2313,8 +2313,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2325,8 +2325,8 @@
         "parsing_sha256": "a7e395e1c296ce653194e95ecf3c63660102ea730122cd052b20de9a3857d411"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2337,8 +2337,8 @@
         "parsing_sha256": "66babbd2cd81e95ece462edf2f9ccc31d6c5b73b64e5d61ada4a315ff371c922"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2349,8 +2349,8 @@
         "parsing_sha256": "f69a350aa946e57dc4998500fecea72838f7356e2216d59dd4c29dd20110d1c9"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-04-01",
           "1984-04-01",
@@ -2430,8 +2430,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2442,8 +2442,8 @@
         "parsing_sha256": "a53108bad677ba451b3dc8bd603b9bcbcb2b903a3e02b522f4dc16ceed2a9c5e"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2454,8 +2454,8 @@
         "parsing_sha256": "8e0bec37f0b71e7959eb8dd67f581d1be21f848a8607eef1446bb1b53b40a1a5"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2466,8 +2466,8 @@
         "parsing_sha256": "db2174a1cc01c286746699559d3efcd2e463c1f88fc44b0d61cbf1e6591f97c6"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-04-01",
           "1992-04-01",
@@ -2541,8 +2541,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2553,8 +2553,8 @@
         "parsing_sha256": "8f072752c4b964ea4416b792e1e7ffef738d5c28544c878186bf8acdc87747b9"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2565,8 +2565,8 @@
         "parsing_sha256": "60aeebc607770355e6c4d8c87ead34538d7594ee414daa4d66ffce9ab98563fb"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2577,8 +2577,8 @@
         "parsing_sha256": "b9a9d46e4efb8e90fa9aeeca2ecd4527b14607de2e24ea023a32f4de13de242a"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-04-01",
           "1984-04-01",
@@ -2650,8 +2650,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2662,8 +2662,8 @@
         "parsing_sha256": "8b32de4db4832bd22b7ad498cee94136c01cd00215e0234bd97a07f54127d880"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2674,8 +2674,8 @@
         "parsing_sha256": "657b5b024ef77c94faa6e34b852cfad2ffdbe150161f56fb4bcf1e4ae43a742d"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-04-01",
           "2022-04-01",
@@ -2686,8 +2686,8 @@
         "parsing_sha256": "6c11739c462209f1736ef731910f92947eccbf30b6696a06eef7b60d14b76469"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-MJJ_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-04-01",
           "1992-04-01",
@@ -2769,8 +2769,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -2781,8 +2781,8 @@
         "parsing_sha256": "13f29adf287c3cc10cd723f381044363626856a953d514a3cdbe9c72b41b0728"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -2793,8 +2793,8 @@
         "parsing_sha256": "8c7ee65861d6466cdcce990392d2e8852e65bef84f828f9a0b3a9b8a00daf988"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -2805,8 +2805,8 @@
         "parsing_sha256": "0add78653b0ba4e97ee63f58fc5efdd159a5a1b786a5c73a214c5beab06d4293"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-05-01",
           "1984-05-01",
@@ -2886,8 +2886,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -2898,8 +2898,8 @@
         "parsing_sha256": "9a03f303b0059913473dff723a70b87e7eb097194f405badc744e49800d2570d"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -2910,8 +2910,8 @@
         "parsing_sha256": "de351e19663e7238fe34c3e49a527c7f86be72630f37a5b308bf5fd4f06d247d"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -2922,8 +2922,8 @@
         "parsing_sha256": "b3abe5524ed021e891ebae09fc36a62ecdf1753744fe47fc6e18a48bc86e6b09"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-05-01",
           "1992-05-01",
@@ -2997,8 +2997,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -3009,8 +3009,8 @@
         "parsing_sha256": "cf4b6a869acc35206cda9ac46a4cdf0b5da8368312af686410d93e5b113719b6"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -3021,8 +3021,8 @@
         "parsing_sha256": "ba6a97b6322c52e6f734b4c7b4b7c7b2873f0657960906b8a239b49187545641"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -3033,8 +3033,8 @@
         "parsing_sha256": "5b4223437524affcab60ed607354936629024797968bf7d5323e68ee4a99f519"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-05-01",
           "1984-05-01",
@@ -3106,8 +3106,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -3118,8 +3118,8 @@
         "parsing_sha256": "e71e3f644bc1b3f8fbf45cbc0bac28bcc3c53b1e7302037a4b64ca6d1026ebc8"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -3130,8 +3130,8 @@
         "parsing_sha256": "4e135bb9d2e163f7c7d02423a94b9b7a12095ceafdc782d4375d165ce97a5068"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-05-01",
           "2022-05-01",
@@ -3142,8 +3142,8 @@
         "parsing_sha256": "fb3940d924c29a1c73022e0a078c772732123f2c5a94c94113d3fea0b8c2c1ef"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JJA_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-05-01",
           "1992-05-01",
@@ -3225,8 +3225,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3237,8 +3237,8 @@
         "parsing_sha256": "2a0baf3f48818f3ebc9821abe93bf021781cf3a9258ef321397d66a225603f19"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3249,8 +3249,8 @@
         "parsing_sha256": "9401f7ce2373fe6e2c24eecc1dcd4fbea48a2b6459e5df8f3450cc46238406f8"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3261,8 +3261,8 @@
         "parsing_sha256": "b2de1acbb1226e41c4408ad4818e6f9655be6d5f911181d21cccf8f9f003d04f"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-06-01",
           "1984-06-01",
@@ -3342,8 +3342,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3354,8 +3354,8 @@
         "parsing_sha256": "eae1122dad393a967d3afe6fa5ef8812d765837d46bc9d30ed90eb41c9f18c4d"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3366,8 +3366,8 @@
         "parsing_sha256": "a893649dafc28a6a6bac661b1bc4702c3c764be1af93bd430f10afd09b9087fe"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3378,8 +3378,8 @@
         "parsing_sha256": "e370f51d11843777e303af73c89a0195fd5ebeea6c565dd5c13635cb346eb7f1"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-06-01",
           "1992-06-01",
@@ -3453,8 +3453,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3465,8 +3465,8 @@
         "parsing_sha256": "9f7560c851eb5bfd209546bf144694a31c6bf77d4e473a61e5b84e72117386d4"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3477,8 +3477,8 @@
         "parsing_sha256": "e3b37eaf945870b34d6f6d91e74dfd55cff22d6d63e368b9f0ab5cdf2a6a510d"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3489,8 +3489,8 @@
         "parsing_sha256": "9b0bd5c64c87b170f35b5b629a860782a72e2827af0104a3980e9a2bd0b12a75"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-06-01",
           "1984-06-01",
@@ -3562,8 +3562,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3574,8 +3574,8 @@
         "parsing_sha256": "1c0f2a3fa2cd3f5d14c2b949492521559672ab826cac44c9a135eb77b171f1af"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3586,8 +3586,8 @@
         "parsing_sha256": "b5a75f4de46d688547650ae821e728e7fb071dd115b00c8a525ac19a3a16e8f2"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-06-01",
           "2022-06-01",
@@ -3598,8 +3598,8 @@
         "parsing_sha256": "5d94744e44f27481ddc59616ea7802006191b38a5660ec7a91bafce99c7cd977"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-JAS_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-06-01",
           "1992-06-01",
@@ -3681,8 +3681,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -3693,8 +3693,8 @@
         "parsing_sha256": "1aed1d7f6072e16fe53b9e9148faa507483848563292493c38c1c6be319d4b54"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -3705,8 +3705,8 @@
         "parsing_sha256": "5dd061bbbd0b98c696aa5f6f3a5897b6186526dcd7b3861b370a27dc0cf61929"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -3717,8 +3717,8 @@
         "parsing_sha256": "73d64ff039eb433c6b49645e46de60ee706a099b5c9c88a23b6cdf5f1017aefc"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-07-01",
           "1984-07-01",
@@ -3798,8 +3798,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -3810,8 +3810,8 @@
         "parsing_sha256": "dfdff79ab0b899368334a1d4caa5ae0a3ca1e3a6611b38f2678d8b36fa22db01"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -3822,8 +3822,8 @@
         "parsing_sha256": "86ab57c3719a7c1ff541e7e4a67030a6002fe37ba0d65f988d4ada8aa1a77c31"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -3834,8 +3834,8 @@
         "parsing_sha256": "3365c5511879877f4e3c078f60a50db3133bdc135888a6453c3c0258abeb058f"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-07-01",
           "1992-07-01",
@@ -3909,8 +3909,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -3921,8 +3921,8 @@
         "parsing_sha256": "1b3d9018abb873b1714c9815d699ebe35b01e644f343df9262ffac5136438083"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -3933,8 +3933,8 @@
         "parsing_sha256": "bd7fd46c239339182a853151068aab88d3cab27fa1106fbe0fa23347085b6985"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -3945,8 +3945,8 @@
         "parsing_sha256": "378a742092e77537ca50ac8f544ee2da5862a7bf0afa215c97d068e31082cfff"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-07-01",
           "1984-07-01",
@@ -4018,8 +4018,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -4030,8 +4030,8 @@
         "parsing_sha256": "3085b8ad35ecffecc2e6a62d2361f6a122f3be8e28013f67efaa30f1006c8218"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -4042,8 +4042,8 @@
         "parsing_sha256": "e14e0cc910824dbe6292aea88a3c70f6543506ceea718069b9abd266a23aad1c"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-07-01",
           "2022-07-01",
@@ -4054,8 +4054,8 @@
         "parsing_sha256": "2c3d41eaab1cc243ffe73fc29a3f456ddc03f45c7bc7c1bbb4cb2f8aedda8c4f"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-ASO_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-07-01",
           "1992-07-01",
@@ -4137,8 +4137,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4149,8 +4149,8 @@
         "parsing_sha256": "58a21627cbbdf68ce6ae7dcda9409ea6f27680885934f473d4a6351ec6200dbf"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4161,8 +4161,8 @@
         "parsing_sha256": "b135e850d43f8f3d4b3b1decdf880bcf3364cdb8673144183c11971c4dc3e41b"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4173,8 +4173,8 @@
         "parsing_sha256": "4bb2d72eed8f1e851e6804b95d4229263f45126380c6c3c64449d1c970d8d7b6"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-08-01",
           "1984-08-01",
@@ -4254,8 +4254,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4266,8 +4266,8 @@
         "parsing_sha256": "2752448681910408b7cc55b1cca57f7b98bfe3cfd225723c4ebda7417d2b3d7f"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4278,8 +4278,8 @@
         "parsing_sha256": "8bde0fa7c32b16133f5a820becf5447ae8a0dbe4a1ba2ed759eea93907f056e8"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4290,8 +4290,8 @@
         "parsing_sha256": "e3739d28aed00ea2344ba3024d2ebbbba32cfa2518d4aa582c58ba7177ce25ca"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-08-01",
           "1992-08-01",
@@ -4365,8 +4365,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4377,8 +4377,8 @@
         "parsing_sha256": "c06f7d83a48337a721afa83593436d6b80a9cbfe831108dc3c5d096d84a83d71"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4389,8 +4389,8 @@
         "parsing_sha256": "1ba89c68d3ac4c6867d7d2506fb798116c6850da96d5c08417cdd4ea1e36a38f"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4401,8 +4401,8 @@
         "parsing_sha256": "0cbe16240e63f01eb75d4f75c5d6197e7d743cc2b4a98574d916ecac26c0ad41"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-08-01",
           "1984-08-01",
@@ -4474,8 +4474,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4486,8 +4486,8 @@
         "parsing_sha256": "2ed73a550402d29af8cf5c0612d7a2840185b3f1fea726719b73965320399c89"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4498,8 +4498,8 @@
         "parsing_sha256": "8567086fa4e52ace3fe2fe03f7043b4b80eb867fdb8ea7b29990d213e258def7"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-08-01",
           "2022-08-01",
@@ -4510,8 +4510,8 @@
         "parsing_sha256": "da52feab46f8b26bad82913016f81713a9f4c4d436b1d31993aa1f728190dd32"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-SON_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-08-01",
           "1992-08-01",
@@ -4593,8 +4593,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4605,8 +4605,8 @@
         "parsing_sha256": "cf6bdc1954f3dc4b979fb53669a9b724bce6120580ee5f74344006ba8fe69545"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4617,8 +4617,8 @@
         "parsing_sha256": "2b306ab2aab98332a156793f6b3de6c0adcb02ada5afb392f08cc74d9fc40438"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4629,8 +4629,8 @@
         "parsing_sha256": "a8e95ff0e30a0b24bcb4c5d5fd8bdcd40d25b9db0ea65817088457f533d3a8aa"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-09-01",
           "1984-09-01",
@@ -4710,8 +4710,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4722,8 +4722,8 @@
         "parsing_sha256": "e193083b929188b1ad90fb0da82b0059e400a59c71ad345b9c9f941eb3789f64"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4734,8 +4734,8 @@
         "parsing_sha256": "83e260dcb76109d9afc5798fbe5b5f1ed05ec4359e4adef7c6430fc0ba900a19"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4746,8 +4746,8 @@
         "parsing_sha256": "e726306a42c852c700aa203ac1ae3ec6d9c9643b5da03e1d07f08b205025bbbd"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-09-01",
           "1992-09-01",
@@ -4821,8 +4821,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4833,8 +4833,8 @@
         "parsing_sha256": "a93f67b1019086c8dba28f98025b41ab833db883bb3a8223010a9bf10d788b00"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4845,8 +4845,8 @@
         "parsing_sha256": "c0da9e68ecbd10d4510e58c04302ea0343b37f39664176b396f4958da8a05304"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4857,8 +4857,8 @@
         "parsing_sha256": "b4bf63d999dacb0c7c55e5d2de84f3bbf4447a818d3d44c03daf44d0da3cea88"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1983-09-01",
           "1984-09-01",
@@ -4930,8 +4930,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4942,8 +4942,8 @@
         "parsing_sha256": "307921b6a60bb254c3b7110a0af2e167d024ae1384df6f9c9a818714097e1d64"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4954,8 +4954,8 @@
         "parsing_sha256": "7ebb05e639017d4628f0882231585143d6a343df27997f3d9f9588892ed49591"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2021-09-01",
           "2022-09-01",
@@ -4966,8 +4966,8 @@
         "parsing_sha256": "4151a130e1c9beee187a2a27109a5f30e3f45e4b9c506ab226ee51bec9d11d35"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1991-09-01",
           "1992-09-01",
@@ -5049,8 +5049,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5061,8 +5061,8 @@
         "parsing_sha256": "4533e0a7cf52ef3f889634ebf6c48f50061399508e7021a0cddf96d644d7c240"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5073,8 +5073,8 @@
         "parsing_sha256": "3f39d3cb9604b294b4f02b86c80c14714e29c68349c8d038a10dd80880726ec5"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5085,8 +5085,8 @@
         "parsing_sha256": "2a6019f6e1f65f9179718640a5c46cc45b004559832a4087c8c26a1ba540d910"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1982-10-01",
           "1983-10-01",
@@ -5166,8 +5166,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5178,8 +5178,8 @@
         "parsing_sha256": "70911fd45474bde5080287d99ec159890971a0383853b3294d6c8a8564b41d8f"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5190,8 +5190,8 @@
         "parsing_sha256": "783c4490582fe71666e59f8753479c0af91e7629735276ccd1e639151778f2ca"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5202,8 +5202,8 @@
         "parsing_sha256": "1d9bec53e148459fbabc31291eb3b8317f06276f459505abdfb543231f199d3f"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_cca_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1990-10-01",
           "1991-10-01",
@@ -5277,8 +5277,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5289,8 +5289,8 @@
         "parsing_sha256": "c0162157a0498147dbbd08ae2dcb588638c30929f311bb75b3facba33f11fe5b"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5301,8 +5301,8 @@
         "parsing_sha256": "290a3016d5faffa5e60a9750787fc9a7a511c1bcc4ae21f0517eae0eee26fa44"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5313,8 +5313,8 @@
         "parsing_sha256": "a0f9d8efbf232680cbf5d190cf588f7958bff9e681b9bb274b10ff3c3ad99b98"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1983_2010/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1982-10-01",
           "1983-10-01",
@@ -5386,8 +5386,8 @@
     "probability_sum_max_error_percentage_points": 1.0000000116860974e-06,
     "date_parsing_normalizations": [
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_probabilities.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_probabilities.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_probabilities.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5398,8 +5398,8 @@
         "parsing_sha256": "30c85c88a5bec59e603c88a8384d91b322089de65dd54a54477d649e33dd08be"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_values.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5410,8 +5410,8 @@
         "parsing_sha256": "5eb0fd350054cd91b69b4403b648c05807b6782bc3f494aad98bf46f80666174"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_prediction_error_variance.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_prediction_error_variance.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/forecast_prediction_error_variance.midnight-normalized.txt",
         "dates": [
           "2020-10-01",
           "2021-10-01",
@@ -5422,8 +5422,8 @@
         "parsing_sha256": "cf954833e0591ee54269fc5dccb5f75e8f40fb10793635b82e034346f14a9de5"
       },
       {
-        "source": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/hindcast_values.txt",
-        "parsing_copy": "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
+        "source": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/hindcast_values.txt",
+        "parsing_copy": "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-NDJ_pcr_1991_2020/hindcast_values.midnight-normalized.txt",
         "dates": [
           "1990-10-01",
           "1991-10-01",

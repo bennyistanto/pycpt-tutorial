@@ -89,7 +89,7 @@ python research/scripts/run_indonesia_pcr_comparison.py
 
 Completed results are retained rather than silently overwritten. Detailed native
 CPT logs are in Debian under
-`/home/bennyistanto/CPT/cases/indonesia-ond-2023/pcr-comparison`.
+`~/CPT/cases/indonesia-ond-2023/pcr-comparison`.
 
 ```python
 import xarray as xr

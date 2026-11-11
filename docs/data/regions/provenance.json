@@ -18,7 +18,7 @@
     "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_forecast_comparison.nc": "d7d4896b3750f1bfb0ae28500a0e10847f63652221c945ef572173f14c6bf863",
     "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/NDJ_forecast_comparison.nc": "6a2ef6edc49f1096a8ce50c247f3be060e11322988bd55d40dd50945db38bcf7",
     "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/verification_scores.nc": "9d5a4b3207e9a737aa48f51df97a739660a89fe2f12cc7ba03c4d2148f0f583d",
-    "/home/bennyistanto/CPT/cases/indonesia-ond-2023/inputs/indonesia_boundary.geojson": "1b44b1d7e0ab4e7e3eff0efd9e0bff74c45ad7a390114e80b64b5369b51f4e78"
+    "~/CPT/cases/indonesia-ond-2023/inputs/indonesia_boundary.geojson": "1b44b1d7e0ab4e7e3eff0efd9e0bff74c45ad7a390114e80b64b5369b51f4e78"
   },
   "outputs": {
     "native-membership.nc": {

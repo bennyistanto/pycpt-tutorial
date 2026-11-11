@@ -10,7 +10,7 @@ import sys
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from pycpt_tutorial.export import save_netcdf
 
-NATIVE=Path('/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg')
+NATIVE=Path.home()/'CPT/cases/indonesia-all-seasons-2021-2024-025deg'
 DATA=ROOT/'docs/data/fitting-2023'
 AUDIT=ROOT/'temp/audits/fitting-tutorial-2023'
 

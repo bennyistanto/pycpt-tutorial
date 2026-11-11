@@ -39,7 +39,7 @@ WORK=ROOT/'temp/gefs-input-adapter'
 CHECKS=[('hindcast','2018-08-29'),('forecast','2023-08-24')]
 BASE='https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC'
 CHIRPS='https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/final'
-BOUNDARY=Path('/home/bennyistanto/CPT/cases/indonesia-ond-2023/inputs/indonesia_boundary.geojson')
+BOUNDARY=Path.home()/'CPT/cases/indonesia-ond-2023/inputs/indonesia_boundary.geojson'
 BOUNDARY_SHA='1b44b1d7e0ab4e7e3eff0efd9e0bff74c45ad7a390114e80b64b5369b51f4e78'
 REFRESH_DERIVED=False
 

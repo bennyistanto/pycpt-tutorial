@@ -69,7 +69,10 @@ SOURCES = {
     "barnston1993": "Barnston, A. G., and van den Dool, H. M. (1993). A degeneracy in cross-validated skill in regression-based forecasts. *Journal of Climate*, 6(5), 963-977. <https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2>",
     "guan2022": "Guan, H., Zhu, Y., Sinsky, E., et al. (2022). GEFSv12 reforecast dataset for supporting subseasonal and hydrometeorological applications. *Monthly Weather Review*, 150(3), 647-665. <https://doi.org/10.1175/MWR-D-21-0245.1>",
     "iridl_gefs": "IRI Data Library. *SubX EMC GEFSv12_CPC* (hindcast and forecast precipitation). <https://iridl.ldeo.columbia.edu/SOURCES/.Models/.SubX/.EMC/.GEFSv12_CPC/>" + DL_NOTE,
+    "chirps3_readme": "Climate Hazards Center. *README for CHIRPS v3.0* (products from pentadal to annual; preliminary data two days after each pentad, on the 2nd, 7th, 12th, 17th, 22nd and 27th). <https://data.chc.ucsb.edu/products/CHIRPS/v3.0/README-CHIRPSv3.0.txt>",
+    "gee_chirps3_pentad": "Google Earth Engine Data Catalog. *CHIRPS v3.0 Pentad* (`UCSB-CHC/CHIRPS/V3/PENTAD`, mm per pentad). <https://developers.google.com/earth-engine/datasets/catalog/UCSB-CHC_CHIRPS_V3_PENTAD>",
     "chc_daily_readme": "Climate Hazards Center. *Information about CHIRPS Daily Precipitation* (CHIRPS v3.0 daily readme). <https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/readme.txt>",
+    "cpc_wk34": f"NOAA Climate Prediction Center. *Week 3-4 Outlooks* (issued on Fridays; the outlook shown on 11 November 2026 was issued Friday 6 November 2026 for 21 November to 4 December, days 15 to 28 after issue). <https://www.cpc.ncep.noaa.gov/products/predictions/WK34/>",
     "bmkg_dasarian": f"BMKG. *Peringatan Dini Curah Hujan Dasarian* (dekadal rainfall early warnings by regency and city; showed dasarian I November 2026 when checked on {CHECKED}). <https://www.bmkg.go.id/iklim/peringatan-dini-hujan-tinggi>",
     # Tools
     "cartopy": "SciTools. *Cartopy* (documentation). <https://scitools.org.uk/cartopy/docs/latest/>",
@@ -116,6 +119,16 @@ PAGES = {
     "notebook-dekad-leads": ["iridl_gefs", "guan2022", "bmkg_dasarian", "chirps3", "funk2014", "cptcore_cca",
                              "cptextras_redate", "naturalearth", "shapely", "numpy_quantile", "mason2009",
                              "epstein1969", "cartopy"],
+    "case-week-leads": ["iridl_gefs", "guan2022", "cpc_wk34", "chirps3", "funk2014", "chc_daily_readme",
+                        "pycpt_notebook", "cptcore_cca", "cptextras_redate", "mason2009", "epstein1969", "barnston1993"],
+    "notebook-week-leads": ["iridl_gefs", "guan2022", "cpc_wk34", "chirps3", "funk2014", "chc_daily_readme", "cptcore_cca",
+                            "cptextras_redate", "naturalearth", "shapely", "numpy_quantile", "mason2009", "epstein1969",
+                            "barnston1993", "cartopy"],
+    "case-pentad-leads": ["iridl_gefs", "guan2022", "chirps3", "funk2014", "chirps3_readme", "chc_daily_readme", "gee_chirps3_pentad",
+                          "pycpt_notebook", "cptcore_cca", "cptextras_redate", "mason2009", "epstein1969", "barnston1993"],
+    "notebook-pentad-leads": ["iridl_gefs", "guan2022", "chirps3", "funk2014", "chirps3_readme", "chc_daily_readme", "gee_chirps3_pentad",
+                              "cptcore_cca", "cptextras_redate", "naturalearth", "shapely", "numpy_quantile", "mason2009",
+                              "epstein1969", "barnston1993", "cartopy"],
     "start": ["pycpt_docs", "pycpt_auth", "pycpt_install", "cpt_product"],
     "reproduce": ["pycpt_install", "pycpt_auth", "pycpt_docs"],
 }
@@ -134,6 +147,8 @@ NOTEBOOKS = {
     "notebook-monthly": "docs/notebooks/monthly-leads-2023.ipynb",
     "notebook-seasonal-leads": "docs/notebooks/seasonal-leads-2023.ipynb",
     "notebook-dekad-leads": "docs/notebooks/dekad-leads-2023.ipynb",
+    "notebook-week-leads": "docs/notebooks/week-leads-2023.ipynb",
+    "notebook-pentad-leads": "docs/notebooks/pentad-leads-2023.ipynb",
 }
 HEADING = "## References {.unnumbered .reference-section}"
 

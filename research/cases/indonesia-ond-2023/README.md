@@ -74,7 +74,7 @@ Model input and observation dates were checked for exact alignment.
 
 Exact model request URLs, sizes and hashes are in [availability.json](availability.json).
 Raw text inputs, prepared caches and CPT command logs remain in Debian at
-`/home/bennyistanto/CPT/cases/indonesia-ond-2023`.
+`~/CPT/cases/indonesia-ond-2023`.
 
 ## OND 2023 comparison
 

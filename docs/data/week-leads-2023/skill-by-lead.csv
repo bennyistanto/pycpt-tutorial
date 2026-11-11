@@ -1,0 +1,16 @@
+lead,method,name,Pearson,2AFC (%),ROC below normal,ROC above normal
+week1,CCA,Week 1,0.351,62.7595,0.6934,0.6723
+week1,PCR,Week 1,0.3563,63.0556,0.696,0.6778
+week1,raw GEFS,Week 1,0.5012,,,
+week2,CCA,Week 2,0.2865,60.3174,0.6581,0.6389
+week2,PCR,Week 2,0.2838,60.3173,0.6575,0.6386
+week2,raw GEFS,Week 2,0.3356,,,
+week3,CCA,Week 3,0.2645,59.5616,0.65,0.6275
+week3,PCR,Week 3,0.2637,59.5825,0.6488,0.6294
+week3,raw GEFS,Week 3,0.2543,,,
+week4,CCA,Week 4,0.1699,56.7172,0.6107,0.5857
+week4,PCR,Week 4,0.1762,56.7583,0.6088,0.5888
+week4,raw GEFS,Week 4,0.1751,,,
+week34,CCA,Weeks 3-4,0.2622,59.6321,0.653,0.6243
+week34,PCR,Weeks 3-4,0.2636,59.6921,0.6527,0.6275
+week34,raw GEFS,Weeks 3-4,0.2548,,,

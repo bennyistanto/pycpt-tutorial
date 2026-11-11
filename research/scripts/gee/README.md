@@ -163,3 +163,22 @@ API contracts checked2026-11-02:
 [filterDate](https://developers.google.com/earth-engine/apidocs/ee-imagecollection-filterdate),
 [unmask](https://developers.google.com/earth-engine/apidocs/ee-image-unmask),
 [projection transform (WKT)](https://developers.google.com/earth-engine/apidocs/ee-projection-transform).
+
+## Pentad totals: `chirps3_pentad_to_drive.js` (version 2026-11-11-p1)
+
+CHC builds daily CHIRPS v3.0 by sharing each pentad's amount between its days with
+ERA5 (`rnl`) or IMERG (`sat`) timing, and recommends pentadal or longer totals
+wherever the science allows ([daily readme](https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/readme.txt)).
+This script exports the pentad product itself, `UCSB-CHC/CHIRPS/V3/PENTAD`: one
+GeoTIFF per year (72 bands named `pYYYYMMDD` by the pentad's first day) on the same
+native grid and box as the daily export, plus one CSV manifest per year with each
+image's ID, start, end, year, month and pentad number. Set `CONFIG.years`, run, and
+start the tasks in the Tasks panel.
+
+`research/scripts/gee_pentad_to_netcdf.py` converts the files to yearly NetCDF and
+checks them. For the 2000-2018 and 2023 exports: 72 pentads per year in date order;
+Earth Engine stores each pentad's end as the day after it and numbers pentads 1-6
+within the month; the grid equals the daily export's. In the pentad notebook, two
+pentads add up exactly to the local dekadal archive, and summed daily `rnl` values
+equal the pentad product to within 0.0001 mm.
+

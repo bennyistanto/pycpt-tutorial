@@ -1,8 +1,8 @@
 {
   "verified_on": "2026-10-31",
   "platform": "Debian WSL, Linux x86-64",
-  "runtime_environment": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial",
-  "build_environment": "/home/bennyistanto/miniforge3/envs/cpt-build",
+  "runtime_environment": "~/miniforge3/envs/pycpt-tutorial",
+  "build_environment": "~/miniforge3/envs/cpt-build",
   "versions": {
     "python": "3.12.5",
     "pycpt_conda": "2.10.4",
@@ -14,11 +14,11 @@
   },
   "engines": {
     "packaged": {
-      "path": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
+      "path": "~/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
       "sha256": "3457c93ee3d7a69005e32c231a976c50a056da53868c02757f344a46a81a139e"
     },
     "source": {
-      "path": "/home/bennyistanto/CPT/19.2.6/bin/CPT.x",
+      "path": "~/CPT/19.2.6/bin/CPT.x",
       "sha256": "a7ce3b65dd59755b9d7dd5ea0c327f3707a84fc98223e03ef47d55bc1b2b3d87",
       "startup_and_about": "PASS: reports version 19.2.6",
       "runtime_dependency": "Libraries resolve from the cpt-build environment; retain that environment"
@@ -31,7 +31,7 @@
       "unmodified_pycpt": true,
       "predictor_initialization_coordinates": true,
       "result": "PASS",
-      "outputs": "/home/bennyistanto/CPT/verification/packaged-{cca,pcr}-with-init"
+      "outputs": "~/CPT/verification/packaged-{cca,pcr}-with-init"
     },
     {
       "engine": "source",
@@ -39,7 +39,7 @@
       "unmodified_pycpt": true,
       "predictor_initialization_coordinates": true,
       "result": "FAIL: incompatible score-menu IDs; CPT process exits when PyCPT selects option 15",
-      "outputs": "/home/bennyistanto/CPT/verification/cpt-19.2.6-{cca,pcr}"
+      "outputs": "~/CPT/verification/cpt-19.2.6-{cca,pcr}"
     },
     {
       "engine": "source",
@@ -48,7 +48,7 @@
       "adapter": "In-memory score-menu mapping only",
       "predictor_initialization_coordinates": true,
       "result": "FAIL: cptio cannot parse CPT 19 initialization date 2012-09",
-      "outputs": "/home/bennyistanto/CPT/verification/cpt-19.2.6-cca-adapted"
+      "outputs": "~/CPT/verification/cpt-19.2.6-cca-adapted"
     },
     {
       "engine": "source",
@@ -57,7 +57,7 @@
       "adapter": "In-memory score-menu mapping; installed PyCPT files unchanged",
       "predictor_initialization_coordinates": false,
       "result": "PASS: diagnostic engine calculation and parsing check only",
-      "outputs": "/home/bennyistanto/CPT/verification/cpt-19.2.6-{cca,pcr}-adapted-no-init"
+      "outputs": "~/CPT/verification/cpt-19.2.6-{cca,pcr}-adapted-no-init"
     }
   ],
   "successful_check_assertions": [

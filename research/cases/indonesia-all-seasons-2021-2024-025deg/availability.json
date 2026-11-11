@@ -398,9 +398,9 @@
       "ond_monthly_rounding_bound_violations": 0,
       "ond_rounding_rule": "Half quantum at6significantdigits plus2single-precision ULPs; every monthly value checked; original amounts reused exactly",
       "ond_previous_monthly_source_sha256": {
-        "/home/bennyistanto/CPT/cases/indonesia-ond-2023/inputs/cfsv2_hindcasts_monthly.tsv": "f1918fc9f775769523e4a4c7cf6a7a0c8f7c7af4cb2dc178f85e6fca286c2049",
-        "/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020/inputs/cfsv2_hindcasts_monthly.tsv": "8843b29a3e3938ea39835c1c21b1665bc4711948a7cf9f74362af15aeb31e3b9",
-        "/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg/inputs/cfsv2_forecasts_monthly.tsv": "a20f9d33425f154e0f3db19f43391d24ed6f87e5ee29d218714ed18f4992100e"
+        "~/CPT/cases/indonesia-ond-2023/inputs/cfsv2_hindcasts_monthly.tsv": "f1918fc9f775769523e4a4c7cf6a7a0c8f7c7af4cb2dc178f85e6fca286c2049",
+        "~/CPT/cases/indonesia-ond-2023-025deg-1991-2020/inputs/cfsv2_hindcasts_monthly.tsv": "8843b29a3e3938ea39835c1c21b1665bc4711948a7cf9f74362af15aeb31e3b9",
+        "~/CPT/cases/indonesia-ond-2021-2024-025deg/inputs/cfsv2_forecasts_monthly.tsv": "a20f9d33425f154e0f3db19f43391d24ed6f87e5ee29d218714ed18f4992100e"
       },
       "season": "OND",
       "training_masks": {

@@ -171,7 +171,7 @@ python research/scripts/run_indonesia_025_case.py
 ```
 
 Prepared/completed cases are retained. Detailed caches and CPT logs are under
-`/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg`. E: drive source files were
+`~/CPT/cases/indonesia-ond-2023-025deg`. E: drive source files were
 read only, and model data were reused without downloading. The native CPT calls
 took approximately 4.9 seconds for CCA and 4.3 seconds for PCR; those timings
 exclude preparation, export, verification and plotting.

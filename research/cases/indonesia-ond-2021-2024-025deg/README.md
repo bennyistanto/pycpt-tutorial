@@ -182,7 +182,7 @@ python research/scripts/run_indonesia_ond_holdouts.py
 ```
 
 Run from the repository root in Debian. Caches, raw requests, commands and CPT
-logs remain under `/home/bennyistanto/CPT/cases/indonesia-ond-2021-2024-025deg`.
+logs remain under `~/CPT/cases/indonesia-ond-2021-2024-025deg`.
 Training inputs are read from the preceding frozen cases. Completed cases are
 retained, and per-fit forecast caches allow interrupted runs to resume.
 Original E: data and prior case outputs were read only.

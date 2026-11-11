@@ -114,7 +114,7 @@
     "drymask_threshold": null,
     "skillmask_threshold": null
   },
-  "engine": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
+  "engine": "~/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
   "engine_sha256": "3457c93ee3d7a69005e32c231a976c50a056da53868c02757f344a46a81a139e",
   "outputs": {
     "cca_forecast_2023.nc": {

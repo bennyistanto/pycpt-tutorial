@@ -1,6 +1,6 @@
 {
   "case": "indonesia-all-seasons-2021-2024-025deg",
-  "source_manifest_sha256": "bd4b06d94537e0def2aa0f5d5c313dd6d29cc25880ba64116e0144a6bec2b9a3",
+  "source_manifest_sha256": "de124a951ef92e0e60d1c7fe1e75e6f4352e6114eaf26cb1b54206f78bb550b8",
   "source_files": {
     "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/evaluation_footprint.nc": "0f69f12ab4da5b4140876e2cfc2d45d47ed40e1ca7361ad7d67063ceea7f2acb",
     "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/verification_scores.nc": "9d5a4b3207e9a737aa48f51df97a739660a89fe2f12cc7ba03c4d2148f0f583d",
@@ -16,9 +16,9 @@
     "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/SON_forecast_comparison.nc": "a60c1e122e91df27e9db82c2551c8481314298136fb5635df0c8090e4c47b6f0",
     "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_forecast_comparison.nc": "d7d4896b3750f1bfb0ae28500a0e10847f63652221c945ef572173f14c6bf863",
     "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/NDJ_forecast_comparison.nc": "6a2ef6edc49f1096a8ce50c247f3be060e11322988bd55d40dd50945db38bcf7",
-    "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_predictor": "0ff1e2a4f403118df373866692595aeb916123b7de3b7998f978ec0691724244",
-    "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_predictand": "4efecd256e8c0f3d3d663840435954cda02a0c0653211b3d9b608eba192a3c3b",
-    "/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_forecast_predictor": "ccaedec1ed913fc8ed42f190f0ffa23905a66596f289d8fc25241de1b49ccd92"
+    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_predictor": "0ff1e2a4f403118df373866692595aeb916123b7de3b7998f978ec0691724244",
+    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_predictand": "4efecd256e8c0f3d3d663840435954cda02a0c0653211b3d9b608eba192a3c3b",
+    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_forecast_predictor": "ccaedec1ed913fc8ed42f190f0ffa23905a66596f289d8fc25241de1b49ccd92"
   },
   "outputs": {
     "indonesia-seasons-2023.nc": {
@@ -26,16 +26,16 @@
       "bytes": 2852157
     },
     "ond-forecast-predictor.nc": {
-      "sha256": "1cad26b5b885f87e52f524fdb7788194578fb44ed2a2d3fd881cee0b86995c59",
-      "bytes": 36321
+      "sha256": "1deb10482033205047032113804756698a1945d954b2aa49da9b799ec4283d0e",
+      "bytes": 36592
     },
     "ond-training-observations.nc": {
-      "sha256": "0ac68c7c509a904aada881e8847e6a849a993bfa46447ddfdcc36780e85ebbef",
-      "bytes": 835945
+      "sha256": "a04971ef2f2ea6fb731d217c848f1d0c56ba3aad16dd90f38f0f83f1c4038696",
+      "bytes": 835704
     },
     "ond-training-predictor.nc": {
-      "sha256": "40f62d26dd3f9333ada8affd95004e25aa70de75970e6c28c3fe3bb029645aa8",
-      "bytes": 570530
+      "sha256": "327924bfb30be1cb3212bc067ec821c75ba56f288cc63a08ea88fe68717739d6",
+      "bytes": 570801
     },
     "verification-context-2021-2024.nc": {
       "sha256": "81ca50784ab5dfa94a0841e80a3275cb770b6eeff13654b3fd86debb2f78ce76",

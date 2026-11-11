@@ -189,7 +189,7 @@ python research/scripts/run_indonesia_1991_case.py
 
 The preparer completes its audit before the runner can fit either method.
 Caches and CPT commands/logs remain under
-`/home/bennyistanto/CPT/cases/indonesia-ond-2023-025deg-1991-2020`.
+`~/CPT/cases/indonesia-ond-2023-025deg-1991-2020`.
 Completed runs are retained; use a different case directory for changed settings.
 Original E: CHIRPS files and all older benchmark outputs were read only.
 

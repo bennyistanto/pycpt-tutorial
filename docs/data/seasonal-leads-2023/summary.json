@@ -1,0 +1,97 @@
+{
+  "issued": "2023-11-01",
+  "leads_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "targets": {
+    "1": {
+      "pycpt_target": "Dec-Feb",
+      "label": "DJF 2023-24",
+      "first_day": "2023-12-01",
+      "last_day": "2024-02-29"
+    },
+    "2": {
+      "pycpt_target": "Jan-Mar",
+      "label": "JFM 2024",
+      "first_day": "2024-01-01",
+      "last_day": "2024-03-31"
+    },
+    "3": {
+      "pycpt_target": "Feb-Apr",
+      "label": "FMA 2024",
+      "first_day": "2024-02-01",
+      "last_day": "2024-04-30"
+    },
+    "4": {
+      "pycpt_target": "Mar-May",
+      "label": "MAM 2024",
+      "first_day": "2024-03-01",
+      "last_day": "2024-05-31"
+    },
+    "5": {
+      "pycpt_target": "Apr-Jun",
+      "label": "AMJ 2024",
+      "first_day": "2024-04-01",
+      "last_day": "2024-06-30"
+    },
+    "6": {
+      "pycpt_target": "May-Jul",
+      "label": "MJJ 2024",
+      "first_day": "2024-05-01",
+      "last_day": "2024-07-31"
+    }
+  },
+  "same_target": {
+    "target": "Oct-Dec",
+    "starts": {
+      "1": "2023-09-01",
+      "2": "2023-08-01",
+      "3": "2023-07-01",
+      "4": "2023-06-01",
+      "5": "2023-05-01",
+      "6": "2023-04-01"
+    }
+  },
+  "training_target_years": [
+    1991,
+    2020
+  ],
+  "cells": 3240,
+  "settings": {
+    "transform_predictand": "None",
+    "tailoring": "None",
+    "cca_modes": "(2, 2)",
+    "x_eof_modes": "(3, 3)",
+    "y_eof_modes": "(3, 3)",
+    "validation": "crossvalidation",
+    "drymask_threshold": "None",
+    "skillmask_threshold": "None",
+    "crossvalidation_window": "5",
+    "synchronous_predictors": "True"
+  },
+  "fit_seconds": {
+    "issue-1-CCA": 34.2,
+    "issue-1-PCR": 33.7,
+    "issue-2-CCA": 36.0,
+    "issue-2-PCR": 33.8,
+    "issue-3-CCA": 34.6,
+    "issue-3-PCR": 34.0,
+    "issue-4-CCA": 34.5,
+    "issue-4-PCR": 33.5,
+    "issue-5-CCA": 34.4,
+    "issue-5-PCR": 34.0,
+    "issue-6-CCA": 35.0,
+    "issue-6-PCR": 33.7,
+    "fixed-1-CCA": 34.9,
+    "fixed-2-CCA": 34.6,
+    "fixed-3-CCA": 34.7,
+    "fixed-4-CCA": 34.3,
+    "fixed-5-CCA": 34.3,
+    "fixed-6-CCA": 34.5
+  }
+}

@@ -254,7 +254,7 @@ python research/scripts/prepare_indonesia_all_seasons.py
 python research/scripts/run_indonesia_all_seasons.py
 ```
 
-Caches and raw CPT files remain under `/home/bennyistanto/CPT/cases/indonesia-all-seasons-2021-2024-025deg`. Completed preparations/fits are
+Caches and raw CPT files remain under `~/CPT/cases/indonesia-all-seasons-2021-2024-025deg`. Completed preparations/fits are
 retained and hash-checked, so interrupted runs can resume. Use `--refresh-figures`
 on the runner to regenerate plots/derived comparisons from saved data.
 

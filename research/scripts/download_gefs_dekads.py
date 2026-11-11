@@ -116,6 +116,8 @@ def check(path, kind, start, last_day=31):
                 return f"start {ds['S'].values[0]}"
             if ds.sizes.get("X") != BOX["east"] - BOX["west"] + 1 or ds.sizes.get("Y") != BOX["north"] - BOX["south"] + 1:
                 return f"grid {ds.sizes.get('Y')} x {ds.sizes.get('X')}"
+            if not np.isfinite(pr.sel(L=needed).values).all():
+                return "missing values in the needed days"       # e.g. IRI's 5 Dec 2023 forecast holds only missing values
     except Exception as e:  # unreadable or truncated file
         return f"unreadable ({type(e).__name__})"
     return None

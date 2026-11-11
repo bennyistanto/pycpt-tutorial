@@ -34,7 +34,7 @@
     "indonesia_ond_2023_comparison.png": "391e311bb0f99bebe71d0219fdd24b45a0f0b12463377aba794e9b38bbded272",
     "observations_chirps3_ond.nc": "6dbecb82552fb55fcc0d8b3edb7582088741523a837c310497edf06a6b7a2a36"
   },
-  "engine": "/home/bennyistanto/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
+  "engine": "~/miniforge3/envs/pycpt-tutorial/opt/cpt/bin/CPT.x",
   "engine_sha256": "3457c93ee3d7a69005e32c231a976c50a056da53868c02757f344a46a81a139e",
   "script_sha256": "d0b3724b7bdaacaa72eb50f3e17a121e290bae504a061b953c93389546187066",
   "outputs": {

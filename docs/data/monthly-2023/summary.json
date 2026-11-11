@@ -1,5 +1,5 @@
 {
-  "target": "November 2023",
+  "issued": "2023-11-01",
   "leads_months": [
     1,
     2,
@@ -8,15 +8,56 @@
     5,
     6
   ],
-  "starts": {
-    "1": "2023-10-01",
-    "2": "2023-09-01",
-    "3": "2023-08-01",
-    "4": "2023-07-01",
-    "5": "2023-06-01",
-    "6": "2023-05-01"
+  "targets": {
+    "1": {
+      "pycpt_target": "Dec-Dec",
+      "label": "Dec 2023",
+      "first_day": "2023-12-01",
+      "last_day": "2023-12-31"
+    },
+    "2": {
+      "pycpt_target": "Jan-Jan",
+      "label": "Jan 2024",
+      "first_day": "2024-01-01",
+      "last_day": "2024-01-31"
+    },
+    "3": {
+      "pycpt_target": "Feb-Feb",
+      "label": "Feb 2024",
+      "first_day": "2024-02-01",
+      "last_day": "2024-02-29"
+    },
+    "4": {
+      "pycpt_target": "Mar-Mar",
+      "label": "Mar 2024",
+      "first_day": "2024-03-01",
+      "last_day": "2024-03-31"
+    },
+    "5": {
+      "pycpt_target": "Apr-Apr",
+      "label": "Apr 2024",
+      "first_day": "2024-04-01",
+      "last_day": "2024-04-30"
+    },
+    "6": {
+      "pycpt_target": "May-May",
+      "label": "May 2024",
+      "first_day": "2024-05-01",
+      "last_day": "2024-05-31"
+    }
   },
-  "training_years": [
+  "same_target": {
+    "target": "Nov-Nov",
+    "starts": {
+      "1": "2023-10-01",
+      "2": "2023-09-01",
+      "3": "2023-08-01",
+      "4": "2023-07-01",
+      "5": "2023-06-01",
+      "6": "2023-05-01"
+    }
+  },
+  "training_target_years": [
     1991,
     2020
   ],
@@ -33,25 +74,24 @@
     "crossvalidation_window": "5",
     "synchronous_predictors": "True"
   },
-  "observed_category_area_percent": {
-    "below normal": 60.27,
-    "near normal": 30.56,
-    "above normal": 9.17
-  },
-  "observed_mean_2023_mm": 208.21,
-  "observed_mean_1991_2020_mm": 257.16,
   "fit_seconds": {
-    "1-CCA": 36.3,
-    "1-PCR": 35.4,
-    "2-CCA": 37.1,
-    "2-PCR": 36.4,
-    "3-CCA": 36.9,
-    "3-PCR": 35.6,
-    "4-CCA": 37.2,
-    "4-PCR": 34.6,
-    "5-CCA": 35.9,
-    "5-PCR": 35.3,
-    "6-CCA": 36.2,
-    "6-PCR": 34.9
+    "issue-1-CCA": 36.3,
+    "issue-1-PCR": 34.3,
+    "issue-2-CCA": 35.4,
+    "issue-2-PCR": 33.9,
+    "issue-3-CCA": 35.3,
+    "issue-3-PCR": 34.0,
+    "issue-4-CCA": 35.5,
+    "issue-4-PCR": 34.4,
+    "issue-5-CCA": 34.9,
+    "issue-5-PCR": 34.4,
+    "issue-6-CCA": 35.8,
+    "issue-6-PCR": 34.1,
+    "fixed-1-CCA": 35.7,
+    "fixed-2-CCA": 35.6,
+    "fixed-3-CCA": 34.9,
+    "fixed-4-CCA": 34.9,
+    "fixed-5-CCA": 35.4,
+    "fixed-6-CCA": 34.7
   }
 }
