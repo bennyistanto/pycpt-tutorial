@@ -8,8 +8,9 @@
 
 # PyCPT Tutorial
 
-A practical, evidence-first tutorial on calibrating seasonal rainfall forecasts with
-[PyCPT](https://iri-pycpt.github.io/), worked through with real data over Indonesia.
+A practical, evidence-first tutorial on calibrating seasonal and subseasonal rainfall
+forecasts with [PyCPT](https://iri-pycpt.github.io/) and CPT, worked through with real
+data over Indonesia.
 
 **Read it online: <https://bennyistanto.github.io/pycpt-tutorial>**
 
@@ -21,6 +22,33 @@ A casual weekend project by [Benny Istanto](https://github.com/bennyistanto).
 It is not an official PyCPT tutorial and is not affiliated with, endorsed by or
 maintained by the International Research Institute for Climate and Society (IRI)
 or the developers of PyCPT and CPT.
+
+## At a glance
+
+How much forecast skill is left as you look further ahead, from the next week to
+six months out: every lead-time case in the tutorial on one chart.
+
+<p align="center">
+  <img alt="Two-panel chart of area-mean correlation over Indonesia against days from issue to target. Left, GEFSv12 subseasonal: calibrated correlation falls from 0.30 to 0.35 for targets starting the day after issue to 0.12 to 0.17 three to four weeks ahead, the raw model higher at first. Right, CFSv2 issued 1 November 2023: monthly and seasonal correlations at most 0.16, mostly near or below zero after the first lead." src="docs/assets/readme/skill-across-time-scales.png" width="860">
+</p>
+
+The lead-time cases keep CHIRPS v3.0's native 0.05° grid: every pixel has its own
+skill, and the zoom shows what that means over Java.
+
+<p align="center">
+  <img alt="Map of Indonesia at 0.05 degree showing the cross-validated week-1 correlation of calibrated GEFSv12 rainfall: area mean 0.35, half of all pixels between 0.29 and 0.41, darkest over northern Sulawesi and North Maluku; an enlarged panel of western and central Java shows the individual pixels." src="docs/assets/readme/week1-skill-005deg.png" width="860">
+</p>
+
+An area mean hides the spread. Across the 61,190 pixels, week-1 skill is positive
+almost everywhere; by week 4 one pixel in ten is at or below zero.
+
+<p align="center">
+  <img alt="Ridgeline plot of the distribution of pixel correlations for weeks 1, 2, 3, 4 and weeks 3-4, calibrated in blue with the raw GEFSv12 model dashed; the distributions shift towards zero and widen with lead." src="docs/assets/readme/weekly-skill-ridgelines.png" width="860">
+</p>
+
+All three are drawn from the saved case outputs by
+[`scripts/make_readme_figures.py`](scripts/make_readme_figures.py); the numbers and
+their caveats are in the [lead-time case studies](https://bennyistanto.github.io/pycpt-tutorial).
 
 ## What is inside
 
@@ -38,27 +66,35 @@ throughout (CFSv2, 1 September 2023 start, OND 2023 rainfall over Indonesia,
 | 6. Combining models | [06-multi-model-ensemble.ipynb](docs/learn/06-multi-model-ensemble.ipynb) |
 | 7. Adapt it to your region | [07-adapt-your-region.ipynb](docs/learn/07-adapt-your-region.ipynb) |
 
-**Case studies: Indonesia Seasons 2023**
+**Case studies: Seasonal**
 
-- [Story](docs/chapters/indonesia-seasons-2023.qmd) with its
+- [Twelve seasons over Indonesia](docs/chapters/indonesia-seasons-2023.qmd) with its
   [executed notebook](docs/notebooks/indonesia-seasons-2023.ipynb): CCA, PCR, the raw
   model and climatology compared across twelve seasons centred on 2023, nationally and
   for 38 provinces.
 - [Fit & diagnose](docs/chapters/fit-diagnose-2023.qmd) with its
   [executed notebook](docs/notebooks/fit-diagnose-2023.ipynb): four PyCPT fits for OND
   and JJA 2023, model patterns and cross-validated residuals.
+- [Issued 1 Nov 2023: the next six months](docs/chapters/monthly-leads-2023.qmd) with its
+  [executed notebook](docs/notebooks/monthly-leads-2023.ipynb): one CFSv2 run calibrated
+  for December 2023 to May 2024 at 0.05°, skill by lead, a raw-model baseline, lead
+  against target month, and each forecast against what happened.
+- [Issued 1 Nov 2023: the next six seasons](docs/chapters/seasonal-leads-2023.qmd) with its
+  [executed notebook](docs/notebooks/seasonal-leads-2023.ipynb): the same for DJF to MJJ,
+  compared with each season's first month.
 
-**Case studies: Lead time**
+**Case studies: Subseasonal** (GEFSv12)
 
-- [November 2023, 1-6 months ahead](docs/chapters/monthly-leads-2023.qmd) with its
-  [executed notebook](docs/notebooks/monthly-leads-2023.ipynb): a monthly forecast from
-  six CFSv2 start dates, CCA and PCR skill by lead, a raw-model baseline and the 2023 outcome.
-- [OND 2023, 1-6 months ahead](docs/chapters/seasonal-leads-2023.qmd) with its
-  [executed notebook](docs/notebooks/seasonal-leads-2023.ipynb): the same design for the
-  October-December season, compared lead by lead with November.
-- [OND 2023 by dekad, 1-3 dekads ahead](docs/chapters/dekad-leads-2023.qmd) with its
-  [executed notebook](docs/notebooks/dekad-leads-2023.ipynb): subseasonal GEFSv12 forecasts
-  of dekad rainfall, calibrated through `cptcore`, skill by lead and the nine dekads of 2023.
+- [Issued 31 Oct 2023: the next three dekads](docs/chapters/dekad-leads-2023.qmd) with its
+  [executed notebook](docs/notebooks/dekad-leads-2023.ipynb): dekad rainfall one to three
+  dekads ahead, calibrated through `cptcore`, skill by lead over October-December
+  2000-2018 and every 2023 issue date.
+- [Issued 1 Nov 2023: the next four weeks](docs/chapters/week-leads-2023.qmd) with its
+  [executed notebook](docs/notebooks/week-leads-2023.ipynb): weeks 1 to 4 and weeks 3-4
+  from each Wednesday.
+- [Issued 31 Oct 2023: the next six pentads](docs/chapters/pentad-leads-2023.qmd) with its
+  [executed notebook](docs/notebooks/pentad-leads-2023.ipynb): the CHIRPS v3.0 pentad
+  product, one to six pentads ahead.
 
 Setup, downloads, methods and credits are in [docs/guides/](docs/guides/README.md).
 
@@ -70,7 +106,7 @@ stored as NetCDF4 (open with `xarray.open_dataset`), CSV, JSON or PNG.
 | What | Where | Contents |
 | --- | --- | --- |
 | Case study outputs | [docs/assets/seasonal-2023/](docs/assets/seasonal-2023/), [docs/assets/fitting-2023/](docs/assets/fitting-2023/) | Scores, comparisons, figures and 33 NetCDF files behind the two season case studies |
-| Lead-time case outputs | [docs/data/monthly-2023/](docs/data/monthly-2023/), [docs/data/seasonal-leads-2023/](docs/data/seasonal-leads-2023/), [docs/data/dekad-leads-2023/](docs/data/dekad-leads-2023/), [docs/data/week-leads-2023/](docs/data/week-leads-2023/), [docs/data/pentad-leads-2023/](docs/data/pentad-leads-2023/), figures in the matching [docs/assets/](docs/assets/) folders | Skill by lead and 2023 scores (CSV), run summaries (JSON) and maps (one NetCDF per case) for the monthly and seasonal forecasts issued 1 November 2023 the OND dekads, and the OND weeks and pentads at 0.05° |
+| Lead-time case outputs | [docs/data/monthly-2023/](docs/data/monthly-2023/), [docs/data/seasonal-leads-2023/](docs/data/seasonal-leads-2023/), [docs/data/dekad-leads-2023/](docs/data/dekad-leads-2023/), [docs/data/week-leads-2023/](docs/data/week-leads-2023/), [docs/data/pentad-leads-2023/](docs/data/pentad-leads-2023/), figures in the matching [docs/assets/](docs/assets/) folders | Skill by lead and 2023 scores (CSV), run summaries (JSON) and maps (one NetCDF per case) for the monthly and seasonal forecasts issued 1 November 2023 and the subseasonal dekad, week and pentad cases, all at 0.05° |
 | Downloadable kits | [docs/downloads/](docs/downloads/) | Each case study's notebook with its inputs and helper code, ready to run; all 30 fitted NetCDF outputs of Fit & diagnose as one zip |
 | Research benchmarks | [research/cases/](research/cases/) | Frozen experiments, 278 NetCDF files in total: each case's `outputs/` folder, a README describing it and JSON manifests with every file's SHA-256 hash |
 | Small examples | [examples/](examples/README.md) | A real CFSv2 forecast as CPT text and as NetCDF, for trying the export tool |
@@ -103,7 +139,7 @@ preflight checker (`pycpt_tutorial.checks`) for your own cases.
 | Folder | Purpose |
 | --- | --- |
 | [docs/](docs/README.md) | The Quarto book: Learn PyCPT chapters, case studies, notebooks, guides, data and downloads |
-| [research/](research/README.md) | Frozen experiments with their outputs, audits, reports and research pipelines |
+| [research/](research/README.md) | Frozen experiments with their outputs and manifests, and the research pipelines (download, conversion, preparation and fitting scripts) |
 | [pycpt_tutorial/](pycpt_tutorial/) | Helper code: figures, preflight checks, calendars, aggregation and NetCDF export |
 | [scripts/](scripts/) | Notebook execution, data preparation, kit packaging, reference and render tools |
 | [environment/](environment/) | Pinned Debian environment locks and runtime verification |
