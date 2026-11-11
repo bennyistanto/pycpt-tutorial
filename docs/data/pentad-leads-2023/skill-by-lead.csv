@@ -1,0 +1,19 @@
+lead,method,name,Pearson,2AFC (%),ROC below normal,ROC above normal
+1,CCA,Pentad +1,0.297,61.0031,0.6672,0.6538
+1,PCR,Pentad +1,0.3021,61.2345,0.6697,0.6581
+1,raw GEFS,Pentad +1,0.4148,,,
+2,CCA,Pentad +2,0.2925,60.5277,0.6593,0.6473
+2,PCR,Pentad +2,0.2961,60.7506,0.6619,0.6512
+2,raw GEFS,Pentad +2,0.3732,,,
+3,CCA,Pentad +3,0.2422,58.9476,0.6353,0.625
+3,PCR,Pentad +3,0.2418,59.0346,0.6359,0.627
+3,raw GEFS,Pentad +3,0.2686,,,
+4,CCA,Pentad +4,0.2282,58.6109,0.6348,0.6205
+4,PCR,Pentad +4,0.2255,58.5484,0.6329,0.6203
+4,raw GEFS,Pentad +4,0.2144,,,
+5,CCA,Pentad +5,0.1725,56.995,0.61,0.5967
+5,PCR,Pentad +5,0.1752,57.0022,0.6096,0.5975
+5,raw GEFS,Pentad +5,0.1649,,,
+6,CCA,Pentad +6,0.1214,55.5011,0.5916,0.5728
+6,PCR,Pentad +6,0.13,55.5965,0.5894,0.5774
+6,raw GEFS,Pentad +6,0.1293,,,

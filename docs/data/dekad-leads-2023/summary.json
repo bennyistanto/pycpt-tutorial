@@ -1,7 +1,8 @@
 {
-  "target": "October-December 2023 dekads",
+  "target": "October-December 2023, dekads",
   "model": "GEFSv12 (IRI SubX GEFSv12_CPC)",
-  "issue_rule": "issued on the last day of a dekad, forecasting dekads +1, +2, +3",
+  "grid": "CHIRPS v3.0 dekad product, native 0.05 degree",
+  "issue_rule": "issued on the last day of a dekad, 00 UTC run; forecasts dekads +1 to +3",
   "training_windows_days": {
     "1": [
       1,
@@ -20,8 +21,8 @@
     2000,
     2018
   ],
-  "training_dekads": 171,
-  "cells": 3240,
+  "training_dekads_per_lead": 171,
+  "pixels": 61190,
   "cross_validation_window": 17,
   "settings": {
     "x_eof_modes": "(3, 3)",
@@ -36,16 +37,24 @@
     "cca_modes": "(2, 2)"
   },
   "observed_category_percent_2023": {
-    "below normal": 54.51,
-    "near normal": 31.13,
-    "above normal": 14.36
+    "below normal": 53.8,
+    "near normal": 31.31,
+    "above normal": 14.89
   },
-  "fit_seconds": {
-    "1-CCA": 107.9,
-    "1-PCR": 63.6,
-    "2-CCA": 99.1,
-    "2-PCR": 60.1,
-    "3-CCA": 106.0,
-    "3-PCR": 62.2
+  "fit_minutes": {
+    "1-CCA": 38.0,
+    "1-PCR": 13.2,
+    "2-CCA": 38.4,
+    "2-PCR": 14.0,
+    "3-CCA": 31.6,
+    "3-PCR": 13.1
+  },
+  "clipped_pixel_dekads": {
+    "1-CCA": 3196,
+    "1-PCR": 4600,
+    "2-CCA": 2507,
+    "2-PCR": 3379,
+    "3-CCA": 1686,
+    "3-PCR": 2205
   }
 }

@@ -1,0 +1,84 @@
+{
+  "target": "October-December 2023, pentads",
+  "model": "GEFSv12 (IRI SubX GEFSv12_CPC)",
+  "grid": "CHIRPS v3.0 native 0.05 degree",
+  "issue_rule": "issued on the last day of a pentad, 00 UTC run; forecasts pentads +1 to +6",
+  "training_windows_days": {
+    "1": [
+      1,
+      7
+    ],
+    "2": [
+      3,
+      9
+    ],
+    "3": [
+      8,
+      14
+    ],
+    "4": [
+      13,
+      19
+    ],
+    "5": [
+      18,
+      24
+    ],
+    "6": [
+      23,
+      29
+    ]
+  },
+  "training_years": [
+    2000,
+    2018
+  ],
+  "training_pentads_per_lead": 342,
+  "pixels": 61190,
+  "cross_validation_window": 35,
+  "settings": {
+    "x_eof_modes": "(3, 3)",
+    "validation": "CROSSVALIDATION",
+    "crossvalidation_window": "35",
+    "synchronous_predictors": "True",
+    "transform_predictand": "None",
+    "tailoring": "None",
+    "drymask_threshold": "None",
+    "skillmask_threshold": "None",
+    "y_eof_modes": "(3, 3)",
+    "cca_modes": "(2, 2)"
+  },
+  "observed_category_percent_2023": {
+    "below normal": 48.23,
+    "near normal": 32.86,
+    "above normal": 18.91
+  },
+  "fit_minutes": {
+    "1-CCA": 234.7,
+    "1-PCR": 43.3,
+    "2-CCA": 184.1,
+    "2-PCR": 43.7,
+    "3-CCA": 186.5,
+    "3-PCR": 43.0,
+    "4-CCA": 230.9,
+    "4-PCR": 43.4,
+    "5-CCA": 232.9,
+    "5-PCR": 49.2,
+    "6-CCA": 230.9,
+    "6-PCR": 48.6
+  },
+  "clipped_pixel_pentads": {
+    "1-CCA": 11766,
+    "1-PCR": 18391,
+    "2-CCA": 8081,
+    "2-PCR": 13745,
+    "3-CCA": 4877,
+    "3-PCR": 9374,
+    "4-CCA": 3267,
+    "4-PCR": 5316,
+    "5-CCA": 3758,
+    "5-PCR": 6455,
+    "6-CCA": 5160,
+    "6-PCR": 5501
+  }
+}
