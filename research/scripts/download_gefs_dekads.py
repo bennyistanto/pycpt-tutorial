@@ -1,20 +1,25 @@
-"""Download GEFSv12 daily precipitation for the dekad lead-time case (subseasonal, dekads 1-3 ahead).
+"""Download GEFSv12 daily precipitation for the dekad lead-time case: forecasts of the next 1, 2 and 3 dekads.
+
+Design (shared with the notebook through `design()`):
+  * A forecast is issued on the last day of a dekad (model start 00 UTC that day) and covers
+    dekad +1, +2 and +3. In real time these begin 1, 11-12 and 21-22 days after the start.
+  * GEFSv12 forecasts start every day, so the 2023 forecasts use exactly those issue dates.
+  * GEFSv12 hindcasts start only on Wednesdays, so training uses, for each October-December
+    target dekad of 2000-2018 and each lead, the one Wednesday whose start falls inside a
+    7-day window around the real-time offset: 1-7 days (lead 1), 8-14 (lead 2), 18-24 (lead 3).
+    Every window holds exactly one Wednesday; the latest model day used is 34.
 
 Source: IRI Data Library, SubX EMC GEFSv12_CPC, the branch PyCPT's subseasonal catalog uses.
   hindcasts  .hindcast/.weekly/.pr   Wednesday starts, 11 members, kg m-2 per day
   forecasts  .forecast/.pr           daily starts, 31 members, kg m-2 s-1
-Request: predictor box 85-155E, 20S-20N (as the seasonal cases), all members, daily
-lead slots L = 1.5 .. 31.5 (days [1, 32)), which covers every target dekad of the
-lead rule in temp/subseasonal-plan.md (latest day used: 31).
+Request: predictor box 85-155E, 20S-20N (as the seasonal cases), all members, daily lead
+slots L = 1.5 .. 34.5 (days [1, 35)). Files from an earlier run that stop at L = 31.5 are
+kept when every target they serve ends by day 31.
 
-Starts: every Wednesday whose start falls 1-21 days before an October-December dekad,
-2000-2018 (hindcasts) and 2023 (forecasts): 278 + 15.
-
-One raw NetCDF per start in --out. Resumable: a start is skipped when its file exists,
-opens, and has the expected members, lead slots and grid. Anonymous access; no key.
+One raw NetCDF per start in --out. Resumable: a start is skipped when its file opens and has
+the expected members, units, grid and every lead slot its targets need. Anonymous access.
 
     python research/scripts/download_gefs_dekads.py --out ~/PyCPT/indonesia-ond-2023-dekads/gefs --dry-run
-    python research/scripts/download_gefs_dekads.py --out ~/PyCPT/indonesia-ond-2023-dekads/gefs --limit 2
     python research/scripts/download_gefs_dekads.py --out ~/PyCPT/indonesia-ond-2023-dekads/gefs
 """
 from __future__ import annotations
@@ -35,8 +40,12 @@ BRANCH = {"hindcast": "/.hindcast/.weekly/.pr", "forecast": "/.forecast/.pr"}
 MEMBERS = {"hindcast": 11, "forecast": 31}
 UNITS = {"hindcast": "kg m-2", "forecast": "kg m-2 s-1"}
 BOX = dict(west=85, east=155, south=-20, north=20)
-LEADS = np.arange(1.5, 32.0, 1.0)          # daily midpoints, days [1, 32)
-USER_AGENT = "gefs-dekad-downloader/1.0 (python urllib)"
+REQUEST_LEADS = np.arange(1.5, 35.0, 1.0)            # daily midpoints, days [1, 35)
+WINDOWS = {1: (1, 7), 2: (8, 14), 3: (18, 24)}       # start-to-target offsets (days) for hindcast training
+TRAINING_YEARS = range(2000, 2019)
+FORECAST_YEAR = 2023
+TARGET_MONTHS = (10, 11, 12)
+USER_AGENT = "gefs-dekad-downloader/2.0 (python urllib)"
 
 
 def dekads(year):
@@ -48,25 +57,51 @@ def dekads(year):
     return out
 
 
-def needed_starts(years):
-    """Wednesdays 1-21 days before the start of an OND dekad of the given years."""
-    starts = set()
-    for year in years:
-        for first, _ in dekads(year):
-            if first.month in (10, 11, 12):
-                starts.update(first - dt.timedelta(days=d) for d in range(1, 22)
-                              if (first - dt.timedelta(days=d)).weekday() == 2)
-    return sorted(starts)
+def design():
+    """One row per (target dekad, lead): the start that forecasts it, its offset and the model days used."""
+    rows = []
+    all_dekads = sorted(d for y in range(min(TRAINING_YEARS) - 1, FORECAST_YEAR + 2) for d in dekads(y))
+    for year in list(TRAINING_YEARS):
+        for first, end in dekads(year):
+            if first.month not in TARGET_MONTHS:
+                continue
+            for lead, (lo, hi) in WINDOWS.items():
+                starts = [first - dt.timedelta(days=d) for d in range(lo, hi + 1)
+                          if (first - dt.timedelta(days=d)).weekday() == 2]
+                assert len(starts) == 1
+                rows.append(_row("hindcast", year, first, end, lead, starts[0]))
+    for i, (first, end) in enumerate(all_dekads):
+        if first.year != FORECAST_YEAR or first.month not in TARGET_MONTHS:
+            continue
+        for lead in WINDOWS:
+            issue_dekad = all_dekads[i - lead + 1]          # dekad +1 of the issue
+            rows.append(_row("forecast", FORECAST_YEAR, first, end, lead, issue_dekad[0] - dt.timedelta(days=1)))
+    return rows
+
+
+def _row(kind, year, first, end, lead, start):
+    offset, days = (first - start).days, (end - first).days
+    return {"kind": kind, "year": year, "dekad": first, "end": end, "lead": lead, "start": start,
+            "first_day": offset, "days": days, "last_day": offset + days - 1}
+
+
+def needed_starts():
+    """{(kind, start): latest model day that start must cover}."""
+    need = {}
+    for r in design():
+        key = (r["kind"], r["start"])
+        need[key] = max(need.get(key, 0), r["last_day"])
+    return dict(sorted(need.items(), key=lambda kv: (kv[0][0] != "hindcast", kv[0][1])))
 
 
 def url_for(kind, start):
     label = f"0000 {start.day} {start:%b} {start.year}".replace(" ", "%20")
     return (BASE + BRANCH[kind] + f"/S/({label})/VALUES/X/{BOX['west']}/{BOX['east']}/RANGE"
-            f"/Y/{BOX['south']}/{BOX['north']}/RANGE/L/{LEADS[0]}/{LEADS[-1]}/RANGE/data.nc")
+            f"/Y/{BOX['south']}/{BOX['north']}/RANGE/L/{REQUEST_LEADS[0]}/{REQUEST_LEADS[-1]}/RANGE/data.nc")
 
 
-def check(path, kind, start):
-    """Return None if the file is a complete, expected GEFS request, else the reason."""
+def check(path, kind, start, last_day=31):
+    """Return None if the file is a complete GEFS request covering days 1..last_day, else the reason."""
     try:
         with xr.open_dataset(path, decode_timedelta=False) as ds:
             pr = ds["pr"]
@@ -74,8 +109,9 @@ def check(path, kind, start):
                 return f"units {pr.attrs.get('units')!r}"
             if ds.sizes.get("M") != MEMBERS[kind]:
                 return f"{ds.sizes.get('M')} members"
-            if not np.array_equal(ds["L"].values, LEADS):
-                return f"lead slots {ds['L'].values.min()}..{ds['L'].values.max()} ({ds.sizes['L']})"
+            needed = np.arange(1.5, last_day + 1.0, 1.0)
+            if not np.isin(needed, ds["L"].values).all():
+                return f"lead slots end at {ds['L'].values.max()}, need {needed[-1]}"
             if np.datetime64(ds["S"].values[0], "D") != np.datetime64(start, "D"):
                 return f"start {ds['S'].values[0]}"
             if ds.sizes.get("X") != BOX["east"] - BOX["west"] + 1 or ds.sizes.get("Y") != BOX["north"] - BOX["south"] + 1:
@@ -83,6 +119,10 @@ def check(path, kind, start):
     except Exception as e:  # unreadable or truncated file
         return f"unreadable ({type(e).__name__})"
     return None
+
+
+def path_for(out, kind, start):
+    return Path(out) / f"gefs-{kind}-{start.isoformat()}.nc"
 
 
 def fetch(url, path, attempts=5):
@@ -105,51 +145,48 @@ def fetch(url, path, attempts=5):
             time.sleep(wait)
 
 
+def ensure(out, kind, start, last_day):
+    """Download the start if its file is missing or does not cover last_day; return bytes fetched (0 if kept)."""
+    path = path_for(out, kind, start)
+    if path.exists() and check(path, kind, start, last_day) is None:
+        return 0
+    size = fetch(url_for(kind, start), path)
+    problem = check(path, kind, start, last_day)
+    if problem:
+        raise SystemExit(f"{path.name}: downloaded but {problem}; stopping so it can be investigated")
+    return size
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--limit", type=int, help="download at most this many new starts (for testing)")
-    parser.add_argument("--kind", choices=["hindcast", "forecast"], help="only this branch (default both)")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     out = args.out.expanduser()
     out.mkdir(parents=True, exist_ok=True)
-    jobs = [("hindcast", s) for s in needed_starts(range(2000, 2019))] + [("forecast", s) for s in needed_starts([2023])]
-    if args.kind:
-        jobs = [j for j in jobs if j[0] == args.kind]
-    print(f"{len(jobs)} starts: {sum(k == 'hindcast' for k, _ in jobs)} hindcasts "
-          f"({jobs[0][1]} .. {jobs[-1][1]}), "
-          f"{sum(k == 'forecast' for k, _ in jobs)} forecasts")
+    need = needed_starts()
+    todo = [(k, s, d) for (k, s), d in need.items()
+            if not (path_for(out, k, s).exists() and check(path_for(out, k, s), k, s, d) is None)]
+    n_h = sum(k == "hindcast" for k, _ in need)
+    print(f"{len(need)} starts ({n_h} hindcasts, {len(need) - n_h} forecasts); to download: {len(todo)}")
     if args.dry_run:
-        print("example URL:", url_for(*jobs[0]))
+        for k, s, d in todo[:10]:
+            print(f"  {k} {s} (needs day {d})")
         return
     log = out / "download-log.csv"
-    new = not log.exists()
-    done = fetched = 0
+    new = not log.exists() or log.stat().st_size == 0
     with open(log, "a", newline="") as handle:
         writer = csv.writer(handle)
         if new:
             writer.writerow(["finished_utc", "kind", "start", "bytes", "seconds", "url"])
-        for kind, start in jobs:
-            path = out / f"gefs-{kind}-{start.isoformat()}.nc"
-            if path.exists() and check(path, kind, start) is None:
-                done += 1
-                continue
-            if args.limit is not None and fetched >= args.limit:
-                break
-            url = url_for(kind, start)
+        for n, (kind, start, last_day) in enumerate(todo, 1):
             t0 = time.monotonic()
-            size = fetch(url, path)
-            problem = check(path, kind, start)
-            if problem:
-                raise SystemExit(f"{path.name}: downloaded but {problem}; stopping so it can be investigated")
-            seconds = time.monotonic() - t0
-            fetched += 1
+            size = ensure(out, kind, start, last_day)
             writer.writerow([dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), kind, start, size,
-                             round(seconds, 1), url])
+                             round(time.monotonic() - t0, 1), url_for(kind, start)])
             handle.flush()
-            print(f"{path.name}: {size / 1e6:.1f} MB in {seconds:.0f} s ({done + fetched}/{len(jobs)})", flush=True)
-    print(f"complete and checked: {done + fetched} of {len(jobs)} starts")
+            print(f"[{n}/{len(todo)}] {kind} {start}: {size / 1e6:.1f} MB", flush=True)
+    print(f"complete and checked: {len(need)} starts")
 
 
 if __name__ == "__main__":

@@ -7,6 +7,17 @@ format:
     code-copy: false
 ---
 
+```{ojs}
+//| echo: false
+//| output: false
+import {selectControl, startTimeline, skillByLead, skillMaps, leadForecastMaps, scoresByLead, compareScales} from "../assets/leads/leads.js"
+leadData = FileAttachment("../assets/ond-leads-2023/interactive-data.json").json()
+geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
+  provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
+  neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
+leadChoices = leadData.leads.map((d, i) => [String(d), `${leadData.leadNames[i]} (start ${leadData.leadStarts[i]})`])
+```
+
 ::: {.eyebrow}
 Case 04 · Lead time · Seasonal rainfall · Full Indonesia
 :::
@@ -17,6 +28,9 @@ used throughout the tutorial, **October to December (OND) 2023**, with the same
 model, observations, grid, settings and lead definition. Only the target changes,
 from one month to three. All numbers on this page come from the
 [executed notebook](../notebooks/seasonal-leads-2023.ipynb).
+
+Hover, tap or use the arrow keys on any map or chart to read values; each view can be
+downloaded as it is set. The static figures are in the executed notebook.
 
 ::: {.callout-note title="The short result"}
 - Cross-validated skill **holds from one to five months ahead** and drops at six:
@@ -46,6 +60,14 @@ measured to the middle of that month, so each start covers three PyCPT leads.
 | 5 months | 1 May 2023 | 5.5 to 7.5 | 1 May, 1991-2020 |
 | 6 months | 1 Apr 2023 | 6.5 to 8.5 | 1 Apr, 1991-2020 |
 
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof timelineLead = selectControl("Lead", leadChoices, "1")
+startTimeline(leadData, timelineLead)
+```
+:::
+
 The one-month-ahead start, 1 September, is the running example of
 [Learn PyCPT](../learn/01-first-case.ipynb). The CFSv2 entry in PyCPT's catalog
 supplied hindcasts and a 2023 forecast for every start, including the April start
@@ -69,12 +91,19 @@ which used the same predictor and settings: 124.08 mm for CCA and 118.68 mm for 
 
 ## Skill holds for five months
 
-The dot is the area-weighted mean over Indonesia; the bar spans the middle half of
-the cells, from the 25th to the 75th percentile. Pearson correlation is 0 for no
+The chart shows the area-weighted mean over Indonesia for each lead; the maps below
+show how it varies from place to place (the notebook's static chart also shows the
+spread across cells). Pearson correlation is 0 for no
 linear relationship; 2AFC is 50% for no skill
 [(Mason and Weigel 2009)](https://doi.org/10.1175/2008MWR2553.1).
 
-![Cross-validated skill by lead for OND 2023: area-weighted mean (dot) and the 25th to 75th percentile of cells (bar), for CCA, PCR and the raw CFSv2 model.](../assets/ond-leads-2023/skill-by-lead.png){fig-alt="Two dot-and-bar charts stacked vertically. Top: Pearson correlation by lead for CCA, PCR and raw CFSv2. Bottom: 2AFC by lead for CCA and PCR."}
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof skillMetric = selectControl("Score", [["Pearson", "Pearson correlation"], ["2AFC (%)", "2AFC"]], "Pearson")
+skillByLead(leadData, skillMetric)
+```
+:::
 
 | Lead | CCA Pearson | PCR Pearson | Raw CFSv2 Pearson | CCA 2AFC (%) | PCR 2AFC (%) |
 | --- | --- | --- | --- | --- | --- |
@@ -98,12 +127,19 @@ linear relationship; 2AFC is 50% for no skill
    CCA is above it by 0.08 one month ahead and by 0.15 to 0.21 at longer leads.
    PCR is 0.01 to 0.04 below CCA.
 
-The map column shows where. From one to five months ahead the higher
+The maps show where, one map per lead in one column. From one to five months ahead the higher
 correlations cover most of Sumatra's south, Java and the islands to its east,
 eastern Kalimantan, Sulawesi and southern Papua; the weakest area at every lead,
 read by eye, is western Kalimantan.
 
-![CCA cross-validated Pearson correlation for OND by lead, 1991-2020. Red is positive, blue negative.](../assets/ond-leads-2023/cca-pearson-by-lead.png){fig-alt="Six maps of Indonesia stacked vertically, one per lead from one to six months, showing CCA cross-validated correlation for OND per 0.25 degree cell."}
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof mapMethod = selectControl("Forecast", [["CCA", "CCA"], ["PCR", "PCR"], ["raw", "Raw CFSv2"]], "CCA")
+viewof mapMetric = selectControl("Score", mapMethod === "raw" ? [["pearson", "Pearson correlation"]] : [["pearson", "Pearson correlation"], ["twoafc", "2AFC"]], "pearson")
+skillMaps(leadData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMetric)
+```
+:::
 
 ## The season scores higher than the month
 
@@ -111,7 +147,12 @@ The November case used the same model, observations, grid, settings and lead
 definition, so the two can be compared lead by lead. The chart puts November
 (open circles) and OND (filled) on one axis.
 
-![Area-weighted mean Pearson correlation by lead for OND (filled) and November (open), CCA and raw CFSv2.](../assets/ond-leads-2023/seasonal-vs-monthly.png){fig-alt="Dot chart with one row per lead: open and filled circles for November and OND correlation, for CCA and for raw CFSv2, joined by a line."}
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+compareScales(leadData)
+```
+:::
 
 | Lead | CCA, OND | CCA, November | Raw, OND | Raw, November |
 | --- | --- | --- | --- | --- |
@@ -147,13 +188,30 @@ OND 2023 was dry over most of Indonesia: area-weighted mean rainfall was 602 mm,
 against a 1991-2020 OND mean of 775 mm. By tercile category, **76.7%** of the area
 was below normal, 18.2% near normal and 5.1% above normal.
 
-![Observed OND 2023: percent of the 1991-2020 mean (top) and tercile category (bottom). Categories use the 33rd and 67th percentiles of the 1991-2020 OND seasons at each cell.](../assets/ond-leads-2023/observed-2023.png){fig-alt="Two maps of Indonesia stacked vertically: OND 2023 rainfall as percent of normal, and its tercile category."}
+Categories use the 33rd and 67th percentiles of the 1991-2020 OND seasons at each cell.
 
 From one to five months ahead, every forecast made below normal the most likely
 category over 95% to 97% of the area (94.9% for PCR three months ahead). Six months ahead the CCA forecast still
-favoured below normal over 73% of the area, with near normal over 20%.
+favoured below normal over 73% of the area, with near normal over 20%. The map
+column shows the observation at the top and each lead's forecast below it; the chart
+after it gives the three 2023 scores by lead.
 
-![Observed category (top) and CCA's most likely category for OND 2023 at each lead.](../assets/ond-leads-2023/cca-category-by-lead.png){fig-alt="Seven maps of Indonesia stacked vertically: observed tercile category for OND 2023, then CCA's most likely category at leads one to six months."}
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof forecastMethod = selectControl("Calibration", [["CCA", "CCA"], ["PCR", "PCR"]], "CCA")
+viewof forecastView = selectControl("Show", [["total", "Forecast total"], ["difference", "Forecast minus observed"], ["category", "Most likely category"]], "category")
+leadForecastMaps(leadData, geo, forecastMethod, forecastView)
+```
+:::
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof scoreMetric = selectControl("Score", [["hit", "Hit rate"], ["rpss", "RPSS"], ["mean", "Mean forecast total"]], "hit")
+scoresByLead(leadData, scoreMetric)
+```
+:::
 
 | Lead | Method | Hit rate (%) | RPSS 2023 | RMSE 2023 (mm) | Mean forecast (mm) |
 | --- | --- | --- | --- | --- | --- |

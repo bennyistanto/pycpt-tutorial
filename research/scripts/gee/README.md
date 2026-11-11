@@ -2,9 +2,29 @@
 
 Use [chirps3_daily_to_drive.js](chirps3_daily_to_drive.js) in the
 [Earth Engine Code Editor](https://code.earthengine.google.com/).
-This is source preparation, separate from PyCPT fitting. The user prefers
-regional Drive exports to downloading global TIFFs. **No authenticated Earth
-Engine execution or Drive export has been performed here.**
+This is source preparation, separate from PyCPT fitting: regional Drive exports
+instead of downloading global files. The script runs only in your own Earth Engine
+session. The pilot and the `proposed` cohorts were exported with version 1 (files on
+`H:/temp/chirps/daily/`, 3 November 2026); their values have not yet been compared
+with the CHC files.
+
+## Whole record: the `full` preset (version 2026-11-11-v2)
+
+`preset: 'full'` exports each variant's whole Earth Engine record, rnl from its first
+day (1981) and sat from its first day (1998), up to the last day each collection holds,
+which the script reads at run time. Days already exported are skipped through
+`CONFIG.alreadyExported`, which by default lists the `proposed` cohorts already on
+`H:/temp/chirps/daily/` (1 January 2000 to 22 January 2019 and 11 January 2023 to
+27 January 2026). The remaining jobs fill the gaps exactly, including the partial edge
+months (for example `..._20000101_20000111.tif` next to the existing
+`..._20000112_20000131.tif`).
+
+Run one year at a time: `years: [1981]`, then `[1982]`, and so on. Years before 1998 have
+rnl only (12 tasks), so two of them fit in one run (`years: [1981, 1982]`). Years that
+need both variants have 24 tasks. Years whose days are all already exported stop with
+"No dates match". After the tasks finish, move the files from Drive into the matching
+folders under `H:/temp/chirps/daily/` (`pycpt_CHIRPS3_IDN_rnl`, `_sat`, `_manifest`)
+and delete them from Drive.
 
 ## First run: the comparison pilot
 

@@ -7,6 +7,17 @@ format:
     code-copy: false
 ---
 
+```{ojs}
+//| echo: false
+//| output: false
+import {selectControl, startTimeline, skillByLead, skillMaps, leadForecastMaps, scoresByLead} from "../assets/leads/leads.js"
+leadData = FileAttachment("../assets/monthly-2023/interactive-data.json").json()
+geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
+  provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
+  neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
+leadChoices = leadData.leads.map((d, i) => [String(d), `${leadData.leadNames[i]} (start ${leadData.leadStarts[i]})`])
+```
+
 ::: {.eyebrow}
 Case 03 · Lead time · Monthly rainfall · Full Indonesia
 :::
@@ -23,6 +34,9 @@ the model (CFSv2), the observations (CHIRPS v3.0), the calibration settings, and
 the 30 training years. So the only difference between them is how far ahead each
 was made. All numbers on this page come from the
 [executed notebook](../notebooks/monthly-leads-2023.ipynb).
+
+Hover, tap or use the arrow keys on any map or chart to read values; each view can be
+downloaded as it is set. The static figures are in the executed notebook.
 
 ::: {.callout-note title="The short result"}
 - Cross-validated skill is modest at every lead and **roughly halves beyond three
@@ -59,6 +73,14 @@ fitted with `evaluate_models`, using **CCA** (3 predictor and 3 predictand EOFs,
 the [Fit & diagnose case](fit-diagnose-2023.qmd) and were fixed before any skill
 was computed. The twelve fits took 32 to 37 seconds each.
 
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof timelineLead = selectControl("Lead", leadChoices, "1")
+startTimeline(leadData, timelineLead)
+```
+:::
+
 ## November rainfall from dekads
 
 The observations are **CHIRPS v3.0** November totals. The local archive stores
@@ -77,14 +99,20 @@ the 30 training Novembers. The 1991-2020 November mean over these cells is
 
 ## Skill fades with lead, but not smoothly
 
-The chart shows three cross-validated scores for each lead. The dot is the
-area-weighted mean over Indonesia; the bar spans the middle half of the cells,
-from the 25th to the 75th percentile. **Pearson correlation** is 0 for no linear
+The chart shows the area-weighted mean over Indonesia of two cross-validated
+scores for each lead; the maps further down show how they vary from place to place
+(the notebook's static chart also shows the spread across cells). **Pearson correlation** is 0 for no linear
 relationship. **2AFC** is the chance that the forecast ranks two different years
 in the observed order, 50% for no skill
 [(Mason and Weigel 2009)](https://doi.org/10.1175/2008MWR2553.1).
 
-![Cross-validated skill by lead: area-weighted mean (dot) and the 25th to 75th percentile of cells (bar), for CCA, PCR and the raw CFSv2 model. Raw CFSv2 has no 2AFC because it was only scored by correlation.](../assets/monthly-2023/skill-by-lead.png){fig-alt="Two dot-and-bar charts stacked vertically. Top: Pearson correlation by lead for CCA, PCR and raw CFSv2. Bottom: 2AFC by lead for CCA and PCR."}
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof skillMetric = selectControl("Score", [["Pearson", "Pearson correlation"], ["2AFC (%)", "2AFC"]], "Pearson")
+skillByLead(leadData, skillMetric)
+```
+:::
 
 | Lead | CCA Pearson | PCR Pearson | Raw CFSv2 Pearson | CCA 2AFC (%) | PCR 2AFC (%) |
 | --- | --- | --- | --- | --- | --- |
@@ -137,13 +165,20 @@ but it would need its own cross-validation to avoid tuning to the same 30 years.
 
 ## Where the skill is
 
-Area means hide where skill sits. The maps show CCA's cross-validated correlation
-at each lead, one month ahead at the top to six months at the bottom. Read by eye:
+Area means hide where skill sits. The maps show the cross-validated correlation (or
+2AFC) at each lead, one month ahead at the top to six months at the bottom. Read by eye:
 at one to three months the higher correlations are in southern Sumatra, Java and
 the islands to its east, Sulawesi and eastern Kalimantan, while western Kalimantan
 and northern Papua stay near or below zero at every lead.
 
-![CCA cross-validated Pearson correlation by lead, 1991-2020. Red is positive, blue negative.](../assets/monthly-2023/cca-pearson-by-lead.png){fig-alt="Six maps of Indonesia stacked vertically, one per lead from one to six months, showing CCA cross-validated correlation per 0.25 degree cell."}
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof mapMethod = selectControl("Forecast", [["CCA", "CCA"], ["PCR", "PCR"], ["raw", "Raw CFSv2"]], "CCA")
+viewof mapMetric = selectControl("Score", mapMethod === "raw" ? [["pearson", "Pearson correlation"]] : [["pearson", "Pearson correlation"], ["twoafc", "2AFC"]], "pearson")
+skillMaps(leadData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMetric)
+```
+:::
 
 ## What happened in November 2023
 
@@ -153,13 +188,29 @@ November 2023 was dry over most of Indonesia: area-weighted mean rainfall was
 The wetter exceptions were mainly northern Sumatra, parts of southern Kalimantan,
 western Java and the northern arm of Sulawesi.
 
-![Observed November 2023: percent of the 1991-2020 mean (top) and tercile category (bottom). Categories use the 33rd and 67th percentiles of the 1991-2020 Novembers at each cell.](../assets/monthly-2023/observed-2023.png){fig-alt="Two maps of Indonesia stacked vertically: November 2023 rainfall as percent of normal, and its tercile category."}
+Categories use the 33rd and 67th percentiles of the 1991-2020 Novembers at each cell.
 
 Every forecast favoured below normal, over 75% to 97% of the area depending on
-lead and method. The map column shows CCA's most likely category at each lead
-under the observed categories.
+lead and method. The map column shows the observation at the top and the forecast
+at each lead below it: choose the most likely category, the forecast total or the
+difference from what was observed.
 
-![Observed category (top) and CCA's most likely category for November 2023 at each lead.](../assets/monthly-2023/cca-category-by-lead.png){fig-alt="Seven maps of Indonesia stacked vertically: observed tercile category for November 2023, then CCA's most likely category at leads one to six months."}
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof forecastMethod = selectControl("Calibration", [["CCA", "CCA"], ["PCR", "PCR"]], "CCA")
+viewof forecastView = selectControl("Show", [["total", "Forecast total"], ["difference", "Forecast minus observed"], ["category", "Most likely category"]], "category")
+leadForecastMaps(leadData, geo, forecastMethod, forecastView)
+```
+:::
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof scoreMetric = selectControl("Score", [["hit", "Hit rate"], ["rpss", "RPSS"], ["mean", "Mean forecast total"]], "hit")
+scoresByLead(leadData, scoreMetric)
+```
+:::
 
 Three scores for this one month, each area-weighted:
 
