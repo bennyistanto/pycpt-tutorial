@@ -165,19 +165,23 @@ separate forecast errors and explains what each diagnostic can establish.
 
 ::: {.featured-case}
 ::: {.eyebrow}
-Cases 03 to 05 · Lead time · Monthly, seasonal and dekad rainfall
+Cases 03 to 07 · Lead time · Monthly, seasonal, dekad, weekly and pentad rainfall
 :::
 
 ## How far ahead?
 
-November 2023 and October-December 2023 forecast one to six months ahead, and
-every October-December dekad forecast one to three dekads ahead. Skill by lead for
-CCA, PCR and the raw model, and what each forecast said about a dry end to 2023.
+One CFSv2 run issued on 1 November 2023, calibrated for each of the next six
+months and the next six seasons; every October-December dekad forecast one to
+three dekads ahead; and weekly and pentad forecasts up to a month ahead at 0.05°.
+Skill by lead for CCA, PCR and the raw model, and each forecast against what
+happened.
 
 ::: {.home-actions}
-[Read the November story](chapters/monthly-leads-2023.qmd){.tutorial-button .tutorial-button-primary}
-[Read the OND story](chapters/seasonal-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
+[Read the monthly story](chapters/monthly-leads-2023.qmd){.tutorial-button .tutorial-button-primary}
+[Read the seasonal story](chapters/seasonal-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
 [Read the dekad story](chapters/dekad-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
+[Read the weekly story](chapters/week-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
+[Read the pentad story](chapters/pentad-leads-2023.qmd){.tutorial-button .tutorial-button-secondary}
 :::
 :::
 

@@ -22,7 +22,7 @@ published pages rely on from them is stated on the pages themselves, and the
 page summarises what was checked.
 
 Large input caches, native CPT session files and raw observations remain in their
-existing Debian locations under `/home/bennyistanto/CPT/`. Historical JSON records
+existing Debian locations under `~/CPT/`. Historical JSON records
 retain original paths and execution hashes.
 
 Research evidence does not automatically become book content; use selected verified

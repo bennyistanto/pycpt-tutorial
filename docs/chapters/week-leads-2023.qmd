@@ -1,0 +1,247 @@
+---
+title: "The next four weeks, October-December 2023"
+subtitle: "Weekly subseasonal rainfall forecasts for Indonesia at 0.05°, issued every Wednesday"
+description: "GEFSv12 forecasts of total rainfall for weeks 1, 2, 3 and 4 and for weeks 3-4, calibrated with CCA and PCR through CPT against daily CHIRPS v3.0 at its native 0.05° grid: how they are issued, how skill changes with lead, and what each 2023 forecast said."
+format:
+  html:
+    code-copy: false
+---
+
+```{ojs}
+//| echo: false
+//| output: false
+import {selectControl, loadWeekData, weekIssueTimeline, skillByLead, weekSkillMaps, weekIssueMaps, weekSeries} from "../assets/leads/leads.js"
+weekData = loadWeekData("../assets/week-leads-2023/")
+geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
+  provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
+  neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
+issueChoices = weekData.issues.map(d => [d.issued, `Issued ${d.label}${d.targets.length < weekData.leads.length ? ` (${d.targets.length} of ${weekData.leads.length} leads in October-December)` : ""}`])
+```
+
+::: {.eyebrow}
+Case 06 · Lead time · Subseasonal rainfall by week · Full Indonesia at 0.05°
+:::
+
+Every Wednesday a forecaster can ask: how much rain will fall in **each of the
+next four weeks**, and over **weeks 3 and 4** together? This case builds that
+forecast for October-December 2023 over Indonesia from **GEFSv12**, calibrated
+with CCA and PCR through CPT, and measures how much skill is left one to four
+weeks ahead.
+
+Unlike the other cases, it works at the **native 0.05° grid** of CHIRPS v3.0:
+61,190 pixels over Indonesia instead of 3,240 cells of 0.25°. All numbers on this
+page come from the [executed notebook](../notebooks/week-leads-2023.ipynb).
+
+Hover, tap or use the arrow keys on any map or chart to read values; each view can
+be downloaded as it is set. Maps load when you choose them, one small file per map.
+
+::: {.callout-note title="The short result"}
+- Skill falls with each week: the area-mean CCA correlation is **0.35** for week 1,
+  0.29 for week 2, 0.26 for week 3 and **0.17** for week 4. Weeks 3-4 together
+  score 0.26, about the same as week 3 alone and well above week 4.
+- The **raw GEFSv12** correlation is clearly higher for weeks 1 and 2 (0.50 and
+  0.34). From week 3 on, raw and calibrated differ by at most 0.01.
+- In late 2023 the weeks were **drier than normal** (below normal over 49% of the
+  pixel-weeks). The forecasts leaned dry, beat climatological odds at every lead
+  (RPSS 0.07 to 0.14), and matched the hit rate of "always below normal" for
+  weeks 1, 2 and 3-4 while falling short of it for weeks 3 and 4.
+:::
+
+## How a weekly forecast is issued
+
+A forecast is issued at 00 UTC on a Wednesday, from the GEFSv12 run started then.
+Model day *d* covers the same 24 hours as observed day issue + *d*, so the targets
+are simple windows of days after the issue date:
+
+| Lead | Days after issue | Training targets | Latest model day |
+| --- | --- | --- | --- |
+| Week 1 | 1-7 | 249 | 7 |
+| Week 2 | 8-14 | 249 | 14 |
+| Week 3 | 15-21 | 249 | 21 |
+| Week 4 | 22-28 | 249 | 28 |
+| Weeks 3-4 | 15-28 | 249 | 28 |
+
+Weeks 3-4 is the period of NOAA CPC's
+[week 3-4 outlook](https://www.cpc.ncep.noaa.gov/products/predictions/WK34/),
+days 15 to 28 after issue. GEFSv12's hindcasts (2000-2018) also start on
+Wednesdays, so training uses exactly the same leads as real time; the dekad case
+needed a compromise here, this one does not. The training targets are every
+window starting on a Thursday in October-December 2000-2018, 13 or 14 per year;
+each has one start per lead, so all five leads are trained and scored on the same
+249 targets. A week 5 would need model day 35, beyond the run.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof timelineIssue = selectControl("Issue date", issueChoices, "2023-11-01")
+weekIssueTimeline(weekData, timelineIssue)
+```
+:::
+
+## Daily observations at 0.05°
+
+The observations are **daily CHIRPS v3.0** (the `rnl` variant), exported for
+Indonesia from Earth Engine and converted to yearly NetCDF files by the tutorial's
+[`gee_daily_to_netcdf.py`](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/gee_daily_to_netcdf.py).
+As a check, their sums over three dekads (2005, 2012 and 2023) equal the dekadal
+archive used by the other cases to within 0.0001 mm at every Indonesian pixel,
+with the same missing pixels. A weekly total is the sum of its seven days (14 for
+weeks 3-4); the notebook asserts that every day of every window is present.
+
+::: {.callout-warning title="Daily CHIRPS is not an independent daily product"}
+CHC builds daily CHIRPS v3.0 from the pentad product: each pentad's amount is shared
+between its days using the timing of ERA5 (the `rnl` variant used here) or IMERG,
+with no separate daily station blending, and CHC recommends pentadal or longer
+totals wherever the science allows
+([CHIRPS daily readme](https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/readme.txt)).
+These weeks run Thursday to Wednesday and so cut across pentads: how much of a
+pentad's rain falls inside a week comes from ERA5's timing, not from stations. The
+weekly totals, and the skill measured against them, carry that dependence; how much
+it matters was not measured here. The same readme notes that the daily dates follow
+ERA5's UTC days (00 to 00 UTC), while the stations behind the pentad totals do not
+all report on UTC days, so the match with GEFSv12's model days is approximate. The
+[pentad case](pentad-leads-2023.qmd) uses the pentad product itself.
+:::
+
+Rainfall rises through October-December, so model and observations are turned into
+**anomalies** before fitting. A target's mean is the average of 19 training
+targets of the same lead, one from each year 2000-2018: the one starting closest to
+the same day of the season. On average their start is 1.7 days from the target's,
+at most 6 days. Each forecast **total** is that mean for the observations plus the
+calibrated anomaly, set to zero where the sum is negative. The 2000-2018 mean over
+Indonesian pixels is 64.1 mm a week (129.2 mm for weeks 3-4).
+
+## Skill falls with each week
+
+CCA (3 predictor and 3 predictand EOFs, 2 CCA modes) and PCR (3 predictor EOFs)
+are fitted at each lead through `cptcore`, the layer PyCPT's `evaluate_models`
+calls, with cross-validation leaving out 27 targets at a time (the held-out week
+and 13 on each side, about a season). At 0.05° one fit took 76 to 90 minutes for
+CCA and 23 to 26 minutes for PCR, so the ten fits ran in parallel, in 90 minutes.
+For every fit, CPT's correlation map equals the correlation recomputed from its own
+cross-validated hindcasts to within 0.000001.
+
+**Pearson correlation** is 0 for no linear relationship; **2AFC** is the chance
+that the forecast ranks two different weeks in the observed order, 50% for no
+skill [(Mason and Weigel 2009)](https://doi.org/10.1175/2008MWR2553.1).
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof skillMetric = selectControl("Score", [["Pearson", "Pearson correlation"], ["2AFC (%)", "2AFC"]], "Pearson")
+skillByLead(weekData, skillMetric)
+```
+:::
+
+| Lead | CCA Pearson | PCR Pearson | Raw GEFS Pearson | CCA 2AFC (%) | PCR 2AFC (%) |
+| --- | --- | --- | --- | --- | --- |
+| Week 1 | 0.35 | 0.36 | 0.50 | 62.8 | 63.1 |
+| Week 2 | 0.29 | 0.28 | 0.34 | 60.3 | 60.3 |
+| Week 3 | 0.26 | 0.26 | 0.25 | 59.6 | 59.6 |
+| Week 4 | 0.17 | 0.18 | 0.18 | 56.7 | 56.8 |
+| Weeks 3-4 | 0.26 | 0.26 | 0.25 | 59.6 | 59.7 |
+
+: Area-weighted means over 61,190 pixels, 249 targets of 2000-2018. Source: [skill-by-lead.csv](../data/week-leads-2023/skill-by-lead.csv).
+
+1. **Skill falls with lead, most between weeks 3 and 4.** CCA's mean correlation
+   drops by 0.06 from week 1 to 2, 0.02 from week 2 to 3, and 0.09 from week 3 to 4.
+2. **Two weeks together hold up better than the second of them.** Weeks 3-4 score
+   0.26, close to week 3 and well above week 4 alone (0.17).
+3. **Calibration does not beat the raw model.** GEFSv12's own anomaly correlates
+   better in weeks 1 and 2 (by 0.15 and 0.05 over CCA) and about equally from
+   week 3. As in the other cases, the calibrated scores pay a cross-validation cost
+   [(Barnston and van den Dool 1993)](https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2)
+   and see the model only through 3 EOF patterns; neither effect was measured here.
+4. **CCA and PCR are nearly identical**, within 0.01 at every lead.
+
+## Where the skill is, pixel by pixel
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof mapMethod = selectControl("Forecast", [["CCA", "CCA"], ["PCR", "PCR"], ["raw", "Raw GEFS"]], "CCA")
+viewof mapMetric = selectControl("Score", mapMethod === "raw" ? [["pearson", "Pearson correlation"]] : [["pearson", "Pearson correlation"], ["twoafc", "2AFC"]], "pearson")
+weekSkillMaps(weekData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMetric)
+```
+:::
+
+## The forecasts as issued in late 2023
+
+Sixteen Wednesdays, from 13 September to 27 December 2023, issued at least one
+forecast whose target falls in October-December; ten of them, 4 October to
+6 December, cover all five leads. Choose an issue date, the calibration and what
+to show; each map is one lead against its own target.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof mapIssue = selectControl("Issue date", issueChoices, "2023-11-01")
+viewof issueMethod = selectControl("Calibration", [["CCA", "CCA"], ["PCR", "PCR"]], "CCA")
+viewof issueView = selectControl("Show", [["total", "Forecast total"], ["observed", "Observed total"], ["difference", "Forecast minus observed"], ["category", "Most likely category"], ["observedCategory", "Observed category"]], "total")
+weekIssueMaps(weekData, geo, mapIssue, issueMethod, issueView)
+```
+:::
+
+Over the 13 targets of each lead, scored over every pixel and target
+(area-weighted):
+
+| Lead | Method | Hit rate (%) | Reference (%) | RPSS 2023 | RMSE 2023 (mm) | Mean forecast (mm) | Observed mean (mm) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Week 1 | CCA | 50.4 | 49.4 | 0.12 | 28.6 | 55.7 | 51.1 |
+| Week 1 | PCR | 49.5 | 49.4 | 0.12 | 28.8 | 55.7 | 51.1 |
+| Week 2 | CCA | 50.2 | 49.4 | 0.12 | 28.5 | 56.0 | 51.1 |
+| Week 2 | PCR | 49.6 | 49.4 | 0.11 | 28.7 | 55.7 | 51.1 |
+| Week 3 | CCA | 46.8 | 49.4 | 0.07 | 29.7 | 58.0 | 51.1 |
+| Week 3 | PCR | 45.9 | 49.4 | 0.07 | 29.7 | 57.8 | 51.1 |
+| Week 4 | CCA | 45.6 | 49.4 | 0.08 | 29.8 | 57.8 | 51.1 |
+| Week 4 | PCR | 44.8 | 49.4 | 0.07 | 30.0 | 57.7 | 51.1 |
+| Weeks 3-4 | CCA | 53.2 | 52.2 | 0.14 | 48.3 | 117.5 | 106.5 |
+| Weeks 3-4 | PCR | 51.1 | 52.2 | 0.13 | 48.7 | 117.4 | 106.5 |
+
+: October-December 2023. Source: [ond-2023-weekly-forecasts.csv](../data/week-leads-2023/ond-2023-weekly-forecasts.csv).
+
+- **Hit rate** is the share where the most likely category was the one observed.
+  The **reference** is always forecasting the most frequent observed category,
+  below normal (49.4% of one-week pixel-targets, 52.2% for weeks 3-4). Weeks 1, 2
+  and 3-4 matched it to within about a point; weeks 3 and 4 fell 2.5 to 4.5 points
+  short.
+- **RPSS 2023** compares the forecast probabilities with climatological odds
+  (33/34/33%) using the ranked probability score
+  [(Epstein 1969)](https://doi.org/10.1175/1520-0450(1969)008%3C0985:ASSFPF%3E2.0.CO;2):
+  positive at every lead, highest for weeks 3-4 and weeks 1-2. One season of
+  13 weeks rewards leaning the right way in 2023, not skill in general.
+- **The totals were too wet** on average: 55.7 to 58.0 mm a week against an observed
+  51.1 mm, although the most likely category was below normal over 58% to 73% of
+  the area.
+
+## The season, week by week
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+weekSeries(weekData)
+```
+:::
+
+## What this does and does not show
+
+This is one season of weeks, one model, one set of fixed settings, 19 training
+years and one verifying season. It shows that, for GEFSv12 weekly rainfall over
+Indonesia in October-December at 0.05°, skill falls from 0.35 to 0.17 over four
+weeks, that combining weeks 3 and 4 keeps more skill than week 4 alone, and that
+calibration with these settings did not add to the raw model's correlation. The
+observations are retrospective CHIRPS v3.0, not what was available when each
+forecast was issued, and the 2023 forecasts average 31 GEFSv12 members while the
+hindcasts have 11.
+
+The [dekad case](dekad-leads-2023.qmd) asks the same question by dekad at 0.25°.
+
+## Files
+
+- [Executed notebook](../notebooks/week-leads-2023.ipynb): every number and figure on this page
+- [Skill by lead (CSV)](../data/week-leads-2023/skill-by-lead.csv) · [2023 forecasts and scores (CSV)](../data/week-leads-2023/ond-2023-weekly-forecasts.csv) · [Area-weighted series (CSV)](../data/week-leads-2023/ond-2023-area-totals.csv) · [Lead design (CSV)](../data/week-leads-2023/lead-design.csv) · [Run summary (JSON)](../data/week-leads-2023/summary.json)
+- [Skill maps at 0.05° (NetCDF)](../data/week-leads-2023/week-leads-2023-skill-maps.nc): cross-validated correlation for every lead, CCA, PCR and raw GEFSv12
+
+## References {.unnumbered .reference-section}
+
+{{< include ../_includes/references/case-week-leads.qmd >}}

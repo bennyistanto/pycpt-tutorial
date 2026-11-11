@@ -177,18 +177,26 @@ pulls forecasts towards the average where skill is limited.
   below zero, the total was set to zero; this happened in 778 of the 87,480 CCA
   cell-dekads (0.9%).
 
-## Three time scales side by side
+## Four time scales side by side
 
-The lead-time cases share the observations, the grid and the calibration settings.
-They differ in model (CFSv2 for months and seasons, GEFSv12 for dekads), training
-years (1991-2020 and 2000-2018), sample size (30 and 171) and how lead is counted, so
-the numbers are not a ranking.
+The lead-time cases share the observations (CHIRPS v3.0) and the CCA and PCR mode
+settings; the cross-validation window is sized to each case's samples.
+They differ in model (CFSv2 for months and seasons, GEFSv12 for dekads and weeks),
+training years (1991-2020 and 2000-2018), sample size (30, 171 and 249), grid
+(0.25° cells, 0.05° pixels for weeks) and how lead is counted, so the numbers are
+not a ranking.
 
 | Case | Target | Leads | CCA correlation, shortest to longest lead | Raw model vs calibrated |
 | --- | --- | --- | --- | --- |
-| [November](monthly-leads-2023.qmd) | one month | 1-6 months | 0.27 to 0.05 | raw higher at 5 of 6 leads |
-| [October-December](seasonal-leads-2023.qmd) | one season | 1-6 months | 0.50 to 0.36 | calibrated higher at all 6 |
-| This case | one dekad | 1-3 dekads | 0.37 to 0.18 | raw higher at all 3 |
+| [Monthly](monthly-leads-2023.qmd), issued 1 Nov 2023 | Dec 2023 to May 2024 | 1-6 months | 0.13, then -0.12 to 0.04 | raw higher at all 6 |
+| [Seasonal](seasonal-leads-2023.qmd), issued 1 Nov 2023 | DJF 2023-24 to MJJ 2024 | 1-6 months | 0.20, then -0.06 to 0.07 | calibrated higher for DJF only |
+| This case | the next three dekads, October-December | 1-3 dekads | 0.37 to 0.18 | raw higher at all 3 |
+| [Weekly](week-leads-2023.qmd), 0.05° | the next four weeks and weeks 3-4, October-December | 1-4 weeks | 0.35 to 0.17 | raw higher for weeks 1-2, level from week 3 |
+
+Both CFSv2 cases also fit one fixed target from six earlier starts, with the same
+settings: November keeps a CCA correlation of 0.05 to 0.27, October-December 0.36
+to 0.51. Their target months and seasons differ from this case's, which is
+another reason not to rank the rows.
 
 ## What this does and does not show
 
