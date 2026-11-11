@@ -15,7 +15,8 @@ pentadData = loadWeekData("../assets/pentad-leads-2023/")
 geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
   provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
   neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
-issueChoices = pentadData.issues.map(d => [d.issued, `Issued ${d.label}${d.targets.length < pentadData.leads.length ? ` (${d.targets.length} of ${pentadData.leads.length} leads in October-December)` : ""}`])
+// Only issue dates whose leads all fall in October-December 2023, the period forecast and verified here
+issueChoices = pentadData.issues.filter(d => d.targets.length === pentadData.leads.length).map(d => [d.issued, `Issued ${d.label}`])
 ```
 
 ::: {.eyebrow}
@@ -58,7 +59,9 @@ be downloaded as it is set. Maps load when you choose them, one small file per m
 A forecast is issued on the last day of a pentad, from the GEFSv12 run started at
 00 UTC that day. Pentad +1 starts the next day; pentad +k starts after the k-1
 pentads before it, so pentad +6 starts 26 or 27 days after the issue date and ends by
-model day 34. Choose another issue date to see its targets.
+model day 34. Choose another issue date to see its targets: the menus list the
+thirteen issue dates, 30 September to 30 November 2023, whose six leads all fall in
+October-December, the period forecast and verified here.
 
 ::: {.story-interactive}
 ```{ojs}
@@ -167,8 +170,10 @@ weekSkillMaps(pentadData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapM
 
 ## Every issue date of late 2023
 
-Twenty-three issue dates, from 5 September to 25 December 2023, forecast at least one
-pentad of October-December; thirteen cover all six leads. One 2023 run is unusable:
+Every pentad of October-December 2023 is forecast at every lead, so the scores below
+also use the issue dates of September and December whose forecasts reach into the
+season only in part: twenty-three issue dates in all, from 5 September to
+25 December. One 2023 run is unusable:
 the IRI Data Library's GEFSv12 forecast started on 5 December 2023 holds only missing
 values, so the forecast issued that day uses the latest complete run, 4 December
 00 UTC, whose offsets are one day longer and still inside every training window.
