@@ -271,3 +271,7 @@ desktop.ini
 /research/audits/
 /research/reports/
 /docs/AUTHORING.md
+
+# Quarto writes rendered notebook figures beside the source (e.g. docs/learn/*_files/);
+# the site build keeps its own copies, so these are build leftovers
+/docs/**/*_files/
