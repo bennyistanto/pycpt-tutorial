@@ -30,10 +30,11 @@ The [third case](../chapters/monthly-leads-2023.qmd) changes the question from
 2023, calibrated for each of the next six months, December to May. The
 [fourth](../chapters/seasonal-leads-2023.qmd) does the same for the next six
 three-month seasons and compares each season with its first month. The
-[fifth](../chapters/dekad-leads-2023.qmd) moves to the subseasonal scale: every
-October-December dekad, one to three dekads ahead, with GEFSv12. The
-[sixth](../chapters/week-leads-2023.qmd) does the same by week, one to four weeks
-ahead, at the native 0.05° grid of CHIRPS v3.0.
+[fifth](../chapters/dekad-leads-2023.qmd) moves to the subseasonal scale with
+GEFSv12: a forecast issued on 31 October 2023 for the three dekads of November. The
+[sixth](../chapters/week-leads-2023.qmd) does the same by week from Wednesday
+1 November, and the [seventh](../chapters/pentad-leads-2023.qmd) by CHIRPS pentad,
+one to six pentads ahead. All of them work at CHIRPS v3.0's native 0.05° grid.
 
 ## Choose your path
 
@@ -45,7 +46,7 @@ ahead, at the native 0.05° grid of CHIRPS v3.0.
 | Reproduce the figures and scores from saved results | [Offline analysis setup](reproduce.qmd#offline-analysis) | Scientific Python/Jupyter and the complete kit; no PyCPT or CPT installation |
 | Fit the OND models through PyCPT | [Optional PyCPT refit](reproduce.qmd#optional-fit-ond-again) | Compatible PyCPT and its CPT engine, plus the supplied fitting inputs |
 | Work through actual OND/JJA fitting and diagnostics | [Case-two story and notebook](../chapters/fit-diagnose-2023.qmd) | Browser to read; full PyCPT fitting environment to execute |
-| See how skill changes with lead time | [Monthly](../chapters/monthly-leads-2023.qmd), [seasonal](../chapters/seasonal-leads-2023.qmd), [dekad](../chapters/dekad-leads-2023.qmd) and [weekly](../chapters/week-leads-2023.qmd) lead-time stories | Browser to read; full PyCPT environment and the CHIRPS v3.0 dekadal archive to execute |
+| See how skill changes with lead time | [Monthly](../chapters/monthly-leads-2023.qmd), [seasonal](../chapters/seasonal-leads-2023.qmd), [dekad](../chapters/dekad-leads-2023.qmd), [weekly](../chapters/week-leads-2023.qmd) and [pentad](../chapters/pentad-leads-2023.qmd) lead-time stories | Browser to read; full PyCPT environment and the CHIRPS v3.0 dekadal archive to execute |
 | Examine assumptions and provenance | [Methods and limitations](methods.qmd) | The case question and its verification context |
 
 ::: {.callout-tip title="Reading and running are different activities"}

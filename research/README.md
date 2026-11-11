@@ -22,8 +22,9 @@ published pages rely on from them is stated on the pages themselves, and the
 page summarises what was checked.
 
 Large input caches, native CPT session files and raw observations remain in their
-existing Debian locations under `~/CPT/`. Historical JSON records
-retain original paths and execution hashes.
+existing Debian locations under `~/CPT/`. Historical JSON records keep their
+execution hashes; local paths in them are written as `~` (home) and `<repo>` (this
+repository), with every recorded hash and size updated to match.
 
 Research evidence does not automatically become book content; use selected verified
 results in [docs/](../docs/README.md).

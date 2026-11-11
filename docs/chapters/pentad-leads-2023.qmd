@@ -1,0 +1,253 @@
+---
+title: "Issued 31 October 2023: the next six pentads"
+subtitle: "Subseasonal rainfall forecasts for Indonesia from one day's GEFSv12 run, one to six pentads ahead"
+description: "GEFSv12 forecasts of total rainfall for the six pentads of November 2023, issued on 31 October and calibrated with CCA and PCR through CPT against the CHIRPS v3.0 pentad product at its native 0.05° grid: the forecast as issued, how far each lead can be trusted, and every other 2023 issue date."
+format:
+  html:
+    code-copy: false
+---
+
+```{ojs}
+//| echo: false
+//| output: false
+import {selectControl, loadWeekData, weekIssueTimeline, skillByLead, weekSkillMaps, weekIssueMaps, weekSeries} from "../assets/leads/leads.js"
+pentadData = loadWeekData("../assets/pentad-leads-2023/")
+geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
+  provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
+  neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
+issueChoices = pentadData.issues.map(d => [d.issued, `Issued ${d.label}${d.targets.length < pentadData.leads.length ? ` (${d.targets.length} of ${pentadData.leads.length} leads in October-December)` : ""}`])
+```
+
+::: {.eyebrow}
+Case 07 · Subseasonal · Pentad rainfall · Full Indonesia
+:::
+
+A pentad is CHIRPS's own shortest period: days 1-5, 6-10, 11-15, 16-20, 21-25 and 26
+to the end of each month. This case takes the **GEFSv12** run started at 00 UTC on
+**31 October 2023** and forecasts the six pentads of November, about a month ahead
+in five-day steps. It is calibrated with CCA and PCR through CPT against the
+**CHIRPS v3.0 pentad product** at its native 0.05° grid, 61,190 pixels over Indonesia.
+
+CHC builds CHIRPS from pentadal and monthly totals; its daily values only share each
+pentad's amount between the days, and CHC recommends pentadal or longer totals
+wherever the science allows
+([CHIRPS daily readme](https://data.chc.ucsb.edu/products/CHIRPS/v3.0/daily/readme.txt)).
+So this case uses the pentad product itself. It is the same moment as the
+[dekad](dekad-leads-2023.qmd) case, in half the steps. All numbers come from the
+[executed notebook](../notebooks/pentad-leads-2023.ipynb).
+
+Hover, tap or use the arrow keys on any map or chart to read values; each view can
+be downloaded as it is set. Maps load when you choose them, one small file per map.
+
+::: {.callout-note title="The short result"}
+- **The forecast of 31 October leaned dry, and the first four pentads of November
+  were dry**: 29 to 36 mm over Indonesia against normals of 44 to 50 mm. The forecast
+  (CCA) was 35 to 41 mm, drier than normal but not as dry as observed. The last two
+  pentads were near normal (45 and 49 mm) and were forecast at 43 and 47 mm.
+- For every lead the most likely category (CCA) matched the observed one over less of
+  the area than always forecasting the category that turned out most common, by 0.8
+  to 6.6 points.
+- **How far to trust each lead**, from all October-December pentads of 2000-2018:
+  the area-mean CCA correlation falls from 0.30 one pentad ahead to 0.12 six pentads
+  ahead. The raw GEFSv12 correlation is higher for the first three pentads (0.41,
+  0.37, 0.27) and level with the calibrated one from pentad +4.
+:::
+
+## The forecast issued on 31 October 2023
+
+A forecast is issued on the last day of a pentad, from the GEFSv12 run started at
+00 UTC that day. Pentad +1 starts the next day; pentad +k starts after the k-1
+pentads before it, so pentad +6 starts 26 or 27 days after the issue date and ends by
+model day 34. Choose another issue date to see its targets.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof timelineIssue = selectControl("Issue date", issueChoices, "2023-10-31")
+weekIssueTimeline(pentadData, timelineIssue)
+```
+:::
+
+Each map is one lead against its own target, pentad +1 at the top.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof mapIssue = selectControl("Issue date", issueChoices, "2023-10-31")
+viewof issueMethod = selectControl("Calibration", [["CCA", "CCA"], ["PCR", "PCR"]], "CCA")
+viewof issueView = selectControl("Show", [["total", "Forecast total"], ["observed", "Observed total"], ["difference", "Forecast minus observed"], ["category", "Most likely category"], ["observedCategory", "Observed category"]], "total")
+weekIssueMaps(pentadData, geo, mapIssue, issueMethod, issueView)
+```
+:::
+
+| Lead | Target | Forecast (mm) | Observed (mm) | 2000-2018 mean (mm) | Observed below / near / above normal (% of area) | Hit rate (%) | Reference (%) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Pentad +1 | 1-5 Nov | 34.6 | 31.2 | 44.4 | 51.5 / 35.4 / 13.1 | 44.9 | 51.5 |
+| Pentad +2 | 6-10 Nov | 35.9 | 29.1 | 44.8 | 57.0 / 33.1 / 9.9 | 56.2 | 57.0 |
+| Pentad +3 | 11-15 Nov | 38.8 | 35.7 | 48.4 | 51.3 / 32.6 / 16.1 | 45.6 | 51.3 |
+| Pentad +4 | 16-20 Nov | 41.1 | 32.1 | 49.8 | 65.7 / 22.1 / 12.1 | 61.2 | 65.7 |
+| Pentad +5 | 21-25 Nov | 42.8 | 45.2 | 47.4 | 33.2 / 38.6 / 28.2 | 37.5 | 38.6 |
+| Pentad +6 | 26-30 Nov | 46.6 | 49.0 | 51.5 | 34.6 / 36.9 / 28.4 | 33.4 | 36.9 |
+
+: CCA forecast issued 31 October 2023, area-weighted over Indonesia. Source: [issued-2023-10-31.csv](../data/pentad-leads-2023/issued-2023-10-31.csv), which also has PCR.
+
+- **Amounts.** The first four pentads of November were dry, 29 to 36 mm against
+  normals of 44 to 50 mm. The forecast followed but stopped short (35 to 41 mm), and
+  it moved closer to the normal the further ahead it looked, as a regression forecast
+  does when its skill falls. The last two pentads were close to normal and so was the
+  forecast, a little below the observation.
+- **Categories.** For pentads +1 to +4 the forecast made below normal the most likely
+  category over 85% to 87% of the area, and below normal was observed over 51% to 66%.
+  The hit rate (45% to 61%) stayed under the **reference**, always forecasting the
+  category that turned out most common, chosen with hindsight. For pentads +5 and +6,
+  which were mixed, the forecast still favoured below normal over about two thirds
+  of the area (66% and 68%).
+
+One issue date is one outcome per lead. The next sections show how well each lead
+does on average.
+
+## How far each lead can be trusted
+
+The calibration of each lead is trained and scored on every October-December pentad
+of 2000-2018, 342 per lead. GEFSv12's hindcasts start only on Wednesdays, so each
+training sample uses the one Wednesday whose start falls in a 7-day window around the
+real-time offsets of that lead (1-7, 3-9, 8-14, 13-19, 18-24 and 23-29 days before the
+target); the notebook checks that every 2023 offset lies inside its window.
+
+CCA (3 predictor and 3 predictand EOFs, 2 CCA modes) and PCR (3 predictor EOFs) are
+fitted through `cptcore`, the layer PyCPT's `evaluate_models` calls, with
+cross-validation leaving out 35 pentads at a time (the held-out pentad and 17 on each
+side, about a season). At 0.05° and 342 samples one fit took 3 to 4 hours for CCA and
+43 to 49 minutes for PCR; the twelve fits ran in parallel. For every fit, CPT's
+correlation map equals the correlation recomputed from its own cross-validated
+hindcasts to within 0.000001.
+
+**Pearson correlation** is 0 for no linear relationship; **2AFC** is the chance
+that the forecast ranks two different pentads in the observed order, 50% for no
+skill [(Mason and Weigel 2009)](https://doi.org/10.1175/2008MWR2553.1).
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof skillMetric = selectControl("Score", [["Pearson", "Pearson correlation"], ["2AFC (%)", "2AFC"]], "Pearson")
+skillByLead(pentadData, skillMetric)
+```
+:::
+
+| Lead | CCA Pearson | PCR Pearson | Raw GEFS Pearson | CCA 2AFC (%) | PCR 2AFC (%) |
+| --- | --- | --- | --- | --- | --- |
+| Pentad +1 | 0.30 | 0.30 | 0.41 | 61.0 | 61.2 |
+| Pentad +2 | 0.29 | 0.30 | 0.37 | 60.5 | 60.8 |
+| Pentad +3 | 0.24 | 0.24 | 0.27 | 58.9 | 59.0 |
+| Pentad +4 | 0.23 | 0.23 | 0.21 | 58.6 | 58.5 |
+| Pentad +5 | 0.17 | 0.18 | 0.16 | 57.0 | 57.0 |
+| Pentad +6 | 0.12 | 0.13 | 0.13 | 55.5 | 55.6 |
+
+: Area-weighted means over 61,190 pixels, 342 pentads of 2000-2018. Source: [skill-by-lead.csv](../data/pentad-leads-2023/skill-by-lead.csv).
+
+1. **Skill falls steadily with lead**, from 0.30 to 0.12 for CCA over the six
+   pentads, about a month.
+2. **The raw model leads early, then calibration catches up.** GEFSv12's own anomaly
+   correlates better for pentads +1 to +3 (by 0.03 to 0.12 over CCA); from pentad +4
+   the two are within 0.014, CCA slightly ahead at pentads +4 and +5. The calibrated scores pay a cross-validation cost
+   [(Barnston and van den Dool 1993)](https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2)
+   and see the model only through 3 EOF patterns; neither effect was measured here.
+3. **CCA and PCR are nearly identical**, within 0.01 at every lead.
+
+### Where the skill is, pixel by pixel
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof mapMethod = selectControl("Forecast", [["CCA", "CCA"], ["PCR", "PCR"], ["raw", "Raw GEFS"]], "CCA")
+viewof mapMetric = selectControl("Score", mapMethod === "raw" ? [["pearson", "Pearson correlation"]] : [["pearson", "Pearson correlation"], ["twoafc", "2AFC"]], "pearson")
+weekSkillMaps(pentadData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMetric)
+```
+:::
+
+## Every issue date of late 2023
+
+Twenty-three issue dates, from 5 September to 25 December 2023, forecast at least one
+pentad of October-December; thirteen cover all six leads. One 2023 run is unusable:
+the IRI Data Library's GEFSv12 forecast started on 5 December 2023 holds only missing
+values, so the forecast issued that day uses the latest complete run, 4 December
+00 UTC, whose offsets are one day longer and still inside every training window.
+
+Over the 18 pentads of each lead, scored over every pixel and pentad
+(area-weighted):
+
+| Lead | Method | Hit rate (%) | Reference (%) | RPSS 2023 | RMSE 2023 (mm) | Mean forecast (mm) | Observed mean (mm) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Pentad +1 | CCA | 44.7 | 48.2 | 0.08 | 25.2 | 41.3 | 35.9 |
+| Pentad +1 | PCR | 45.0 | 48.2 | 0.08 | 25.2 | 41.2 | 35.9 |
+| Pentad +2 | CCA | 43.5 | 48.2 | 0.07 | 25.3 | 41.2 | 35.9 |
+| Pentad +2 | PCR | 43.6 | 48.2 | 0.07 | 25.5 | 41.2 | 35.9 |
+| Pentad +3 | CCA | 40.9 | 48.2 | 0.04 | 26.0 | 42.1 | 35.9 |
+| Pentad +3 | PCR | 41.0 | 48.2 | 0.04 | 26.0 | 41.9 | 35.9 |
+| Pentad +4 | CCA | 39.4 | 48.2 | 0.03 | 26.3 | 42.8 | 35.9 |
+| Pentad +4 | PCR | 39.7 | 48.2 | 0.03 | 26.4 | 42.8 | 35.9 |
+| Pentad +5 | CCA | 42.6 | 48.2 | 0.05 | 25.7 | 41.9 | 35.9 |
+| Pentad +5 | PCR | 42.3 | 48.2 | 0.05 | 25.9 | 41.8 | 35.9 |
+| Pentad +6 | CCA | 40.0 | 48.2 | 0.02 | 26.3 | 42.2 | 35.9 |
+| Pentad +6 | PCR | 40.4 | 48.2 | 0.03 | 26.3 | 42.1 | 35.9 |
+
+: Eighteen pentads of October-December 2023, area-weighted. Observed: below normal 48.2%, near normal 32.9%, above normal 18.9% of area × pentads. Source: [ond-2023-pentad-forecasts.csv](../data/pentad-leads-2023/ond-2023-pentad-forecasts.csv).
+
+- **Hit rate**: always forecasting "below normal" would have scored **48.2%**; every
+  lead fell short of it, by 3.2 to 8.8 points.
+- **RPSS 2023**, against climatological odds with the ranked probability score
+  ([Epstein 1969](https://doi.org/10.1175/1520-0450(1969)008%3C0985:ASSFPF%3E2.0.CO;2)),
+  was positive at every lead but small (0.02 to 0.08). For one season this rewards
+  leaning the right way in 2023, not skill in general.
+- **The totals were too wet** on average: 41.2 to 42.8 mm per pentad against an
+  observed 35.9 mm.
+- **Totals below zero**: where the 2000-2018 mean plus the forecast anomaly fell
+  below zero, the total was set to zero, in 3,267 to 11,766 of the 1,101,420 CCA
+  pixel-pentads per lead (0.3% to 1.1%).
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+weekSeries(pentadData)
+```
+:::
+
+## Observations and anomalies
+
+The predictand is the CHIRPS v3.0 **pentad product**, exported for Indonesia from
+Earth Engine (`UCSB-CHC/CHIRPS/V3/PENTAD`) by the tutorial's
+[pentad export script](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/gee/chirps3_pentad_to_drive.js)
+and converted to yearly NetCDF files by
+[`gee_pentad_to_netcdf.py`](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/gee_pentad_to_netcdf.py),
+which checks the 72 pentads of every year, the dates and the grid. Two checks in the
+notebook: two pentads add up exactly to the dekadal archive (three dekads checked),
+and the daily values of the weekly case, summed over each pentad, equal the pentad
+product to within 0.0001 mm over all 342 training pentads.
+
+Rainfall rises through October-December, so model and observations are turned into
+**anomalies** from the 2000-2018 mean of the same calendar pentad (and, for the
+model, the same lead). These means include the year held out in cross-validation;
+for correlations that makes no difference (it multiplies every anomaly of a pentad by
+the same factor, 19/18), and its effect inside CPT's fits was not measured. Each
+forecast **total** is the observed mean plus the calibrated anomaly.
+
+## What this does and does not show
+
+This is one model, one set of fixed settings, 19 training years and one verifying
+season, with the headline on one issue date. It shows that, for GEFSv12 pentad
+rainfall over Indonesia in October-December, skill falls steadily over a month of
+lead, from 0.30 to 0.12, and that calibration with these settings adds nothing to the
+raw model's correlation early on and matches it later. The observations are
+retrospective CHIRPS v3.0, not what was available when each forecast was issued, and
+the 2023 forecasts average 31 GEFSv12 members while the hindcasts have 11.
+
+## Files
+
+- [Executed notebook](../notebooks/pentad-leads-2023.ipynb): every number and figure on this page
+- [Forecast issued 31 Oct 2023 (CSV)](../data/pentad-leads-2023/issued-2023-10-31.csv) · [Skill by lead (CSV)](../data/pentad-leads-2023/skill-by-lead.csv) · [2023 forecasts and scores (CSV)](../data/pentad-leads-2023/ond-2023-pentad-forecasts.csv) · [2023 area-mean totals (CSV)](../data/pentad-leads-2023/ond-2023-area-totals.csv) · [Every target, lead and start (CSV)](../data/pentad-leads-2023/lead-design.csv) · [Run summary (JSON)](../data/pentad-leads-2023/summary.json)
+- [Skill maps at 0.05° (NetCDF)](../data/pentad-leads-2023/pentad-leads-2023-skill-maps.nc): cross-validated correlation for every lead, CCA, PCR and raw GEFSv12
+- [GEFS download script](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/download_gefs_pentads.py)
+
+## References {.unnumbered .reference-section}
+
+{{< include ../_includes/references/case-pentad-leads.qmd >}}

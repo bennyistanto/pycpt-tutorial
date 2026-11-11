@@ -6,5 +6,6 @@ numeric findings. The second is [Fit & diagnose](fit-diagnose-2023.qmd); the thi
 [Issued 1 November 2023: the next six months](monthly-leads-2023.qmd), quotes the tables
 written by its executed notebook, as does the fourth,
 [Issued 1 November 2023: the next six seasons](seasonal-leads-2023.qmd), the fifth,
-[October-December 2023 by dekad](dekad-leads-2023.qmd), and the sixth,
-[the next four weeks at 0.05°](week-leads-2023.qmd).
+[Issued 31 October 2023: the next three dekads](dekad-leads-2023.qmd), the sixth,
+[Issued 1 November 2023: the next four weeks](week-leads-2023.qmd), and the seventh,
+[Issued 31 October 2023: the next six pentads](pentad-leads-2023.qmd).

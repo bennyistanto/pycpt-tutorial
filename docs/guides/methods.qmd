@@ -19,6 +19,11 @@ Raw model forecasts are bilinearly interpolated to that grid; calibrated forecas
 are produced at the predictand locations. This does not establish independent
 0.25° dynamical predictability or replace station-based verification.
 
+The lead-time case studies (monthly, seasonal, dekad, weekly and pentad) do not
+aggregate: their predictand is every native 0.05° CHIRPS v3.0 pixel whose centre lies
+inside Indonesia, 61,190 pixels, with area means weighted by the cosine of latitude.
+Each case page states its own data, training sample and checks.
+
 The archived model source appends operational forecasts from April 2011. Complete
 data and valid member counts do not demonstrate a statistically homogeneous
 reforecast/operational record. The observation and source vintages are retrospective.

@@ -1,7 +1,7 @@
 ---
 title: "Issued 1 November 2023: the next six seasons"
 subtitle: "Three-month rainfall forecasts for Indonesia, December-February to May-July, from one forecast date"
-description: "CFSv2 started on 1 November 2023, calibrated with CCA and PCR against CHIRPS v3.0, forecasting each of the next six overlapping three-month seasons: skill by lead, a raw-model baseline, lead against target season, the season against its first month, and the forecasts as issued against what happened."
+description: "CFSv2 started on 1 November 2023, calibrated with CCA and PCR against CHIRPS v3.0 at its native 0.05° grid, forecasting each of the next six overlapping three-month seasons: skill by lead, a raw-model baseline, lead against target season, the season against its first month, and the forecasts as issued against what happened."
 format:
   html:
     code-copy: false
@@ -10,8 +10,8 @@ format:
 ```{ojs}
 //| echo: false
 //| output: false
-import {selectControl, issueTargets, skillByLead, skillMaps, sameTargetSkill, compareScales, targetMaps, scoresByLead} from "../assets/leads/leads.js"
-leadData = FileAttachment("../assets/seasonal-leads-2023/interactive-data.json").json()
+import {selectControl, loadWeekData, issueTargets, skillByLead, weekSkillMaps, sameTargetSkill, compareScales, weekIssueMaps, scoresByLead} from "../assets/leads/leads.js"
+leadData = loadWeekData("../assets/seasonal-leads-2023/")
 geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
   provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
   neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
@@ -19,7 +19,7 @@ leadChoices = leadData.targets.map(t => [String(t.lead), `Lead ${t.lead}: ${t.la
 ```
 
 ::: {.eyebrow}
-Case 04 · Lead time · Seasonal rainfall · Full Indonesia
+Case 04 · Seasonal · Three-month rainfall · Full Indonesia
 :::
 
 A seasonal outlook issued on 1 November 2023 covers the next six overlapping
@@ -29,21 +29,22 @@ season, scores each calibration over 30 years, and checks every forecast against
 what happened.
 
 The [monthly case](monthly-leads-2023.qmd) does the same for single months from
-the same run. Everything else is shared: CFSv2, CHIRPS v3.0, the CCA and PCR
-settings and the 30 training years (1991-2020). All numbers on this page come
-from the [executed notebook](../notebooks/seasonal-leads-2023.ipynb).
+the same run. Everything else is shared: CFSv2, CHIRPS v3.0 at its native 0.05°
+grid (61,190 pixels over Indonesia), the CCA and PCR settings and the 30 training
+years (1991-2020). All numbers on this page come from the
+[executed notebook](../notebooks/seasonal-leads-2023.ipynb).
 
 Hover, tap or use the arrow keys on any map or chart to read values; each view can be
-downloaded as it is set. The static figures are in the executed notebook.
+downloaded as it is set. Maps load when you choose them, one small file per map.
 
 ::: {.callout-note title="The short result"}
 - Issued on 1 November, only **DJF** has some cross-validated skill: an area-mean
-  CCA correlation of 0.20 (PCR 0.22). From JFM to MJJ it lies between -0.06 and
-  0.07, which is no skill.
+  CCA correlation of 0.16 (PCR 0.18). From JFM to MJJ it lies between -0.10 and
+  0.05, which is no skill.
 - Calibration beats the **raw CFSv2** correlation for DJF only. For the later
   seasons the raw model is higher, at 0.12 to 0.23, which is still small.
 - **The target season matters more than the lead.** October-December forecast
-  from earlier starts keeps a CCA correlation of 0.36 to 0.51 at the same six
+  from earlier starts keeps a CCA correlation of 0.33 to 0.48 at the same six
   leads.
 - The seasons after DJF were **wetter** than normal over most of Indonesia. The
   forecasts leaned dry for DJF to AMJ and, from JFM on, hit less area than always
@@ -76,7 +77,9 @@ fitted with `evaluate_models`, using **CCA** (3 predictor and 3 predictand EOFs,
 2 CCA modes) and **PCR** (3 predictor EOFs), cross-validation with a window of
 5 years. These settings are the ones used in the
 [Fit & diagnose case](fit-diagnose-2023.qmd), fixed before any skill was computed.
-Each fit took 34 to 36 seconds.
+At 0.05° each fit took 15 to 17 minutes, most of it spent writing and reading CPT's
+files for 61,190 pixels, so the eighteen fits ran side by side, each in its own
+process.
 
 ::: {.story-interactive}
 ```{ojs}
@@ -86,17 +89,16 @@ issueTargets(leadData, timelineLead)
 ```
 :::
 
-## Seasonal rainfall from dekads
+## Seasonal rainfall from dekads, at 0.05°
 
 The observations are **CHIRPS v3.0** totals built from the local **dekadal**
 archive, as in the monthly case: for each training target the notebook reads the
 first and last day from the hindcast file and sums the nine dekads covering
 exactly those days, refusing to add them unless they run contiguously. DJF built
 this way matches the archive's own 3-month total to within 0.0005 mm for 1990-91
-and 2023-24, with the same missing pixels. The totals are averaged to the
-tutorial's 0.25° Indonesia land grid
-([chapter 3](../learn/03-local-observations.ipynb)): 3,240 cells, complete in all
-30 training years of every target.
+and 2023-24, with the same missing pixels. The predictand is every 0.05° pixel
+whose centre lies inside Indonesia: 61,190 pixels with data in all 30 training
+years of every target.
 
 The CFSv2 requests multiply the daily mean by the days in the season, with
 February counted as 28.25 days in every year (PyCPT's `monthlengths` table): 90.25
@@ -121,20 +123,20 @@ skillByLead(leadData, skillMetric)
 
 | Lead | Target | CCA Pearson | PCR Pearson | Raw CFSv2 Pearson | CCA 2AFC (%) | PCR 2AFC (%) |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | DJF 2023-24 | 0.20 | 0.22 | 0.15 | 57.1 | 58.1 |
-| 2 | JFM 2024 | 0.07 | 0.08 | 0.13 | 52.8 | 52.7 |
-| 3 | FMA 2024 | 0.05 | 0.07 | 0.17 | 52.5 | 53.1 |
-| 4 | MAM 2024 | 0.04 | 0.03 | 0.17 | 51.9 | 51.8 |
-| 5 | AMJ 2024 | -0.06 | -0.02 | 0.12 | 48.6 | 49.0 |
-| 6 | MJJ 2024 | 0.01 | 0.05 | 0.23 | 50.2 | 51.7 |
+| 1 | DJF 2023-24 | 0.16 | 0.18 | 0.13 | 55.6 | 56.6 |
+| 2 | JFM 2024 | 0.03 | 0.05 | 0.16 | 51.6 | 51.6 |
+| 3 | FMA 2024 | 0.04 | 0.05 | 0.19 | 52.0 | 52.5 |
+| 4 | MAM 2024 | 0.01 | 0.01 | 0.19 | 50.9 | 50.8 |
+| 5 | AMJ 2024 | -0.10 | -0.05 | 0.12 | 47.4 | 48.1 |
+| 6 | MJJ 2024 | -0.01 | 0.04 | 0.23 | 49.7 | 51.3 |
 
-: Area-weighted means over 3,240 cells, 1991-2020. Source: [skill-by-lead.csv](../data/seasonal-leads-2023/skill-by-lead.csv).
+: Area-weighted means over 61,190 pixels, 1991-2020. Source: [skill-by-lead.csv](../data/seasonal-leads-2023/skill-by-lead.csv).
 
-1. **DJF is the only season with calibrated skill**: a mean correlation of 0.20 to
-   0.22 and a 2AFC of 57-58%. It is also the one season where CCA and PCR beat
+1. **DJF is the only season with calibrated skill**: a mean correlation of 0.16 to
+   0.18 and a 2AFC of 56-57%. It is also the one season where CCA and PCR beat
    the raw model.
 2. **From JFM to MJJ the calibrated forecasts have none**: mean correlations
-   between -0.06 and 0.08, 2AFC between 49% and 53%. When there is little real
+   between -0.10 and 0.05, 2AFC between 47% and 53%. When there is little real
    skill, cross-validated correlations of regression forecasts are biased low
    [(Barnston and van den Dool 1993)](https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2),
    so values near or below zero mean "no skill", not "reliably wrong".
@@ -147,8 +149,7 @@ skillByLead(leadData, skillMetric)
 
 The notebook also fits the opposite design with the same CCA settings: **one
 target, October-December 2023, forecast from six earlier starts** (1 September
-back to 1 April). There only the lead changes. That is how this case was set up
-before; its numbers are reproduced exactly.
+back to 1 April). There only the lead changes.
 
 ::: {.story-interactive}
 ```{ojs}
@@ -159,17 +160,18 @@ sameTargetSkill(leadData)
 
 | Lead | Issued 1 Nov: target | CCA Pearson | Raw CFSv2 | OND 2023: start | CCA Pearson | Raw CFSv2 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | DJF 2023-24 | 0.20 | 0.15 | 1 Sep 2023 | 0.50 | 0.42 |
-| 2 | JFM 2024 | 0.07 | 0.13 | 1 Aug 2023 | 0.50 | 0.34 |
-| 3 | FMA 2024 | 0.05 | 0.17 | 1 Jul 2023 | 0.48 | 0.31 |
-| 4 | MAM 2024 | 0.04 | 0.17 | 1 Jun 2023 | 0.51 | 0.30 |
-| 5 | AMJ 2024 | -0.06 | 0.12 | 1 May 2023 | 0.46 | 0.31 |
-| 6 | MJJ 2024 | 0.01 | 0.23 | 1 Apr 2023 | 0.36 | 0.19 |
+| 1 | DJF 2023-24 | 0.16 | 0.13 | 1 Sep 2023 | 0.47 | 0.39 |
+| 2 | JFM 2024 | 0.03 | 0.16 | 1 Aug 2023 | 0.48 | 0.30 |
+| 3 | FMA 2024 | 0.04 | 0.19 | 1 Jul 2023 | 0.45 | 0.26 |
+| 4 | MAM 2024 | 0.01 | 0.19 | 1 Jun 2023 | 0.48 | 0.25 |
+| 5 | AMJ 2024 | -0.10 | 0.12 | 1 May 2023 | 0.44 | 0.27 |
+| 6 | MJJ 2024 | -0.01 | 0.23 | 1 Apr 2023 | 0.33 | 0.15 |
 
 : Area-weighted mean correlation, cross-validated for CCA, 1991-2020. Source: [same-target-skill.csv](../data/seasonal-leads-2023/same-target-skill.csv).
 
-OND keeps a CCA correlation near 0.5 for five months of lead and 0.36 at six.
-The seasons the 1 November run forecasts have 0.20 at best. So, at least for
+OND keeps a CCA correlation of 0.44 to 0.48 for five months of lead and 0.33 at
+six. The seasons the 1 November run forecasts have 0.16 at best for CCA (0.18 for
+PCR). So, at least for
 CFSv2 over Indonesia with these settings, how well a season can be forecast
 depends far more on **which season** it is than on how far ahead the forecast is
 made. Why OND is so much more predictable than DJF to MJJ is not tested here.
@@ -188,56 +190,56 @@ compareScales(leadData)
 
 | Lead | Season | Month | CCA, season | CCA, month | Raw, season | Raw, month |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | DJF 2023-24 | Dec 2023 | 0.20 | 0.13 | 0.15 | 0.21 |
-| 2 | JFM 2024 | Jan 2024 | 0.07 | -0.07 | 0.13 | -0.03 |
-| 3 | FMA 2024 | Feb 2024 | 0.05 | -0.04 | 0.17 | 0.08 |
-| 4 | MAM 2024 | Mar 2024 | 0.04 | 0.04 | 0.17 | 0.20 |
-| 5 | AMJ 2024 | Apr 2024 | -0.06 | -0.10 | 0.12 | 0.12 |
-| 6 | MJJ 2024 | May 2024 | 0.01 | -0.12 | 0.23 | 0.05 |
+| 1 | DJF 2023-24 | Dec 2023 | 0.16 | 0.10 | 0.13 | 0.18 |
+| 2 | JFM 2024 | Jan 2024 | 0.03 | -0.11 | 0.16 | -0.02 |
+| 3 | FMA 2024 | Feb 2024 | 0.04 | -0.06 | 0.19 | 0.09 |
+| 4 | MAM 2024 | Mar 2024 | 0.01 | 0.03 | 0.19 | 0.21 |
+| 5 | AMJ 2024 | Apr 2024 | -0.10 | -0.11 | 0.12 | 0.12 |
+| 6 | MJJ 2024 | May 2024 | -0.01 | -0.15 | 0.23 | 0.05 |
 
 : Area-weighted mean Pearson correlation. Source: [seasonal-vs-monthly.csv](../data/seasonal-leads-2023/seasonal-vs-monthly.csv).
 
 For CCA the season scores higher than its first month at five of six leads (by
-0.03 to 0.13) and slightly lower for MAM (0.037 against 0.043). For the raw model the season is
-higher at three leads and lower at three. A season also covers two months beyond
-the first, so this compares two different questions from the same run, not the
-same question at two time scales.
+0.01 to 0.14) and lower for MAM (0.008 against 0.031). For the raw model the season
+is higher at three leads, lower at two and level for AMJ. A season also covers two
+months beyond the first, so this compares two different questions from the same
+run, not the same question at two time scales.
 
 ## Where the skill is
 
-The maps show the cross-validated correlation (or 2AFC) for each target, lead 1
-at the top to lead 6 at the bottom.
+The maps show the cross-validated correlation (or 2AFC) at every 0.05° pixel for
+each target, lead 1 at the top to lead 6 at the bottom.
 
 ::: {.story-interactive}
 ```{ojs}
 //| echo: false
 viewof mapMethod = selectControl("Forecast", [["CCA", "CCA"], ["PCR", "PCR"], ["raw", "Raw CFSv2"]], "CCA")
 viewof mapMetric = selectControl("Score", mapMethod === "raw" ? [["pearson", "Pearson correlation"]] : [["pearson", "Pearson correlation"], ["twoafc", "2AFC"]], "pearson")
-skillMaps(leadData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMetric)
+weekSkillMaps(leadData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMetric)
 ```
 :::
 
 ## The forecasts as issued, and what happened
 
 Each forecast is checked against its own season. Categories use the 33rd and 67th
-percentiles of that season's 1991-2020 totals at each cell.
+percentiles of that season's 1991-2020 totals at each pixel.
 
 | Lead | Target | Observed mean (mm) | 1991-2020 mean (mm) | Below normal (% of area) | Near normal | Above normal |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | DJF 2023-24 | 803 | 821 | 38.2 | 31.7 | 30.2 |
-| 2 | JFM 2024 | 842 | 804 | 24.8 | 35.3 | 39.9 |
-| 3 | FMA 2024 | 847 | 797 | 21.2 | 32.8 | 46.0 |
-| 4 | MAM 2024 | 899 | 782 | 10.8 | 30.7 | 58.5 |
-| 5 | AMJ 2024 | 863 | 708 | 4.1 | 28.0 | 67.8 |
-| 6 | MJJ 2024 | 719 | 616 | 7.7 | 32.1 | 60.2 |
+| 1 | DJF 2023-24 | 842 | 842 | 33.7 | 33.1 | 33.2 |
+| 2 | JFM 2024 | 871 | 831 | 23.6 | 34.6 | 41.8 |
+| 3 | FMA 2024 | 875 | 831 | 21.8 | 33.2 | 45.0 |
+| 4 | MAM 2024 | 920 | 816 | 12.4 | 32.5 | 55.1 |
+| 5 | AMJ 2024 | 881 | 734 | 4.6 | 28.6 | 66.8 |
+| 6 | MJJ 2024 | 734 | 632 | 6.7 | 31.9 | 61.4 |
 
-: Area-weighted over the 3,240 cells. Source: [issued-2023-11-observed.csv](../data/seasonal-leads-2023/issued-2023-11-observed.csv).
+: Area-weighted over the 61,190 pixels. Source: [issued-2023-11-observed.csv](../data/seasonal-leads-2023/issued-2023-11-observed.csv).
 
-DJF 2023-24 was slightly drier than normal on average, with the three categories
-spread fairly evenly. Every later season was wetter than normal, increasingly so
-into the middle of 2024: above normal over 58% of the area in MAM and 68% in AMJ.
+DJF 2023-24 was normal on average, with the three categories covering a third of
+the area each. Every later season was wetter than normal, increasingly so into the
+middle of 2024: above normal over 55% of the area in MAM and 67% in AMJ.
 
-The CCA forecasts favoured below normal over 67% to 81% of the area for DJF to
+The CCA forecasts favoured below normal over 66% to 79% of the area for DJF to
 AMJ, and above normal over 89% for MJJ. The map column shows each lead's target.
 
 ::: {.story-interactive}
@@ -245,7 +247,7 @@ AMJ, and above normal over 89% for MJJ. The map column shows each lead's target.
 //| echo: false
 viewof forecastMethod = selectControl("Calibration", [["CCA", "CCA"], ["PCR", "PCR"]], "CCA")
 viewof forecastView = selectControl("Show", [["category", "Most likely category"], ["observedCategory", "Observed category"], ["total", "Forecast total"], ["observed", "Observed total"], ["difference", "Forecast minus observed"]], "category")
-targetMaps(leadData, geo, forecastMethod, forecastView)
+weekIssueMaps(leadData, geo, leadData.issue.date, forecastMethod, forecastView)
 ```
 :::
 
@@ -259,35 +261,35 @@ scoresByLead(leadData, scoreMetric)
 
 | Lead | Target | Method | Hit rate (%) | Reference hit rate (%) | RPSS | RMSE (mm) | Mean forecast (mm) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | DJF 2023-24 | CCA | 50.3 | 38.2 | 0.18 | 162.4 | 736 |
-| 1 | DJF 2023-24 | PCR | 52.3 | 38.2 | 0.19 | 158.1 | 720 |
-| 2 | JFM 2024 | CCA | 36.3 | 39.9 | -0.00 | 175.6 | 755 |
-| 2 | JFM 2024 | PCR | 40.0 | 39.9 | 0.03 | 169.1 | 764 |
-| 3 | FMA 2024 | CCA | 33.6 | 46.0 | -0.03 | 184.0 | 732 |
-| 3 | FMA 2024 | PCR | 36.1 | 46.0 | 0.01 | 179.4 | 740 |
-| 4 | MAM 2024 | CCA | 22.7 | 58.5 | -0.21 | 242.5 | 720 |
-| 4 | MAM 2024 | PCR | 25.4 | 58.5 | -0.20 | 246.1 | 728 |
-| 5 | AMJ 2024 | CCA | 19.6 | 67.8 | -0.19 | 262.2 | 667 |
-| 5 | AMJ 2024 | PCR | 36.5 | 67.8 | -0.08 | 253.3 | 697 |
-| 6 | MJJ 2024 | CCA | 54.6 | 60.2 | 0.12 | 167.9 | 702 |
-| 6 | MJJ 2024 | PCR | 53.6 | 60.2 | 0.11 | 190.0 | 704 |
+| 1 | DJF 2023-24 | CCA | 46.3 | 33.7 | 0.13 | 163.5 | 775 |
+| 1 | DJF 2023-24 | PCR | 47.9 | 33.7 | 0.12 | 163.8 | 753 |
+| 2 | JFM 2024 | CCA | 35.7 | 41.8 | -0.01 | 170.4 | 792 |
+| 2 | JFM 2024 | PCR | 40.2 | 41.8 | 0.03 | 164.9 | 801 |
+| 3 | FMA 2024 | CCA | 34.8 | 45.0 | -0.00 | 176.1 | 771 |
+| 3 | FMA 2024 | PCR | 37.4 | 45.0 | 0.04 | 171.8 | 781 |
+| 4 | MAM 2024 | CCA | 24.7 | 55.1 | -0.16 | 225.3 | 760 |
+| 4 | MAM 2024 | PCR | 28.3 | 55.1 | -0.15 | 228.8 | 771 |
+| 5 | AMJ 2024 | CCA | 21.2 | 66.8 | -0.15 | 247.2 | 698 |
+| 5 | AMJ 2024 | PCR | 38.7 | 66.8 | -0.05 | 240.1 | 728 |
+| 6 | MJJ 2024 | CCA | 56.9 | 61.4 | 0.16 | 157.6 | 717 |
+| 6 | MJJ 2024 | PCR | 56.0 | 61.4 | 0.15 | 180.7 | 723 |
 
 : Each target scored against its own observation. Sources: [issued-2023-11-forecasts.csv](../data/seasonal-leads-2023/issued-2023-11-forecasts.csv), [issued-2023-11-observed.csv](../data/seasonal-leads-2023/issued-2023-11-observed.csv).
 
 - **Hit rate** is the share of area where the most likely category was the one
   observed. The **reference** is always forecasting the category that covered the
-  most area that season, picked with hindsight. DJF's forecasts beat it (50-52%
-  against 38%). From JFM on they fell short, by most in AMJ (20% for CCA against
-  68%); the one exception is PCR for JFM, level with it (40.0% against 39.9%).
+  most area that season, picked with hindsight. DJF's forecasts beat it (46-48%
+  against 34%). From JFM on they fell short, by most in AMJ (21% for CCA against
+  67%).
 - **RPSS** compares the forecast probabilities with climatological odds
   (33/34/33%) using the ranked probability score
   [(Epstein 1969)](https://doi.org/10.1175/1520-0450(1969)008%3C0985:ASSFPF%3E2.0.CO;2).
-  It was positive for DJF (0.18 to 0.19) and MJJ (0.11 to 0.12), near zero for
-  JFM and FMA, and clearly negative for MAM and AMJ, where the forecasts leaned dry
-  in very wet seasons. One outcome per lead rewards being right about 2024, not
+  It was positive for DJF (0.12 to 0.13) and MJJ (0.15 to 0.16), near zero for JFM
+  and FMA, and clearly negative for MAM and for CCA in AMJ, where the forecasts leaned
+  dry in very wet seasons. One outcome per lead rewards being right about 2024, not
   skill in general.
 - **The deterministic totals** were below the observed ones at every lead: by
-  67 mm for DJF and 16 mm for MJJ (CCA), and by 87 to 196 mm in between.
+  67 mm for DJF and 17 mm for MJJ (CCA), and by 79 to 183 mm in between.
 
 ## What this does and does not show
 
@@ -298,14 +300,14 @@ none for the five later seasons, while October-December keeps much higher skill 
 the same leads. It does not show how other start months, models or settings
 behave, and the 2023-24 scores describe single outcomes.
 
-The [dekad case](dekad-leads-2023.qmd) goes to the subseasonal scale: every
-October-December 2023 dekad forecast one to three dekads ahead with GEFSv12.
+The [subseasonal cases](dekad-leads-2023.qmd) look at the weeks after the same
+issue date with GEFSv12.
 
 ## Files
 
 - [Executed notebook](../notebooks/seasonal-leads-2023.ipynb): every number and figure on this page
 - [Skill by lead (CSV)](../data/seasonal-leads-2023/skill-by-lead.csv) · [Same target from earlier starts (CSV)](../data/seasonal-leads-2023/same-target-skill.csv) · [Season against month (CSV)](../data/seasonal-leads-2023/seasonal-vs-monthly.csv) · [Forecasts as issued, scored (CSV)](../data/seasonal-leads-2023/issued-2023-11-forecasts.csv) · [Observed targets (CSV)](../data/seasonal-leads-2023/issued-2023-11-observed.csv) · [Run summary (JSON)](../data/seasonal-leads-2023/summary.json)
-- [Maps (NetCDF)](../data/seasonal-leads-2023/seasonal-leads-2023-maps.nc): for every lead, the observed total and category, and each method's correlation, forecast total and most likely category
+- [Maps at 0.05° (NetCDF)](../data/seasonal-leads-2023/seasonal-leads-2023-maps.nc): for every lead, the observed total and category, and each method's correlation, forecast total and most likely category
 
 ## References {.unnumbered .reference-section}
 

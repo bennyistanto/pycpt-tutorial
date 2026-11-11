@@ -1,7 +1,7 @@
 ---
-title: "The next three dekads, October-December 2023"
-subtitle: "Subseasonal rainfall forecasts for Indonesia, issued at the end of each dekad, one to three dekads ahead"
-description: "GEFSv12 forecasts of total rainfall for the next one, two and three dekads, calibrated with CCA and PCR through CPT against CHIRPS v3.0: how they are issued, how skill changes with lead, and what each 2023 forecast said."
+title: "Issued 31 October 2023: the next three dekads"
+subtitle: "Subseasonal rainfall forecasts for Indonesia from one day's GEFSv12 run, one to three dekads ahead"
+description: "GEFSv12 forecasts of total rainfall for the three dekads of November 2023, issued on 31 October and calibrated with CCA and PCR through CPT against the CHIRPS v3.0 dekad product at its native 0.05° grid: the forecast as issued, how far each lead can be trusted, and every other 2023 issue date."
 format:
   html:
     code-copy: false
@@ -10,214 +10,246 @@ format:
 ```{ojs}
 //| echo: false
 //| output: false
-import {selectControl, issueTimeline, skillByLead, skillMaps, issueMaps, seasonSeries} from "../assets/leads/leads.js"
-leadData = FileAttachment("../assets/dekad-leads-2023/interactive-data.json").json()
+import {selectControl, loadWeekData, weekIssueTimeline, skillByLead, weekSkillMaps, weekIssueMaps, weekSeries} from "../assets/leads/leads.js"
+dekadData = loadWeekData("../assets/dekad-leads-2023/")
 geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
   provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
   neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
-issueChoices = leadData.issues.map(d => [d.issued, `Issued ${d.label}`])
+issueChoices = dekadData.issues.map(d => [d.issued, `Issued ${d.label}${d.targets.length < dekadData.leads.length ? ` (${d.targets.length} of ${dekadData.leads.length} leads in October-December)` : ""}`])
 ```
 
 ::: {.eyebrow}
-Case 05 · Lead time · Subseasonal rainfall by dekad · Full Indonesia
+Case 05 · Subseasonal · Dekad rainfall · Full Indonesia
 :::
 
 At the end of every dekad (*dasarian*: days 1-10, 11-20 and 21 to the end of a
-month) a forecaster can ask: how much rain will fall over the **next three
-dekads**? This case builds that forecast for October-December 2023 over Indonesia,
-from **GEFSv12**, the model in PyCPT's subseasonal catalog, calibrated with CCA and
-PCR against CHIRPS v3.0, and measures how much skill is left one, two and three
-dekads ahead. Dekads are the unit [BMKG](https://www.bmkg.go.id/iklim/peringatan-dini-hujan-tinggi)
-uses for its rainfall early warnings. All numbers come from the
-[executed notebook](../notebooks/dekad-leads-2023.ipynb).
+month) a forecaster can ask how much rain will fall in **each of the next three
+dekads**. Dekads are the unit [BMKG](https://www.bmkg.go.id/iklim/peringatan-dini-hujan-tinggi)
+uses for its rainfall early warnings. This case takes the **GEFSv12** run started at
+00 UTC on **31 October 2023** and forecasts the three dekads of November: 1-10,
+11-20 and 21-30 November. It is calibrated with CCA and PCR through CPT against the
+CHIRPS v3.0 dekad product at its native 0.05° grid, 61,190 pixels over Indonesia.
+
+It is the same moment as the [monthly](monthly-leads-2023.qmd) and
+[seasonal](seasonal-leads-2023.qmd) cases, issued the day before them. All numbers
+come from the [executed notebook](../notebooks/dekad-leads-2023.ipynb).
+
+Hover, tap or use the arrow keys on any map or chart to read values; each view can
+be downloaded as it is set. Maps load when you choose them, one small file per map.
 
 ::: {.callout-note title="The short result"}
-- Skill falls with each dekad of lead. The area-mean cross-validated CCA
-  correlation is 0.37 one dekad ahead, 0.32 two dekads ahead and 0.18 three dekads
-  ahead; PCR is within 0.01 at every lead.
-- The **raw GEFS** model, without calibration, correlates better at every lead:
-  0.43, 0.33 and 0.21.
-- October-December 2023 was dry: the area-mean total was below the 2000-2018
-  average in 8 of 9 dekads. The forecasts leaned dry and beat climatological odds
-  (RPSS 0.18, 0.08 and 0.09 for CCA), but less dry than what happened, and no
-  forecast placed the categories better than always saying "below normal".
+- **The forecast of 31 October leaned dry, and November started dry.** The first
+  two dekads brought 60 and 68 mm over Indonesia against normals of 89 and 98 mm.
+  The forecast (CCA) was 67 and 80 mm: drier than normal, not as dry as observed.
+  The third dekad was close to normal (94 mm) and was forecast at 89 mm.
+- For dekads +1 and +2 the most likely category matched the observed one over 64% to
+  65% of the area, the same as always saying "below normal"; for dekad +3 it was 35%
+  against 38%.
+- **How far to trust each lead**, from all October-December dekads of 2000-2018: the
+  area-mean CCA correlation is 0.35 one dekad ahead, 0.31 two dekads ahead and 0.17
+  three dekads ahead. The raw GEFSv12 correlation is higher at every lead (0.42,
+  0.32 and 0.20).
 :::
 
-Hover, tap or use the arrow keys on any map or chart to read values. Each view can
-be downloaded as it is set; the static figures are in the notebook.
-
-## How a dekad forecast is issued
+## The forecast issued on 31 October 2023
 
 A forecast is issued on the last day of a dekad, from the GEFSv12 run started at
 00 UTC that day. Dekad +1 starts the next day, dekad +2 eleven or twelve days later,
 dekad +3 twenty-one or twenty-two days later; the third ends by model day 31, inside
-the model's 35 days. GEFSv12 runs every day, so the 2023 forecasts use exactly these
-issue dates.
+the model's 35 days. GEFSv12 runs every day, so every 2023 issue date uses its own
+run. Choose another issue date to see its targets.
 
 ::: {.story-interactive}
 ```{ojs}
 //| echo: false
 viewof timelineIssue = selectControl("Issue date", issueChoices, "2023-10-31")
-issueTimeline(leadData, timelineIssue)
+weekIssueTimeline(dekadData, timelineIssue)
 ```
 :::
 
-**Training** uses GEFSv12's hindcasts of 2000-2018, which start only on Wednesdays.
-For each October-December target dekad and each lead, the training sample takes
-the one Wednesday whose start falls in a 7-day window around the real-time offset:
-1-7 days before the target (dekad +1), 8-14 (dekad +2) and 18-24 (dekad +3). Every
-window holds exactly one Wednesday, so all three leads are trained on the same 171
-target dekads. Dekad +1 is the one compromise: its training starts are up to seven
-days earlier than in real use, so its training is slightly harder than the real
-forecast.
+Each map is one lead against its own target, dekad +1 at the top.
 
-Model and observations are compared as **anomalies** from the 2000-2018 mean of each
-calendar dekad, because rainfall rises through the season, from about 70 mm per
-dekad in early October to 109 mm in late December. The forecast **total** shown
-below is that mean plus the calibrated anomaly. The fits use CCA (3/3/2) and PCR (3)
-through `cptcore`, the layer under PyCPT's `evaluate_models`, with cross-validation
-that leaves out each held-out dekad's whole season. Three adjustments CPT needed
-(placeholder years, the field name `anomaly`, latitudes north to south) are
-explained in the notebook.
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof mapIssue = selectControl("Issue date", issueChoices, "2023-10-31")
+viewof issueMethod = selectControl("Calibration", [["CCA", "CCA"], ["PCR", "PCR"]], "CCA")
+viewof issueView = selectControl("Show", [["total", "Forecast total"], ["observed", "Observed total"], ["difference", "Forecast minus observed"], ["category", "Most likely category"], ["observedCategory", "Observed category"]], "total")
+weekIssueMaps(dekadData, geo, mapIssue, issueMethod, issueView)
+```
+:::
 
-## Skill falls with each dekad
+| Lead | Target | Forecast (mm) | Observed (mm) | 2000-2018 mean (mm) | Observed below / near / above normal (% of area) | Hit rate (%) | Reference (%) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Dekad +1 | 1-10 Nov | 67.2 | 60.3 | 89.2 | 64.4 / 31.1 / 4.5 | 64.9 | 64.4 |
+| Dekad +2 | 11-20 Nov | 79.5 | 67.9 | 98.3 | 64.4 / 27.6 / 8.0 | 64.1 | 64.4 |
+| Dekad +3 | 21-30 Nov | 89.3 | 94.2 | 98.9 | 36.0 / 38.2 / 25.9 | 34.7 | 38.2 |
+
+: CCA forecast issued 31 October 2023, area-weighted over Indonesia. Source: [issued-2023-10-31.csv](../data/dekad-leads-2023/issued-2023-10-31.csv), which also has PCR.
+
+- **Amounts.** The first two dekads of November were dry, 60 and 68 mm against
+  normals of 89 and 98 mm. The forecast went the same way but stopped short: 67 and
+  80 mm. The third dekad was near normal (94 mm against 99 mm) and was forecast at
+  89 mm.
+- **Categories.** For dekads +1 and +2 the forecast made below normal the most likely
+  category over 97% to 98% of the area, and below normal was observed over 64% of it.
+  The hit rate (64.9% and 64.1%) equalled the **reference**, always forecasting the
+  category that turned out most common, chosen with hindsight. For dekad +3, a mixed
+  dekad, the forecast still favoured below normal over 81% of the area; its hit rate
+  was 34.7% against 38.2%.
+
+One issue date is one outcome per lead. The next sections show how well each lead
+does on average.
+
+## How far each lead can be trusted
+
+The calibration of each lead is trained and scored on every October-December dekad
+of 2000-2018, 171 per lead. GEFSv12's hindcasts start only on Wednesdays, so each
+training sample uses the one Wednesday whose start falls in a 7-day window around
+the real-time offset: 1-7 days before the target for dekad +1, 8-14 for dekad +2,
+18-24 for dekad +3. Dekad +1 is the one compromise: its training starts are 1-7 days
+before the target, its real-time start one day before, so training is on average
+slightly harder than real use.
+
+CCA (3 predictor and 3 predictand EOFs, 2 CCA modes) and PCR (3 predictor EOFs) are
+fitted through `cptcore`, the layer PyCPT's `evaluate_models` calls, with
+cross-validation leaving out 17 dekads at a time (the held-out dekad and 8 on each
+side, about a season). At 0.05° one fit took 32 to 38 minutes for CCA and 13 to 14
+minutes for PCR; the six fits ran in parallel. For every fit, CPT's correlation map
+equals the correlation recomputed from its own cross-validated hindcasts to within
+0.000001.
+
+**Pearson correlation** is 0 for no linear relationship; **2AFC** is the chance
+that the forecast ranks two different dekads in the observed order, 50% for no
+skill [(Mason and Weigel 2009)](https://doi.org/10.1175/2008MWR2553.1).
 
 ::: {.story-interactive}
 ```{ojs}
 //| echo: false
 viewof skillMetric = selectControl("Score", [["Pearson", "Pearson correlation"], ["2AFC (%)", "2AFC"]], "Pearson")
-skillByLead(leadData, skillMetric)
+skillByLead(dekadData, skillMetric)
 ```
 :::
 
-| Lead | CCA Pearson | PCR Pearson | Raw GEFS Pearson | CCA 2AFC (%) | CCA ROC below | CCA ROC above |
-| --- | --- | --- | --- | --- | --- | --- |
-| Dekad +1 | 0.37 | 0.36 | 0.43 | 63.4 | 0.70 | 0.68 |
-| Dekad +2 | 0.32 | 0.32 | 0.33 | 61.4 | 0.67 | 0.66 |
-| Dekad +3 | 0.18 | 0.18 | 0.21 | 57.6 | 0.62 | 0.60 |
+| Lead | CCA Pearson | PCR Pearson | Raw GEFS Pearson | CCA 2AFC (%) | PCR 2AFC (%) |
+| --- | --- | --- | --- | --- | --- |
+| Dekad +1 | 0.35 | 0.34 | 0.42 | 62.7 | 62.5 |
+| Dekad +2 | 0.31 | 0.31 | 0.32 | 60.8 | 60.9 |
+| Dekad +3 | 0.17 | 0.17 | 0.20 | 57.0 | 56.8 |
 
-: Area-weighted means over 3,240 cells and 171 dekads, 2000-2018. 2AFC is 50% and ROC area 0.5 for no skill [(Mason and Weigel 2009)](https://doi.org/10.1175/2008MWR2553.1). Source: [skill-by-lead.csv](../data/dekad-leads-2023/skill-by-lead.csv).
+: Area-weighted means over 61,190 pixels, 171 dekads of 2000-2018. Source: [skill-by-lead.csv](../data/dekad-leads-2023/skill-by-lead.csv).
 
-- **Each dekad of lead costs skill**, most of all the third: correlation 0.37,
-  0.32, 0.18 and 2AFC 63.4%, 61.4%, 57.6%. Three dekads ahead, skill is still above
-  zero on average.
-- **Calibration does not beat the raw model**, by 0.07 one dekad ahead, 0.01 two
-  and 0.03 three. The calibrated scores are cross-validated while the raw score
-  involves no fitting, a comparison known to work against calibration when skill is
-  small ([Barnston and van den Dool 1993](https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2));
-  that was not tested separately.
+1. **Skill falls with each dekad of lead**, most between dekads +2 and +3: CCA's mean
+   correlation drops by 0.04 and then by 0.14.
+2. **Calibration does not beat the raw model.** GEFSv12's own anomaly correlates
+   better at every lead, by 0.07 one dekad ahead and 0.01 to 0.03 after that. The
+   calibrated scores pay a cross-validation cost
+   [(Barnston and van den Dool 1993)](https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2)
+   and see the model only through 3 EOF patterns; neither effect was measured here.
+3. **CCA and PCR are nearly identical**, within 0.01 at every lead.
 
-## Where the skill is
+### Where the skill is, pixel by pixel
 
 ::: {.story-interactive}
 ```{ojs}
 //| echo: false
 viewof mapMethod = selectControl("Forecast", [["CCA", "CCA"], ["PCR", "PCR"], ["raw", "Raw GEFS"]], "CCA")
 viewof mapMetric = selectControl("Score", mapMethod === "raw" ? [["pearson", "Pearson correlation"]] : [["pearson", "Pearson correlation"], ["twoafc", "2AFC"]], "pearson")
-skillMaps(leadData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMetric)
+weekSkillMaps(dekadData, geo, mapMethod, mapMethod === "raw" ? "pearson" : mapMetric)
 ```
 :::
 
-One dekad ahead, correlations are positive almost everywhere, highest over Sulawesi
-and Maluku (read by eye from the maps). By dekad +3, northern and central Sumatra,
-western Kalimantan and part of central Papua are near or below zero, while southern
-Sumatra, Java, Sulawesi, Maluku and southern Papua keep more.
+## Every issue date of late 2023
 
-## The forecasts as issued in late 2023
+Eleven issue dates, from 10 September to 20 December 2023, forecast at least one dekad
+of October-December; seven of them cover all three leads (choose them in the maps
+above). Over the nine dekads of each lead, scored over every pixel and dekad
+(area-weighted):
 
-Choose an issue date and what to show. Totals use one colour scale for forecast and
-observed; the difference map shows where the forecast was too wet or too dry. The
-categories follow CPT's own definition for this fit: below the 33rd or above the
-67th percentile of the 171 training anomalies at each cell.
+| Lead | Method | Hit rate (%) | Reference (%) | RPSS 2023 | RMSE 2023 (mm) | Mean forecast (mm) | Observed mean (mm) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Dekad +1 | CCA | 52.7 | 53.8 | 0.16 | 37.4 | 82.5 | 71.9 |
+| Dekad +1 | PCR | 52.4 | 53.8 | 0.16 | 37.5 | 82.4 | 71.9 |
+| Dekad +2 | CCA | 45.2 | 53.8 | 0.08 | 40.2 | 85.9 | 71.9 |
+| Dekad +2 | PCR | 45.0 | 53.8 | 0.07 | 40.6 | 85.7 | 71.9 |
+| Dekad +3 | CCA | 50.6 | 53.8 | 0.09 | 39.5 | 84.7 | 71.9 |
+| Dekad +3 | PCR | 49.3 | 53.8 | 0.09 | 39.7 | 84.4 | 71.9 |
 
-::: {.story-interactive}
-```{ojs}
-//| echo: false
-viewof exploreIssue = selectControl("Issue date", issueChoices, "2023-10-31")
-viewof exploreMethod = selectControl("Calibration", [["CCA", "CCA"], ["PCR", "PCR"]], "CCA")
-viewof exploreView = selectControl("Show", [["total", "Forecast total"], ["observed", "Observed total"], ["difference", "Forecast minus observed"], ["category", "Most likely category"], ["observedCategory", "Observed category"]], "total")
-issueMaps(leadData, geo, exploreIssue, exploreMethod, exploreView)
-```
-:::
+: Nine dekads of October-December 2023, area-weighted. Observed: below normal 53.8%, near normal 31.3%, above normal 14.9% of area × dekads. Source: [ond-2023-dekad-forecasts.csv](../data/dekad-leads-2023/ond-2023-dekad-forecasts.csv).
 
-## The season in nine dekads
-
-::: {.story-interactive}
-```{ojs}
-//| echo: false
-seasonSeries(leadData)
-```
-:::
-
-The area-mean total was below the 2000-2018 average in 8 of the 9 dekads, by
-up to 37 mm in early October; only 1-10 December was slightly above. The
-forecasts followed the dry spell, most closely one dekad ahead in October, but sat
-between the observations and the average: over the nine dekads their area-mean was
-77.4 to 81.1 mm per dekad against 66.8 mm observed. Regression-based calibration
-pulls forecasts towards the average where skill is limited.
-
-| Lead | Method | Hit rate (%) | RPSS 2023 | RMSE 2023 (mm) | Mean forecast (mm) |
-| --- | --- | --- | --- | --- | --- |
-| Dekad +1 | CCA | 53.9 | 0.18 | 36.7 | 77.7 |
-| Dekad +1 | PCR | 53.2 | 0.17 | 37.0 | 77.4 |
-| Dekad +2 | CCA | 45.4 | 0.08 | 39.7 | 81.1 |
-| Dekad +2 | PCR | 45.4 | 0.08 | 40.2 | 80.8 |
-| Dekad +3 | CCA | 51.0 | 0.09 | 39.1 | 79.8 |
-| Dekad +3 | PCR | 49.9 | 0.10 | 39.3 | 79.7 |
-
-: Nine dekads of October-December 2023, all cells, area-weighted. Observed: below normal 54.5%, near normal 31.1%, above normal 14.4% of area × dekads; mean 66.8 mm per dekad. Source: [ond-2023-dekad-forecasts.csv](../data/dekad-leads-2023/ond-2023-dekad-forecasts.csv).
-
-- **Hit rate**: always forecasting "below normal" would have scored **54.5%**. No
-  forecast did better; one dekad ahead came closest (53.9% for CCA).
+- The area-mean total was below the 2000-2018 average in 8 of the 9 dekads; only
+  1-10 December was slightly above. The forecasts followed the dry spell but sat
+  between the observations and the average: 82.4 to 85.9 mm per dekad against an
+  observed 71.9 mm.
+- **Hit rate**: always forecasting "below normal" would have scored **53.8%**. No
+  lead did better over the season; one dekad ahead came closest (52.7% for CCA).
 - **RPSS 2023**, against climatological odds with the ranked probability score
   ([Epstein 1969](https://doi.org/10.1175/1520-0450(1969)008%3C0985:ASSFPF%3E2.0.CO;2)),
   was positive at every lead. For nine dekads of one season this rewards leaning the
   right way in 2023, not skill in general.
 - **Totals below zero**: where the 2000-2018 mean plus the forecast anomaly fell
-  below zero, the total was set to zero; this happened in 778 of the 87,480 CCA
-  cell-dekads (0.9%).
+  below zero, the total was set to zero, in 1,686 to 3,196 of the 550,710 CCA
+  pixel-dekads per lead (0.3% to 0.6%).
 
-## Four time scales side by side
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+weekSeries(dekadData)
+```
+:::
 
-The lead-time cases share the observations (CHIRPS v3.0) and the CCA and PCR mode
-settings; the cross-validation window is sized to each case's samples.
-They differ in model (CFSv2 for months and seasons, GEFSv12 for dekads and weeks),
-training years (1991-2020 and 2000-2018), sample size (30, 171 and 249), grid
-(0.25° cells, 0.05° pixels for weeks) and how lead is counted, so the numbers are
-not a ranking.
+## Observations and anomalies
 
-| Case | Target | Leads | CCA correlation, shortest to longest lead | Raw model vs calibrated |
+The predictand is the CHIRPS v3.0 **dekad product** from the local archive used
+throughout the tutorial, at its native 0.05° grid; the box is the one of the weekly
+and pentad cases, so all three subseasonal cases share one pixel grid. The notebook
+checks every target's stored time bounds against the design, and that each dekad
+equals the sum of its two CHIRPS pentads (exactly, for the three dekads checked).
+
+October-December rainfall rises through the season, so model and observations are
+turned into **anomalies** from the 2000-2018 mean of the same calendar dekad (and,
+for the model, the same lead). These means include the year held out in
+cross-validation; for correlations that makes no difference (it multiplies every
+anomaly of a dekad by the same factor, 19/18), and its effect inside CPT's fits was
+not measured. Each forecast **total** is the observed mean plus the calibrated
+anomaly.
+
+## Five time scales side by side
+
+The lead-time cases share the observations (CHIRPS v3.0, at 0.05°) and the CCA and
+PCR mode settings; the cross-validation window is sized to each case's samples. They
+differ in model (CFSv2 for months and seasons, GEFSv12 for dekads, weeks and
+pentads), training years (1991-2020 and 2000-2018), sample size and how lead is
+counted, so the numbers are not a ranking.
+
+| Case | Issued | Leads | CCA correlation, shortest to longest lead | Raw model vs calibrated |
 | --- | --- | --- | --- | --- |
-| [Monthly](monthly-leads-2023.qmd), issued 1 Nov 2023 | Dec 2023 to May 2024 | 1-6 months | 0.13, then -0.12 to 0.04 | raw higher at all 6 |
-| [Seasonal](seasonal-leads-2023.qmd), issued 1 Nov 2023 | DJF 2023-24 to MJJ 2024 | 1-6 months | 0.20, then -0.06 to 0.07 | calibrated higher for DJF only |
-| This case | the next three dekads, October-December | 1-3 dekads | 0.37 to 0.18 | raw higher at all 3 |
-| [Weekly](week-leads-2023.qmd), 0.05° | the next four weeks and weeks 3-4, October-December | 1-4 weeks | 0.35 to 0.17 | raw higher for weeks 1-2, level from week 3 |
+| [Monthly](monthly-leads-2023.qmd) | 1 Nov 2023 | Dec 2023 to May 2024 | 0.10, then -0.15 to 0.03 | raw higher at all 6 |
+| [Seasonal](seasonal-leads-2023.qmd) | 1 Nov 2023 | DJF 2023-24 to MJJ 2024 | 0.16, then -0.10 to 0.04 | calibrated higher for DJF only |
+| This case | 31 Oct 2023 | dekads +1 to +3 | 0.35 to 0.17 | raw higher at all 3 |
+| [Weekly](week-leads-2023.qmd) | 1 Nov 2023 | weeks 1-4, weeks 3-4 | 0.35 to 0.17 | raw higher for weeks 1-2, level from week 3 |
+| [Pentad](pentad-leads-2023.qmd) | 31 Oct 2023 | pentads +1 to +6 | 0.30 to 0.12 | raw higher for pentads +1 to +3, level from +4 |
 
-Both CFSv2 cases also fit one fixed target from six earlier starts, with the same
-settings: November keeps a CCA correlation of 0.05 to 0.27, October-December 0.36
-to 0.51. Their target months and seasons differ from this case's, which is
-another reason not to rank the rows.
+The monthly and seasonal rows are confounded by the target: each lead there is a
+different month or season. With one target forecast from earlier starts and the same
+settings, November keeps a CCA correlation of 0.01 to 0.24 and October-December 0.33
+to 0.48.
 
 ## What this does and does not show
 
-This is one season of dekads, one model, one set of fixed settings, 19 training
-years and one verifying year. It shows that, for GEFSv12 dekad rainfall over
-Indonesia in October-December, skill falls with each dekad of lead and that
-calibration with these settings did not add to the raw model's correlation. The
+This is one model, one set of fixed settings, 19 training years and one verifying
+season, with the headline on one issue date. It shows that, for GEFSv12 dekad
+rainfall over Indonesia in October-December, skill falls with each dekad of lead and
+that calibration with these settings did not add to the raw model's correlation. The
 observations are retrospective CHIRPS v3.0 Final data, not what was available when
-each forecast was issued. The 2023 forecasts average 31 GEFS members while the
-hindcasts have 11; a check made while preparing the case, using only 11 of the 31
-members, changed the 2023 scores negligibly.
-
-Weekly targets, the international convention for subseasonal forecasts, need
-daily observations; a weekly and pentad version will follow once the daily CHIRPS
-v3.0 archive is complete.
+each forecast was issued, and the 2023 forecasts average 31 GEFSv12 members while the
+hindcasts have 11.
 
 ## Files
 
 - [Executed notebook](../notebooks/dekad-leads-2023.ipynb): every number and figure on this page
-- [Skill by lead (CSV)](../data/dekad-leads-2023/skill-by-lead.csv) · [2023 forecasts and scores (CSV)](../data/dekad-leads-2023/ond-2023-dekad-forecasts.csv) · [2023 area-mean totals (CSV)](../data/dekad-leads-2023/ond-2023-area-totals.csv) · [Every target, lead and start (CSV)](../data/dekad-leads-2023/lead-design.csv) · [Run summary (JSON)](../data/dekad-leads-2023/summary.json)
-- [Maps (NetCDF)](../data/dekad-leads-2023/dekad-leads-2023-maps.nc) · [Data behind the interactive views (JSON)](../assets/dekad-leads-2023/interactive-data.json)
+- [Forecast issued 31 Oct 2023 (CSV)](../data/dekad-leads-2023/issued-2023-10-31.csv) · [Skill by lead (CSV)](../data/dekad-leads-2023/skill-by-lead.csv) · [2023 forecasts and scores (CSV)](../data/dekad-leads-2023/ond-2023-dekad-forecasts.csv) · [2023 area-mean totals (CSV)](../data/dekad-leads-2023/ond-2023-area-totals.csv) · [Every target, lead and start (CSV)](../data/dekad-leads-2023/lead-design.csv) · [Run summary (JSON)](../data/dekad-leads-2023/summary.json)
+- [Skill maps at 0.05° (NetCDF)](../data/dekad-leads-2023/dekad-leads-2023-skill-maps.nc): cross-validated correlation for every lead, CCA, PCR and raw GEFSv12
 - [GEFS download script](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/download_gefs_dekads.py)
 
 ## References {.unnumbered .reference-section}
