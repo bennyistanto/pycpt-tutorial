@@ -18,10 +18,12 @@ unchanged.
 
 The third [executed lead-time notebook](monthly-leads-2023.ipynb) takes the CFSv2
 run started on 1 November 2023, builds CHIRPS v3.0 totals for each of the next six
-months from the local dekadal archive and fits CCA and PCR for each, plus CCA for
-November from six earlier starts. It writes `docs/data/monthly-2023/` and
+months from the local dekadal archive at the native 0.05° grid and fits CCA and PCR
+for each through PyCPT's `evaluate_models`, plus CCA for November from six earlier
+starts. At 0.05° each fit takes about 15-18 minutes, so the eighteen fits run side by
+side in separate processes. It writes `docs/data/monthly-2023/` and
 `docs/assets/monthly-2023/`. Refresh it in the full PyCPT environment with
-`python scripts/execute_learn_chapter.py docs/notebooks/monthly-leads-2023.ipynb`.
+`python scripts/execute_learn_chapter.py docs/notebooks/monthly-leads-2023.ipynb --timeout 14400`.
 
 The fourth, [seasonal lead-time notebook](seasonal-leads-2023.ipynb), applies the same
 steps to the next six three-month seasons (and October-December from six earlier
@@ -29,11 +31,13 @@ starts) and reads the monthly notebook's `skill-by-lead.csv` for its comparison,
 run the monthly one first. It writes `docs/data/seasonal-leads-2023/` and
 `docs/assets/seasonal-leads-2023/`.
 
-The fifth, [dekad lead-time notebook](dekad-leads-2023.ipynb), downloads 293 GEFSv12
-starts with `research/scripts/download_gefs_dekads.py` (about 1.2 GB, kept in
-`~/PyCPT/indonesia-ond-2023-dekads/`), builds dekad anomalies and fits CCA and PCR
-through `cptcore` at three leads. It writes `docs/data/dekad-leads-2023/` and
-`docs/assets/dekad-leads-2023/`.
+The fifth, [dekad lead-time notebook](dekad-leads-2023.ipynb), downloads the GEFSv12
+starts listed by `research/scripts/download_gefs_dekads.py` (kept in
+`~/PyCPT/indonesia-ond-2023-dekads/gefs/`, shared with the weekly and pentad cases),
+reads the CHIRPS v3.0 dekad product at 0.05°, builds dekad anomalies and fits CCA and
+PCR through `cptcore` at three leads, six fits in parallel through
+`research/scripts/weekly_fits.py`; execute it with `--timeout 14400`. It writes
+`docs/data/dekad-leads-2023/` and `docs/assets/dekad-leads-2023/`.
 
 The sixth, [weekly lead-time notebook](week-leads-2023.ipynb), reads daily CHIRPS
 v3.0 for Indonesia (yearly NetCDF files from `research/scripts/gee_daily_to_netcdf.py`),
