@@ -1,0 +1,1533 @@
+[
+ {
+  "model": "CCSM4.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": [
+      7,
+      9
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 35.1,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": [
+      8,
+      10
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 16.6,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": [
+      9,
+      11
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 13.1,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      10,
+      12
+     ],
+     "forecast": [
+      10,
+      12
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 4.3,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      11,
+      1
+     ],
+     "forecast": [
+      11,
+      1
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 4.8,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1991-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      12,
+      2
+     ],
+     "forecast": [
+      12,
+      2
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 5.2,
+    "qualifies": true
+   }
+  ]
+ },
+ {
+  "model": "CESM1.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": [
+      7,
+      9
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 24.0,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": [
+      8,
+      10
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 5.8,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": [
+      9,
+      11
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 16.5,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      10,
+      12
+     ],
+     "forecast": [
+      10,
+      12
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 5.5,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      11,
+      1
+     ],
+     "forecast": [
+      11,
+      1
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 5.8,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1991-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      12,
+      2
+     ],
+     "forecast": [
+      12,
+      2
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 16.7,
+    "qualifies": true
+   }
+  ]
+ },
+ {
+  "model": "CFSv2.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": [
+      7,
+      9
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 27.8,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": [
+      8,
+      10
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 21.8,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": [
+      9,
+      11
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 11.5,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      10,
+      12
+     ],
+     "forecast": [
+      10,
+      12
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 20.8,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      11,
+      1
+     ],
+     "forecast": [
+      11,
+      1
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 15.4,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1991-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      12,
+      2
+     ],
+     "forecast": [
+      12,
+      2
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 10.8,
+    "qualifies": true
+   }
+  ]
+ },
+ {
+  "model": "CanSIPSIC3.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": [
+      7,
+      9
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 34.9,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": [
+      8,
+      10
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 22.1,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": [
+      9,
+      11
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 20.6,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      10,
+      12
+     ],
+     "forecast": [
+      10,
+      12
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 6.7,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      11,
+      1
+     ],
+     "forecast": [
+      11,
+      1
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 6.8,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1991-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      12,
+      2
+     ],
+     "forecast": [
+      12,
+      2
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 7.0,
+    "qualifies": true
+   }
+  ]
+ },
+ {
+  "model": "CanSIPSIC4.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": false,
+    "forecast_start": null,
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": null
+    },
+    "target_matches": true,
+    "elapsed_seconds": 158.2,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": false,
+    "forecast_start": null,
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": null
+    },
+    "target_matches": true,
+    "elapsed_seconds": 197.7,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": false,
+    "forecast_start": null,
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": null
+    },
+    "target_matches": true,
+    "elapsed_seconds": 149.7,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": false,
+    "forecast_start": null,
+    "returned_target_months": {
+     "hindcast": [
+      10,
+      12
+     ],
+     "forecast": null
+    },
+    "target_matches": true,
+    "elapsed_seconds": 143.2,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": false,
+    "forecast_start": null,
+    "returned_target_months": {
+     "hindcast": [
+      11,
+      1
+     ],
+     "forecast": null
+    },
+    "target_matches": true,
+    "elapsed_seconds": 141.4,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1991-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": false,
+    "forecast_start": null,
+    "returned_target_months": {
+     "hindcast": [
+      12,
+      2
+     ],
+     "forecast": null
+    },
+    "target_matches": true,
+    "elapsed_seconds": 140.7,
+    "qualifies": false
+   }
+  ]
+ },
+ {
+  "model": "GCFS2p1.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [
+     1992,
+     2020
+    ],
+    "hindcast_first_start": "1993-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": [
+      7,
+      9
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 18.4,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [
+     1992,
+     2020
+    ],
+    "hindcast_first_start": "1993-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": [
+      8,
+      10
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 15.0,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [
+     1992,
+     2020
+    ],
+    "hindcast_first_start": "1993-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": [
+      9,
+      11
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 8.1,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 2",
+    "elapsed_seconds": 10.0,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 1",
+    "elapsed_seconds": 3.6,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 1",
+    "elapsed_seconds": 3.4,
+    "qualifies": false
+   }
+  ]
+ },
+ {
+  "model": "GEOSS2S.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": [
+      7,
+      9
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 20.7,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": [
+      8,
+      10
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 6.5,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": [
+      9,
+      11
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 15.6,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      10,
+      12
+     ],
+     "forecast": [
+      10,
+      12
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 5.9,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      11,
+      1
+     ],
+     "forecast": [
+      11,
+      1
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 5.3,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1991-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      12,
+      2
+     ],
+     "forecast": [
+      12,
+      2
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 5.7,
+    "qualifies": true
+   }
+  ]
+ },
+ {
+  "model": "METEOFRANCE9.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [
+     1992
+    ],
+    "hindcast_first_start": "1993-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": false,
+    "forecast_start": null,
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": null
+    },
+    "target_matches": true,
+    "elapsed_seconds": 15.1,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [
+     1992
+    ],
+    "hindcast_first_start": "1993-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": false,
+    "forecast_start": null,
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": null
+    },
+    "target_matches": true,
+    "elapsed_seconds": 15.1,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [
+     1992
+    ],
+    "hindcast_first_start": "1993-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": false,
+    "forecast_start": null,
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": null
+    },
+    "target_matches": true,
+    "elapsed_seconds": 13.5,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 2",
+    "elapsed_seconds": 5.3,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 1",
+    "elapsed_seconds": 2.8,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 1",
+    "elapsed_seconds": 5.7,
+    "qualifies": false
+   }
+  ]
+ },
+ {
+  "model": "SEAS51c.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": [
+      7,
+      9
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 18.3,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": [
+      8,
+      10
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 13.9,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": [
+      9,
+      11
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 9.5,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 2",
+    "elapsed_seconds": 4.5,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 1",
+    "elapsed_seconds": 4.0,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 1",
+    "elapsed_seconds": 4.3,
+    "qualifies": false
+   }
+  ]
+ },
+ {
+  "model": "SPEAR.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": [
+      7,
+      9
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 33.4,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": [
+      8,
+      10
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 9.0,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": [
+      9,
+      11
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 21.9,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      10,
+      12
+     ],
+     "forecast": [
+      10,
+      12
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 17.0,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1992-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      11,
+      1
+     ],
+     "forecast": [
+      11,
+      1
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 4.2,
+    "qualifies": true
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": true,
+    "missing_training_years": [],
+    "hindcast_first_start": "1991-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      12,
+      2
+     ],
+     "forecast": [
+      12,
+      2
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 7.4,
+    "qualifies": true
+   }
+  ]
+ },
+ {
+  "model": "SPSv3p5.PRCP",
+  "issue": "2023-06-01",
+  "training_target_years": [
+   1992,
+   2020
+  ],
+  "checked": "2026-11-16T05:23:07+00:00",
+  "targets": [
+   {
+    "case": "seasons",
+    "lead": 1,
+    "target": "Jul-Sep",
+    "downloaded": true,
+    "missing_training_years": [
+     1992,
+     2017,
+     2018,
+     2019,
+     2020
+    ],
+    "hindcast_first_start": "1993-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      7,
+      9
+     ],
+     "forecast": [
+      7,
+      9
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 18.0,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 2,
+    "target": "Aug-Oct",
+    "downloaded": true,
+    "missing_training_years": [
+     1992,
+     2017,
+     2018,
+     2019,
+     2020
+    ],
+    "hindcast_first_start": "1993-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      8,
+      10
+     ],
+     "forecast": [
+      8,
+      10
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 16.7,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 3,
+    "target": "Sep-Nov",
+    "downloaded": true,
+    "missing_training_years": [
+     1992,
+     2017,
+     2018,
+     2019,
+     2020
+    ],
+    "hindcast_first_start": "1993-06-01",
+    "grid_spacing_degrees": 1.0,
+    "forecast_present": true,
+    "forecast_start": "2023-06-01",
+    "returned_target_months": {
+     "hindcast": [
+      9,
+      11
+     ],
+     "forecast": [
+      9,
+      11
+     ]
+    },
+    "target_matches": true,
+    "elapsed_seconds": 9.4,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 4,
+    "target": "Oct-Dec",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 2",
+    "elapsed_seconds": 5.5,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 5,
+    "target": "Nov-Jan",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 1",
+    "elapsed_seconds": 14.3,
+    "qualifies": false
+   },
+   {
+    "case": "seasons",
+    "lead": 6,
+    "target": "Dec-Feb",
+    "downloaded": false,
+    "error": "PyCPT_ERROR: Expected data with a 3-day season but got 1",
+    "elapsed_seconds": 4.2,
+    "qualifies": false
+   }
+  ]
+ }
+]

@@ -1,0 +1,4 @@
+lead,target,days,members,not members,training targets
+Dekad +1,2023-11-01 to 2023-11-10,10,"GEFSv12, CFSv2, GEOS, CCSM4, FIM",none,152
+Dekad +2,2023-11-11 to 2023-11-20,10,"GEFSv12, CFSv2, GEOS, CCSM4, FIM",none,151
+Dekad +3,2023-11-21 to 2023-11-30,10,"GEFSv12, CFSv2, GEOS, CCSM4",FIM: no 2023 forecast this far ahead,150

@@ -1,0 +1,250 @@
+{
+  "issued": "2023-11-01",
+  "leads": [
+    "week1",
+    "week2",
+    "week3",
+    "week4",
+    "week34"
+  ],
+  "targets": {
+    "week1": {
+      "name": "Week 1",
+      "label": "2-8 Nov 2023",
+      "first_day": "2023-11-02",
+      "last_day": "2023-11-08",
+      "training_targets": 223
+    },
+    "week2": {
+      "name": "Week 2",
+      "label": "9-15 Nov 2023",
+      "first_day": "2023-11-09",
+      "last_day": "2023-11-15",
+      "training_targets": 222
+    },
+    "week3": {
+      "name": "Week 3",
+      "label": "16-22 Nov 2023",
+      "first_day": "2023-11-16",
+      "last_day": "2023-11-22",
+      "training_targets": 221
+    },
+    "week4": {
+      "name": "Week 4",
+      "label": "23-29 Nov 2023",
+      "first_day": "2023-11-23",
+      "last_day": "2023-11-29",
+      "training_targets": 220
+    },
+    "week34": {
+      "name": "Weeks 3-4",
+      "label": "16-29 Nov 2023",
+      "first_day": "2023-11-16",
+      "last_day": "2023-11-29",
+      "training_targets": 221
+    }
+  },
+  "members": {
+    "week1": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ],
+    "week2": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ],
+    "week3": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ],
+    "week4": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ],
+    "week34": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ]
+  },
+  "runs": {
+    "GEFSv12_CPC": {
+      "starts": [
+        "2023-11-01T00:00"
+      ],
+      "members": 31,
+      "lag_days": 0.0,
+      "training_members": 11,
+      "training_lag_days": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "CFSv2": {
+      "starts": [
+        "2023-10-31T06:00",
+        "2023-10-31T12:00",
+        "2023-10-31T18:00",
+        "2023-11-01T00:00"
+      ],
+      "members": 16,
+      "lag_days": 0.0,
+      "training_members": 4,
+      "training_lag_days": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "GEOS_V2p1": {
+      "starts": [
+        "2023-10-28T00:00"
+      ],
+      "members": 4,
+      "lag_days": 4.0,
+      "training_members": 4,
+      "training_lag_days": [
+        0.0,
+        2.0,
+        4.0
+      ]
+    },
+    "CCSM4": {
+      "starts": [
+        "2023-10-29T00:00"
+      ],
+      "members": 9,
+      "lag_days": 3.0,
+      "training_members": 3,
+      "training_lag_days": [
+        0.0,
+        2.08,
+        5.0
+      ]
+    },
+    "FIMr1p1": {
+      "starts": [
+        "2023-11-01T00:00"
+      ],
+      "members": 4,
+      "lag_days": 0.0,
+      "training_members": 4,
+      "training_lag_days": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "training_target_years": [
+    2000,
+    2016
+  ],
+  "pixels": 69638,
+  "grid": "native 0.05 degree",
+  "settings": {
+    "x_eof_modes": "(3, 3)",
+    "validation": "CROSSVALIDATION",
+    "crossvalidation_window": "27",
+    "synchronous_predictors": "True",
+    "transform_predictand": "None",
+    "tailoring": "None",
+    "drymask_threshold": "None",
+    "skillmask_threshold": "None",
+    "y_eof_modes": "(3, 3)",
+    "cca_modes": "(2, 2)"
+  },
+  "checks": {
+    "CPT Pearson minus recomputed, members": 9.54083325177546e-07,
+    "CPT 2AFC minus this notebook's 2AFC, GEFSv12 CCA (percentage points)": 0.11363678984810122,
+    "hindcast values missing": 0.0,
+    "MME probabilities: largest distance of their sum from 100": 3.433227547589013e-06
+  },
+  "flexible_forecast_check_first_lead": {
+    "exceedance probability (percentage points)": 0.0,
+    "forecast scale (mm)": 0.0,
+    "climatology scale (mm)": 2.9965304719326014e-05,
+    "degrees of freedom": 0.0
+  },
+  "no_model_cross_validated_pearson": {
+    "week1": -0.4166,
+    "week2": -0.416,
+    "week3": -0.4159,
+    "week4": -0.4155,
+    "week34": -0.5087
+  },
+  "totals_set_to_zero_mme_cca": {
+    "week1": 1350,
+    "week2": 238,
+    "week3": 54,
+    "week4": 3,
+    "week34": 1
+  },
+  "fit_seconds": {
+    "week1-GEFSv12-CCA": 8740.4,
+    "week1-GEFSv12-PCR": 1959.2,
+    "week1-CFSv2-CCA": 8699.4,
+    "week1-CFSv2-PCR": 2295.6,
+    "week1-GEOS-CCA": 11207.3,
+    "week1-GEOS-PCR": 2405.2,
+    "week1-CCSM4-CCA": 10912.6,
+    "week1-CCSM4-PCR": 2310.6,
+    "week1-FIM-CCA": 8812.4,
+    "week1-FIM-PCR": 2389.1,
+    "week2-GEFSv12-CCA": 11022.9,
+    "week2-GEFSv12-PCR": 2246.7,
+    "week2-CFSv2-CCA": 8488.7,
+    "week2-CFSv2-PCR": 2158.7,
+    "week2-GEOS-CCA": 8446.8,
+    "week2-GEOS-PCR": 1987.5,
+    "week2-CCSM4-CCA": 10696.2,
+    "week2-CCSM4-PCR": 2053.6,
+    "week2-FIM-CCA": 8448.9,
+    "week2-FIM-PCR": 1952.1,
+    "week3-GEFSv12-CCA": 8784.3,
+    "week3-GEFSv12-PCR": 1921.0,
+    "week3-CFSv2-CCA": 10974.5,
+    "week3-CFSv2-PCR": 1914.9,
+    "week3-GEOS-CCA": 10768.1,
+    "week3-GEOS-PCR": 2817.6,
+    "week3-CCSM4-CCA": 9096.2,
+    "week3-CCSM4-PCR": 2640.3,
+    "week3-FIM-CCA": 9089.1,
+    "week3-FIM-PCR": 2748.2,
+    "week4-GEFSv12-CCA": 11380.1,
+    "week4-GEFSv12-PCR": 2794.5,
+    "week4-CFSv2-CCA": 10571.1,
+    "week4-CFSv2-PCR": 2850.3,
+    "week4-GEOS-CCA": 10054.1,
+    "week4-GEOS-PCR": 2614.7,
+    "week4-CCSM4-CCA": 11245.8,
+    "week4-CCSM4-PCR": 2529.3,
+    "week4-FIM-CCA": 10029.4,
+    "week4-FIM-PCR": 2414.8,
+    "week34-GEFSv12-CCA": 10293.3,
+    "week34-GEFSv12-PCR": 2495.6,
+    "week34-CFSv2-CCA": 7903.4,
+    "week34-CFSv2-PCR": 2939.9,
+    "week34-GEOS-CCA": 7256.1,
+    "week34-GEOS-PCR": 2454.9,
+    "week34-CCSM4-CCA": 8579.6,
+    "week34-CCSM4-PCR": 2285.3,
+    "week34-FIM-CCA": 6922.0,
+    "week34-FIM-PCR": 2476.1
+  }
+}

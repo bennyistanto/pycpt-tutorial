@@ -1,0 +1,279 @@
+{
+  "issued": "2023-10-31",
+  "leads": [
+    "lead1",
+    "lead2",
+    "lead3",
+    "lead4",
+    "lead5",
+    "lead6"
+  ],
+  "targets": {
+    "lead1": {
+      "name": "Pentad +1",
+      "label": "1-5 Nov 2023",
+      "first_day": "2023-11-01",
+      "last_day": "2023-11-05",
+      "training_targets": 305
+    },
+    "lead2": {
+      "name": "Pentad +2",
+      "label": "6-10 Nov 2023",
+      "first_day": "2023-11-06",
+      "last_day": "2023-11-10",
+      "training_targets": 304
+    },
+    "lead3": {
+      "name": "Pentad +3",
+      "label": "11-15 Nov 2023",
+      "first_day": "2023-11-11",
+      "last_day": "2023-11-15",
+      "training_targets": 303
+    },
+    "lead4": {
+      "name": "Pentad +4",
+      "label": "16-20 Nov 2023",
+      "first_day": "2023-11-16",
+      "last_day": "2023-11-20",
+      "training_targets": 302
+    },
+    "lead5": {
+      "name": "Pentad +5",
+      "label": "21-25 Nov 2023",
+      "first_day": "2023-11-21",
+      "last_day": "2023-11-25",
+      "training_targets": 301
+    },
+    "lead6": {
+      "name": "Pentad +6",
+      "label": "26-30 Nov 2023",
+      "first_day": "2023-11-26",
+      "last_day": "2023-11-30",
+      "training_targets": 300
+    }
+  },
+  "members": {
+    "lead1": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ],
+    "lead2": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ],
+    "lead3": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ],
+    "lead4": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ],
+    "lead5": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4",
+      "FIM"
+    ],
+    "lead6": [
+      "GEFSv12",
+      "CFSv2",
+      "GEOS",
+      "CCSM4"
+    ]
+  },
+  "runs": {
+    "GEFSv12_CPC": {
+      "starts": [
+        "2023-10-31T00:00"
+      ],
+      "members": 31,
+      "lag_days": 0.0,
+      "training_members": 11,
+      "training_lag_days": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "last_lead_day": 34.5
+    },
+    "CFSv2": {
+      "starts": [
+        "2023-10-30T06:00",
+        "2023-10-30T12:00",
+        "2023-10-30T18:00",
+        "2023-10-31T00:00"
+      ],
+      "members": 16,
+      "lag_days": 0.0,
+      "training_members": 4,
+      "training_lag_days": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "last_lead_day": 43.5
+    },
+    "GEOS_V2p1": {
+      "starts": [
+        "2023-10-28T00:00"
+      ],
+      "members": 4,
+      "lag_days": 3.0,
+      "training_members": 4,
+      "training_lag_days": [
+        0.0,
+        1.77,
+        4.0
+      ],
+      "last_lead_day": 44.5
+    },
+    "CCSM4": {
+      "starts": [
+        "2023-10-29T00:00"
+      ],
+      "members": 9,
+      "lag_days": 2.0,
+      "training_members": 3,
+      "training_lag_days": [
+        0.0,
+        2.1,
+        5.0
+      ],
+      "last_lead_day": 44.5
+    },
+    "FIMr1p1": {
+      "starts": [
+        "2023-10-25T00:00"
+      ],
+      "members": 4,
+      "lag_days": 6.0,
+      "training_members": 4,
+      "training_lag_days": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "last_lead_day": 31.5
+    }
+  },
+  "training_target_years": [
+    2000,
+    2016
+  ],
+  "pixels": 69638,
+  "grid": "native 0.05 degree",
+  "settings": {
+    "x_eof_modes": "(3, 3)",
+    "validation": "CROSSVALIDATION",
+    "crossvalidation_window": "35",
+    "synchronous_predictors": "True",
+    "transform_predictand": "None",
+    "tailoring": "None",
+    "drymask_threshold": "None",
+    "skillmask_threshold": "None",
+    "y_eof_modes": "(3, 3)",
+    "cca_modes": "(2, 2)"
+  },
+  "checks": {
+    "CPT Pearson minus recomputed, members": 9.281411998407485e-07,
+    "CPT 2AFC minus this notebook's 2AFC, GEFSv12 CCA (percentage points)": 0.2986614410401103,
+    "hindcast values missing": 0.0,
+    "MME probabilities: largest distance of their sum from 100": 3.993511199951172e-06
+  },
+  "flexible_forecast_check_first_lead": {
+    "exceedance probability (percentage points)": 0.0,
+    "forecast scale (mm)": 0.0,
+    "climatology scale (mm)": 3.107295562188028e-05,
+    "degrees of freedom": 0.0
+  },
+  "no_model_cross_validated_pearson": {
+    "lead1": -0.3675,
+    "lead2": -0.3668,
+    "lead3": -0.3667,
+    "lead4": -0.3667,
+    "lead5": -0.366,
+    "lead6": -0.3656
+  },
+  "totals_set_to_zero_mme_cca": {
+    "lead1": 1103,
+    "lead2": 881,
+    "lead3": 177,
+    "lead4": 119,
+    "lead5": 8,
+    "lead6": 2
+  },
+  "fit_seconds": {
+    "lead1-GEFSv12-CCA": 17194.3,
+    "lead1-GEFSv12-PCR": 5329.6,
+    "lead1-CFSv2-CCA": 22011.4,
+    "lead1-CFSv2-PCR": 5024.1,
+    "lead1-GEOS-CCA": 17738.9,
+    "lead1-GEOS-PCR": 5145.7,
+    "lead1-CCSM4-CCA": 22127.9,
+    "lead1-CCSM4-PCR": 5170.9,
+    "lead1-FIM-CCA": 15495.8,
+    "lead1-FIM-PCR": 5066.7,
+    "lead2-GEFSv12-CCA": 15083.7,
+    "lead2-GEFSv12-PCR": 4411.7,
+    "lead2-CFSv2-CCA": 13121.1,
+    "lead2-CFSv2-PCR": 3114.4,
+    "lead2-GEOS-CCA": 11904.1,
+    "lead2-GEOS-PCR": 2497.3,
+    "lead2-CCSM4-CCA": 10323.3,
+    "lead2-CCSM4-PCR": 2380.4,
+    "lead2-FIM-CCA": 12696.5,
+    "lead2-FIM-PCR": 2809.8,
+    "lead3-GEFSv12-CCA": 12033.9,
+    "lead3-GEFSv12-PCR": 2230.3,
+    "lead3-CFSv2-CCA": 9016.7,
+    "lead3-CFSv2-PCR": 2111.6,
+    "lead3-GEOS-CCA": 11394.9,
+    "lead3-GEOS-PCR": 1983.8,
+    "lead3-CCSM4-CCA": 8287.1,
+    "lead3-CCSM4-PCR": 1840.9,
+    "lead3-FIM-CCA": 10957.1,
+    "lead3-FIM-PCR": 1758.7,
+    "lead4-GEFSv12-CCA": 20074.3,
+    "lead4-GEFSv12-PCR": 4916.2,
+    "lead4-CFSv2-CCA": 20442.5,
+    "lead4-CFSv2-PCR": 5414.4,
+    "lead4-GEOS-CCA": 20463.7,
+    "lead4-GEOS-PCR": 5281.5,
+    "lead4-CCSM4-CCA": 20368.1,
+    "lead4-CCSM4-PCR": 4732.2,
+    "lead4-FIM-CCA": 15455.8,
+    "lead4-FIM-PCR": 4700.1,
+    "lead5-GEFSv12-CCA": 15430.6,
+    "lead5-GEFSv12-PCR": 4784.5,
+    "lead5-CFSv2-CCA": 20246.0,
+    "lead5-CFSv2-PCR": 5107.9,
+    "lead5-GEOS-CCA": 20257.2,
+    "lead5-GEOS-PCR": 4742.6,
+    "lead5-CCSM4-CCA": 17451.9,
+    "lead5-CCSM4-PCR": 3521.7,
+    "lead5-FIM-CCA": 17397.2,
+    "lead5-FIM-PCR": 4087.9,
+    "lead6-GEFSv12-CCA": 16966.8,
+    "lead6-GEFSv12-PCR": 3977.4,
+    "lead6-CFSv2-CCA": 13263.0,
+    "lead6-CFSv2-PCR": 3798.9,
+    "lead6-GEOS-CCA": 12224.3,
+    "lead6-GEOS-PCR": 2765.3,
+    "lead6-CCSM4-CCA": 15973.6,
+    "lead6-CCSM4-PCR": 3149.4
+  }
+}

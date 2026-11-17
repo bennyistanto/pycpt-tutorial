@@ -1,0 +1,48 @@
+{
+  "output": {
+    "indonesia-seasons-2023-products.nc": {
+      "sha256": "06b1e730794c522aabdba532110dd5be1f613a9fd06ce55e68a2176b47b74585",
+      "bytes": 26275562
+    }
+  },
+  "pixels": 69640,
+  "source_files": {
+    "indonesia-all-seasons-2021-2024-005deg/DJF/observations.nc": "21ea364fcc4ecb98d296035b21f24ea29e22b10391094fb64012d62afd15e8a5",
+    "indonesia-all-seasons-2021-2024-005deg/DJF/cca_1991_2020.nc": "78af384bf69faeea58ea2dfed485a3f7efbc3ff4c60dd9a3c76cb8b6e31777c4",
+    "indonesia-all-seasons-2021-2024-005deg/DJF/pcr_1991_2020.nc": "874343f5438b7cb25450276129d1d90becd1a66f0e624fb908dd4965c4a63fb3",
+    "indonesia-all-seasons-2021-2024-005deg/JFM/observations.nc": "f716dc3c84a04ede382fcd8b5288591e5e11190315f09b1b4081ac0d35ba906a",
+    "indonesia-all-seasons-2021-2024-005deg/JFM/cca_1991_2020.nc": "4f9ea476f1e5ca7d8fd1e7c215c17eb9f71d6da7caac553ce9cc82b0fc4060d4",
+    "indonesia-all-seasons-2021-2024-005deg/JFM/pcr_1991_2020.nc": "6d7544c30e063c57b16afa6781db1f1b6550e298b2e1c72923b97dea733978fd",
+    "indonesia-all-seasons-2021-2024-005deg/FMA/observations.nc": "e4258765e3e82eb0a56cc3a7c2e33e5ee723f3e5d1864759c9d4104221c531dc",
+    "indonesia-all-seasons-2021-2024-005deg/FMA/cca_1991_2020.nc": "032aebbaa28bac3ca52a803a1e45d9935e49c141ac0a25eecbbe7928f6c3726f",
+    "indonesia-all-seasons-2021-2024-005deg/FMA/pcr_1991_2020.nc": "bb95e46de414fc3f8df2556b2dcc6cc5ecfd9da9d80b06297bbefceba48cbffd",
+    "indonesia-all-seasons-2021-2024-005deg/MAM/observations.nc": "cd4d17f8de20a96e47721db8e97dedefb87d69fca4f789551fe5cbe4169afb3d",
+    "indonesia-all-seasons-2021-2024-005deg/MAM/cca_1991_2020.nc": "07fbc34b090600a046fe7154c9f04646a30ed818d238bf5cdda13b0a50839246",
+    "indonesia-all-seasons-2021-2024-005deg/MAM/pcr_1991_2020.nc": "a5d554c061be155dbff54e8c11f604230ce175c2143be557493aea8047d1e594",
+    "indonesia-all-seasons-2021-2024-005deg/AMJ/observations.nc": "6cde9b0f1b001139bf5f148913925901d5999275137156f9a03d7792c0ece9bd",
+    "indonesia-all-seasons-2021-2024-005deg/AMJ/cca_1991_2020.nc": "e94f947f140ac79864769c9de5e7b6c690b3b1ba12958afdd3437786a59fa8cd",
+    "indonesia-all-seasons-2021-2024-005deg/AMJ/pcr_1991_2020.nc": "0020342c9a956de6a1951bc45128381dec8f73127ef5adce79d94bbbc0dc58d9",
+    "indonesia-all-seasons-2021-2024-005deg/MJJ/observations.nc": "9fc9a99d3891f549da3ebd33df772c74d4815181ca206f61f8b81628ca1f6470",
+    "indonesia-all-seasons-2021-2024-005deg/MJJ/cca_1991_2020.nc": "676d49fb8c2c9235f1ad0311697c58210ddd9527123236f8f7b1f2fde8c71de2",
+    "indonesia-all-seasons-2021-2024-005deg/MJJ/pcr_1991_2020.nc": "ef89155f8827f746198223ff5ee39d4701cbd0d031118441b73b27f1da6299fb",
+    "indonesia-all-seasons-2021-2024-005deg/JJA/observations.nc": "c4f0ae04112d1d5cce95e4d08f07b67d44be659a09ac9d69f2df7c70f97757df",
+    "indonesia-all-seasons-2021-2024-005deg/JJA/cca_1991_2020.nc": "36e4899da0d35315de95c930f1828a91a8b3408e4b35b61a09a3c4c355f553ed",
+    "indonesia-all-seasons-2021-2024-005deg/JJA/pcr_1991_2020.nc": "e69196336c63236dd7650e24bc876310e1ee62a70d9fe512ddafbc0d66b80fec",
+    "indonesia-all-seasons-2021-2024-005deg/JAS/observations.nc": "027bff9d3193e37eb0824aa8a617abcf5d1c0c689965223c71a47d924da41304",
+    "indonesia-all-seasons-2021-2024-005deg/JAS/cca_1991_2020.nc": "445d2f50334ab8ae469d7b5461951bc3371a367026a4d670a07cc073995416d3",
+    "indonesia-all-seasons-2021-2024-005deg/JAS/pcr_1991_2020.nc": "3c17fb50727b1ab243eb7e7643e9ffacf85fa28df30ebd2430868068c108d211",
+    "indonesia-all-seasons-2021-2024-005deg/ASO/observations.nc": "cc48ae8454e570d13d5fa0db261e53e69b058ebe6fce063459f1679be69e0e9e",
+    "indonesia-all-seasons-2021-2024-005deg/ASO/cca_1991_2020.nc": "afa28cceffec4bea4079813143b335ce219b35b1724a07aeab2c4f339dc9af83",
+    "indonesia-all-seasons-2021-2024-005deg/ASO/pcr_1991_2020.nc": "3a5702d81d302a6f50d70850de02cc7ade4be94329b36b21b423a08346395365",
+    "indonesia-all-seasons-2021-2024-005deg/SON/observations.nc": "fd16731fd37966cc969f550bd23ca5002fb831dfc5dd6c6d77e5085a9085a27c",
+    "indonesia-all-seasons-2021-2024-005deg/SON/cca_1991_2020.nc": "9fac9326e8e55c09106a53f419185eb974d218cfaa1e5c9419930d9943fd41aa",
+    "indonesia-all-seasons-2021-2024-005deg/SON/pcr_1991_2020.nc": "f846b2c468d9fbe18324828028b60e890fa0ffd5648674f6b3ed53ac0569762f",
+    "indonesia-all-seasons-2021-2024-005deg/OND/observations.nc": "6742915879d0bdb2dd77a9378aa5056b0a33185968925b6d1ba34bb0efdf638f",
+    "indonesia-all-seasons-2021-2024-005deg/OND/cca_1991_2020.nc": "5318c40eb7ac7f1bff58789532287425cdb3f02ae42bcd6ed54b00e21e2fa17c",
+    "indonesia-all-seasons-2021-2024-005deg/OND/pcr_1991_2020.nc": "4306ae1ff45f7214ee0dbb5385927f3a898701790249cc99e5bac5b04631bb96",
+    "indonesia-all-seasons-2021-2024-005deg/NDJ/observations.nc": "67aa8e8feed695da3f5b083fc36430449db2204325bee5fd602959b84484b6ca",
+    "indonesia-all-seasons-2021-2024-005deg/NDJ/cca_1991_2020.nc": "cc38ff87a2f5eebb4eb3e9661a65e41d0d9ad91de5ad1f520fc5af2ec76dff6c",
+    "indonesia-all-seasons-2021-2024-005deg/NDJ/pcr_1991_2020.nc": "cfb9337dc0fe3bfe7708b15706ca96c2bbb0f4385cf8994ab396536ffe5ba92d"
+  },
+  "note": "Derived teaching copy; nothing refitted."
+}

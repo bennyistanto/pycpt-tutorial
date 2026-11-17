@@ -1,0 +1,6 @@
+lead,target,observed mean (mm),2000-2016 mean (mm),observed below normal (% of area),observed near normal (% of area),observed above normal (% of area),reference hit rate (%),reference category
+1,2-8 Nov 2023,44.0392,60.3189,51.9134,39.8212,8.2654,51.9134,below normal
+2,9-15 Nov 2023,42.8549,62.2385,55.0305,33.3619,11.6076,55.0305,below normal
+3,16-22 Nov 2023,45.7643,67.7332,67.3779,21.1432,11.4789,67.3779,below normal
+4,23-29 Nov 2023,65.9068,66.5666,31.3744,36.6492,31.9764,36.6492,near normal
+5,16-29 Nov 2023,111.6711,134.2999,49.8364,34.6521,15.5114,49.8364,below normal

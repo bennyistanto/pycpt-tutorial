@@ -61,7 +61,7 @@
     1991,
     2020
   ],
-  "pixels": 61190,
+  "pixels": 69640,
   "grid": "native 0.05 degree",
   "settings": {
     "transform_predictand": "None",
@@ -76,23 +76,23 @@
     "synchronous_predictors": "True"
   },
   "fit_seconds": {
-    "issue-1-CCA": 1040.2,
-    "issue-1-PCR": 940.3,
-    "issue-2-CCA": 1013.4,
-    "issue-2-PCR": 975.6,
-    "issue-3-CCA": 967.3,
-    "issue-3-PCR": 914.6,
-    "issue-4-CCA": 968.4,
-    "issue-4-PCR": 929.4,
-    "issue-5-CCA": 973.8,
-    "issue-5-PCR": 1033.5,
-    "issue-6-CCA": 972.5,
-    "issue-6-PCR": 975.7,
-    "fixed-1-CCA": 977.4,
-    "fixed-2-CCA": 968.0,
-    "fixed-3-CCA": 1033.3,
-    "fixed-4-CCA": 1014.5,
-    "fixed-5-CCA": 972.4,
-    "fixed-6-CCA": 1037.0
+    "issue-1-CCA": 1585.3,
+    "issue-1-PCR": 1514.9,
+    "issue-2-CCA": 1600.8,
+    "issue-2-PCR": 1574.4,
+    "issue-3-CCA": 1581.4,
+    "issue-3-PCR": 1545.5,
+    "issue-4-CCA": 1653.3,
+    "issue-4-PCR": 1554.2,
+    "issue-5-CCA": 1578.2,
+    "issue-5-PCR": 1544.1,
+    "issue-6-CCA": 1568.5,
+    "issue-6-PCR": 1534.1,
+    "fixed-1-CCA": 1599.3,
+    "fixed-2-CCA": 1633.3,
+    "fixed-3-CCA": 1603.3,
+    "fixed-4-CCA": 1610.3,
+    "fixed-5-CCA": 1599.8,
+    "fixed-6-CCA": 1594.0
   }
 }

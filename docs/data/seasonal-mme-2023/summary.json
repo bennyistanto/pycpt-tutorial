@@ -1,0 +1,212 @@
+{
+  "issued": "2023-06-01",
+  "leads_months": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "targets": {
+    "1": {
+      "pycpt_target": "Jul-Sep",
+      "label": "JAS 2023",
+      "first_day": "2023-07-01",
+      "last_day": "2023-09-30",
+      "members": [
+        "CFSv2",
+        "GEOSS2S",
+        "CanSIPSIC3",
+        "CCSM4",
+        "CESM1",
+        "SPEAR",
+        "SEAS51c"
+      ]
+    },
+    "2": {
+      "pycpt_target": "Aug-Oct",
+      "label": "ASO 2023",
+      "first_day": "2023-08-01",
+      "last_day": "2023-10-31",
+      "members": [
+        "CFSv2",
+        "GEOSS2S",
+        "CanSIPSIC3",
+        "CCSM4",
+        "CESM1",
+        "SPEAR",
+        "SEAS51c"
+      ]
+    },
+    "3": {
+      "pycpt_target": "Sep-Nov",
+      "label": "SON 2023",
+      "first_day": "2023-09-01",
+      "last_day": "2023-11-30",
+      "members": [
+        "CFSv2",
+        "GEOSS2S",
+        "CanSIPSIC3",
+        "CCSM4",
+        "CESM1",
+        "SPEAR",
+        "SEAS51c"
+      ]
+    },
+    "4": {
+      "pycpt_target": "Oct-Dec",
+      "label": "OND 2023",
+      "first_day": "2023-10-01",
+      "last_day": "2023-12-31",
+      "members": [
+        "CFSv2",
+        "GEOSS2S",
+        "CanSIPSIC3",
+        "CCSM4",
+        "CESM1",
+        "SPEAR"
+      ]
+    },
+    "5": {
+      "pycpt_target": "Nov-Jan",
+      "label": "NDJ 2023-24",
+      "first_day": "2023-11-01",
+      "last_day": "2024-01-31",
+      "members": [
+        "CFSv2",
+        "GEOSS2S",
+        "CanSIPSIC3",
+        "CCSM4",
+        "CESM1",
+        "SPEAR"
+      ]
+    },
+    "6": {
+      "pycpt_target": "Dec-Feb",
+      "label": "DJF 2023-24",
+      "first_day": "2023-12-01",
+      "last_day": "2024-02-29",
+      "members": [
+        "CFSv2",
+        "GEOSS2S",
+        "CanSIPSIC3",
+        "CCSM4",
+        "CESM1",
+        "SPEAR"
+      ]
+    }
+  },
+  "training_target_years": [
+    1992,
+    2020
+  ],
+  "pixels": 69640,
+  "grid": "native 0.05 degree",
+  "settings": {
+    "transform_predictand": "None",
+    "tailoring": "None",
+    "cca_modes": "(2, 2)",
+    "x_eof_modes": "(3, 3)",
+    "y_eof_modes": "(3, 3)",
+    "validation": "crossvalidation",
+    "drymask_threshold": "None",
+    "skillmask_threshold": "None",
+    "crossvalidation_window": "5",
+    "synchronous_predictors": "True"
+  },
+  "checks": {
+    "MME forecast minus mean of members (mm)": 0.0,
+    "MME hindcasts minus mean of members (mm)": 0.0002790178568830015,
+    "CPT Pearson minus recomputed, MME": 0.00010049003473688867,
+    "CPT Pearson minus recomputed, members": 1.6360878666576983e-05
+  },
+  "no_model_cross_validated_pearson": {
+    "1": -0.2446,
+    "2": -0.2906,
+    "3": -0.2873,
+    "4": -0.3314,
+    "5": -0.3818,
+    "6": -0.4178
+  },
+  "fit_seconds": {
+    "1-CFSv2-CCA": 2206.5,
+    "1-CFSv2-PCR": 2134.4,
+    "1-GEOSS2S-CCA": 907.3,
+    "1-GEOSS2S-PCR": 2183.6,
+    "1-CanSIPSIC3-CCA": 2288.1,
+    "1-CanSIPSIC3-PCR": 2173.9,
+    "1-CCSM4-CCA": 2123.9,
+    "1-CCSM4-PCR": 2219.2,
+    "1-CESM1-CCA": 2340.5,
+    "1-CESM1-PCR": 2242.8,
+    "1-SPEAR-CCA": 2256.7,
+    "1-SPEAR-PCR": 870.0,
+    "1-SEAS51c-CCA": 897.1,
+    "1-SEAS51c-PCR": 2261.5,
+    "2-CFSv2-CCA": 2232.3,
+    "2-CFSv2-PCR": 2093.7,
+    "2-GEOSS2S-CCA": 2403.6,
+    "2-GEOSS2S-PCR": 2204.6,
+    "2-CanSIPSIC3-CCA": 2212.6,
+    "2-CanSIPSIC3-PCR": 2118.1,
+    "2-CCSM4-CCA": 2291.1,
+    "2-CCSM4-PCR": 2207.7,
+    "2-CESM1-CCA": 931.9,
+    "2-CESM1-PCR": 2253.1,
+    "2-SPEAR-CCA": 897.2,
+    "2-SPEAR-PCR": 2190.6,
+    "2-SEAS51c-CCA": 893.9,
+    "2-SEAS51c-PCR": 2157.5,
+    "3-CFSv2-CCA": 2231.5,
+    "3-CFSv2-PCR": 2171.5,
+    "3-GEOSS2S-CCA": 2424.2,
+    "3-GEOSS2S-PCR": 2259.0,
+    "3-CanSIPSIC3-CCA": 2127.6,
+    "3-CanSIPSIC3-PCR": 2176.8,
+    "3-CCSM4-CCA": 2385.1,
+    "3-CCSM4-PCR": 2264.8,
+    "3-CESM1-CCA": 906.4,
+    "3-CESM1-PCR": 2186.8,
+    "3-SPEAR-CCA": 2277.5,
+    "3-SPEAR-PCR": 2170.1,
+    "3-SEAS51c-CCA": 2372.1,
+    "3-SEAS51c-PCR": 2223.4,
+    "4-CFSv2-CCA": 889.1,
+    "4-CFSv2-PCR": 2255.5,
+    "4-GEOSS2S-CCA": 2266.6,
+    "4-GEOSS2S-PCR": 2230.5,
+    "4-CanSIPSIC3-CCA": 2374.0,
+    "4-CanSIPSIC3-PCR": 1623.9,
+    "4-CCSM4-CCA": 1699.0,
+    "4-CCSM4-PCR": 1636.8,
+    "4-CESM1-CCA": 1603.1,
+    "4-CESM1-PCR": 1539.8,
+    "4-SPEAR-CCA": 1625.6,
+    "4-SPEAR-PCR": 1624.8,
+    "5-CFSv2-CCA": 1844.4,
+    "5-CFSv2-PCR": 1605.4,
+    "5-GEOSS2S-CCA": 1676.0,
+    "5-GEOSS2S-PCR": 1572.6,
+    "5-CanSIPSIC3-CCA": 1797.6,
+    "5-CanSIPSIC3-PCR": 664.9,
+    "5-CCSM4-CCA": 1794.4,
+    "5-CCSM4-PCR": 1607.8,
+    "5-CESM1-CCA": 1781.3,
+    "5-CESM1-PCR": 1780.3,
+    "5-SPEAR-CCA": 1772.8,
+    "5-SPEAR-PCR": 1774.5,
+    "6-CFSv2-CCA": 1785.9,
+    "6-CFSv2-PCR": 1599.6,
+    "6-GEOSS2S-CCA": 1779.8,
+    "6-GEOSS2S-PCR": 1586.1,
+    "6-CanSIPSIC3-CCA": 1754.5,
+    "6-CanSIPSIC3-PCR": 1747.4,
+    "6-CCSM4-CCA": 1732.5,
+    "6-CCSM4-PCR": 1617.1,
+    "6-CESM1-CCA": 904.9,
+    "6-CESM1-PCR": 1619.6,
+    "6-SPEAR-CCA": 1700.4,
+    "6-SPEAR-PCR": 1615.1
+  }
+}

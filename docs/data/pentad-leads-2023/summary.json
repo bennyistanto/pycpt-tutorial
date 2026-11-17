@@ -34,7 +34,7 @@
     2018
   ],
   "training_pentads_per_lead": 342,
-  "pixels": 61190,
+  "pixels": 69638,
   "cross_validation_window": 35,
   "settings": {
     "x_eof_modes": "(3, 3)",
@@ -49,36 +49,36 @@
     "cca_modes": "(2, 2)"
   },
   "observed_category_percent_2023": {
-    "below normal": 48.23,
-    "near normal": 32.86,
-    "above normal": 18.91
+    "below normal": 48.4,
+    "near normal": 32.91,
+    "above normal": 18.69
   },
   "fit_minutes": {
-    "1-CCA": 234.7,
-    "1-PCR": 43.3,
-    "2-CCA": 184.1,
-    "2-PCR": 43.7,
-    "3-CCA": 186.5,
-    "3-PCR": 43.0,
-    "4-CCA": 230.9,
-    "4-PCR": 43.4,
-    "5-CCA": 232.9,
-    "5-PCR": 49.2,
-    "6-CCA": 230.9,
-    "6-PCR": 48.6
+    "1-CCA": 271.6,
+    "1-PCR": 60.6,
+    "2-CCA": 220.9,
+    "2-PCR": 63.2,
+    "3-CCA": 220.0,
+    "3-PCR": 64.3,
+    "4-CCA": 219.8,
+    "4-PCR": 65.0,
+    "5-CCA": 221.3,
+    "5-PCR": 60.8,
+    "6-CCA": 275.2,
+    "6-PCR": 65.2
   },
   "clipped_pixel_pentads": {
-    "1-CCA": 11766,
-    "1-PCR": 18391,
-    "2-CCA": 8081,
-    "2-PCR": 13745,
-    "3-CCA": 4877,
-    "3-PCR": 9374,
-    "4-CCA": 3267,
-    "4-PCR": 5316,
-    "5-CCA": 3758,
-    "5-PCR": 6455,
-    "6-CCA": 5160,
-    "6-PCR": 5501
+    "1-CCA": 20898,
+    "1-PCR": 28296,
+    "2-CCA": 13320,
+    "2-PCR": 21689,
+    "3-CCA": 8079,
+    "3-PCR": 15376,
+    "4-CCA": 5638,
+    "4-PCR": 8860,
+    "5-CCA": 6574,
+    "5-PCR": 10286,
+    "6-CCA": 9501,
+    "6-PCR": 9048
   }
 }

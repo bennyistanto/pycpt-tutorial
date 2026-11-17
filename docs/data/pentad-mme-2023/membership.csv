@@ -1,0 +1,7 @@
+lead,target,days,members,not members,training targets
+Pentad +1,2023-11-01 to 2023-11-05,5,"GEFSv12, CFSv2, GEOS, CCSM4, FIM",none,305
+Pentad +2,2023-11-06 to 2023-11-10,5,"GEFSv12, CFSv2, GEOS, CCSM4, FIM",none,304
+Pentad +3,2023-11-11 to 2023-11-15,5,"GEFSv12, CFSv2, GEOS, CCSM4, FIM",none,303
+Pentad +4,2023-11-16 to 2023-11-20,5,"GEFSv12, CFSv2, GEOS, CCSM4, FIM",none,302
+Pentad +5,2023-11-21 to 2023-11-25,5,"GEFSv12, CFSv2, GEOS, CCSM4, FIM",none,301
+Pentad +6,2023-11-26 to 2023-11-30,5,"GEFSv12, CFSv2, GEOS, CCSM4",FIM: no 2023 forecast this far ahead,300

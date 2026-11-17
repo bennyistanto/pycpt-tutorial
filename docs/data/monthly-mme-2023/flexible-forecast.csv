@@ -1,0 +1,7 @@
+lead,target,degrees of freedom,"rebuilt minus PyCPT, largest (pp)","median threshold: stored minus recomputed, largest (mm)",mean chance of exceeding the median (%),area with chance above 50% (%),area observed above the median (%)
+1,Jul 2023,29,0.0,0.0,43.3306,24.9485,61.6998
+2,Aug 2023,29,0.0,0.0,42.7613,22.6518,46.1228
+3,Sep 2023,29,0.0,0.0,34.5513,8.0318,27.7782
+4,Oct 2023,29,0.0,0.0,31.6008,4.1872,8.2958
+5,Nov 2023,29,0.0,0.0,36.1598,8.6317,20.1887
+6,Dec 2023,29,0.0,0.0,42.8085,30.0902,31.5668

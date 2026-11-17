@@ -1,45 +1,42 @@
 {
-  "case": "indonesia-all-seasons-2021-2024-025deg",
-  "source_manifest_sha256": "de124a951ef92e0e60d1c7fe1e75e6f4352e6114eaf26cb1b54206f78bb550b8",
+  "case": "indonesia-all-seasons-2021-2024-005deg",
   "source_files": {
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/evaluation_footprint.nc": "0f69f12ab4da5b4140876e2cfc2d45d47ed40e1ca7361ad7d67063ceea7f2acb",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/verification_scores.nc": "9d5a4b3207e9a737aa48f51df97a739660a89fe2f12cc7ba03c4d2148f0f583d",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/DJF_forecast_comparison.nc": "ea46fb1292a5245f546fc5fca074ac121d5a98a68c481479027974134f1ea9ff",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JFM_forecast_comparison.nc": "4d4b0e78eb3e4174e06ab8d80f6258689c8d598f93cdde34a0cfcf44f8933a16",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/FMA_forecast_comparison.nc": "627657fc50b2c2502e3e9aa1d8df35a3574b2f0f59e59b4d1ebba5bfe482bdff",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/MAM_forecast_comparison.nc": "2b24dfea2617e1fbf2c14bb8ed16b28581ba2aef5768295f3ba4da2855cc554b",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/AMJ_forecast_comparison.nc": "72e46c226c1cd9e57d9edc5f44cbee84cfd48c12c2f88a8f63baaf405ba28efe",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/MJJ_forecast_comparison.nc": "e2907d7b2cb6b392e3280b2e5972d69a3d597b556cfa0444fbbb0c42c6b48129",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JJA_forecast_comparison.nc": "9cea8548cc1ca91c32f4703bf8683715c79b6b58d859e3a22545efb32f2e56eb",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JAS_forecast_comparison.nc": "439fb9740ec4857af979c9ad581870812991c2058e036c7de33ed752bde0f889",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/ASO_forecast_comparison.nc": "4f243214378f725669a20bb190c0c1e2da6e9a57a75267d599f467afd27fdc7a",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/SON_forecast_comparison.nc": "a60c1e122e91df27e9db82c2551c8481314298136fb5635df0c8090e4c47b6f0",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_forecast_comparison.nc": "d7d4896b3750f1bfb0ae28500a0e10847f63652221c945ef572173f14c6bf863",
-    "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/NDJ_forecast_comparison.nc": "6a2ef6edc49f1096a8ce50c247f3be060e11322988bd55d40dd50945db38bcf7",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_predictor": "0ff1e2a4f403118df373866692595aeb916123b7de3b7998f978ec0691724244",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_predictand": "4efecd256e8c0f3d3d663840435954cda02a0c0653211b3d9b608eba192a3c3b",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/cpt-OND_cca_1991_2020/original_forecast_predictor": "ccaedec1ed913fc8ed42f190f0ffa23905a66596f289d8fc25241de1b49ccd92"
+    "indonesia-all-seasons-2021-2024-005deg/outputs/evaluation_footprint.nc": "8c5ef16c2fc816c41776bfe7822eb150acfd700f6980fd274271a12f70d189db",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/verification_scores.nc": "29cf3c4326883ae4543c6595fa7a4991042d2c4065ab5cdf5dc03f5a6c405462",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/DJF_forecast_comparison.nc": "d54a9b7050362ce2e1f0d6d02bdb12c3ecaf877ccb87de7863185635018de5ea",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/JFM_forecast_comparison.nc": "acc736b6122c7f85d5395e54b9982e9eef4f1204b6c5371539966632583eeb74",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/FMA_forecast_comparison.nc": "63871fd44fd0fae3d1f96ca9f76b3482a216507324b01292da00521cb72e2eb2",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/MAM_forecast_comparison.nc": "31efc2053af862374a2ef743d007991f47dcd153c568bc8695c4af9d1d92e372",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/AMJ_forecast_comparison.nc": "963a62ba836d1d2a51513e3f64ac915088f807f21eb2fe169c3bd3f81421fbd5",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/MJJ_forecast_comparison.nc": "890a5e4959b0e118cfc639f9bd4b7faa18294bb85875558615cc7fd1078f5e9c",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/JJA_forecast_comparison.nc": "6bb7d6933ae332f6a048ca9b631ce9af1d2d0e6e7609e55b7fa8753933497a88",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/JAS_forecast_comparison.nc": "6422b529b277beeec608b92f96e4cd9c2c615caa3d2c3ac79da5314fdea4d15b",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/ASO_forecast_comparison.nc": "3a01a8dd410915b2fb0dc313bf393fb3681bd895fee612dd3d804ea87c229463",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/SON_forecast_comparison.nc": "00a6c7518cc543f40853d2da9e77c5f18a84b61efa0dca3e72935ea6544c3bc0",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/OND_forecast_comparison.nc": "9aa305ebdf78fab0e4c2a276eb200d020aa13215cc559144bbb661d72280af5a",
+    "indonesia-all-seasons-2021-2024-005deg/outputs/NDJ_forecast_comparison.nc": "a3aa9ddaa3fc0227fc35576ac1f43a0151f55ae5d5d91328268b15d90d793dda",
+    "indonesia-all-seasons-2021-2024-025deg/OND/predictors.nc": "169b677fa997f4648a688487f0f5567da685c4e7677033011bfaddbadaa83721"
   },
   "outputs": {
     "indonesia-seasons-2023.nc": {
-      "sha256": "4ce8ee7414d242095ce0da30f0eb2d0a9fe81938059b5df91939d2adafa26d50",
-      "bytes": 2852157
+      "sha256": "ee54b0578dc85aaa9815ebd71b21ac2947feaa7e974ca39f3c3a48d499052e33",
+      "bytes": 23396738
     },
     "ond-forecast-predictor.nc": {
-      "sha256": "1deb10482033205047032113804756698a1945d954b2aa49da9b799ec4283d0e",
-      "bytes": 36592
+      "sha256": "e1690b39369431b0a54fe0e1439ab041079976f2827f9b1156dce4352e9a6cd1",
+      "bytes": 33979
     },
     "ond-training-observations.nc": {
-      "sha256": "a04971ef2f2ea6fb731d217c848f1d0c56ba3aad16dd90f38f0f83f1c4038696",
-      "bytes": 835704
+      "sha256": "b71be19c916d5bbc45f15778e1a91e4f45fb32c96864897a8346e593b66d00d1",
+      "bytes": 7471868
     },
     "ond-training-predictor.nc": {
-      "sha256": "327924bfb30be1cb3212bc067ec821c75ba56f288cc63a08ea88fe68717739d6",
-      "bytes": 570801
+      "sha256": "eec97dc0afb439c0346514b83d5d1fe5df15e091ee69eae4a170add504ec57dd",
+      "bytes": 600005
     },
     "verification-context-2021-2024.nc": {
-      "sha256": "81ca50784ab5dfa94a0841e80a3275cb770b6eeff13654b3fd86debb2f78ce76",
-      "bytes": 50491
+      "sha256": "373665e588ba7c9d042ae46f08d2a6ef9de52c93dbee5ef236a1672b188f1c4d",
+      "bytes": 49403
     }
   },
   "calendar_selection": {
@@ -57,6 +54,7 @@
     "NDJ": 2024
   },
   "main_selection_midpoint_year": 2023,
-  "retained_cells": 3240,
-  "note": "Derived teaching copy; source case files unchanged. Only deterministic comparisons are bundled; native probabilities remain in research archive."
+  "retained_pixels": 69640,
+  "grid": "native 0.05 degree, pixels touching Indonesia",
+  "note": "Derived teaching copy. Only deterministic comparisons are bundled; native probabilities remain in the research run."
 }

@@ -1,0 +1,6 @@
+model,2023 run used,"members, 2023","days behind the issue, 2023","members, training","days behind, training (min / mean / max)"
+GEFSv12,2023-10-31 00:00,31,0.0,11,0 / 0 / 0
+CFSv2,2023-10-30 06:00 to 2023-10-31 00:00 (4 runs),16,0.0,4,0 / 0 / 0
+GEOS,2023-10-28 00:00,4,3.0,4,0 / 1.77 / 4
+CCSM4,2023-10-29 00:00,9,2.0,3,0 / 2.1 / 5
+FIM,2023-10-25 00:00,4,6.0,4,0 / 0 / 0

@@ -1,5 +1,4 @@
 {
-  "date": "2026-11-02",
   "case": "fit-diagnose-2023",
   "training_period": "1991-2020",
   "seasons": [
@@ -7,139 +6,125 @@
     "JJA"
   ],
   "forecast_year": 2023,
-  "data_note": "Prepared local seasonal fields from audited archive; no source download.",
-  "boundary_note": "Predictor-domain country outlines clipped/simplified from supplied world shapefile for display only.",
+  "pixels": 69640,
+  "grid": "native 0.05 degree; every pixel that touches the supplied 38-province boundary",
+  "data_note": "Prepared local seasonal fields from the audited archive; no source download.",
+  "boundary_note": "Predictor-domain country outlines clipped and simplified from the supplied world shapefile, for display only.",
   "outputs": {
     "comparison-context.nc": {
-      "sha256": "968089dee310f30a8e512b1eaa9dbbd300f4909df0acf8a5dcc3244aef3b327a",
-      "bytes": 350307
+      "sha256": "551c71e70c6d91138fdd918d28b00f16899b8572967ad3de560db7f4403740f1",
+      "bytes": 2530261
     },
     "OND-X.nc": {
-      "sha256": "9fe9008d4b1d604e09810877dd0aa5239003aac7caa50f80a84df35fb8a9fd29",
-      "bytes": 602107
-    },
-    "OND-Y.nc": {
-      "sha256": "8829fc9fa61cd8ee0f8c3b548f6ff50e9e4637b2003289533eed943c28fd8586",
-      "bytes": 884814
+      "sha256": "2611b14749b2548a372cb1465fab6240e9ddbca923817786ee5d3f06daebbdb3",
+      "bytes": 599215
     },
     "OND-F.nc": {
-      "sha256": "3fd7e1fb292cd626d6e04da792b808b3ac70c8686c3df8934e5a5d9bdc5ec19b",
-      "bytes": 36081
+      "sha256": "ea0803680569443179b078485d25d7690cb60f21f9af2c908d41df67fd4cc640",
+      "bytes": 33627
+    },
+    "OND-Y.nc": {
+      "sha256": "c8089f17c6c393bd24ba9dcc7578a70233fe57a1b6754484667e18227bd5b04e",
+      "bytes": 7437375
     },
     "controls/OND-cca-forecasts.nc": {
-      "sha256": "38f58b870135fa85575f52d62a1abd691ca68675e3f45baa61d5a3846da681de",
-      "bytes": 189522
+      "sha256": "5e1a82606bb43c98997af5e2a33e9321d50ed0cb093a68c69f077f8dfa0cee44",
+      "bytes": 1279616
     },
     "controls/OND-cca-hindcasts.nc": {
-      "sha256": "a246ea15d665fd9108b571c5c6dabea62bcb2dd5059ee997dfafc10f54a9f55e",
-      "bytes": 906755
+      "sha256": "181fa503884820065841412f02a559ba91f2a94714a3919911927f88642a5e08",
+      "bytes": 7335657
     },
     "controls/OND-cca-native_skill.nc": {
-      "sha256": "ee14eaa05719710f02bf2f03323dbc13204f934d50e90d9540110becc93a0fad",
-      "bytes": 205805
+      "sha256": "eef832a3ecdbb307260c59349673163efb332d84ceae5d8a48aeeac6735fca8e",
+      "bytes": 1404185
     },
     "controls/OND-cca-predictor-diagnostics.nc": {
-      "sha256": "3ec8d3c661c15995fee9aa9b0b1015be44a239365a83ffe9d00fe4d9a8d23111",
-      "bytes": 257924
+      "sha256": "2921bfefc5795487b2a7eb2539fe7c33b76954eb78b81916479bf58ca2b8831a",
+      "bytes": 194767
     },
     "controls/OND-cca-predictand-diagnostics.nc": {
-      "sha256": "a00b89f160f845b5520e917e9e53f7324dd99ee4f04bdcb2bd42a87c8fdd82d6",
-      "bytes": 364267
+      "sha256": "c219e92b9e7aea3ce3d41b89a429bab7bf6612ce602257b73cf24700b50c74d6",
+      "bytes": 3991393
     },
     "controls/OND-pcr-forecasts.nc": {
-      "sha256": "9c29c75fbb66e74edbc0f97edb2bec24b988ba5014390d26867d24bc91c685b8",
-      "bytes": 189690
+      "sha256": "8542ded0707f4606e2b32f1e9b84b2bd39aa4c1b7cd838d02e8760c4fe8e22f2",
+      "bytes": 1284007
     },
     "controls/OND-pcr-hindcasts.nc": {
-      "sha256": "c00f9ed0f635dbd7cbf98e3e36425e6bdba59bff6d4d479cd64893c18a5d1882",
-      "bytes": 907553
+      "sha256": "2f70103e5ce0304fb6ecff0ed8acdc5b40df7fdb940e443351a3233b566c6b17",
+      "bytes": 7354908
     },
     "controls/OND-pcr-native_skill.nc": {
-      "sha256": "99bcd8140fdc7013d1755686b418c62dd575a11df48cf82f4d3cd194059b8825",
-      "bytes": 205888
+      "sha256": "fbbea7bd56a631cd049a99c72dc546fe634f91662a86d8a250ebae6409cdbe3d",
+      "bytes": 1416291
     },
     "controls/OND-pcr-predictor-diagnostics.nc": {
-      "sha256": "eb2bf91f98a698faeaa97de233cc60ee012aef4fc4ca23249b4fa3cb5fbf33c3",
-      "bytes": 160518
+      "sha256": "4838106b308e74f83e06e0eeadf7ce2935e6386b04c2b955a8f90a99424660c7",
+      "bytes": 121181
     },
     "JJA-X.nc": {
-      "sha256": "b6558db546cbfeb4b80ed17aa0595e043296a8462d4f360ddab6213061ee2d5d",
-      "bytes": 508790
-    },
-    "JJA-Y.nc": {
-      "sha256": "d6d84119fc4f80b9dfb28f1505dd4d61c9fbea9ed0c6143742660e67a970ae67",
-      "bytes": 892577
+      "sha256": "2c92e10a4f77d484ea9a4aa7a59f45aae3553475e595e95236d3373975a4929e",
+      "bytes": 505056
     },
     "JJA-F.nc": {
-      "sha256": "81108e80348e71d6f5fe0fea32fb54bb930b398802ec6bfd3c6f8808956d1cd1",
-      "bytes": 33862
+      "sha256": "5ff6dfeafa8e54179d9d1cccf60fe6ee015a9b827eb5ff74266309785e413338",
+      "bytes": 31408
+    },
+    "JJA-Y.nc": {
+      "sha256": "a3deb76882b1a7ce31de36225f9efddf03d8ae986115635947bd0eeab3d50238",
+      "bytes": 7526902
     },
     "controls/JJA-cca-forecasts.nc": {
-      "sha256": "093c9fd83553452b931c410025faf9a88fe58917fb6c8b0aa331cb27fc0160de",
-      "bytes": 189135
+      "sha256": "0fcd9b7856e6bb711f9da995935730fbd5635a693b728b0c32271a210a3a3053",
+      "bytes": 1279520
     },
     "controls/JJA-cca-hindcasts.nc": {
-      "sha256": "fc0506c8f9c3944bfcd1066de0c59ed206c9570764ca23bf1ca00a93510887ea",
-      "bytes": 915203
+      "sha256": "4cf1fd2a29c3695af2d031d6c30f38e47280b810223b91a8c90e8c5e9fc03ec8",
+      "bytes": 7440455
     },
     "controls/JJA-cca-native_skill.nc": {
-      "sha256": "49dc5d64d8bc1c2452210a320a9e07aae9db042c5ae3a21d05ec2497ef6ac067",
-      "bytes": 206292
+      "sha256": "0ff1fdf485d993d57d943f0a0586a1467e70660974b86b365a3c44b3ebd6fb83",
+      "bytes": 1422944
     },
     "controls/JJA-cca-predictor-diagnostics.nc": {
-      "sha256": "615d2c23eae6094da34e982e80b6ef63d32f6e477f196b4610b2d4a78c344b6d",
-      "bytes": 260198
+      "sha256": "9cf43921f9e050242e4437585f6b1d2ae945d0ce19d43e98d660d545a3c9d173",
+      "bytes": 196696
     },
     "controls/JJA-cca-predictand-diagnostics.nc": {
-      "sha256": "0918e1dc088070affb29cee05719b9e67b9f6c67ee40bf865049e28535e4cf4f",
-      "bytes": 362695
+      "sha256": "b2410222345a5a974b1218690b7fed1590a4b9707dc5d335d6be4a7838d6bb10",
+      "bytes": 3967990
     },
     "controls/JJA-pcr-forecasts.nc": {
-      "sha256": "1d6b87e6297af45cd8e99238f46dd8abd48d439d8cd353b165917d2a0808b3e2",
-      "bytes": 189237
+      "sha256": "8d912362448ed529506726c9ae2fc24fc5cd22051dcede0310f14a1855923723",
+      "bytes": 1281977
     },
     "controls/JJA-pcr-hindcasts.nc": {
-      "sha256": "8ff3c80da4d87bb3af95e539a1c621af011fb43464c6e026bd3b329590dc8924",
-      "bytes": 916497
+      "sha256": "cb4ad309b81d5231ca7f71aff27092549906bb30bf13983ca5bbd624beef9fc0",
+      "bytes": 7465283
     },
     "controls/JJA-pcr-native_skill.nc": {
-      "sha256": "a40ce32af40c2702f59a45b070c948f4341a3b15dd5bdf7fbba5051a016b2fd7",
-      "bytes": 206922
+      "sha256": "3d0431acaca1656213cdfb4ab115fef5dc64905e8947fbe5abcd0c409c4dda2f",
+      "bytes": 1435779
     },
     "controls/JJA-pcr-predictor-diagnostics.nc": {
-      "sha256": "3c80f23363c5393ed9920ee8bd1624f3a9085a6663c77ad623d4d1340766ea35",
-      "bytes": 161770
+      "sha256": "61fd27f405b63bc9f363ef7e27c661f5435693352eb36a09c183f3efe0467d1a",
+      "bytes": 122350
     },
     "predictor-boundaries.geojson": {
-      "sha256": "06fbdc0e73aa0093c00ab8c06be68016c27d6c90dc7319e991619ada5988a91e",
-      "bytes": 5687183
+      "sha256": "45b4501cad031d2138a5cefa305a33fabfc60c1e12821ae02c6b00ed48d1dda4",
+      "bytes": 5684833
     }
   },
   "source_hashes": {
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/OND/predictors.nc": "169b677fa997f4648a688487f0f5567da685c4e7677033011bfaddbadaa83721",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/OND/observations.nc": "666c49f640978ff142fdc5e6e70ac68fd2b872604454f525384b4466be3e93f7",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/OND/footprint.nc": "b4c27f95b981183f676ae7818951f4d91b8774be2d5883d953d2812e14ff3e80",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_cca_1991_2020_forecasts.nc": "479d4d3d132538d2efa8484ce853923fada24ae455260ad8493c01b1b14d4bd5",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_cca_1991_2020_hindcasts.nc": "f7ea557d457cf16756c3a2c291ba1d5d9f3a228fc7a1ec7b8589f67a92aa86c6",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_cca_1991_2020_native_skill.nc": "ee14eaa05719710f02bf2f03323dbc13204f934d50e90d9540110becc93a0fad",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_pcr_1991_2020_forecasts.nc": "21bf760c6b09be9b5ae21296a7fc32ec7aeabdc3a5a1edc9050d3f3818aeb7a5",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_pcr_1991_2020_hindcasts.nc": "498e9cbb10c2b03b68ba3d624e9d9a58b9bb810b8003482f73839c8f216bd5b8",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_pcr_1991_2020_native_skill.nc": "99bcd8140fdc7013d1755686b418c62dd575a11df48cf82f4d3cd194059b8825",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/JJA/predictors.nc": "4698b0e5af1b764557cc7a1156c1036966be6eb8b9ceaff2cfb8792f480e1523",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/JJA/observations.nc": "6647aaae5dceea7037408adc1c6d6cd38fc219d26e0b08524a4b002270a776c3",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/JJA/footprint.nc": "bdcaf6bca604dd874b49617d01f85e60d1698d07712aa23a43f1467b54579f19",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JJA_cca_1991_2020_forecasts.nc": "de529d9e3aa2175917b0901c7531614451d7cd35d35de1ac77e03a2ca3315245",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JJA_cca_1991_2020_hindcasts.nc": "94b1a26b4ba6edffe648e51847bf041df44ce822ad2a92b203beef5147ad7038",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JJA_cca_1991_2020_native_skill.nc": "49dc5d64d8bc1c2452210a320a9e07aae9db042c5ae3a21d05ec2497ef6ac067",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JJA_pcr_1991_2020_forecasts.nc": "eb3234364fe09d500812065bdc7dd15c6511df519a2ea772d68765f769cad38b",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JJA_pcr_1991_2020_hindcasts.nc": "b08ef2865e16939fa1e06970574fb39315a193e83bd7473364eb42c22b2b657d",
-    "~/CPT/cases/indonesia-all-seasons-2021-2024-025deg/outputs/JJA_pcr_1991_2020_native_skill.nc": "a40ce32af40c2702f59a45b070c948f4341a3b15dd5bdf7fbba5051a016b2fd7",
-    "/mnt/f/temp/hybrid-bias-correction/data/subset/bnd/wld_bnd_adm0.shp": "a0db1ad85b353b9469e1ab2adc912c41c59f61726484f486913c42d978dc8b1f",
-    "/mnt/f/temp/hybrid-bias-correction/data/subset/bnd/wld_bnd_adm0.shx": "00c1f58650d4e5b83dbb6c6c8b88d56615d2641fe22f1f0d33ec603f7bf7e728",
-    "/mnt/f/temp/hybrid-bias-correction/data/subset/bnd/wld_bnd_adm0.dbf": "d0e8929a3b298709f217ab54c9c6841068231a31c391d988da6d9ea1630c71f4",
-    "/mnt/f/temp/hybrid-bias-correction/data/subset/bnd/wld_bnd_adm0.prj": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4"
+    "indonesia-all-seasons-2021-2024-025deg/OND/predictors.nc": "169b677fa997f4648a688487f0f5567da685c4e7677033011bfaddbadaa83721",
+    "indonesia-all-seasons-2021-2024-005deg/OND/cca_1991_2020.nc": "5318c40eb7ac7f1bff58789532287425cdb3f02ae42bcd6ed54b00e21e2fa17c",
+    "indonesia-all-seasons-2021-2024-005deg/OND/pcr_1991_2020.nc": "4306ae1ff45f7214ee0dbb5385927f3a898701790249cc99e5bac5b04631bb96",
+    "indonesia-all-seasons-2021-2024-025deg/JJA/predictors.nc": "4698b0e5af1b764557cc7a1156c1036966be6eb8b9ceaff2cfb8792f480e1523",
+    "indonesia-all-seasons-2021-2024-005deg/JJA/cca_1991_2020.nc": "36e4899da0d35315de95c930f1828a91a8b3408e4b35b61a09a3c4c355f553ed",
+    "indonesia-all-seasons-2021-2024-005deg/JJA/pcr_1991_2020.nc": "e69196336c63236dd7650e24bc876310e1ee62a70d9fe512ddafbc0d66b80fec"
   },
-  "attribution": "CHIRPS3, Climate Hazards Center/UCSB (https://doi.org/10.15780/G2JQ0P); CFSv2, NCEP via IRI Data Library. Boundaries supplied by Benny Istanto; Indonesia boundaries credit BIG. See ../provenance.json and ../boundaries/provenance.json.",
-  "controls": "Forecast/hindcast/skill from frozen all-season benchmark; diagnostics from fitting-diagnostics audit.",
-  "method_note": "Fixed CCA3X/3Y/2CCA;PCR3X;cyclic CV5;no tuning or empirical probability reliability claim."
+  "attribution": "CHIRPS v3.0, Climate Hazards Center/UCSB (https://doi.org/10.15780/G2JQ0P); CFSv2, NCEP via IRI Data Library. Boundaries supplied by Benny Istanto; Indonesia boundaries credit BIG. See ../provenance.json and ../boundaries/provenance.json.",
+  "controls": "Forecast, hindcast, skill and diagnostics from the 0.05 degree twelve-season run (four forecast years per fit); the notebook refits with one forecast year.",
+  "method_note": "Fixed CCA 3X/3Y/2CCA; PCR 3X; cyclic CV5; no tuning or empirical probability reliability claim."
 }

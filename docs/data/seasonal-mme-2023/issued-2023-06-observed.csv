@@ -1,0 +1,7 @@
+lead,target,observed mean (mm),1992-2020 mean (mm),observed below normal (% of area),observed near normal (% of area),observed above normal (% of area),reference hit rate (%),reference category
+1,JAS 2023,481.7028,516.8281,23.4298,56.9517,19.6185,56.9517,near normal
+2,ASO 2023,442.3373,569.9598,64.638,26.7879,8.5741,64.638,below normal
+3,SON 2023,502.895,672.9867,74.1201,23.4582,2.4217,74.1201,below normal
+4,OND 2023,625.4138,798.6823,76.9051,17.5478,5.5471,76.9051,below normal
+5,NDJ 2023-24,790.431,848.4173,50.2423,28.9363,20.8213,50.2423,below normal
+6,DJF 2023-24,825.7504,831.443,35.8202,32.1128,32.067,35.8202,below normal

@@ -1,0 +1,7 @@
+lead,target,degrees of freedom,"rebuilt minus PyCPT, largest (pp)","median threshold: stored minus recomputed, largest (mm)",mean chance of exceeding the median (%),area with chance above 50% (%),area observed above the median (%)
+1,JAS 2023,29,0.0,0.0,34.828,13.051,42.2226
+2,ASO 2023,29,0.0,0.0,29.4644,5.5598,15.6695
+3,SON 2023,29,0.0,0.0,21.9068,0.4409,6.562
+4,OND 2023,29,0.0,0.0,23.6993,2.3581,11.4514
+5,NDJ 2023-24,29,0.0,0.0,33.4429,13.0354,32.7707
+6,DJF 2023-24,29,0.0,0.0,38.4919,23.4433,46.4562

@@ -8,7 +8,7 @@
     2018
   ],
   "training_targets_per_lead": 249,
-  "pixels": 61190,
+  "pixels": 69638,
   "cross_validation_window": 27,
   "settings": {
     "x_eof_modes": "(3, 3)",
@@ -24,38 +24,38 @@
   },
   "observed_category_percent_2023": {
     "7-day": {
-      "below normal": 49.35,
-      "near normal": 32.55,
-      "above normal": 18.11
+      "below normal": 49.71,
+      "near normal": 32.37,
+      "above normal": 17.92
     },
     "14-day": {
-      "below normal": 52.19,
-      "near normal": 30.73,
-      "above normal": 17.09
+      "below normal": 52.58,
+      "near normal": 30.56,
+      "above normal": 16.86
     }
   },
   "fit_minutes": {
-    "week1-CCA": 75.8,
-    "week1-PCR": 23.2,
-    "week2-CCA": 75.5,
-    "week2-PCR": 23.8,
-    "week3-CCA": 90.1,
+    "week1-CCA": 94.8,
+    "week1-PCR": 27.7,
+    "week2-CCA": 93.9,
+    "week2-PCR": 25.8,
+    "week3-CCA": 116.6,
     "week3-PCR": 25.5,
-    "week4-CCA": 88.3,
-    "week4-PCR": 25.6,
-    "week34-CCA": 89.8,
-    "week34-PCR": 23.5
+    "week4-CCA": 115.8,
+    "week4-PCR": 27.8,
+    "week34-CCA": 94.2,
+    "week34-PCR": 27.7
   },
   "clipped_pixel_targets": {
-    "week1-CCA": 4627,
-    "week1-PCR": 9415,
-    "week2-CCA": 3669,
-    "week2-PCR": 9615,
-    "week3-CCA": 3024,
-    "week3-PCR": 4970,
-    "week4-CCA": 3597,
-    "week4-PCR": 4534,
-    "week34-CCA": 2418,
-    "week34-PCR": 3662
+    "week1-CCA": 8166,
+    "week1-PCR": 15057,
+    "week2-CCA": 7644,
+    "week2-PCR": 15384,
+    "week3-CCA": 6081,
+    "week3-PCR": 8622,
+    "week4-CCA": 6938,
+    "week4-PCR": 7457,
+    "week34-CCA": 4952,
+    "week34-PCR": 6498
   }
 }

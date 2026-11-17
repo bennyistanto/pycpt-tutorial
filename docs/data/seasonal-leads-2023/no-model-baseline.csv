@@ -1,0 +1,7 @@
+lead,target,training_years,pixels,window,no_model_pearson,pixel_minimum,pixel_maximum
+1,Dec-Feb,30,69640,5,-0.4071,-0.8479,0.2669
+2,Jan-Mar,30,69640,5,-0.4725,-0.8513,0.1542
+3,Feb-Apr,30,69640,5,-0.4578,-0.8694,0.3411
+4,Mar-May,30,69640,5,-0.4992,-0.8674,0.2215
+5,Apr-Jun,30,69640,5,-0.4885,-0.8332,0.2869
+6,May-Jul,30,69640,5,-0.4048,-0.8205,0.5429
