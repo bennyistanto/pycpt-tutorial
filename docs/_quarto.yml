@@ -15,9 +15,14 @@ project:
     - assets/fitting-2023/**
     - assets/monthly-2023/**
     - assets/seasonal-leads-2023/**
+    - assets/seasonal-mme-2023/**
+    - assets/monthly-mme-2023/**
     - assets/dekad-leads-2023/**
+    - assets/dekad-mme-2023/**
     - assets/week-leads-2023/**
+    - assets/week-mme-2023/**
     - assets/pentad-leads-2023/**
+    - assets/pentad-mme-2023/**
     - assets/leads/**
     - assets/logo/**
     - notebooks/*.ipynb
@@ -67,40 +72,62 @@ book:
           text: "6. Combining models"
         - href: learn/07-adapt-your-region.ipynb
           text: "7. Adapt it to your region"
-    - part: "Case studies: Seasonal"
+    - part: "Case studies: Seasonal forecast"
       chapters:
         - href: chapters/indonesia-seasons-2023.qmd
           text: "Twelve seasons over Indonesia"
         - href: chapters/fit-diagnose-2023.qmd
           text: "Fit & diagnose"
-        - href: chapters/monthly-leads-2023.qmd
-          text: "Issued 1 Nov 2023: next 6 months"
+        - text: "---"
         - href: chapters/seasonal-leads-2023.qmd
-          text: "Issued 1 Nov 2023: next 6 seasons"
-    - part: "Case studies: Subseasonal"
+          text: "Seasonal: single model"
+        - href: chapters/seasonal-mme-2023.qmd
+          text: "Seasonal: multi-model ensemble"
+        - href: chapters/monthly-leads-2023.qmd
+          text: "Monthly: single model"
+        - href: chapters/monthly-mme-2023.qmd
+          text: "Monthly: multi-model ensemble"
+    - part: "Case studies: Subseasonal forecast"
       chapters:
         - href: chapters/dekad-leads-2023.qmd
-          text: "Issued 31 Oct 2023: next 3 dekads"
+          text: "Dekad: single model"
+        - href: chapters/dekad-mme-2023.qmd
+          text: "Dekad: multi-model ensemble"
         - href: chapters/week-leads-2023.qmd
-          text: "Issued 1 Nov 2023: next 4 weeks"
+          text: "Weekly: single model"
+        - href: chapters/week-mme-2023.qmd
+          text: "Weekly: multi-model ensemble"
         - href: chapters/pentad-leads-2023.qmd
-          text: "Issued 31 Oct 2023: next 6 pentads"
+          text: "Pentad: single model"
+        - href: chapters/pentad-mme-2023.qmd
+          text: "Pentad: multi-model ensemble"
     - part: "Computational notebooks"
       chapters:
         - href: notebooks/indonesia-seasons-2023.ipynb
           text: "Story notebook"
         - href: notebooks/fit-diagnose-2023.ipynb
           text: "Fit & diagnose notebook"
-        - href: notebooks/monthly-leads-2023.ipynb
-          text: "Monthly lead-time notebook"
+        - text: "---"
         - href: notebooks/seasonal-leads-2023.ipynb
-          text: "Seasonal lead-time notebook"
+          text: "Seasonal: single model"
+        - href: notebooks/seasonal-mme-2023.ipynb
+          text: "Seasonal: multi-model ensemble"
+        - href: notebooks/monthly-leads-2023.ipynb
+          text: "Monthly: single model"
+        - href: notebooks/monthly-mme-2023.ipynb
+          text: "Monthly: multi-model ensemble"
         - href: notebooks/dekad-leads-2023.ipynb
-          text: "Dekad lead-time notebook"
+          text: "Dekad: single model"
+        - href: notebooks/dekad-mme-2023.ipynb
+          text: "Dekad: multi-model ensemble"
         - href: notebooks/week-leads-2023.ipynb
-          text: "Weekly lead-time notebook"
+          text: "Weekly: single model"
+        - href: notebooks/week-mme-2023.ipynb
+          text: "Weekly: multi-model ensemble"
         - href: notebooks/pentad-leads-2023.ipynb
-          text: "Pentad lead-time notebook"
+          text: "Pentad: single model"
+        - href: notebooks/pentad-mme-2023.ipynb
+          text: "Pentad: multi-model ensemble"
     - part: "Methods & resources"
       chapters:
         - href: guides/reproduce.qmd
