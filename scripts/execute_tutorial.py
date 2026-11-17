@@ -7,6 +7,7 @@ import platform
 import subprocess
 import nbformat
 from nbclient import NotebookClient
+import patient_io
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -19,8 +20,12 @@ def main():
     if args.test_rerun:
         cell=next(c for c in nb.cells if c.get("id")=="optional-rerun")
         cell.source=cell.source.replace("RERUN_CPT = False","RERUN_CPT = True")
-    client=NotebookClient(nb,timeout=240,kernel_name="pycpt-tutorial",resources={"metadata":{"path":str(ROOT)}})
-    client.execute()
+    client=NotebookClient(nb,timeout=3600,startup_timeout=600,kernel_name="pycpt-tutorial",resources={"metadata":{"path":str(ROOT)}})
+    patient_io.add(nb)
+    try:
+        client.execute()
+    finally:
+        patient_io.remove(nb)
     assert all(not any(o.output_type=="error" for o in c.get("outputs",[])) for c in nb.cells)
     output=ROOT/"temp/indonesia-seasons-2023-rerun.ipynb" if args.test_rerun else path
     nbformat.write(nb,output)

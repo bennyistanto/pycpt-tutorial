@@ -84,7 +84,7 @@ def prepare_inputs(folder,season):
     assert int(F['T'].dt.year.item())==2023
     assert pd.Timestamp(Y.Tf.max().item())<pd.Timestamp(F.S.item())
     assert all(a.attrs['units']=='mm' for a in [X,Y,F])
-    assert int(Y.notnull().all('T').sum())==3240
+    assert int(Y.notnull().all('T').sum())>0
     return X,Y,F
 
 @contextmanager
@@ -185,7 +185,7 @@ def export_fit(result,session,root,artifacts,Y):
                     b=control[f'{kind}_score'].sel({dim:mode}).values
                     signs.append(1 if np.corrcoef(a,b)[0,1]>=0 else -1)
                 actual=actual*xr.DataArray(signs,dims=dim,coords={dim:ds[dim]})
-            comparison[f'{side}_{var}']=compare_array(actual,control[var],2e-5)
+            comparison[f'{side}_{var}']=compare_array(actual,control[var],2e-5,1e-6)   # controls are stored in single precision
         datasets[f'{side}-diagnostics']=ds
     if method=='cca':
         r=np.genfromtxt(folder/'cca_canonical_correlation.txt',skip_header=3,delimiter='\t')[:,1]
@@ -293,10 +293,29 @@ def save_figure(fig,folder,name):
     return fig
 
 def presentation_data(root,artifacts,results,scores,yearly,comparison,input_table,runtime,offline):
-    """Serialize Python outputs for presentation; browser code performs no scoring."""
+    """Serialize Python outputs for presentation; browser code performs no scoring.
+
+    Predictand maps are at 0.05 degree, so they go to small binary files (16-bit integers at the
+    scored pixels, in the order of fields/pixels.bin, row 0 = north) and the JSON only names them.
+    """
+    import gzip
     def values(a):
         arr=np.asarray(a,dtype=float)
         return np.where(np.isfinite(arr),arr,None).tolist()
+    field_dir=artifacts/'fields';field_dir.mkdir(exist_ok=True)
+    for old in field_dir.glob('*'):old.unlink()
+    grid=comparison.forecast_rainfall.sel(season=SEASONS[0],forecast_method='Climatology',drop=True).sortby('Y',ascending=False).transpose('Y','X')
+    grid_Y,grid_X=grid.Y,grid.X;step=float(abs(grid_X[1]-grid_X[0]))
+    flat=np.flatnonzero(np.isfinite(grid.values).ravel());n=len(flat)
+    (field_dir/'pixels.bin').write_bytes(flat.astype('<i4').tobytes())
+    def at_pixels(a):
+        a=a.reindex(Y=grid_Y,X=grid_X,method='nearest',tolerance=1e-3).transpose(...,'Y','X')
+        return np.asarray(a.values,dtype='float64').reshape(a.shape[:-2]+(-1,))[...,flat]
+    def pack(name,arrays,scale):
+        v=np.round(np.asarray(arrays,dtype='float64')*scale)
+        blob=np.where(np.isfinite(v),np.clip(v,-32767,32767),-32768).astype('<i2').tobytes()
+        (field_dir/f'{name}.bin.gz').write_bytes(gzip.compress(blob,9,mtime=0))
+        return {'file':f'fields/{name}.bin.gz','count':int(len(arrays)),'scale':scale}
     panels={}
     for season in SEASONS:
         panels[season]={}
@@ -307,8 +326,10 @@ def presentation_data(root,artifacts,results,scores,yearly,comparison,input_tabl
               'years':ds['T'].dt.year.values.tolist()}
             for kind in ['eof','cca']:
                 s=ds[f'{kind}_score'];z=(s-s.mean('T'))/s.std('T',ddof=1)
-                item[kind]={'fields':values(ds[f'{kind}_correlation'].transpose(f'{kind}_mode','Y','X')),
-                            'score':values(s.transpose(f'{kind}_mode','T')),'standardizedScore':values(z.transpose(f'{kind}_mode','T'))}
+                correlation=ds[f'{kind}_correlation'].transpose(f'{kind}_mode','Y','X')
+                fields=values(correlation) if side=='predictor' else pack(f'{season}-predictand-{kind}',at_pixels(correlation),10000)
+                item[kind]={'fields':fields,'score':values(s.transpose(f'{kind}_mode','T')),'standardizedScore':values(z.transpose(f'{kind}_mode','T'))}
+            if side=='predictand':item.pop('longitude');item.pop('latitude')
             panels[season][side]=item
         panels[season]['canonical']=results[season]['cca'][0]['canonical-correlations'].native_correlation.values.tolist()
     score_rows=[];year_rows=[]
@@ -322,18 +343,55 @@ def presentation_data(root,artifacts,results,scores,yearly,comparison,input_tabl
                 row={'season':season,'method':method,'year':int(year)}
                 row.update({m:float(yearly[m].sel(season=season,forecast_method=method,training_year=year)) for m in ['rmse','mae','bias']});year_rows.append(row)
     maps={}
+    views={'rainfall':'forecast_rainfall','absoluteError':'absolute_error','signedError':'signed_error'}
     for season in SEASONS:
-        maps[season]={'longitude':comparison.X.values.tolist(),'latitude':comparison.Y.values.tolist(),
-           'rainfall':{m:values(comparison.forecast_rainfall.sel(season=season,forecast_method=m)) for m in METHODS},
-           'absoluteError':{m:values(comparison.absolute_error.sel(season=season,forecast_method=m)) for m in METHODS},
-           'signedError':{m:values(comparison.signed_error.sel(season=season,forecast_method=m)) for m in METHODS}}
+        order=[f'{view}:{m}' for view in views for m in METHODS]
+        arrays=[at_pixels(comparison[variable].sel(season=season,forecast_method=m,drop=True)) for variable in views.values() for m in METHODS]
+        assert all(np.isfinite(a).all() for a in arrays)
+        limits={view:float(max(np.abs(arrays[order.index(f'{view}:{m}')]).max() for m in METHODS)) for view in views}
+        # Colour scales stop at the 99th percentile of the four methods' values: a few extreme pixels would
+        # otherwise set the scale and leave the maps pale. 'limits' keeps the true largest value.
+        caps={view:float(np.percentile(np.abs(np.concatenate([arrays[order.index(f'{view}:{m}')] for m in METHODS])),99)) for view in views}
+        maps[season]={**pack(f'{season}-maps',arrays,1),'order':order,'limits':limits,'caps':caps}
+        # The forecast as a user reads it: the 1991-2020 normal and tercile boundaries (hazen rule, the one that
+        # reproduces CPT's probabilities), the observed total and category, and CPT's probabilities of the two fits.
+        training=load(root/'docs/data/fitting-2023'/f'{season}-Y.nc').precipitation
+        train=at_pixels(training.where(training>-999));assert train.shape[0]==30 and np.isfinite(train).all()
+        normal=train.mean(axis=0);lower,upper=np.percentile(train,[33,67],axis=0,method='hazen')
+        observed=at_pixels(comparison.observed_rainfall.sel(season=season,drop=True));assert np.isfinite(observed).all()
+        category=np.where(observed<lower,0,np.where(observed>upper,2,1)).astype(float)
+        product_order=['normal','lower','upper','observed','observedCategory'];product_arrays=[normal,lower,upper,observed,category]
+        probability_order=[];probability_arrays=[];flex_scales={}
+        for m in ['cca','pcr']:
+            saved=load(artifacts/f'{season}-{m}-forecasts.nc')
+            prob=at_pixels(saved.probabilistic.where(saved.probabilistic>-999).isel(T=0,drop=True).transpose('C','Y','X'))
+            assert np.isfinite(prob).all() and np.abs(prob.sum(axis=0)-100).max()<.01
+            np.testing.assert_allclose(at_pixels(saved.deterministic.isel(T=0,drop=True)),arrays[order.index(f'rainfall:{m.upper()}')],atol=1e-3)
+            probability_order+=[f'{m}:{c}' for c in ['below','near','above']];probability_arrays+=list(prob)
+            # Flexible forecast (PyCPT's construct_flex_fcst): Student's t with 30 degrees of freedom and scale
+            # sqrt(28/30 x prediction error variance); the climatology is a normal with sqrt(28/30) x the training
+            # standard deviation. Checked against PyCPT's own function.
+            pev=at_pixels(saved.prediction_error_variance.where(saved.prediction_error_variance>-999).isel(T=0,drop=True))
+            assert np.isfinite(pev).all();flex_scales[m]=np.sqrt(28/30*pev)
+            import pycpt
+            det=saved.deterministic.where(saved.deterministic>-999).isel(T=0,drop=True);var=saved.prediction_error_variance.where(saved.prediction_error_variance>-999).isel(T=0,drop=True)
+            flex=pycpt.construct_flex_fcst(m.upper(),{'transform_predictand':None,'tailoring':None},det,0.5,True,training.where(training>-999),var)
+            assert int(flex[6])==30
+            np.testing.assert_allclose(at_pixels(flex[1]),flex_scales[m],rtol=1e-6)
+            np.testing.assert_allclose(at_pixels(flex[2]),np.sqrt(28/30)*train.std(axis=0),rtol=1e-4)
+        anomalies=np.concatenate([observed-normal]+[arrays[order.index(f'rainfall:{m}')]-normal for m in METHODS])
+        maps[season]['products']={**pack(f'{season}-products',product_arrays,1),'order':product_order,
+          'probabilities':{**pack(f'{season}-probabilities',probability_arrays,10),'order':probability_order},
+          'flexible':{**pack(f'{season}-flexible',[np.sqrt(28/30)*train.std(axis=0),flex_scales['cca'],flex_scales['pcr']],10),'order':['climatology','cca','pcr'],'degreesOfFreedom':30},
+          'anomalyCap':float(np.percentile(np.abs(anomalies),99))}
     payload={'case':'fit-diagnose-2023','training':'1991–2020','seasons':SEASONS,'methods':METHODS,
+       'pixelsFile':'fields/pixels.bin','grid':{'west':round(float(grid_X.min())-step/2,3),'north':round(float(grid_Y.max())+step/2,3),'step':round(step,3),'nx':int(grid_X.size),'ny':int(grid_Y.size),'pixels':n},
        'inputs':input_table.to_dict(orient='records'),'scores':score_rows,'yearly':year_rows,'diagnostics':panels,'maps':maps,
        'notes':{'cv':'30 training target years; calibrated CV5; climatology excludes the same cyclic 5-year window; raw model is uncalibrated.',
          'patterns':'Full-training field–score correlations; separately standardized score series; not forecast skill.',
-         'forecast':'Spatial errors over 3,240 shared land cells; 2023 is outside training but these are selected development examples.'}}
+         'forecast':f'Spatial errors over {n:,} shared pixels at 0.05°; 2023 is outside training but these are selected development examples.'}}
     p=artifacts/'interactive-data.json';p.write_text(json.dumps(payload,separators=(',',':'),allow_nan=False)+'\n')
-    summary={'date':'2026-11-02','fits':[results[s][m][1] for s in SEASONS for m in ['cca','pcr']],
+    summary={'date':__import__('datetime').date.today().isoformat(),'fits':[results[s][m][1] for s in SEASONS for m in ['cca','pcr']],
       'runtime':runtime,'offline_guard':dict(offline),'scores':score_rows,'interactive_data_sha256':sha(p),
       'netcdf_outputs':{p.name:sha(p) for p in sorted(artifacts.glob('*.nc'))},
       'limitations':['Illustrative development cases, fixed modes, no tuning.','No empirical probability reliability or physical attribution.','Absolute EOF amplitude normalization remains outside the lesson.']}

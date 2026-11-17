@@ -1,4 +1,5 @@
-"""Tests for pycpt_tutorial.checks, using the real Fit & diagnose OND inputs."""
+"""Tests for pycpt_tutorial.checks, using the real Fit & diagnose OND inputs (0.05 degree) and, for a
+file that carries the model's initialization date, the observations of the 0.25 degree research control."""
 from pathlib import Path
 import datetime as dt
 import tempfile
@@ -9,6 +10,7 @@ import xarray as xr
 from pycpt_tutorial import checks
 
 DATA = Path(__file__).resolve().parents[1] / "docs/data/fitting-2023"
+CONTROL = Path(__file__).resolve().parents[1] / "research/cases/indonesia-all-seasons-2021-2024-025deg/outputs/OND_observations.nc"
 ARGS = {
     "fdate": dt.datetime(2023, 9, 1), "target": "Oct-Dec",
     "target_first_year": 1991, "target_final_year": 2020,
@@ -27,31 +29,35 @@ class ChecksOnRealInputs(unittest.TestCase):
         self.Y = load("OND-Y.nc")
         self.X = load("OND-X.nc")
         self.F = load("OND-F.nc")
+        with xr.open_dataset(CONTROL) as ds:
+            control = ds.precipitation.load()
+        self.control = control.sel(T=control.season_year.isin(range(1991, 2021))).drop_vars("season_year")
 
     def status(self, table, check):
         return table.set_index("check").loc[check, "status"]
 
-    def test_case_two_observations_carry_s_and_are_flagged(self):
-        # The Fit & diagnose observation file was built with the model's S coordinate.
-        self.assertIn("S", self.Y.coords)
-        rows = {r["check"]: r["status"] for r in checks.check_predictand(self.Y, "CHIRPS3.PRCP")}
+    def test_control_observations_carry_s_and_are_flagged(self):
+        # The 0.25 degree research control's observation file was built with the model's S coordinate.
+        self.assertIn("S", self.control.coords)
+        rows = {r["check"]: r["status"] for r in checks.check_predictand(self.control, "CHIRPS3.PRCP")}
         self.assertEqual(rows["predictand has no initialization date"], "fail")
         self.assertEqual(rows["predictand attributes"], "ok")
 
     def test_clean_observations_pass(self):
-        clean = self.Y.drop_vars("S")
+        self.assertNotIn("S", self.Y.coords)
+        clean = self.Y
         rows = {r["check"]: r["status"] for r in checks.check_predictand(clean, "CHIRPS3.PRCP")}
         self.assertEqual(set(rows.values()), {"ok"})
 
     def test_missing_attribute_and_name(self):
-        bad = self.Y.drop_vars("S")
+        bad = self.Y.copy()
         bad.attrs = {k: v for k, v in bad.attrs.items() if k != "missing"}
         rows = {r["check"]: r["status"] for r in checks.check_predictand(bad, "CHIRPS3 (local)")}
         self.assertEqual(rows["predictand attributes"], "fail")
         self.assertEqual(rows["predictand name"], "warn")
 
     def test_full_case_and_missing_years(self):
-        Y = self.Y.drop_vars("S")
+        Y = self.Y
         table = checks.check_case(ARGS, "CHIRPS3.PRCP", Y, [self.X], [self.F], ["CFSv2.PRCP"])
         self.assertNotIn("fail", set(table["status"]))
         short = self.X.isel(T=slice(2, None))

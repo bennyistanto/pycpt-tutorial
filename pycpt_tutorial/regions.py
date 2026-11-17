@@ -38,3 +38,24 @@ def pool_years(annual, dim="season_year"):
     pooled["rmse"] = np.sqrt(pooled.mse)
     pooled.rmse.attrs["units"] = "mm"
     return pooled
+
+
+def score_pixels_by_region(error, label, weight, regions):
+    """Area-weighted MSE, MAE, bias and RMSE of pixel errors within each region.
+
+    ``error`` has shape (..., pixel); ``label`` gives each pixel's region index and ``weight`` its
+    area weight. Each pixel belongs to one region, so the scores are plain weighted means over the
+    region's own pixels. Squares are averaged before the root: RMSEs are never averaged.
+    """
+    error = np.asarray(error, dtype="float64")
+    label, weight = np.asarray(label), np.asarray(weight, dtype="float64")
+    if not np.isfinite(error).all():
+        raise ValueError("Every scored pixel needs a finite forecast and observation")
+    mass = np.bincount(label, weights=weight, minlength=regions)
+    if (mass <= 0).any():
+        raise ValueError("Every scored region needs positive support")
+    flat = error.reshape(-1, error.shape[-1])
+    total = lambda values: np.stack([np.bincount(label, weights=row * weight, minlength=regions) for row in values]) / mass
+    result = {"mse": total(flat ** 2), "mae": total(np.abs(flat)), "bias": total(flat)}
+    result["rmse"] = np.sqrt(result["mse"])
+    return {name: values.reshape(error.shape[:-1] + (regions,)) for name, values in result.items()}

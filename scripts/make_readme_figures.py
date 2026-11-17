@@ -5,7 +5,7 @@
 1. skill-across-time-scales.png: area-mean cross-validated CCA correlation (and the raw model's)
    against days from issue to target, one panel per model family.
 2. week1-skill-005deg.png: week-1 CCA correlation at the native 0.05° grid, with a zoom on Java.
-3. weekly-skill-ridgelines.png: distribution of the 61,190 pixel correlations at each weekly lead.
+3. weekly-skill-ridgelines.png: distribution of the pixel correlations at each weekly lead.
 
 Inputs: docs/data/*/skill-by-lead.csv, */summary.json, */lead-design.csv,
 docs/data/week-leads-2023/week-leads-2023-skill-maps.nc, docs/data/boundaries/*.geojson.
@@ -93,7 +93,7 @@ def skill_across_time_scales():
     axes[0].set_ylabel("Area-mean correlation over Indonesia")
     # labels placed by hand where lines end, clear of each other
     first = axes[0]
-    for case, dy in [("Dekad", .02), ("Weekly", -.045), ("Pentad", 0), ("Weeks 3-4", .015)]:
+    for case, dy in [("Dekad", .02), ("Weekly", -.085), ("Pentad", 0), ("Weeks 3-4", .015)]:
         g = d[d.case == case].sort_values("offset")
         if g.empty:
             continue
@@ -156,7 +156,7 @@ def week1_map():
     ax.set_xticks([]); ax.set_yticks([])
     for s in ax.spines.values():
         s.set_edgecolor(LINE)
-    fig.text(.02, 1 - .32 / H, "Week 1 at 0.05°: 61,190 pixels, each with its own skill", fontsize=13, fontweight="bold", color=INK, va="top")
+    fig.text(.02, 1 - .32 / H, f"Week 1 at 0.05°: {int(r.notnull().sum()):,} pixels, each with its own skill", fontsize=13, fontweight="bold", color=INK, va="top")
     fig.text(.02, 1 - .62 / H, "Cross-validated correlation of calibrated (CCA) GEFSv12 week-1 rainfall with CHIRPS v3.0, "
              "October-December 2000-2018", fontsize=8.5, color=MUTED, va="top")
     ax.add_patch(Rectangle((lens[0], lens[2]), lens[1] - lens[0], lens[3] - lens[2], fill=False, edgecolor=INK, linewidth=1.2, zorder=5))
@@ -181,6 +181,10 @@ def week1_map():
     fig.text(.68, (zoom_h * .35 + .3) / H + .5 / H,
              f"Area-mean {float(r.weighted(w).mean()):.2f}\nhalf of all pixels between "
              f"{np.nanpercentile(r.values, 25):.2f} and {np.nanpercentile(r.values, 75):.2f}", fontsize=9, color=INK, va="bottom")
+    print(f"week 1 map: {int(r.notnull().sum()):,} pixels, area mean {float(r.weighted(w).mean()):.3f}, quartiles "
+          f"{np.nanpercentile(r.values, 25):.3f} to {np.nanpercentile(r.values, 75):.3f}")
+    top = r.where(r >= r.quantile(.95))
+    print("top 5% of pixels, mean lon/lat:", float(top.X.where(top.notnull()).mean()), float(top.Y.where(top.notnull()).mean()))
     fig.savefig(OUT / "week1-skill-005deg.png", dpi=170, facecolor="white")
     plt.close(fig)
 
@@ -214,6 +218,7 @@ def ridgelines():
                 linestyle=(0, (2.5, 1.8)), zorder=z + 1)
         ax.text(-.52, base + .36, name, ha="right", va="bottom", fontsize=10.5, color=INK, fontweight="bold")
         share = float((v > 0).mean() * 100)
+        print(f"{name}: {len(v):,} pixels, median {med:.3f}, {share:.2f}% > 0, {100 - share:.2f}% at or below 0")
         ax.text(-.52, base + .02, f"median {med:.2f}\n{share:.1f}% of pixels > 0", ha="right", va="bottom",
                 fontsize=8, color=MUTED, zorder=30)
     ax.axvline(0, color=INK, linewidth=.8, alpha=.45, zorder=40)
@@ -221,7 +226,7 @@ def ridgelines():
     for s in ["left", "top", "right"]:
         ax.spines[s].set_visible(False)
     ax.set_xlabel("Cross-validated correlation at each 0.05° pixel")
-    subtitle(ax, "Skill is a distribution, not a number: 61,190 pixels at each lead",
+    subtitle(ax, f"Skill is a distribution, not a number: {int(m.cca_pearson_week1.notnull().sum()):,} pixels at each lead",
              "Blue: calibrated (CCA), white line at the median · dashed: raw GEFSv12 · weekly rainfall over Indonesia, October-December 2000-2018")
     ax.grid(False)
     fig.savefig(OUT / "weekly-skill-ridgelines.png", dpi=170, facecolor="white")

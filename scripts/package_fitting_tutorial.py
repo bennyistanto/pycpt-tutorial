@@ -1,4 +1,4 @@
-"""Create the case-two fitting kit and NetCDF output archive only."""
+"""Create the case-two fitting kit and the two NetCDF output archives (one per season) only."""
 from pathlib import Path
 import hashlib,json,shutil,zipfile
 import nbformat
@@ -61,14 +61,21 @@ modified by Benny Istanto. Display boundaries do not change scoring support.
 See docs/data/boundaries/README.md and provenance.json for attribution/hashes.
 Code license: Mozilla Public License 2.0, see LICENSE; data retain source terms.
 ''')
-    outputs=dest/'fit-diagnose-2023-outputs.zip'
+    # One archive per season: at 0.05 degree a single archive is above GitHub's 100 MB limit per file.
+    old=dest/'fit-diagnose-2023-outputs.zip'
+    if old.exists():old.unlink()
     published=[p for p in (ROOT/'docs/assets/fitting-2023').rglob('*') if p.is_file() and p.suffix in ['.nc','.csv','.png','.json','.log','.txt'] and p.name!='interactive-data.json']
-    with zipfile.ZipFile(outputs,'w',zipfile.ZIP_DEFLATED) as z:
-        for p in sorted(published):z.write(p,p.relative_to(ROOT/'docs/assets/fitting-2023'))
-        z.write(ROOT/'LICENSE','LICENSE')
-        z.writestr('README.md','''# OND/JJA 2023 fitted outputs
+    archives=[]
+    for season,other in [('OND','JJA'),('JJA','OND')]:
+      outputs=dest/f'fit-diagnose-2023-outputs-{season}.zip';archives.append(outputs)
+      chosen=[p for p in published if not p.name.upper().startswith(other+'-')]
+      with zipfile.ZipFile(outputs,'w',zipfile.ZIP_DEFLATED) as z:
+          for p in sorted(chosen):z.write(p,p.relative_to(ROOT/'docs/assets/fitting-2023'))
+          z.write(ROOT/'LICENSE','LICENSE')
+          z.writestr('README.md','''# OND/JJA 2023 fitted outputs
 
-Thirty NetCDFs from four isolated local-input PyCPT fits. The execution manifest
+The NetCDFs of one season's two isolated local-input PyCPT fits (the other season is in
+a second archive), with the summaries that cover both seasons. The execution manifest
 records runtime, configuration, control comparisons and each file hash.
 Forecast-comparison and deterministic-scores summarize the selected 2023 examples;
 CV-yearly-scores and CV-residual-summary describe deterministic training cross-validation.
@@ -80,11 +87,12 @@ See the executed fitting notebook and tutorial story for interpretation.
 Observations: CHIRPS3, Climate Hazards Center/UCSB, https://doi.org/10.15780/G2JQ0P.
 Model: NCEP CFSv2 via IRI Data Library. Source data retain their original terms.
 ''')
-    for archive in [kit,outputs]:
+    assert all(a.stat().st_size<95e6 for a in archives)
+    for archive in [kit,*archives]:
         with zipfile.ZipFile(archive) as z:
             assert not any('dlauth' in Path(name).name.lower() or Path(name).name.startswith('.env') for name in z.namelist())
     record={'date':__import__('datetime').date.today().isoformat(),'notebook_sha256':sha(nbpath),'kit':{'file':str(kit.relative_to(ROOT)),'sha256':sha(kit),'bytes':kit.stat().st_size,'files':len(files)+1},
-       'output_archive':{'file':str(outputs.relative_to(ROOT)),'sha256':sha(outputs),'bytes':outputs.stat().st_size,'netcdf_files':30},
+       'output_archives':[{'file':str(o.relative_to(ROOT)),'sha256':sha(o),'bytes':o.stat().st_size} for o in archives],
        'scope':'Only case-two downloads changed; no credentials or bulk native session inputs included.'}
     (ROOT/'temp/audits/fitting-tutorial-2023/kit.json').write_text(json.dumps(record,indent=2)+'\n')
     print(json.dumps(record,indent=2))

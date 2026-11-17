@@ -18,6 +18,8 @@ import time
 import nbformat
 from nbclient import NotebookClient
 
+import patient_io
+
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT_DIR = ROOT / "temp/audits/learn-pycpt"
 
@@ -47,17 +49,20 @@ def main():
     path = args.notebook.resolve()
     nb = nbformat.read(path, as_version=4)
     start = time.monotonic()
-    client = NotebookClient(nb, timeout=args.timeout, kernel_name="pycpt-tutorial",
+    client = NotebookClient(nb, timeout=args.timeout, startup_timeout=600, kernel_name="pycpt-tutorial",
                             resources={"metadata": {"path": str(path.parent)}})
+    patient_io.add(nb)
     try:
         client.execute()
     except Exception:
+        patient_io.remove(nb)
         failed = ROOT / "temp" / f"{path.stem}-failed.ipynb"
         failed.parent.mkdir(exist_ok=True)
         nbformat.write(nb, failed)
         print(f"Execution failed; partial notebook saved to {failed}")
         raise
 
+    patient_io.remove(nb)
     errors = [i for i, c in enumerate(nb.cells)
               if any(o.get("output_type") == "error" for o in c.get("outputs", []))]
     if errors:

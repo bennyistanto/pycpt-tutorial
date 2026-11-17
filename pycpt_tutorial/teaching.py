@@ -7,6 +7,7 @@ from pathlib import Path
 from functools import lru_cache
 import hashlib
 import json
+import time
 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -34,7 +35,13 @@ def verify_bundle(folder):
 
 def save_figure(fig,folder,name):
     folder.mkdir(parents=True,exist_ok=True)
-    fig.savefig(folder/f"{name}.png",bbox_inches="tight")
+    for attempt in range(6):
+        try:
+            fig.savefig(folder/f"{name}.png",bbox_inches="tight")
+            break
+        except OSError:      # a file-sync client can hold the previous file for a moment
+            if attempt==5: raise
+            time.sleep(10)
     return fig
 
 def rmse_overview(frame):
@@ -127,8 +134,41 @@ def ond_maps(bundle):
     limit=float(np.nanquantile(np.concatenate([a.values.ravel() for _,a in fields]),.99))
     for ax,(name,field) in zip(axes.flat,fields): im=map_axis(ax,field,name,vmax=limit)
     axes.flat[-1].axis("off")
-    axes.flat[-1].text(.02,.85,"OND 2023\n1 October–31 December\n\nIssued 1 September\nCalibration: 1991–2020\nCountry-land cells: 3,240\n\nGrey land: other countries\nDark outline: Indonesia\nThin lines: provinces",transform=axes.flat[-1].transAxes,va="top",fontsize=10)
+    pixels=int(bundle.evaluation_mask.sum())
+    axes.flat[-1].text(.02,.85,f"OND 2023\n1 October–31 December\n\nIssued 1 September\nCalibration: 1991–2020\nPixels at 0.05°: {pixels:,}\n\nGrey land: other countries\nDark outline: Indonesia\nThin lines: provinces",transform=axes.flat[-1].transAxes,va="top",fontsize=10)
     fig.colorbar(im,ax=list(axes.flat[:5]),shrink=.65,pad=.015,label="Seasonal rainfall (mm) · common colour scale; top 1% saturated",extend="max")
+    return fig
+
+CATEGORY_MAPS=[("Below normal","YlOrBr",35,85),("Near normal","Greys",35,55),("Above normal","GnBu",35,85)]
+
+def category_axis(ax,category,probability,title):
+    """Most likely tercile category (0 below, 1 near, 2 above), shaded by its probability in %."""
+    images=[]
+    for k,(_,cmap,low,high) in enumerate(CATEGORY_MAPS):
+        images.append(map_axis(ax,probability.where(category==k),title,cmap=cmap,vmin=low-15,vmax=high))
+    return images
+
+def forecast_products(bundle,products,season,method):
+    """One season's forecast as a user reads it, stacked in one column: percent of normal and tercile category, forecast then observed."""
+    mask=bundle.evaluation_mask.astype(bool)
+    normal=products.normal.sel(season=season).where(mask)
+    forecast=bundle.forecast_rainfall.sel(season=season,forecast_variant=f"{method}_1991_2020").where(mask)
+    observed=bundle.observed_rainfall.sel(season=season).where(mask)
+    probability=products.probability.sel({"season":season,"method":method})
+    likely=probability.fillna(-1).argmax("category").where(mask)
+    seen=products.observed_category.sel(season=season).where(mask)
+    fig,axes=plt.subplots(4,1,figsize=(8.4,17),layout="constrained")
+    norm=TwoSlopeNorm(vmin=40,vcenter=100,vmax=160)
+    label=f"{season} 2023 · {method.upper()}"
+    map_axis(axes[0],100*forecast/normal,f"{label} forecast, % of the 1991–2020 normal",cmap="BrBG",norm=norm)
+    im=map_axis(axes[1],100*observed/normal,f"{season} 2023 observed (CHIRPS3), % of normal",cmap="BrBG",norm=norm)
+    fig.colorbar(im,ax=axes[1],location="bottom",shrink=.7,aspect=40,pad=.03,label="% of normal · colours saturate beyond 40 and 160",extend="both")
+    category_axis(axes[2],likely,probability.max("category").where(mask),f"{label} most likely category, shaded by its probability")
+    # the observed category has no probability: one mid-scale shade per category
+    images=category_axis(axes[3],seen,(seen*0+65).where(seen!=1,47),f"{season} 2023 observed category (one shade per category)")
+    for image,(name,_,low,high) in zip(images,CATEGORY_MAPS):
+        bar=fig.colorbar(image,ax=axes[3],location="bottom",shrink=.9,aspect=14,pad=.03,fraction=.05,label=f"{name} (%)")
+        bar.ax.set_xlim(low,high)
     return fig
 
 def error_atlas(bundle):
@@ -182,6 +222,19 @@ def province_heatmap(scores, title):
     fig.suptitle(title, fontsize=14, fontweight="bold")
     fig.colorbar(im, ax=list(axes), location="bottom", shrink=.65, aspect=50, pad=.015,
                  label="RMSE reduction relative to matched climatology (%) · green helps; brown worsens", extend="min")
+    return fig
+
+
+def province_map(index, provinces, pixels):
+    """Each scored pixel coloured by its province; colours only separate neighbours."""
+    from matplotlib.colors import ListedColormap
+    fig, ax = plt.subplots(figsize=(11, 4.8), layout="constrained")
+    colours = plt.get_cmap("tab20")(np.arange(provinces) * 7 % 20)
+    ax.pcolormesh(index.X, index.Y, index.values, shading="auto", cmap=ListedColormap(colours), vmin=-.5, vmax=provinces - .5, rasterized=True, zorder=2)
+    draw_boundaries(ax)
+    ax.set(xlim=(94, 142), ylim=(-12, 7), xlabel="Longitude (°E)", ylabel="Latitude (°N)")
+    ax.set_aspect(1/np.cos(np.deg2rad(-2.5))); ax.set_facecolor("#f1f5f7")
+    ax.set_title(f"The province of each of the {pixels:,} scored pixels", fontweight="bold")
     return fig
 
 

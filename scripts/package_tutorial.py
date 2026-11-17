@@ -57,17 +57,16 @@ not evidence of general or probabilistic forecast skill.
 Data attribution: CHIRPS3, Climate Hazards Center, UC Santa Barbara,
 https://doi.org/10.15780/G2JQ0P and https://www.chc.ucsb.edu/data/chirps3 .
 Model source: NCEP CFSv2 through the IRI Data Library; exact source hashes and
-calendar selections are in docs/data/provenance.json. Teaching fields are derived
-country-land aggregations, not the native source products.
+calendar selections are in docs/data/provenance.json. Teaching fields are seasonal
+totals at the native 0.05 degree grid, at every pixel that touches Indonesia.
 
 Boundary overlays: supplied Indonesia country/province and world shapefiles,
 cropped and simplified for display. Indonesia metadata credits Badan Informasi
 Geospasial, modified by Benny Istanto. See docs/data/boundaries/README.md and
 provenance.json for source hashes and processing; overlays do not affect analysis.
-Separate province analysis weights use native country-pixel centres and the
-unsimplified supplied province file. See docs/data/regions/README.md; unassigned
-country pixels remain an explicit category. The notebook exports province-weighted
-coarse-cell errors, not a new fine-resolution provincial rainfall product.
+The analysis keeps every pixel that touches the unsimplified supplied province file;
+each pixel belongs to the province covering most of it. See docs/data/regions/README.md.
+The notebook exports province means of pixel errors, not a new provincial rainfall product.
 """)
     record={"kit":str(dest.relative_to(ROOT)),"sha256":hashlib.sha256(dest.read_bytes()).hexdigest(),"bytes":dest.stat().st_size,
             "files":[str(p.relative_to(ROOT)) for p in files],"note":"Notebook plus offline inputs/helpers and Linux lock; no credentials, native logs or reference caches."}

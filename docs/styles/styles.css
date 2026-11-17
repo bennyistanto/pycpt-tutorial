@@ -295,11 +295,15 @@ h1.home-title em { font-style: italic; font-weight: 350; color: var(--accent); }
 .story-key-item { display: inline-flex; align-items: center; gap: .35rem; }
 .story-key-swatch { display: inline-block; width: 19px; border-top: 3px solid; }
 .story-scroll-hint { display: none; font-size: .78rem; color: var(--muted); line-height: 1.45; }
-.story-readout { font-family: var(--sans); font-size: .82rem; font-variant-numeric: tabular-nums; color: var(--muted); line-height: 1.5; min-height: 2.2rem; margin: .6rem 0; overflow-wrap: anywhere; }
+/* Two lines, always: a longer readout must not push the maps down under the pointer. The tooltip holds the full text. */
+.story-readout { font-family: var(--sans); font-size: .82rem; font-variant-numeric: tabular-nums; color: var(--muted); line-height: 1.5; height: 3em; margin: .6rem 0; overflow: hidden; overflow-wrap: anywhere; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
 .story-legend { margin: .5rem auto 1rem; width: min(100%, 470px); }
 .story-gradient { height: 10px; border-radius: 999px; border: 1px solid var(--line); }
 .story-legend-ends { display: flex; justify-content: space-between; font-family: var(--sans); font-size: .76rem; font-variant-numeric: tabular-nums; color: var(--ink-2); }
 .story-legend p { font-size: .76rem; line-height: 1.45; text-align: center; margin: .2rem 0; color: var(--muted); }
+.story-category-legend { width: min(100%, 640px); display: grid; grid-template-columns: repeat(3, 1fr); gap: .3rem .9rem; }
+.story-category-legend p { grid-column: 1 / -1; }
+@media (max-width: 520px) { .story-category-legend { grid-template-columns: 1fr; } }
 .story-tooltip { position: fixed; z-index: 10000; width: min(330px, calc(100vw - 16px)); max-height: calc(100vh - 16px); overflow: auto; padding: .85rem 1rem; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--card); box-shadow: 0 10px 30px rgba(0, 0, 0, .18); color: var(--ink); font-size: .8rem; line-height: 1.45; pointer-events: auto; }
 .story-tooltip[hidden] { display: none; }
 .story-tooltip strong { display: block; margin-right: 1rem; font-family: var(--serif); font-weight: 500; font-size: .95rem; }
@@ -330,6 +334,14 @@ h1.home-title em { font-style: italic; font-weight: 350; color: var(--accent); }
 .story-map-card h4 { font-size: .9rem; margin: .3rem 0; font-weight: 600; }
 .story-map-card canvas { width: 100%; aspect-ratio: 48/19; display: block; border: 1px solid var(--line); border-radius: 6px; touch-action: pan-y; cursor: crosshair; }
 .story-map-card canvas:focus { outline: 2px solid var(--mark); outline-offset: 2px; }
+.story-map-wrap { position: relative; }
+.story-map-dot { position: absolute; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: var(--mark); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.45); pointer-events: none; }
+.story-map-dot[hidden] { display: none; }
+.story-map-tools { display: flex; align-items: center; flex-wrap: wrap; gap: .4rem .5rem; margin: .5rem 0 .2rem; }
+.story-map-tools button { border: 1px solid var(--line-strong); border-radius: 999px; min-width: 34px; min-height: 34px; padding: .3rem .75rem; background: transparent; color: var(--ink-2); font: inherit; font-size: .85rem; line-height: 1; cursor: pointer; }
+.story-map-tools button:hover:not(:disabled) { border-color: var(--ink); color: var(--ink); }
+.story-map-tools button:disabled { opacity: .4; cursor: default; }
+.story-map-tools-note { font-family: var(--sans); font-size: .76rem; color: var(--muted); }
 .story-map-coords { font-family: var(--sans); font-size: .7rem; font-variant-numeric: tabular-nums; white-space: pre; overflow: hidden; margin: .1rem 0; color: var(--muted); }
 .story-map-status { padding: 1rem; background: var(--paper-2); font-size: .86rem; border-radius: 6px; }
 .story-fallback { max-width: 100%; }
