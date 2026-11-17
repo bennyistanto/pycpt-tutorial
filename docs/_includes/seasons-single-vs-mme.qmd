@@ -1,0 +1,46 @@
+The rest of this page uses one model, CFSv2. The
+[seasonal ensemble case](seasonal-mme-2023.qmd) calibrates seven models for one start
+date at 0.05°. Doing that for all twelve seasons would take several hundred fits, so
+this section uses a coarser measurement that already exists: the scan made to choose
+that case's start date. It fitted CCA to each of the seven models for every start
+month, on a 0.25° grid, with the settings of this page (3 predictor EOFs, 3
+predictand EOFs, 2 CCA modes). The rows below are its forecasts started one month
+before the season, the lead used throughout this page.
+
+| Season | CFSv2 alone | Seven-model ensemble | Best single model | Ensemble's rank | CFSv2 RPSS | Ensemble RPSS |
+| --- | --- | --- | --- | --- | --- | --- |
+| JFM | 0.14 | 0.18 | CanSIPSIC3, 0.21 | 3 of 8 | 0.09 | 0.12 |
+| FMA | 0.09 | 0.12 | SPEAR, 0.18 | 4 of 8 | 0.06 | 0.08 |
+| MAM | 0.10 | 0.15 | SEAS51c, 0.22 | 4 of 8 | 0.07 | 0.10 |
+| AMJ | 0.06 | 0.08 | SEAS51c, 0.12 | 3 of 8 | 0.04 | 0.06 |
+| MJJ | -0.03 | 0.28 | CanSIPSIC3, 0.34 | 5 of 8 | 0.00 | 0.11 |
+| JJA | 0.34 | 0.42 | GEOSS2S, 0.44 | 2 of 8 | 0.11 | 0.16 |
+| JAS | 0.50 | 0.55 | GEOSS2S, 0.57 | 2 of 8 | 0.21 | 0.26 |
+| ASO | 0.61 | 0.63 | SEAS51c, 0.64 | 2 of 8 | 0.34 | 0.34 |
+| SON | 0.60 | 0.62 | SPEAR, 0.63 | 2 of 8 | 0.30 | 0.33 |
+| OND | 0.50 | 0.56 | SEAS51c, 0.57 | 3 of 8 | 0.24 | 0.29 |
+| NDJ | 0.24 | 0.28 | CESM1, 0.31 | 4 of 8 | 0.11 | 0.14 |
+| DJF | 0.20 | 0.23 | SEAS51c, 0.27 | 3 of 8 | 0.10 | 0.13 |
+
+: Cross-validated Pearson correlation and RPSS of CCA-calibrated forecasts started one month before each season, area-weighted mean over Indonesia at 0.25°, training target years 1992-2020. The ensemble is the equal-weight mean of the seven calibrated forecasts; rank 1 means above every member. Source: [skill-calendar.csv](../data/seasonal-mme-2023/skill-calendar.csv), written by `research/scripts/skill_calendar_scan.py`.
+
+1. **The ensemble is above CFSv2 alone in all twelve seasons**, by 0.01 to 0.30 in
+   correlation. The gain is 0.08 or less everywhere except MJJ, where CFSv2's
+   correlation is -0.03 and four other models score about 0.3. Its RPSS is at
+   least as high as CFSv2's in every season too.
+2. **It is never the best, and never far from it.** One model is above the ensemble
+   in every season, but the ensemble is second or third of 8 in 8 of the 12 seasons
+   and never lower than 5th. The best single model changes with the season
+   (5 of the 7 models are best at least once), which is why picking one in advance
+   is hard.
+3. **Combining models does not create skill where there is none.** The ensemble
+   reaches 0.4 or more only for JJA, JAS, ASO, SON and OND, the seasons where the members are
+   good too. For the other seven seasons it is 0.08 to 0.28.
+
+Read this beside the rest of the page with care. It is a different measurement:
+correlation and RPSS over the training years, not the 2023 errors scored above; a
+0.25° grid, not 0.05°; training target years 1992-2020, not 1991-2020; and the
+CFSv2 hindcasts of PyCPT's catalog. A cross-validated correlation of 0 is also not
+the no-skill level: a forecast with no model scores -0.24 to -0.51 in these seasons
+(the [ensemble page](seasonal-mme-2023.qmd#why-a-correlation-near-zero-is-not-no-skill-here)
+explains why), so the comparison between columns is the safer reading.

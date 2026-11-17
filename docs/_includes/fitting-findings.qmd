@@ -1,3 +1,3 @@
-**OND 2023:** national spatial RMSE was 292.39 mm for raw CFSv2, 226.50 mm for climatology, 120.35 mm for CCA and 117.36 mm for PCR.
+**OND 2023:** national spatial RMSE was 292.74 mm for raw CFSv2, 232.32 mm for climatology, 124.19 mm for CCA and 120.39 mm for PCR.
 
-**JJA 2023:** national spatial RMSE was 377.82 mm for raw CFSv2, 130.69 mm for climatology, 177.98 mm for CCA and 175.59 mm for PCR.
+**JJA 2023:** national spatial RMSE was 378.59 mm for raw CFSv2, 132.67 mm for climatology, 180.90 mm for CCA and 177.45 mm for PCR.
