@@ -1,0 +1,618 @@
+{
+  "case_id": "indonesia-all-seasons-2021-2024-005deg",
+  "training_periods": {
+    "1983_2010": [
+      1983,
+      2010,
+      28
+    ],
+    "1991_2020": [
+      1991,
+      2020,
+      30
+    ]
+  },
+  "evaluation_years": [
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "common_evaluation_pixels": 69640,
+  "pixels_touching_indonesia": 70215,
+  "calibrated_forecast_cases": 192,
+  "CPT_calls": 48,
+  "fit_seconds_total": 23705.2,
+  "fits": [
+    {
+      "season": "DJF",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 540.3,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0021628957547363825,
+      "pearson_direct_minus_native_max": 1.1183203525867713e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "DJF",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 490.9,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0021021140904338154,
+      "pearson_direct_minus_native_max": 1.2847553854025001e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "DJF",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 501.9,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0018285773690251972,
+      "pearson_direct_minus_native_max": 1.3538522509886491e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "DJF",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 509.6,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001870159044955244,
+      "pearson_direct_minus_native_max": 1.2855984745901994e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JFM",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 505.6,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0019659413172234963,
+      "pearson_direct_minus_native_max": 1.171684049869337e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JFM",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 468.5,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001961581890583375,
+      "pearson_direct_minus_native_max": 1.193766925888795e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JFM",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 538.3,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0014713971845594642,
+      "pearson_direct_minus_native_max": 1.0743529180290423e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JFM",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 518.4,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001517249097844342,
+      "pearson_direct_minus_native_max": 1.1031744261424947e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "FMA",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 499.5,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0019595660218669764,
+      "pearson_direct_minus_native_max": 1.1236248858736975e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "FMA",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 520.3,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0019510025991849034,
+      "pearson_direct_minus_native_max": 1.2416872499199094e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "FMA",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 495.5,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0016011046365633774,
+      "pearson_direct_minus_native_max": 1.215699409317858e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "FMA",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 479.4,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001637905123686778,
+      "pearson_direct_minus_native_max": 1.1773084330299333e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "MAM",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 516.2,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0015998167141333397,
+      "pearson_direct_minus_native_max": 9.614160250304149e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "MAM",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 494.7,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0016756940503341866,
+      "pearson_direct_minus_native_max": 9.207246973119698e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "MAM",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 533.7,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0016390448718084372,
+      "pearson_direct_minus_native_max": 1.0876947736649517e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "MAM",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 496.2,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0016460801266475755,
+      "pearson_direct_minus_native_max": 1.0587826384786392e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "AMJ",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 489.7,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001540794272699486,
+      "pearson_direct_minus_native_max": 7.438083975769283e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "AMJ",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 480.6,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001582931332904991,
+      "pearson_direct_minus_native_max": 8.888323145828103e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "AMJ",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 577.4,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001473098876772383,
+      "pearson_direct_minus_native_max": 8.848195826638428e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "AMJ",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 481.1,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0016102684656402744,
+      "pearson_direct_minus_native_max": 8.968321069509344e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "MJJ",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 537.4,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001632258102290507,
+      "pearson_direct_minus_native_max": 6.546495179310385e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "MJJ",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 449.1,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001561079316275027,
+      "pearson_direct_minus_native_max": 7.029518522216893e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "MJJ",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 552.7,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0015535162967239557,
+      "pearson_direct_minus_native_max": 8.555427033873908e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "MJJ",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 522.1,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0015344992344239472,
+      "pearson_direct_minus_native_max": 8.174872953736756e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JJA",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 516.2,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0017486565911895013,
+      "pearson_direct_minus_native_max": 6.373382639215941e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JJA",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 504.6,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0016595404674717429,
+      "pearson_direct_minus_native_max": 6.078450756452636e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JJA",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 535.9,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0013715404526237762,
+      "pearson_direct_minus_native_max": 7.173838138793687e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JJA",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 522.1,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001444210435693094,
+      "pearson_direct_minus_native_max": 7.691279852728439e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JAS",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 526.8,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001723565070847144,
+      "pearson_direct_minus_native_max": 6.86382009279507e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JAS",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 482.2,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001805341945953387,
+      "pearson_direct_minus_native_max": 7.498067514349893e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JAS",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 505.6,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0014916006041403307,
+      "pearson_direct_minus_native_max": 6.585729343921987e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "JAS",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 488.4,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0014249783486093293,
+      "pearson_direct_minus_native_max": 6.6214150680754535e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "ASO",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 497.8,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0017713989798835428,
+      "pearson_direct_minus_native_max": 7.544161706701802e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "ASO",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 473.2,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001730179900391704,
+      "pearson_direct_minus_native_max": 7.544996632167372e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "ASO",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 524.1,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0014788555266704861,
+      "pearson_direct_minus_native_max": 6.572657111236779e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "ASO",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 499.1,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0014770906489900426,
+      "pearson_direct_minus_native_max": 7.013990529290692e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "SON",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 476.8,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0017456420203529888,
+      "pearson_direct_minus_native_max": 1.391742952983055e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "SON",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 483.0,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001745440735419379,
+      "pearson_direct_minus_native_max": 1.1473562532240966e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "SON",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 503.2,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0014487418335420443,
+      "pearson_direct_minus_native_max": 1.0165771128389789e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "SON",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 479.8,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0015143166897928495,
+      "pearson_direct_minus_native_max": 1.0059222846803273e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "OND",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 397.3,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0018405206386375994,
+      "pearson_direct_minus_native_max": 1.2464952813345809e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "OND",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 369.0,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0018047564020093887,
+      "pearson_direct_minus_native_max": 1.2385971389208827e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "OND",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 406.4,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0016477915975769974,
+      "pearson_direct_minus_native_max": 1.1998904169448557e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "OND",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 387.9,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0016612117398722148,
+      "pearson_direct_minus_native_max": 9.431272862736595e-06,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "NDJ",
+      "method": "cca",
+      "training_period": "1983_2010",
+      "seconds": 491.6,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0018423162081546707,
+      "pearson_direct_minus_native_max": 1.2462072198404783e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "NDJ",
+      "method": "pcr",
+      "training_period": "1983_2010",
+      "seconds": 478.8,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.001952255034012751,
+      "pearson_direct_minus_native_max": 1.3229924254676284e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "NDJ",
+      "method": "cca",
+      "training_period": "1991_2020",
+      "seconds": 490.6,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0019004188226858787,
+      "pearson_direct_minus_native_max": 1.2644010022259955e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    },
+    {
+      "season": "NDJ",
+      "method": "pcr",
+      "training_period": "1991_2020",
+      "seconds": 465.7,
+      "training_pixels": 69640,
+      "rmse_direct_minus_native_max_mm": 0.0019831565894605774,
+      "pearson_direct_minus_native_max": 1.3268134698443679e-05,
+      "probability_sum_max_error_pp": 1.0000000116860974e-06
+    }
+  ],
+  "pooled_rmse_all_four_years": {
+    "DJF": {
+      "raw_cfsv2": 469.55333499373336,
+      "climatology_1983_2010": 182.4770768868099,
+      "climatology_1991_2020": 176.55324129148335,
+      "cca_1983_2010": 175.00716075315907,
+      "cca_1991_2020": 179.54211017542434,
+      "pcr_1983_2010": 177.23015054464247,
+      "pcr_1991_2020": 178.25053422559355
+    },
+    "JFM": {
+      "raw_cfsv2": 497.1310507841159,
+      "climatology_1983_2010": 167.1467224953315,
+      "climatology_1991_2020": 166.23022650549512,
+      "cca_1983_2010": 160.02916419600905,
+      "cca_1991_2020": 156.90572168696713,
+      "pcr_1983_2010": 159.22868331468374,
+      "pcr_1991_2020": 157.55838336820216
+    },
+    "FMA": {
+      "raw_cfsv2": 432.40297954466723,
+      "climatology_1983_2010": 161.00329985279794,
+      "climatology_1991_2020": 156.3920391960327,
+      "cca_1983_2010": 151.7419067397946,
+      "cca_1991_2020": 145.2167301501432,
+      "pcr_1983_2010": 155.4944527760568,
+      "pcr_1991_2020": 149.49559162218998
+    },
+    "MAM": {
+      "raw_cfsv2": 390.54620397047466,
+      "climatology_1983_2010": 176.9161339817512,
+      "climatology_1991_2020": 167.03414437371495,
+      "cca_1983_2010": 159.41882944862215,
+      "cca_1991_2020": 158.13256301512016,
+      "pcr_1983_2010": 161.52988884236305,
+      "pcr_1991_2020": 156.51428825700452
+    },
+    "AMJ": {
+      "raw_cfsv2": 361.0445725041119,
+      "climatology_1983_2010": 188.65992095016824,
+      "climatology_1991_2020": 176.4057837957885,
+      "cca_1983_2010": 202.32614341429627,
+      "cca_1991_2020": 187.42775388447808,
+      "pcr_1983_2010": 200.31941580099422,
+      "pcr_1991_2020": 192.99675201805286
+    },
+    "MJJ": {
+      "raw_cfsv2": 421.23639713580314,
+      "climatology_1983_2010": 212.82025338567027,
+      "climatology_1991_2020": 202.32195494538647,
+      "cca_1983_2010": 186.41762718059965,
+      "cca_1991_2020": 174.20413523976586,
+      "pcr_1983_2010": 194.4164167347074,
+      "pcr_1991_2020": 173.45337696699582
+    },
+    "JJA": {
+      "raw_cfsv2": 456.06597946688186,
+      "climatology_1983_2010": 280.5350589027385,
+      "climatology_1991_2020": 280.0984993264343,
+      "cca_1983_2010": 234.0037173566285,
+      "cca_1991_2020": 203.93236528379433,
+      "pcr_1983_2010": 244.14947733412842,
+      "pcr_1991_2020": 208.52012831183507
+    },
+    "JAS": {
+      "raw_cfsv2": 426.22090522644453,
+      "climatology_1983_2010": 322.7113219772463,
+      "climatology_1991_2020": 330.6240606730452,
+      "cca_1983_2010": 212.4133007202411,
+      "cca_1991_2020": 195.752538465792,
+      "pcr_1983_2010": 225.40174497039428,
+      "pcr_1991_2020": 214.4115691489679
+    },
+    "ASO": {
+      "raw_cfsv2": 419.7165694239039,
+      "climatology_1983_2010": 317.8482506477516,
+      "climatology_1991_2020": 327.45984246999126,
+      "cca_1983_2010": 196.47256224115563,
+      "cca_1991_2020": 192.6747668113519,
+      "pcr_1983_2010": 199.69439623432294,
+      "pcr_1991_2020": 192.8019216665118
+    },
+    "SON": {
+      "raw_cfsv2": 405.873601382509,
+      "climatology_1983_2010": 274.63300198417795,
+      "climatology_1991_2020": 274.63619538023613,
+      "cca_1983_2010": 164.75305773409872,
+      "cca_1991_2020": 156.1355914033705,
+      "pcr_1983_2010": 172.5248523228586,
+      "pcr_1991_2020": 159.9847772139874
+    },
+    "OND": {
+      "raw_cfsv2": 409.1824090679339,
+      "climatology_1983_2010": 230.46015185346107,
+      "climatology_1991_2020": 226.36721780220307,
+      "cca_1983_2010": 164.92468050371974,
+      "cca_1991_2020": 158.98163230576554,
+      "pcr_1983_2010": 166.74374768891002,
+      "pcr_1991_2020": 157.01335278025422
+    },
+    "NDJ": {
+      "raw_cfsv2": 429.9021617042471,
+      "climatology_1983_2010": 200.5983548258957,
+      "climatology_1991_2020": 190.53931285461908,
+      "cca_1983_2010": 172.01739449480817,
+      "cca_1991_2020": 171.912186510007,
+      "pcr_1983_2010": 175.41530341555153,
+      "pcr_1991_2020": 171.26730735157255
+    }
+  }
+}

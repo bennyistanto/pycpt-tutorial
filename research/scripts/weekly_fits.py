@@ -71,7 +71,8 @@ def fit_one(job: dict) -> dict:
     cpt_r[cpt_r <= -999] = np.nan
     gap = float(np.nanmax(np.abs(cpt_r - recomputed)))
     below_zero = float(np.nansum(h < 0) / np.isfinite(h).sum() * 100)
-    keep = xr.Dataset({"deterministic": forecast.deterministic, "probabilistic": forecast.probabilistic})
+    keep = xr.Dataset({"deterministic": forecast.deterministic, "probabilistic": forecast.probabilistic,
+                       "prediction_error_variance": forecast.prediction_error_variance})
     keep = keep.drop_vars([c for c in keep.coords if c not in ("T", "C", "Y", "X")])
     for name in skill.data_vars:
         keep[f"skill_{name}"] = skill[name].drop_vars([c for c in skill[name].coords if c not in ("Y", "X")])
@@ -81,6 +82,27 @@ def fit_one(job: dict) -> dict:
     keep.to_netcdf(tmp, encoding={v: {"zlib": True, "complevel": 4} for v in keep.data_vars})
     tmp.replace(result_file)
     return dict(job, path=str(result_file), seconds=seconds, reused=False)
+
+
+def forecast_pev(folder):
+    """CPT's prediction error variance of a fit's forecasts, on the forecast's T, Y, X.
+
+    Fits made before this was kept in result.nc still have CPT's own text file in their folder.
+    """
+    import xarray as xr
+
+    folder = Path(folder)
+    with xr.open_dataset(folder / "result.nc") as result:
+        if "prediction_error_variance" in result:
+            return result.prediction_error_variance.load()
+        like = result.deterministic.load()
+    from cptio import open_cptdataset
+
+    ds = open_cptdataset(str(folder / "cpt" / "forecast_prediction_error_variance.txt"))
+    pev = ds[list(ds.data_vars)[0]].load()
+    pev = pev.drop_vars([c for c in pev.coords if c not in ("T", "Y", "X")]).transpose("T", "Y", "X")
+    assert pev.shape == like.transpose("T", "Y", "X").shape, (pev.shape, like.shape)
+    return pev.assign_coords(T=like["T"].values, Y=like["Y"].values, X=like["X"].values).rename("prediction_error_variance")
 
 
 def run_all(jobs: list[dict], workers: int) -> list[dict]:
