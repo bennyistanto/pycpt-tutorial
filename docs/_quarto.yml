@@ -39,6 +39,7 @@ book:
   subtitle: "Rainfall, evidence and reproducible workflows"
   search: true
   page-navigation: true
+  favicon: assets/logo/favicon.png
   repo-url: https://github.com/bennyistanto/pycpt-tutorial
   repo-subdir: docs
   repo-branch: main
