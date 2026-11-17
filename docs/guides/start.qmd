@@ -25,16 +25,24 @@ local X/Y/F inputs, actual CCA/PCR calls, model patterns and cross-validated
 residuals for OND and JJA 2023. Its executed notebook requires the full fitting
 environment when you run it; both cases can be read in a browser.
 
-The [third case](../chapters/monthly-leads-2023.qmd) changes the question from
+The [third case](../chapters/seasonal-leads-2023.qmd) changes the question from
 "how good is the forecast" to "how far ahead": one forecast issued on 1 November
-2023, calibrated for each of the next six months, December to May. The
-[fourth](../chapters/seasonal-leads-2023.qmd) does the same for the next six
-three-month seasons and compares each season with its first month. The
+2023, calibrated for each of the next six three-month seasons, DJF to MJJ. A
+[companion case](../chapters/seasonal-mme-2023.qmd) combines seven models into one
+ensemble for a forecast issued on 1 June 2023, and a
+[second ensemble](../chapters/monthly-mme-2023.qmd) does so for the single months
+July to December from the same start. The
+[fourth](../chapters/monthly-leads-2023.qmd) does the same month by month,
+December to May. From there the cases step down in time scale. The
 [fifth](../chapters/dekad-leads-2023.qmd) moves to the subseasonal scale with
 GEFSv12: a forecast issued on 31 October 2023 for the three dekads of November. The
 [sixth](../chapters/week-leads-2023.qmd) does the same by week from Wednesday
 1 November, and the [seventh](../chapters/pentad-leads-2023.qmd) by CHIRPS pentad,
-one to six pentads ahead. All of them work at CHIRPS v3.0's native 0.05° grid.
+one to six pentads ahead. Each subseasonal case has a multi-model companion that
+adds four SubX models to GEFSv12 for one issue date:
+[dekad](../chapters/dekad-mme-2023.qmd), [weekly](../chapters/week-mme-2023.qmd) and
+[pentad](../chapters/pentad-mme-2023.qmd). All of them work at CHIRPS v3.0's native
+0.05° grid.
 
 ## Choose your path
 
@@ -46,7 +54,7 @@ one to six pentads ahead. All of them work at CHIRPS v3.0's native 0.05° grid.
 | Reproduce the figures and scores from saved results | [Offline analysis setup](reproduce.qmd#offline-analysis) | Scientific Python/Jupyter and the complete kit; no PyCPT or CPT installation |
 | Fit the OND models through PyCPT | [Optional PyCPT refit](reproduce.qmd#optional-fit-ond-again) | Compatible PyCPT and its CPT engine, plus the supplied fitting inputs |
 | Work through actual OND/JJA fitting and diagnostics | [Case-two story and notebook](../chapters/fit-diagnose-2023.qmd) | Browser to read; full PyCPT fitting environment to execute |
-| See how skill changes with lead time | [Monthly](../chapters/monthly-leads-2023.qmd), [seasonal](../chapters/seasonal-leads-2023.qmd), [dekad](../chapters/dekad-leads-2023.qmd), [weekly](../chapters/week-leads-2023.qmd) and [pentad](../chapters/pentad-leads-2023.qmd) lead-time stories | Browser to read; full PyCPT environment and the CHIRPS v3.0 dekadal archive to execute |
+| See how skill changes with lead time | [Seasonal](../chapters/seasonal-leads-2023.qmd), [monthly](../chapters/monthly-leads-2023.qmd), [dekad](../chapters/dekad-leads-2023.qmd), [weekly](../chapters/week-leads-2023.qmd) and [pentad](../chapters/pentad-leads-2023.qmd) lead-time stories | Browser to read; full PyCPT environment and the CHIRPS v3.0 dekadal archive to execute |
 | Examine assumptions and provenance | [Methods and limitations](methods.qmd) | The case question and its verification context |
 
 ::: {.callout-tip title="Reading and running are different activities"}

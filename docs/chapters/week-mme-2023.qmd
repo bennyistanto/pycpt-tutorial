@@ -1,0 +1,423 @@
+---
+title: "Issued 1 November 2023: a five-model weekly ensemble"
+subtitle: "Five subseasonal models answering one issue date for weeks 1 to 4 and weeks 3-4, each calibrated at 0.05° and averaged"
+description: "Five SubX models (GEFSv12, CFSv2, GEOS_V2p1, CCSM4, FIMr1p1) answering a forecast issued on 1 November 2023 for weeks 1 to 4 and weeks 3-4, each calibrated with CCA and PCR against CHIRPS v3.0 at the native 0.05° grid and combined into a multi-model ensemble: the start rule, skill of every member and of the ensemble, EOF patterns and CCA modes, calibrated forecasts, and the flexible forecast as probability of exceedance."
+format:
+  html:
+    code-copy: false
+---
+
+```{ojs}
+//| echo: false
+//| output: false
+import {selectControl, loadWeekData, weekIssueTimeline, mmeSkillByLead, mmeSkillMaps, mmePatterns, mmeForecastMaps, mmeScoresByLead, mmeFlexible} from "../assets/leads/leads.js"
+mme = loadWeekData("../assets/week-mme-2023/")
+geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
+  provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
+  neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
+leadChoices = mme.targets.map((t, i) => [String(t.lead), `${mme.leadShort[i]}: ${t.label}`])
+modelChoices = mme.models.map(m => [m, m === "MME" ? "MME (the ensemble)" : m])
+memberChoices = modelChoices.filter(([m]) => m !== "MME")
+```
+
+::: {.eyebrow}
+Subseasonal · Weekly rainfall · Multi-model ensemble · Full Indonesia
+:::
+
+The [single-model weekly case](week-leads-2023.qmd) calibrated one model, GEFSv12, for
+weeks 1 to 4 and weeks 3-4. This case asks the same question of **every subseasonal model
+that can answer it** and averages the calibrated forecasts into a multi-model
+ensemble (MME). It shows the outputs of the
+[seasonal](seasonal-mme-2023.qmd) and [monthly](monthly-mme-2023.qmd) ensembles: skill
+for every member and for the ensemble, EOF patterns and CCA modes, calibrated
+forecasts, and the flexible forecast.
+
+Everything is at CHIRPS v3.0's native 0.05° grid: the 69,638 pixels that touch
+Indonesia's 38-province boundary and have data in every training target. All
+numbers on this page come from the [executed notebook](../notebooks/week-mme-2023.ipynb).
+Hover, tap or use the arrow keys on any map or chart to read values; maps load when
+you choose them, and the maps in a group zoom and pan together.
+
+::: {.callout-note title="The short result"}
+- **The ensemble is below GEFSv12 alone at most leads.** The ensemble's
+  cross-validated correlation (CCA) is 0.35, 0.30, 0.24, 0.15 and 0.23 from week 1 to
+  weeks 3-4; GEFSv12 alone scores 0.35, 0.29, 0.28, 0.19 and 0.28. It is above GEFSv12 alone at week 2 and below it at week 3, week 4 and weeks 3-4, and level with it (within 0.005) at week 1.
+- **GEFSv12 is the strongest single member at every lead.** By correlation the ensemble ranks second of six at week 1, week 3, week 4 and weeks 3-4 and first of six at week 2.
+- **Without calibration, averaging helps more.** The plain average of the five
+  models' raw rainfall anomalies correlates at 0.52, 0.39, 0.30, 0.25 and 0.33, above raw
+  GEFSv12 (0.51, 0.35, 0.27, 0.19 and 0.26) and above the calibrated ensemble at
+  every lead.
+- **Probabilities beat a no-model forecast at every lead**: the ensemble's
+  cross-validated RPSS is 0.042 to 0.107, above GEFSv12's at week 2, not at week 1, week 3, week 4 and weeks 3-4.
+- **In November 2023 the ensemble leaned dry.** It made below normal the most likely
+  category over 67 to 92% of the area. Below normal was the most widespread observed category at week 1, week 2, week 3 and weeks 3-4; at week 4 it was near normal.
+:::
+
+## One issue date, five models
+
+The targets are those of the single-model case: weeks 1 to 4 and weeks 3-4 after the issue
+of **1 November 2023**, observed with CHIRPS v3.0 daily totals summed over each window. Five SubX models in the IRI Data
+Library have hindcasts and 2023 runs with values for them: GEFSv12, CFSv2,
+GEOS_V2p1, CCSM4 and FIMr1p1. Training uses the **October-December targets of
+2000-2016**, the years all five hindcast sets share. The single-model case used
+2000-2018.
+
+The models do not start on the same days, so one rule decides which run of each
+answers an issue date, in training and in 2023:
+
+- **Each model uses its latest run on or before the issue date, at most 6 days
+  earlier.** The target is the same calendar days for every model, so a model that
+  started earlier is used at a longer lead.
+- **CFSv2** is the mean of its four six-hourly runs up to 00 UTC on the issue date.
+- **Training issue dates are Wednesdays**, the only days GEFSv12's hindcasts start,
+  chosen as in the single-model case.
+
+| Model | 2023 run used | Days behind the issue date | Members, 2023 | Members, training | Days behind in training (min / mean / max) |
+| --- | --- | --- | --- | --- | --- |
+| GEFSv12 | 2023-11-01 00:00 | 0 | 31 | 11 | 0 / 0 / 0 |
+| CFSv2 | 2023-10-31 06:00 to 2023-11-01 00:00 (4 runs) | 0 | 16 | 4 | 0 / 0 / 0 |
+| GEOS | 2023-10-28 00:00 | 4 | 4 | 4 | 0 / 2 / 4 |
+| CCSM4 | 2023-10-29 00:00 | 3 | 9 | 3 | 0 / 2.08 / 5 |
+| FIM | 2023-11-01 00:00 | 0 | 4 | 4 | 0 / 0 / 0 |
+
+: The run of each model that answers the issue of 1 November 2023, and the same rule across the training samples. Source: [start-rule.csv](../data/week-mme-2023/start-rule.csv).
+
+Two things in this table affect how the 2023 forecasts should be read. The 2023
+runs of GEFSv12, CFSv2 and CCSM4 have more members than their hindcasts, so their
+2023 ensemble means are less noisy than the ones the calibration was trained on.
+And a model whose run is several days old in 2023 was not always that late in
+training: the last column gives the range.
+
+All five models are members at every lead.
+
+| Lead | Target | Members | Not a member | Training targets |
+| --- | --- | --- | --- | --- |
+| Week 1 | 2-8 Nov 2023 | 5 | none | 223 |
+| Week 2 | 9-15 Nov 2023 | 5 | none | 222 |
+| Week 3 | 16-22 Nov 2023 | 5 | none | 221 |
+| Week 4 | 23-29 Nov 2023 | 5 | none | 220 |
+| Weeks 3-4 | 16-29 Nov 2023 | 5 | none | 221 |
+
+: Members and training targets at each lead. A model is a member only if its 2023 run reaches the target and it has a run for at least 90% of the training targets. Source: [summary.json](../data/week-mme-2023/summary.json).
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+weekIssueTimeline(mme, mme.issue.date)
+```
+:::
+
+## One calibration, 50 times
+
+Each member is calibrated for each lead with **CCA** (3 predictor and 3 predictand
+EOFs, 2 CCA modes) and **PCR** (3 predictor EOFs), the settings of the single-model
+case, fixed before any skill was computed. Both fields are anomalies from the mean
+over the training years. The cross-validation window is 27 samples: a year
+holds about 13 targets per lead, so a left-out target's neighbours within about a year are
+left out with it. Every member at a lead is trained on the same targets, those all
+of that lead's members have a run for (220 to 223 per lead).
+
+The fits go through `cptcore`, the layer PyCPT's `evaluate_models` calls: 50 fits
+in all. At 0.05° a CCA fit took 115 to 190 minutes and a PCR fit 32 to 49 minutes, with many
+running side by side.
+
+The ensemble is built as PyCPT's `construct_mme` builds it: the **equal-weight
+average** of the members' cross-validated hindcasts, deterministic forecasts,
+prediction error variances and tercile probabilities. The notebook checks that
+CPT's Pearson map of every member equals the correlation recomputed from its
+hindcasts to within 0.00001, and that its own 2AFC function, used for the ensemble,
+reproduces CPT's 2AFC map of a member to within 0.1 percentage points.
+
+## Skill of every member, and of the ensemble
+
+Area-weighted means over Indonesia, cross-validated over the training targets.
+**Pearson correlation** is 0 for no linear relationship. **2AFC** is the chance that
+the hindcasts rank two different targets in the observed order, 50% for no skill
+[(Mason and Weigel 2009)](https://doi.org/10.1175/2008MWR2553.1).
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof chartMethod = selectControl("Calibration", ["CCA", "PCR"], "CCA")
+viewof chartMetric = selectControl("Score", [["Pearson", "Pearson correlation"], ["2AFC (%)", "2AFC"], ["CV RPSS", "Cross-validated RPSS"]], "Pearson")
+mmeSkillByLead(mme, chartMethod, chartMetric)
+```
+:::
+
+| Lead | Target | Members | MME | GEFSv12 alone | Best member | Raw multi-model mean | Raw GEFSv12 | Pixels where MME beats GEFSv12 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Week 1 | 2-8 Nov 2023 | 5 | 0.35 | 0.35 | GEFSv12, 0.35 | 0.52 | 0.51 | 52% |
+| Week 2 | 9-15 Nov 2023 | 5 | 0.30 | 0.29 | GEFSv12, 0.29 | 0.39 | 0.35 | 61% |
+| Week 3 | 16-22 Nov 2023 | 5 | 0.24 | 0.28 | GEFSv12, 0.28 | 0.30 | 0.27 | 22% |
+| Week 4 | 23-29 Nov 2023 | 5 | 0.15 | 0.19 | GEFSv12, 0.19 | 0.25 | 0.19 | 33% |
+| Weeks 3-4 | 16-29 Nov 2023 | 5 | 0.23 | 0.28 | GEFSv12, 0.28 | 0.33 | 0.26 | 22% |
+
+: Pearson correlation of the CCA calibrations, area-weighted mean over 69,638 pixels, cross-validated over the October-December targets of 2000-2016. Source: [mme-against-members.csv](../data/week-mme-2023/mme-against-members.csv).
+
+Read across a row. It is above GEFSv12 alone at week 2 and below it at week 3, week 4 and weeks 3-4, and level with it (within 0.005) at week 1. The best single member is GEFSv12 at every lead, and the
+ensemble ranks second of six at week 1, week 3, week 4 and weeks 3-4 and first of six at week 2. With PCR the ensemble scores
+0.36, 0.31, 0.26, 0.16 and 0.25.
+
+GEFSv12 alone scores 0.35, 0.29, 0.28, 0.19 and 0.28 here. In the single-model case,
+trained on 2000-2018, its CCA correlation was 0.36, 0.29, 0.27, 0.17 and 0.27: the two
+agree to within 0.02 although the training years and samples differ.
+
+The two raw columns involve no fitting. Averaging the five models' raw anomalies
+lifts the correlation above raw GEFSv12 at every lead, by 0.00 to 0.07. The
+calibrated ensemble is below the raw average at every lead, by 0.06 to 0.16. Two
+things should be kept in mind. The raw correlations do not carry the downward bias
+of cross-validation described below. And the raw average is not a forecast
+product: it has model biases and no probabilities. This page does not establish why
+calibration through three EOFs keeps less of the gain from averaging.
+
+
+### The same design on a coarser grid
+
+Before the 0.05° fits, the same models, start rule, training years and settings
+were run on CHIRPS averaged to 0.25° blocks. That scan is a second measurement of
+the same question with different pixels.
+
+| Lead | MME, 0.25° blocks | GEFSv12, 0.25° blocks | MME, 0.05° | GEFSv12, 0.05° |
+| --- | --- | --- | --- | --- |
+| Week 1 | 0.37 | 0.37 | 0.35 | 0.35 |
+| Week 2 | 0.32 | 0.31 | 0.30 | 0.29 |
+| Week 3 | 0.26 | 0.30 | 0.24 | 0.28 |
+| Week 4 | 0.17 | 0.20 | 0.15 | 0.19 |
+| Weeks 3-4 | 0.26 | 0.29 | 0.23 | 0.28 |
+
+: Cross-validated CCA correlation, area-weighted mean, on 0.25° blocks and at 0.05°. Source: [scan-0p25.csv](../data/week-mme-2023/scan-0p25.csv), written by `research/scripts/subseasonal_skill_scan.py`, and [mme-against-members.csv](../data/week-mme-2023/mme-against-members.csv).
+
+The two grids agree on which of the two is higher at every lead. The largest
+difference between the grids is 0.02 for the ensemble and 0.02 for GEFSv12.
+
+### Probabilities, cross-validated
+
+PyCPT's own probabilistic scores are computed from in-sample probabilities, so they
+are not used here. The notebook builds cross-validated tercile probabilities
+instead. For each training year it leaves out **every target of that year**, takes
+the tercile boundaries from the remaining observations and the error spread from
+the remaining cross-validated errors, and gives each left-out target a Student's t
+distribution centred on its cross-validated hindcast. The ranked probability skill
+score (**RPSS**) compares those probabilities with a forecast with **no model** put
+through the same steps: for a target, the mean of the other years' anomalies. Above
+0 means the model adds information. This construction is this tutorial's, not
+CPT's.
+
+| Lead | Target | MME | GEFSv12 alone | Highest member |
+| --- | --- | --- | --- | --- |
+| Week 1 | 2-8 Nov 2023 | 0.107 | 0.108 | GEFSv12, 0.108 |
+| Week 2 | 9-15 Nov 2023 | 0.083 | 0.078 | GEFSv12, 0.078 |
+| Week 3 | 16-22 Nov 2023 | 0.063 | 0.078 | GEFSv12, 0.078 |
+| Week 4 | 23-29 Nov 2023 | 0.042 | 0.046 | GEFSv12, 0.046 |
+| Weeks 3-4 | 16-29 Nov 2023 | 0.076 | 0.088 | GEFSv12, 0.088 |
+
+: Cross-validated RPSS of the CCA calibrations against a no-model forecast put through the same steps, area-weighted mean. Source: [skill-by-lead.csv](../data/week-mme-2023/skill-by-lead.csv).
+
+The ensemble's RPSS is positive at every lead and above GEFSv12's at week 2, not at week 1, week 3, week 4 and weeks 3-4. By this score it
+ranks second of six at week 1, week 3, week 4 and weeks 3-4 and first of six at week 2.
+
+### What each model contributes
+
+The ensemble's correlation when one member is left out. A value above the full
+ensemble's means the ensemble is better without that model.
+
+| Lead | All members | Without GEFSv12 | Without CFSv2 | Without GEOS | Without CCSM4 | Without FIM |
+| --- | --- | --- | --- | --- | --- | --- |
+| Week 1 | 0.353 | 0.346 | 0.344 | 0.354 | 0.352 | 0.359 |
+| Week 2 | 0.302 | 0.289 | 0.302 | 0.302 | 0.297 | 0.299 |
+| Week 3 | 0.241 | 0.204 | 0.251 | 0.246 | 0.242 | 0.243 |
+| Week 4 | 0.150 | 0.124 | 0.146 | 0.158 | 0.152 | 0.156 |
+| Weeks 3-4 | 0.234 | 0.205 | 0.234 | 0.238 | 0.235 | 0.243 |
+
+: Cross-validated correlation of the CCA ensemble with one member left out, area-weighted mean. Source: [leave-one-out.csv](../data/week-mme-2023/leave-one-out.csv).
+
+The member whose removal costs the most is CFSv2 at week 1 and GEFSv12 at week 2, week 3, week 4 and weeks 3-4 (a change of -0.009, -0.012, -0.037, -0.025 and -0.029 by lead).
+Removing a model raises the correlation in some cases: GEOS and FIM at week 1; CFSv2 and GEOS at week 2; CFSv2, GEOS and FIM at week 3; GEOS, CCSM4 and FIM at week 4; GEOS, CCSM4 and FIM at weeks 3-4. Each of those changes is at most 0.010.
+These are area means of one training period; the table does not show that any
+model should be dropped.
+
+### Why a correlation near zero is not "no skill" here
+
+Cross-validation biases correlation downward. The forecast with **no model at all**,
+the mean of the other years, correlates *negatively* with the observations: leaving
+a wet target out lowers the mean of the rest. The notebook measures it: the
+no-model forecast has an area-mean correlation of -0.51 to -0.42 at these leads
+[(Barnston and van den Dool 1993)](https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2).
+A calibrated model's correlation is not simply shifted by that amount, which is why
+this page compares correlations with each other and reads them alongside the RPSS,
+whose reference is that same no-model forecast.
+
+### Where the skill is
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof mapModel = selectControl("Model", modelChoices, "MME")
+viewof mapMethod = selectControl("Calibration", [["CCA", "CCA"], ["PCR", "PCR"], ["raw", "None (raw model)"]], "CCA")
+viewof mapMetric = selectControl("Score", [["pearson", "Pearson correlation"], ["rpss", "Cross-validated RPSS"]], "pearson")
+mmeSkillMaps(mme, geo, mapModel, mapMethod, mapMetric)
+```
+:::
+
+## EOF patterns and CCA modes
+
+CCA does not relate the two fields pixel by pixel. It first reduces each to a few
+**EOFs**, patterns that explain the most variance from target to target, each with
+a score per target. It then finds pairs of combinations of those, the **CCA modes**,
+whose score series are as correlated as possible.
+
+Choose a model, a lead and a mode. The top map is the pattern in the model's
+rainfall over the predictor box, the second the pattern in observed rainfall over
+Indonesia, and the chart their scores at each training target.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof patModel = selectControl("Model", memberChoices, "GEFSv12")
+viewof patLead = selectControl("Lead", leadChoices, "1")
+viewof patKind = selectControl("Show", [["cca", "CCA mode"], ["eof", "EOF"]], "cca")
+viewof patMode = selectControl("Mode", [["1", "1"], ["2", "2"], ["3", "3 (EOF only)"]], "1")
+mmePatterns(mme, geo, patLead, patModel, patKind, patMode)
+```
+:::
+
+How to read them, and how not to:
+
+- The patterns come from the fit to **all training targets**, not from the
+  cross-validation folds. A canonical correlation of 0.77 to 0.82 for the first
+  mode at week 1 describes how well the fitted pair matches in-sample. The
+  cross-validated correlation of the forecasts it produces is 0.30 to 0.35.
+- The predictand EOFs depend on the observations alone, so they are identical for
+  every model at a given lead (the notebook checks this). At week 1 the first three
+  explain 21.8%, 9.6% and 5.5% of the variance, 37% together: most of the
+  variance of a single week at 0.05° lies outside what three patterns describe.
+- Loadings are in CPT's units and are scaled here so each map's largest absolute
+  value is 1. Sign and shape carry meaning; magnitude does not.
+
+## The forecasts, model by model
+
+Each calibrated member gives a deterministic anomaly and three tercile
+probabilities at every pixel; the ensemble averages them. A total is the 2000-2016
+mean of the target plus the anomaly, set to zero where that falls below zero
+(1,350, 238, 54, 3 and 1 of 69,638 pixels for the CCA ensemble, by lead). The first view is
+PyCPT's standard probabilistic map: the colour is the most likely category, darker
+where its probability is higher.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof fcModel = selectControl("Model", modelChoices, "MME")
+viewof fcMethod = selectControl("Calibration", ["CCA", "PCR"], "CCA")
+viewof fcView = selectControl("Show", [["probability", "Most likely category and probability"], ["anomaly", "Forecast anomaly (mm)"], ["percent", "Forecast as % of normal"], ["total", "Forecast total"], ["observedCategory", "Observed category"], ["observedAnomaly", "Observed anomaly (mm)"], ["observed", "Observed total"]], "probability")
+mmeForecastMaps(mme, geo, fcModel, fcMethod, fcView)
+```
+:::
+
+### Against what happened
+
+Each lead's target is checked against the observed total. The **hit rate** is the
+share of area where the most likely category was the one observed; the grey
+squares show what always forecasting the most widespread category would have
+scored, a reference chosen with hindsight.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof scoreMethod = selectControl("Calibration", ["CCA", "PCR"], "CCA")
+viewof scoreMetric = selectControl("Score", [["hit", "Hit rate"], ["rpss", "RPSS"], ["rmse", "RMSE"]], "hit")
+mmeScoresByLead(mme, scoreMethod, scoreMetric)
+```
+:::
+
+| Lead | Target | MME forecast (mm) | Observed (mm) | 2000-2016 mean (mm) | Observed below / near / above (% of area) | MME forecast below / above (% of area) | MME hit rate | Reference hit rate | MME RPSS |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Week 1 | 2-8 Nov 2023 | 48.4 | 44.0 | 60.3 | 52 / 40 / 8 | 92 / 3 | 51.9% | 51.9% (below) | 0.15 |
+| Week 2 | 9-15 Nov 2023 | 54.0 | 42.9 | 62.2 | 55 / 33 / 12 | 83 / 7 | 49.7% | 55.0% (below) | 0.09 |
+| Week 3 | 16-22 Nov 2023 | 61.4 | 45.8 | 67.7 | 67 / 21 / 11 | 67 / 20 | 55.6% | 67.4% (below) | 0.08 |
+| Week 4 | 23-29 Nov 2023 | 60.4 | 65.9 | 66.6 | 31 / 37 / 32 | 69 / 21 | 31.8% | 36.6% (near) | -0.01 |
+| Weeks 3-4 | 16-29 Nov 2023 | 122.8 | 111.7 | 134.3 | 50 / 35 / 16 | 75 / 14 | 43.6% | 49.8% (below) | 0.07 |
+
+: The CCA ensemble issued 1 November 2023 against each target's observation, area-weighted over 69,638 pixels. RPSS here is against 33/34/33% odds, for one outcome per lead. Sources: [issued-2023-11-01-forecasts.csv](../data/week-mme-2023/issued-2023-11-01-forecasts.csv), [issued-2023-11-01-observed.csv](../data/week-mme-2023/issued-2023-11-01-observed.csv).
+
+The ensemble made below normal the most likely category over 67 to 92% of the
+area. Below normal was the most widespread observed category at week 1, week 2, week 3 and weeks 3-4; at week 4 it was near normal. The hit rate was within two points of the hindsight reference at week 1 and more than two points below it at week 2, week 3, week 4 and weeks 3-4. The RPSS against climatological odds was positive at week 1, week 2, week 3 and weeks 3-4 and negative at week 4.
+At week 1, week 2, week 3 and weeks 3-4 the area-mean forecast lay between the observed total and the 2000-2016 mean: on the dry side of normal, not as dry as observed.
+
+One outcome per lead describes November 2023; it is not a measure of skill.
+
+## The flexible forecast: probability of exceedance
+
+A tercile map answers one question. The **flexible forecast** answers others: the
+probability that the target's total exceeds a chosen amount at each pixel. It is
+built with the conventions of PyCPT's `construct_flex_fcst` from the ensemble's
+deterministic forecast and its prediction error variance, as a Student's t
+distribution ([chapter 5](../learn/05-probabilistic-forecasts.ipynb) compares those
+conventions with CPT's native ones).
+
+The default threshold is each pixel's **climatological median**, so the map reads
+as "chance of a wetter than median period" and 50% means no information. Choose
+another percentile to ask about dry or wet extremes. **Click any pixel** to draw
+its curves: the forecast distribution against the climatology, as probability of
+exceedance and as density, with the observed total marked.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof flexLead = selectControl("Lead", leadChoices, "1")
+viewof flexPercentile = selectControl("Threshold", [["10", "10th percentile (very dry)"], ["20", "20th percentile"], ["33", "33rd percentile"], ["50", "Median"], ["67", "67th percentile"], ["80", "80th percentile"], ["90", "90th percentile (very wet)"]], "50")
+mmeFlexible(mme, geo, flexLead, flexPercentile)
+```
+:::
+
+| Lead | Target | Mean chance of exceeding the median | Area with chance above 50% | Area observed above the median |
+| --- | --- | --- | --- | --- |
+| Week 1 | 2-8 Nov 2023 | 41% | 7% | 24% |
+| Week 2 | 9-15 Nov 2023 | 45% | 15% | 26% |
+| Week 3 | 16-22 Nov 2023 | 48% | 28% | 19% |
+| Week 4 | 23-29 Nov 2023 | 48% | 29% | 51% |
+| Weeks 3-4 | 16-29 Nov 2023 | 45% | 19% | 30% |
+
+: The CCA ensemble's flexible forecast, area-weighted. Source: [flexible-forecast.csv](../data/week-mme-2023/flexible-forecast.csv).
+
+The forecast gave 7 to 29% of the area a better than even chance of a wetter than
+median period; 19 to 51% of the area ended above its median.
+
+The curves in the browser are computed from four stored fields per lead (forecast
+centre and scale, climatological mean and scale). For week 1 the notebook builds
+the same fields with `pycpt.construct_flex_fcst` itself and the exceedance
+probabilities agree to within 0.001 percentage points. The degrees of freedom are
+the number of training targets (220 to 223). Targets of the same year are not
+independent samples, so the curves are probably too narrow; this page does not
+measure by how much.
+
+Like the tercile probabilities, these assume the t distribution describes the
+forecast error well. The cross-validated RPSS above is this page's only test of
+that.
+
+## What this case shows, and what it does not
+
+This is one issue date, five models, one set of fixed settings and one verifying
+outcome per lead. It shows that for weekly rainfall over Indonesia in
+October-December, a calibrated five-model ensemble does not clearly improve on
+calibrated GEFSv12 alone (a correlation of 0.35, 0.30, 0.24, 0.15 and 0.23 against
+0.35, 0.29, 0.28, 0.19 and 0.28: above it at week 2, below it at week 3, week 4 and weeks 3-4), that its probabilities beat a no-model
+forecast at every lead, and that the raw multi-model average correlates better
+than any calibrated forecast here.
+
+It does not show that these five models are the best set, or that equal weights
+are the best weights: no other combination was tried. It does not show how other
+settings behave. The observations are retrospective CHIRPS v3.0 Final data, not
+what was available when the forecast was issued.
+
+::: {.callout-tip title="Read it with the single-model case"}
+The [single-model weekly case](week-leads-2023.qmd) follows GEFSv12 through every issue
+date of October-December 2023. This page takes one of those issue dates and adds
+four models.
+:::
+
+## Files
+
+- [Executed notebook](../notebooks/week-mme-2023.ipynb): every number and figure on this page
+- [Skill of every member and the ensemble (CSV)](../data/week-mme-2023/skill-by-lead.csv) · [Ensemble against its members (CSV)](../data/week-mme-2023/mme-against-members.csv) · [Leave one model out (CSV)](../data/week-mme-2023/leave-one-out.csv) · [Start rule (CSV)](../data/week-mme-2023/start-rule.csv) · [EOF and CCA modes (CSV)](../data/week-mme-2023/eof-cca-modes.csv) · [Forecasts as issued, scored (CSV)](../data/week-mme-2023/issued-2023-11-01-forecasts.csv) · [Observed targets (CSV)](../data/week-mme-2023/issued-2023-11-01-observed.csv) · [Flexible forecast (CSV)](../data/week-mme-2023/flexible-forecast.csv) · [Run summary (JSON)](../data/week-mme-2023/summary.json)
+- [Ensemble maps at 0.05° (NetCDF)](../data/week-mme-2023/week-mme-2023-maps.nc)
+- [Preparation and fit script](https://github.com/bennyistanto/pycpt-tutorial/blob/main/research/scripts/subseasonal_mme_fits.py)

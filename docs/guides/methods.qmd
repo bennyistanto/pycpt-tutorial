@@ -3,25 +3,34 @@ title: "Methods and limitations"
 subtitle: "What the comparisons mean, and what they do not establish"
 ---
 
+This page describes the twelve-season case and Fit & diagnose, which share one
+research run. The lead-time and multi-model ensemble cases use other models, training
+years and settings; each of those pages states its own, and the sections below say
+where they differ.
+
 ## Data and spatial support
 
-The predictor is CFSv2 ensemble-mean precipitation from the IRI Data Library.
+In the twelve-season case the predictor is CFSv2 ensemble-mean precipitation from the IRI Data Library.
 The [source archive](https://iridl.ldeo.columbia.edu/SOURCES/.Models/.NMME/.NCEP-CFSv2/.HINDCAST/.PENTAD_SAMPLES_FULL/.prec/)
 was checked for the requested months, locations and valid ensemble members in
-the research preparation. Observations are local CHIRPS3 seasonal accumulations,
-aggregated from native 0.05° country-land pixels to 0.25° cells. The
+the research preparation. Observations are local CHIRPS v3.0 seasonal accumulations at the
+native 0.05° grid, at every pixel that touches the supplied province boundary. The
 [CHIRPS3 project](https://www.chc.ucsb.edu/data/chirps3) provides product background;
 the exact local preprocessing and source hashes are recorded in the research archive.
 
-The evaluation footprint contains 3,240 shared cells. Country-land weights account
-for the retained land support, and the same weights are used for all methods.
+The evaluation footprint of the twelve-season case contains 69,640 shared pixels. Cosine-latitude
+weights are used, and the same weights are used for all methods.
 Raw model forecasts are bilinearly interpolated to that grid; calibrated forecasts
 are produced at the predictand locations. This does not establish independent
-0.25° dynamical predictability or replace station-based verification.
+0.05° dynamical predictability or replace station-based verification.
 
 The lead-time case studies (monthly, seasonal, dekad, weekly and pentad) do not
-aggregate: their predictand is every native 0.05° CHIRPS v3.0 pixel whose centre lies
-inside Indonesia, 61,190 pixels, with area means weighted by the cosine of latitude.
+aggregate: their predictand is every native 0.05° CHIRPS v3.0 pixel that touches
+Indonesia's 38-province boundary and has data in every training target (69,640 pixels
+for the seasonal and monthly cases, 69,638 for the dekad, weekly and pentad cases), with area means weighted by the cosine of latitude.
+Their predictors differ by case: CFSv2 for the single-model seasonal and monthly cases,
+GEFSv12 for the single-model dekad, weekly and pentad cases, seven seasonal models for
+the seasonal and monthly ensembles, and five SubX models for the subseasonal ensembles.
 Each case page states its own data, training sample and checks.
 
 The archived model source appends operational forecasts from April 2011. Complete
@@ -30,7 +39,7 @@ reforecast/operational record. The observation and source vintages are retrospec
 
 ## Training and validation
 
-The main example uses 1991–2020, with 1983–2010 retained as a sensitivity check.
+The twelve-season case uses 1991–2020, with 1983–2010 retained as a sensitivity check.
 The source begins with January 1982 initializations. Under the experiment's
 calendar, some 1982-labelled target seasons require unavailable 1981
 initializations; using 1983 as the common older start keeps sample availability
@@ -66,28 +75,28 @@ many independent annual validation samples. No significance tests are claimed.
 
 ## Province-weighted verification
 
-The province extension partitions the original native country-pixel weights using
-the unsimplified supplied 38-feature province file. Point-centre membership uses
-[Shapely containment](https://shapely.readthedocs.io/en/stable/reference/shapely.contains_xy.html);
-points outside every province or inside multiple provinces remain explicit residual
-categories. The original national footprint is unchanged. The
-[province provenance](../data/regions/provenance.json) records source hashes and counts.
+The province extension uses the unsimplified supplied 38-feature province file. A
+0.05° pixel is kept if any part of it touches a province, and it belongs to the
+province that covers the largest part of it, so every scored pixel has a province
+and there is no residual category. The
+[province provenance](../data/regions/provenance.json) records hashes and pixel counts.
 
-Within a coarse cell, province shares inherit the same saved forecast/observation
-error. These are province-weighted views of0.25° errors, not newly reconstructed
-province rainfall. For a province with little support, even a large percentage
-change may be driven by very few coarse cells. Cell counts and maximum cell-weight
-fractions are reported; neither is an independent validation sample count.
+Province scores are means of the pixel errors within the province. They are not
+newly reconstructed province rainfall, and they add no information to forecasts
+that come from a 1° model. For a province with few pixels, even a large percentage
+change may come from a small area. Pixel counts are reported; neighbouring pixels
+share weather, so they are not an independent validation sample count.
 
-Each region is normalized separately. Combining region MSE, MAE and bias with
-their national weight fractions reproduces national errors, including the
-unassigned residual. Combine MSE before taking its square root. The four-year
-regional context uses the original ending-year2021–2024 labels and includes2023;
+Each province is normalized separately. Combining province MSE, MAE and bias with
+each province's share of the scored area reproduces the national errors. Combine MSE
+before taking its square root. The four-year
+province context uses the original ending-year 2021–2024 labels and includes 2023;
 it is not independent confirmation. Forecasts, fitting choices and masks are unchanged.
 
-## Why probability scores are absent here
+## Why the twelve-season case has no probability scores
 
-Deterministic improvement does not establish probability reliability. Native CPT
+The twelve-season page shows CPT's tercile probabilities and a flexible forecast for
+2023, and does not score them. Deterministic improvement does not establish probability reliability. Native CPT
 probabilities use an error distribution and information from cross-validated
 hindcast errors. The detailed
 [CPT probability documentation](https://cptplus.org/Help/Tools_Forecast_Probs.html)
@@ -110,6 +119,13 @@ also uses different t parameters from native CPT17: a same-threshold OND check
 found a difference up to 0.882 percentage points. That establishes a difference
 in construction, not a ranking of empirical reliability.
 
+The multi-model ensemble cases do score probabilities. Their notebooks build
+cross-validated tercile probabilities by leaving out whole years and report a ranked
+probability skill score against a no-model forecast put through the same steps. That
+construction is this tutorial's, not CPT's, and each ensemble page describes it and
+its limits. It is one design on one training period, not the independent validation
+described next.
+
 Future probability comparisons need common events, explicit thresholds and
 distribution metadata, and a separately verified independent, retroactive or
 double-CV design. The [CPT verification guide](https://cptplus.org/Help/Tools_Verify.html)
@@ -118,7 +134,10 @@ describes probabilistic verification as a separate task.
 ## Research evidence
 
 The source repository retains completed cases, with their NetCDF outputs and
-manifests, in `research/cases/`. Audits and reviews made while preparing the
+manifests, in `research/cases/`. The twelve-season case and Fit & diagnose come from
+`indonesia-all-seasons-2021-2024-005deg`; the 0.25° cases beside it are the earlier
+runs it was built from. The lead-time and ensemble cases keep their tables and maps
+under `docs/data/`, written by their executed notebooks. Audits and reviews made while preparing the
 tutorial are working records and are not published. This tutorial's
 [input provenance](../data/provenance.json) identifies the exact fields and
 hashes used. The original files remain unchanged.

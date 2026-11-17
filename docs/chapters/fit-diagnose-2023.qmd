@@ -33,8 +33,9 @@ should we learn from its model patterns before interpreting a forecast map?
 We follow October–December (**OND**) 2023, then apply the same choices to
 June–August (**JJA**) 2023. Both cover full Indonesia. The
 [executed notebook](../notebooks/fit-diagnose-2023.ipynb) runs four actual PyCPT
-fits (CCA and PCR for each season) and checks the results against the original
-verified controls. All inputs are local seasonal fields.
+fits (CCA and PCR for each season) and checks the results against the saved
+results of the twelve-season run of the first case. All inputs are local seasonal
+fields.
 
 ::: {.callout-note title="Choose how to follow along"}
 Read this story and the executed notebook in your browser. To execute the fitting
@@ -59,10 +60,11 @@ from X and Y is applied to F.
 
 Here X and F are CFSv2 ensemble-mean seasonal rainfall on a 1° grid. The predictor
 domain extends beyond Indonesia, from 85–155°E and 20°S–20°N. Y is CHIRPS3
-seasonal rainfall aggregated to the existing 0.25° country-land grid. It has
-3,240 complete locations used by both calibrated methods and the baselines.
-The finer output grid describes the aggregation and output locations; it does
-not establish independent dynamical predictability at 0.25°.
+seasonal rainfall on its native 0.05° grid, at every pixel that touches the
+38-province boundary of Indonesia, so coastal pixels and small islands are kept.
+It has 69,640 pixels with data in every training season, used by both calibrated
+methods and the baselines. The fine grid sets where forecasts are written; it does
+not establish that a 1° model can predict rainfall differences at 0.05°.
 
 ::: {#fitting-inputs .story-interactive data-fitting-panel="inputs"}
 ```{ojs}
@@ -119,7 +121,7 @@ fittingScores(fitData, scoreMetric, scorePeriod)
 
 <noscript><img class="story-fallback" src="../assets/fitting-2023/forecast-scores.png" alt="Static notebook comparison of RMSE, MAE and bias for the four methods in OND and JJA 2023."></noscript>
 
-RMSE and MAE measure spatial rainfall errors over the shared land cells. Bias is
+RMSE and MAE measure spatial rainfall errors over the shared land pixels. Bias is
 forecast minus observed rainfall: negative means too little rain. The score is
 not the error of a single national-average rainfall estimate. The sample selector
 keeps the 2023 comparison separate from pooled training CV diagnostics; these
@@ -189,7 +191,7 @@ fittingPatterns(fitData, geo, patternSeason, patternKind, patternMode)
 
 The X map includes the whole predictor domain, including ocean model rainfall.
 The Y map shows Indonesia's evaluated land support, with neighbouring countries
-grey and country/province boundaries outlined. A blank cell is outside that
+grey and country/province boundaries outlined. A blank pixel is outside that
 support, not an observed zero. The colours describe training associations, not
 2023 rainfall anomalies. An EOF and its score can change sign together without
 changing their product; independently numbered X/Y EOFs are not canonical pairs.
@@ -239,7 +241,7 @@ validation context. No settings are tuned within this worked example.
 
 ## Return to JJA with a baseline in view
 
-The four new fits reproduce the original controls, including the JJA outcome.
+The four new fits reproduce the saved controls, including the JJA outcome.
 Both calibrations improve on the raw model's national 2023 error in this season,
 while climatology has lower error than either calibrated method. A successful
 software run and a coherent training pattern therefore still need a forecast
@@ -258,11 +260,53 @@ fittingErrors(fitData, geo, errorSeason, errorView)
 
 <noscript><img class="story-fallback" src="../assets/fitting-2023/forecast-errors.png" alt="Static notebook maps of absolute forecast error for climatology, CCA and PCR in OND and JJA 2023."></noscript>
 
-All maps within a selected view share their colour scale. Signed errors identify
+All maps within a selected view share their colour scale. The scale stops at the
+99th percentile of the four methods' values, because a few extreme pixels would
+otherwise leave the maps pale; the note under the legend gives the cap and the
+largest value, and hovering a pixel always shows its true value. Signed errors identify
 too-wet and too-dry predictions; absolute errors show magnitude. The two selected
 seasons do not establish a general relationship between canonical correlation
 and forecast error. Explaining the physical cause of the JJA residuals requires
 additional evidence beyond this fitting exercise.
+
+## Read the forecast as a user would
+
+The maps above show totals and errors. A forecast user reads something else first:
+**how the forecast compares with normal, and how likely a dry or a wet season is.** The
+same four fits give that too. The normal is the mean of the 30 training totals,
+1991-2020; the tercile boundaries are their 33rd and 67th percentiles.
+
+Choose a season and one of three views, each with the observed map beside the
+forecasts:
+
+- **Forecast anomaly (mm)**: the total minus the normal.
+- **Forecast as % of normal**: the total divided by the normal.
+- **Most likely category and probability**: CPT's most likely tercile category, darker
+  where its probability is higher.
+
+::: {#fitting-products .story-interactive data-fitting-panel="products"}
+```{ojs}
+//| echo: false
+viewof productSeason = selectControl("Forecast season", seasonChoices, "OND")
+viewof productView = selectControl("Show", [["anomaly", "Forecast anomaly (mm)"], ["percent", "Forecast as % of normal"], ["category", "Most likely category and probability"]], "anomaly")
+fittingErrors(fitData, geo, productSeason, productView)
+```
+:::
+
+The anomaly and percent views show raw CFSv2, CCA, PCR and the observation. Climatology
+has no map there, because that forecast is the normal itself: 0 mm and 100% at every
+pixel. Raw CFSv2 and climatology have no probabilities, so the category view shows CCA,
+PCR and the observation. Hover a pixel for its normal, its boundaries, every method's
+total and both sets of probabilities.
+
+**Click a pixel** to draw its **flexible forecast** under the maps: the whole
+distribution of the forecast against climatology, as a probability of exceedance and as
+a probability density (PyCPT's `construct_flex_fcst`; the notebook checks its numbers
+against that function). A CCA or PCR map draws its own fit; any other map draws CCA.
+
+The probabilities and curves are CPT's own for one year and are not verified here. The
+first case shows the same products for
+[all twelve seasons](indonesia-seasons-2023.qmd#the-forecast-a-user-receives).
 
 ## Take the workflow with you
 
@@ -272,10 +316,10 @@ figures. The [complete fitting kit](../downloads/fit-diagnose-2023-kit.zip) incl
 the local inputs, frozen controls, helper code, executed notebook and tested Linux
 environment lock. Each execution uses a new scratch directory.
 
-- [2023 forecasts, observations and cell errors (NetCDF)](../assets/fitting-2023/forecast-comparison.nc)
+- [2023 forecasts, observations and pixel errors (NetCDF)](../assets/fitting-2023/forecast-comparison.nc)
 - [Separate forecast/CV national scores (NetCDF)](../assets/fitting-2023/deterministic-scores.nc) · [CSV](../assets/fitting-2023/deterministic-scores.csv)
 - [CV-year scores (NetCDF)](../assets/fitting-2023/cv-yearly-scores.nc) · [CV residual fields](../assets/fitting-2023/cv-residual-summary.nc)
-- [Complete fitted output archive: all 30 NetCDFs](../downloads/fit-diagnose-2023-outputs.zip)
+- Complete fitted outputs, 30 NetCDFs in two archives: [OND](../downloads/fit-diagnose-2023-outputs-OND.zip) · [JJA](../downloads/fit-diagnose-2023-outputs-JJA.zip)
 - [Control checks (CSV)](../assets/fitting-2023/control-checks.csv) · [Execution and source/output manifest](../assets/fitting-2023/execution-manifest.json)
 - [Setup and reproduction](../guides/reproduce.qmd#fitting-case-setup)
 

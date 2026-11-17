@@ -30,9 +30,9 @@ of NOAA CPC's [week 3-4 outlook](https://www.cpc.ncep.noaa.gov/products/predicti
 This case calibrates that run with CCA and PCR through CPT, shows what it said
 against what happened, and measures how far each lead can be trusted.
 
-It is the same moment as the [monthly](monthly-leads-2023.qmd) and
-[seasonal](seasonal-leads-2023.qmd) cases, one step closer in time. Every map works
-at CHIRPS v3.0's native 0.05° grid: 61,190 pixels over Indonesia. All numbers come
+It is the same moment as the [seasonal](seasonal-leads-2023.qmd) and
+[monthly](monthly-leads-2023.qmd) cases, one step closer in time. Every map works
+at CHIRPS v3.0's native 0.05° grid: 69,638 pixels over Indonesia. All numbers come
 from the [executed notebook](../notebooks/week-leads-2023.ipynb).
 
 Hover, tap or use the arrow keys on any map or chart to read values; each view can
@@ -40,16 +40,16 @@ be downloaded as it is set. Maps load when you choose them, one small file per m
 
 ::: {.callout-note title="The short result"}
 - **The forecast of 1 November leaned dry, and the weeks were dry.** Weeks 1 to 3
-  came in at 45-47 mm over Indonesia against normals of 63-70 mm. Week 1 was
-  forecast at 48.9 mm (CCA); weeks 2 and 3 were forecast closer to normal, at 53.1
-  and 61.3 mm.
+  came in at 43-46 mm over Indonesia against normals of 61-68 mm. Week 1 was
+  forecast at 46.9 mm (CCA); weeks 2 and 3 were forecast closer to normal, at 50.9
+  and 59.3 mm.
 - **Placing the categories was harder:** for every lead the hit rate of the most
   likely category was below that of always forecasting the category that turned out
-  most common, picked with hindsight, by 0.8 to 6.9 points.
+  most common, picked with hindsight, by 0.7 to 6.2 points.
 - **How far to trust each lead**, from all October-December weeks of 2000-2018: the
-  area-mean CCA correlation is 0.35 for week 1, 0.29 for week 2, 0.26 for week 3,
-  0.17 for week 4, and 0.26 for weeks 3-4 together. The raw GEFSv12 correlation is
-  higher for weeks 1 and 2 (0.50 and 0.34) and level from week 3.
+  area-mean CCA correlation is 0.36 for week 1, 0.29 for week 2, 0.27 for week 3,
+  0.17 for week 4, and 0.27 for weeks 3-4 together. The raw GEFSv12 correlation is
+  higher for weeks 1 and 2 (0.51 and 0.34) and level from week 3.
 :::
 
 ## The forecast issued on 1 November 2023
@@ -82,27 +82,37 @@ weekIssueMaps(weekData, geo, mapIssue, issueMethod, issueView)
 ```
 :::
 
+**Click a pixel** on any of these maps to draw its **flexible forecast** below them: the
+whole distribution of that target's forecast against climatology, as a probability of
+exceedance and as a probability density, with the 2000-2018 mean and the observed total
+marked. The curves follow PyCPT's `construct_flex_fcst`: a Student's t distribution
+centred on the forecast total for the forecast, a normal distribution for the
+climatology, both with the spread shrunk by √((N − 2)/N) for N = 249 training samples (the same
+for the one-week and the two-week targets).
+The notebook computes them from CPT's prediction error variance and checks the first fit against PyCPT's function. Like the tercile probabilities, the curves are CPT's own for one forecast and are
+not verified here.
+
 | Lead | Target | Forecast (mm) | Observed (mm) | 2000-2018 mean (mm) | Observed below / near / above normal (% of area) | Hit rate (%) | Reference (%) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Week 1 | 2-8 Nov | 48.9 | 46.2 | 63.0 | 52.4 / 40.0 / 7.6 | 51.0 | 52.4 |
-| Week 2 | 9-15 Nov | 53.1 | 44.9 | 65.7 | 58.6 / 31.7 / 9.7 | 57.8 | 58.6 |
-| Week 3 | 16-22 Nov | 61.3 | 47.0 | 69.8 | 68.3 / 20.5 / 11.2 | 63.8 | 68.3 |
-| Week 4 | 23-29 Nov | 67.4 | 66.8 | 69.7 | 35.2 / 36.4 / 28.3 | 34.0 | 36.4 |
-| Weeks 3-4 | 16-29 Nov | 131.2 | 113.8 | 139.6 | 54.5 / 31.8 / 13.7 | 47.6 | 54.5 |
+| Week 1 | 2-8 Nov | 46.9 | 44.0 | 61.0 | 53.2 / 39.6 / 7.2 | 52.1 | 53.2 |
+| Week 2 | 9-15 Nov | 50.9 | 42.9 | 63.8 | 59.1 / 31.4 / 9.5 | 58.4 | 59.1 |
+| Week 3 | 16-22 Nov | 59.3 | 45.8 | 68.0 | 68.4 / 20.2 / 11.3 | 64.8 | 68.4 |
+| Week 4 | 23-29 Nov | 65.8 | 65.9 | 68.3 | 34.3 / 36.4 / 29.3 | 34.0 | 36.4 |
+| Weeks 3-4 | 16-29 Nov | 127.6 | 111.7 | 136.3 | 53.6 / 32.2 / 14.3 | 47.4 | 53.6 |
 
 : CCA forecast issued 1 November 2023, area-weighted over Indonesia. Source: [issued-2023-11-01.csv](../data/week-leads-2023/issued-2023-11-01.csv), which also has PCR.
 
-- **Amounts.** The first three weeks of November were dry: 45-47 mm against
-  normals of 63-70 mm. The forecast for week 1 was close (48.9 against 46.2 mm).
-  Further ahead it moved towards the normal (53.1 mm for week 2, 61.3 mm for week 3)
+- **Amounts.** The first three weeks of November were dry: 43-46 mm against
+  normals of 61-68 mm. The forecast for week 1 was close (46.9 against 44.0 mm).
+  Further ahead it moved towards the normal (50.9 mm for week 2, 59.3 mm for week 3)
   and so missed more of the dry spell. A regression forecast moves towards the
   normal as its skill falls, which is what the skill section below measures. Week 4
-  returned to near normal (66.8 mm) and was forecast almost exactly (67.4 mm).
+  returned to near normal (65.9 mm) and was forecast almost exactly (65.8 mm).
 - **Categories.** For weeks 1-3 the forecast made below normal the most likely
-  category over 84% to 96% of the area, and below normal was observed over 52% to
-  68%. Its hit rate (51% to 64%) stayed under the **reference**, always forecasting
-  the category that turned out most common, chosen with hindsight, by 0.8 to 4.5
-  points; for weeks 3-4 together the gap was 6.9 points (47.6% against 54.5%). For
+  category over 85% to 96% of the area, and below normal was observed over 53% to 68%.
+  Its hit rate (52% to 65%) stayed under the **reference**, always forecasting
+  the category that turned out most common, chosen with hindsight, by 0.7 to 3.6
+  points; for weeks 3-4 together the gap was 6.2 points (47.4% against 53.6%). For
   week 4 the forecast favoured above normal over 55% of the area in a week that was
   mixed; its hit rate was 34% against 36%.
 
@@ -117,8 +127,8 @@ start on Wednesdays, like the real-time forecast, so training uses exactly the s
 leads as real use. CCA (3 predictor and 3 predictand EOFs, 2 CCA modes) and PCR
 (3 predictor EOFs) are fitted through `cptcore`, the layer PyCPT's `evaluate_models`
 calls, with cross-validation leaving out 27 targets at a time (the held-out week and
-13 on each side, about a season). At 0.05° one fit took 76 to 90 minutes for CCA and
-23 to 26 minutes for PCR, so the ten fits ran in parallel. For every fit, CPT's
+13 on each side, about a season). At 0.05° one fit took 94 to 117 minutes for CCA and
+26 to 28 minutes for PCR, so the ten fits ran in parallel. For every fit, CPT's
 correlation map equals the correlation recomputed from its own cross-validated
 hindcasts to within 0.000001.
 
@@ -136,18 +146,18 @@ skillByLead(weekData, skillMetric)
 
 | Lead | CCA Pearson | PCR Pearson | Raw GEFS Pearson | CCA 2AFC (%) | PCR 2AFC (%) |
 | --- | --- | --- | --- | --- | --- |
-| Week 1 | 0.35 | 0.36 | 0.50 | 62.8 | 63.1 |
-| Week 2 | 0.29 | 0.28 | 0.34 | 60.3 | 60.3 |
-| Week 3 | 0.26 | 0.26 | 0.25 | 59.6 | 59.6 |
-| Week 4 | 0.17 | 0.18 | 0.18 | 56.7 | 56.8 |
-| Weeks 3-4 | 0.26 | 0.26 | 0.25 | 59.6 | 59.7 |
+| Week 1 | 0.36 | 0.36 | 0.51 | 63.0 | 63.3 |
+| Week 2 | 0.29 | 0.29 | 0.34 | 60.6 | 60.6 |
+| Week 3 | 0.27 | 0.27 | 0.26 | 59.8 | 59.8 |
+| Week 4 | 0.17 | 0.18 | 0.18 | 56.8 | 56.9 |
+| Weeks 3-4 | 0.27 | 0.27 | 0.26 | 59.8 | 59.9 |
 
-: Area-weighted means over 61,190 pixels, 249 targets of 2000-2018. Source: [skill-by-lead.csv](../data/week-leads-2023/skill-by-lead.csv).
+: Area-weighted means over 69,638 pixels, 249 targets of 2000-2018. Source: [skill-by-lead.csv](../data/week-leads-2023/skill-by-lead.csv).
 
 1. **Skill falls with lead, most between weeks 3 and 4.** CCA's mean correlation
-   drops by 0.06 from week 1 to 2, 0.02 from week 2 to 3, and 0.09 from week 3 to 4.
+   drops by 0.07 from week 1 to 2, 0.02 from week 2 to 3, and 0.10 from week 3 to 4.
 2. **Two weeks together hold up better than the second of them.** Weeks 3-4 score
-   0.26, close to week 3 and well above week 4 alone (0.17).
+   0.27, close to week 3 and well above week 4 alone (0.17).
 3. **Calibration does not beat the raw model.** GEFSv12's own anomaly correlates
    better in weeks 1 and 2 (by 0.15 and 0.05 over CCA) and about equally from
    week 3. The calibrated scores pay a cross-validation cost
@@ -176,30 +186,30 @@ Over the 13 targets of each lead, scored over every pixel and target
 
 | Lead | Method | Hit rate (%) | Reference (%) | RPSS 2023 | RMSE 2023 (mm) | Mean forecast (mm) | Observed mean (mm) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Week 1 | CCA | 50.4 | 49.4 | 0.12 | 28.6 | 55.7 | 51.1 |
-| Week 1 | PCR | 49.5 | 49.4 | 0.12 | 28.8 | 55.7 | 51.1 |
-| Week 2 | CCA | 50.2 | 49.4 | 0.12 | 28.5 | 56.0 | 51.1 |
-| Week 2 | PCR | 49.6 | 49.4 | 0.11 | 28.7 | 55.7 | 51.1 |
-| Week 3 | CCA | 46.8 | 49.4 | 0.07 | 29.7 | 58.0 | 51.1 |
-| Week 3 | PCR | 45.9 | 49.4 | 0.07 | 29.7 | 57.8 | 51.1 |
-| Week 4 | CCA | 45.6 | 49.4 | 0.08 | 29.8 | 57.8 | 51.1 |
-| Week 4 | PCR | 44.8 | 49.4 | 0.07 | 30.0 | 57.7 | 51.1 |
-| Weeks 3-4 | CCA | 53.2 | 52.2 | 0.14 | 48.3 | 117.5 | 106.5 |
-| Weeks 3-4 | PCR | 51.1 | 52.2 | 0.13 | 48.7 | 117.4 | 106.5 |
+| Week 1 | CCA | 51.0 | 49.7 | 0.13 | 28.6 | 54.0 | 49.4 |
+| Week 1 | PCR | 50.0 | 49.7 | 0.13 | 28.8 | 54.0 | 49.4 |
+| Week 2 | CCA | 50.7 | 49.7 | 0.12 | 28.6 | 54.3 | 49.4 |
+| Week 2 | PCR | 50.0 | 49.7 | 0.12 | 28.9 | 54.1 | 49.4 |
+| Week 3 | CCA | 46.9 | 49.7 | 0.08 | 29.8 | 56.4 | 49.4 |
+| Week 3 | PCR | 45.9 | 49.7 | 0.07 | 29.9 | 56.2 | 49.4 |
+| Week 4 | CCA | 46.2 | 49.7 | 0.08 | 29.9 | 56.2 | 49.4 |
+| Week 4 | PCR | 45.5 | 49.7 | 0.07 | 30.1 | 56.2 | 49.4 |
+| Weeks 3-4 | CCA | 53.6 | 52.6 | 0.14 | 48.6 | 114.4 | 103.2 |
+| Weeks 3-4 | PCR | 51.6 | 52.6 | 0.13 | 49.1 | 114.3 | 103.2 |
 
 : October-December 2023. Source: [ond-2023-weekly-forecasts.csv](../data/week-leads-2023/ond-2023-weekly-forecasts.csv).
 
 - **Hit rate** against the **reference**, always forecasting the most frequent
-  observed category (below normal, 49.4% of one-week pixel-targets and 52.2% for
+  observed category (below normal, 49.7% of one-week pixel-targets and 52.6% for
   weeks 3-4): weeks 1, 2 and 3-4 matched it to within about a point; weeks 3 and 4
-  fell 2.5 to 4.5 points short.
+  fell 2.8 to 4.2 points short.
 - **RPSS 2023** compares the forecast probabilities with climatological odds
   (33/34/33%) using the ranked probability score
   [(Epstein 1969)](https://doi.org/10.1175/1520-0450(1969)008%3C0985:ASSFPF%3E2.0.CO;2):
   positive at every lead, highest for weeks 3-4 and weeks 1-2. One season of
   13 weeks rewards leaning the right way in 2023, not skill in general.
-- **The totals were too wet** on average: 55.7 to 58.0 mm a week against an observed
-  51.1 mm, although the most likely category was below normal over 58% to 73% of
+- **The totals were too wet** on average: 54.0 to 56.4 mm a week against an observed
+  49.4 mm, although the most likely category was below normal over 59% to 71% of
   the area.
 
 ::: {.story-interactive}
@@ -238,14 +248,20 @@ Rainfall rises through October-December, so model and observations are turned in
 of the same lead, one from each year 2000-2018: the one starting closest to the same
 day of the season (on average 1.7 days away, at most 6). Each forecast **total** is
 that mean for the observations plus the calibrated anomaly, set to zero where the sum
-is negative. The 2000-2018 mean over Indonesian pixels is 64.1 mm a week (129.2 mm
-for weeks 3-4).
+is negative. Over the 13 target weeks of October-December 2023 the 2000-2018 mean is
+62.8 mm a week over Indonesian pixels.
+
+::: {.callout-tip title="The same forecast from five models"}
+The [weekly multi-model ensemble](week-mme-2023.qmd) takes the issue date of
+1 November 2023 and adds four more SubX models to GEFSv12, each calibrated the same
+way and averaged.
+:::
 
 ## What this does and does not show
 
 This is one model, one set of fixed settings, 19 training years and one verifying
 season, with the headline on one issue date. It shows that, for GEFSv12 weekly
-rainfall over Indonesia in October-December, skill falls from 0.35 to 0.17 over four
+rainfall over Indonesia in October-December, skill falls from 0.36 to 0.17 over four
 weeks, that combining weeks 3 and 4 keeps more skill than week 4 alone, and that
 calibration with these settings did not add to the raw model's correlation. The
 observations are retrospective CHIRPS v3.0, not what was available when each

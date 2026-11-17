@@ -5,8 +5,9 @@ subtitle: "Requirements for reading, offline analysis and optional PyCPT fitting
 
 ## Choose a starting point
 
-This is a PyCPT tutorial. Reading either story or already-executed notebook needs
-only a browser. Case one's default notebook recalculates verification and figures
+This is a PyCPT tutorial. Reading any story or already-executed notebook needs
+only a browser. Two cases come with a download kit that runs from local inputs:
+the twelve-season case (case one) and Fit & diagnose (case two). Case one's default notebook recalculates verification and figures
 from saved results. Case two executes four PyCPT fits and requires the full fitting
 environment. The table separates these activities.
 
@@ -21,7 +22,7 @@ environment. The table separates these activities.
 ## Case one: run the saved-results notebook {#offline-analysis}
 
 Download and extract the [complete tutorial kit](../downloads/indonesia-seasons-2023-kit.zip).
-It includes the executed notebook, five national NetCDF inputs, four regional
+It includes the executed notebook, six national NetCDF inputs, two province
 NetCDF inputs, display boundaries, helper code and environment specifications.
 The notebook file alone does not include those inputs and helpers.
 
@@ -52,18 +53,15 @@ tables and NetCDF outputs under `docs/assets/seasonal-2023/`. It also writes sto
 findings under `docs/_includes/`. Run it in your own extracted kit or checkout.
 The original preparation drives are not needed for this workflow.
 
-::: {.callout-tip title="Verified in a fresh analysis-only environment"}
-On 2 November 2026, this complete kit was tested in a new conda environment on
-Debian under WSL2 (Linux x86-64), created from the analysis environment file above.
-All **22 original code cells** completed with PyCPT/CPT packages absent and no
-credential reads, remote connections or CPT launches. The three generated NetCDF
-files and eleven CSV tables matched the saved results within numerical tolerances;
-the findings and generated story text matched exactly. All nine PNG figures were
-generated successfully. The test ran a kit copy and preserved the published notebook.
+::: {.callout-note title="What has been tested"}
+The notebook in this kit was last executed in full in the repository on
+16 November 2026: all 24 code cells, no errors, with the optional refit off.
 
-This verifies the default saved-results workflow on that platform. Package
-installation used internet access; notebook execution used local inputs.
-Other operating systems have not been tested with this smaller specification.
+An **earlier version of the kit**, built on a 0.25° grid, was extracted and run on
+2 November 2026 in a new conda environment on Debian under WSL2 (Linux x86-64),
+created from the analysis environment file above, with PyCPT and CPT absent. It
+reproduced its saved outputs. That fresh-environment test has **not been repeated
+for the current 0.05° kit**, and other operating systems have not been tested.
 :::
 
 ## Prepare the full PyCPT fitting environment {#use-the-tested-debian-environment}
@@ -130,20 +128,33 @@ The conda release is PyCPT 2.10.4; the tested package's Python metadata reports
 
 - [Executed fitting notebook](../downloads/fit-diagnose-2023.ipynb)
 - [Complete fitting kit](../downloads/fit-diagnose-2023-kit.zip)
-- [All fitted NetCDF outputs and provenance](../downloads/fit-diagnose-2023-outputs.zip)
+- All fitted NetCDF outputs and provenance: [OND](../downloads/fit-diagnose-2023-outputs-OND.zip) · [JJA](../downloads/fit-diagnose-2023-outputs-JJA.zip)
 - [Execution manifest](../assets/fitting-2023/execution-manifest.json)
 - [Variable-specific control checks](../assets/fitting-2023/control-checks.csv)
 
 Other platforms have not been verified for this fitting case. Rendering Quarto
 uses the saved outputs and does not execute the fitting calls.
 
-::: {.callout-tip title="The complete fitting kit was executed separately"}
-The distributed kit was extracted to a new directory and all 18 code cells ran,
-including four actual fits. All 30 NetCDF datasets matched the canonical outputs
-exactly, the five CSV tables matched, and all six PNG figures were byte-identical.
-The interactive values and generated story findings also matched. The run used
-the tested full fitting environment with no credential reads or remote connections.
+::: {.callout-note title="What has been tested"}
+The notebook in this kit was last executed in full in the repository on
+16 November 2026: all 18 code cells, including the four fits, with the control
+checks listed above.
+
+An **earlier version of the kit**, built on a 0.25° grid, was extracted to a new
+directory and run separately, and reproduced its outputs. That separate test has
+**not been repeated for the current 0.05° kit**.
 :::
+
+## The lead-time and ensemble cases
+
+The seasonal, monthly, dekad, weekly and pentad cases, single-model and multi-model,
+have no download kit. Their executed notebooks are on this site and read in a
+browser. Running them again needs the full PyCPT fitting environment, access to the
+IRI Data Library for the model data, and CHIRPS v3.0 at 0.05° on local disk; each
+notebook names the scripts under `research/scripts/` that download and prepare its
+inputs. At 0.05° the fits are heavy: a subseasonal CCA fit takes one to several
+hours and about 6 GB of memory, and the ensembles run 28 to 82 of them. Each case
+page links the tables and NetCDF maps its notebook wrote.
 
 ## Optional: authenticate for protected downloads
 
@@ -183,7 +194,8 @@ HTTP preview, such as `quarto preview docs`, for the interactive story.
 - [Four-method OND province table](../assets/seasonal-2023/province-ond-2023-rmse.csv)
 - [Province annual context (NetCDF)](../data/regions/province-context-annual.nc)
 - [Province pooled context (NetCDF)](../data/regions/province-context-pooled.nc)
-- [Province weight/support data](../data/regions/province-weights.nc)
+- [Province pixel counts and area shares](../data/regions/provenance.json)
+- [Twelve-season forecast products: tercile probabilities, normals and flexible-forecast scales (NetCDF)](../data/indonesia-seasons-2023-products.nc)
 - [Province improvement counts](../assets/seasonal-2023/province-improvement-counts.csv)
 
 ## References {.unnumbered .reference-section}

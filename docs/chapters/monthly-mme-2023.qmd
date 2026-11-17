@@ -1,0 +1,421 @@
+---
+title: "Issued 1 June 2023: a seven-model monthly ensemble"
+subtitle: "The same seven models and the same start as the seasonal ensemble, for the single months July to December 2023 at 0.05°"
+description: "Seven seasonal models started on 1 June 2023, each calibrated with CCA and PCR against CHIRPS v3.0 monthly totals at the native 0.05° grid and combined into a multi-model ensemble: skill of every member and of the ensemble, EOF patterns and CCA modes, calibrated forecasts, and the flexible forecast as probability of exceedance."
+format:
+  html:
+    code-copy: false
+---
+
+```{ojs}
+//| echo: false
+//| output: false
+import {selectControl, loadWeekData, issueTargets, mmeSkillByLead, mmeSkillMaps, mmePatterns, mmeForecastMaps, mmeScoresByLead, mmeFlexible} from "../assets/leads/leads.js"
+mme = loadWeekData("../assets/monthly-mme-2023/")
+geo = ({indonesia: await FileAttachment("../data/boundaries/indonesia.geojson").json(),
+  provinces: await FileAttachment("../data/boundaries/provinces.geojson").json(),
+  neighbours: await FileAttachment("../data/boundaries/neighbours.geojson").json()})
+leadChoices = mme.targets.map(t => [String(t.lead), `Lead ${t.lead}: ${t.label}`])
+modelChoices = mme.models.map(m => [m, m === "MME" ? "MME (the ensemble)" : m])
+memberChoices = modelChoices.filter(([m]) => m !== "MME")
+```
+
+::: {.eyebrow}
+Monthly · Multi-model ensemble · Full Indonesia
+:::
+
+The [seasonal ensemble](seasonal-mme-2023.qmd) calibrated seven models started on
+1 June 2023 for six overlapping three-month seasons. This case keeps the start, the
+models, the training years and the settings, and changes one thing: the target is a
+**single month**, July to December 2023. It shows the same outputs: skill for every
+member and for the ensemble (MME), EOF patterns and CCA modes, calibrated forecasts,
+and the flexible forecast.
+
+Everything is at CHIRPS v3.0's native 0.05° grid: the 69,640 pixels that touch
+Indonesia's 38-province boundary and have data in every training month. All numbers
+on this page come from the [executed notebook](../notebooks/monthly-mme-2023.ipynb). Hover,
+tap or use the arrow keys on any map or chart to read values; maps load when you
+choose them, and the maps in a group zoom and pan together.
+
+::: {.callout-note title="The short result"}
+- **A single month is harder than a season.** The ensemble's cross-validated
+  correlation is 0.32, 0.33, 0.39 and 0.50 for July to October, then
+  0.17 and 0.06 for November and December. The three-month seasons that
+  start in those months scored 0.55, 0.62 and 0.58 for the first three;
+  only October matches its season (0.50 against 0.50 for
+  October-December).
+- **The best month is four months ahead.** October scores highest, above the nearer
+  months: skill follows the target month, not the lead.
+- **The ensemble beats CFSv2 alone in four months of six.** It is above CFSv2 for
+  July, September, October and November and has the higher correlation in
+  74% to 90% of pixels there. For August and December it is slightly below.
+- **It is never the best member.** By correlation the ensemble ranks third of eight
+  for July to September, second for October, and fifth for November and December.
+- **Calibration costs more here than for seasons.** The plain average of the raw
+  models correlates at 0.50, 0.50 and 0.53 for July to September, well above
+  the calibrated ensemble. Only for October is the calibrated ensemble higher
+  (0.50 against 0.48).
+- **Probabilities still beat climatology at every lead**, by less than for seasons:
+  the ensemble's cross-validated RPSS is 0.13 to 0.25 for July to October and
+  0.08 and 0.05 after that.
+- **In 2023 the ensemble was dry in every month.** That was wrong for July, when
+  51% of the area ended near normal and the hit rate was 22%, and right from
+  September to December, when 47% to 78% of the area ended below normal.
+:::
+
+## Why 1 June, and what that does not establish
+
+The date is the seasonal ensemble's, so the two pages can be read side by side. It
+was chosen there from a [scan of every start month and lead](seasonal-mme-2023.qmd#why-1-june)
+for **three-month seasons**. No such scan was made for single months. This page
+therefore does not claim that 1 June is the best start for monthly targets; it
+measures what the same start gives.
+
+## Which models, and why these
+
+The same eleven catalog models were candidates. Before any skill was computed, a
+script downloaded each one with PyCPT's own `download_data` for every target month
+and recorded whether the download worked, every training year held data, the 2023
+forecast held data, and the **returned target month was the one requested**.
+
+| Model | Jul | Aug | Sep | Oct | Nov | Dec | In the ensemble |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| CFSv2 | ok | ok | ok | ok | ok | ok | all six leads |
+| GEOSS2S | ok | ok | ok | ok | ok | ok | all six leads |
+| CanSIPSIC3 | ok | ok | ok | ok | ok | ok | all six leads |
+| CCSM4 | ok | ok | ok | ok | ok | ok | all six leads |
+| CESM1 | ok | ok | ok | ok | ok | ok | all six leads |
+| SPEAR | ok | ok | ok | ok | ok | ok | all six leads |
+| SEAS51c | ok | ok | ok | ok | ok | November returned | leads 1 to 5 |
+| GCFS2p1 | 1992, 2020 missing | same | same | same | same | November returned | no |
+| SPSv3p5 | 5 years missing | same | same | same | same | November returned | no |
+| METEOFRANCE9 | 1992 missing, no 2023 forecast | same | same | same | same | November returned | no |
+| CanSIPSIC4 | no 2023 forecast | same | same | same | same | same | no |
+
+: Availability of single-month targets for a 1 June 2023 issue with training target years 1992-2020, measured on 16 November 2026. Source: [availability.json](../data/monthly-mme-2023/availability.json), written by `research/scripts/check_lead_mme_availability.py`.
+
+Two points shaped the design:
+
+- **Training uses target years 1992-2020 (29 years) for every model**, the years of
+  the seasonal ensemble, so all members and both pages share one sample.
+- **SEAS51c forecasts six months**, so from 1 June it ends in November. It joins
+  July to November only. The ensemble has **seven members at leads 1 to 5 and six
+  at lead 6**. The seasonal ensemble lost SEAS51c after lead 3, because a
+  three-month season needs the model to reach its last month.
+
+::: {.callout-warning title="A month beyond a model's range did not fail"}
+For three-month targets, asking for a season beyond a model's range fails with an
+error. For single months it did not. Asking PyCPT for December from a 1 June start
+returned a file without an error for SEAS51c, GCFS2p1, SPSv3p5 and METEOFRANCE9;
+in each case the file's own dates were **November's**, the last month those models
+reach. The table marks these "November returned". The fit script compares the
+returned target dates with the request for every model and lead before fitting, so
+none of them entered the December ensemble.
+:::
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof timelineLead = selectControl("Highlight", leadChoices, "1")
+issueTargets(mme, timelineLead)
+```
+:::
+
+## One calibration, 82 times
+
+Each model is calibrated at each lead with **CCA** (3 predictor and 3 predictand
+EOFs, 2 CCA modes) and **PCR** (3 predictor EOFs), cross-validation window 5, the
+settings of the seasonal ensemble. Each fit is one call of PyCPT's
+`evaluate_models`: 82 fits in all. At 0.05° a fit took 15 to 37 minutes (median 33)
+with many running side by side.
+
+The observations are CHIRPS v3.0 monthly totals built from dekads. A pixel is kept
+if any part of it touches a province of the supplied 38-province boundary, so
+coastal pixels and small islands are included, and if it has data in all 29
+training years of every target month: 69,640 pixels.
+
+The ensemble is PyCPT's `construct_mme`: the **equal-weight average** of the
+members' calibrated forecasts, taken separately for the deterministic forecast, the
+prediction error variance and the three category probabilities. The notebook
+confirms it: the ensemble forecast equals the mean of its members exactly, and
+CPT's Pearson map equals the correlation recomputed from the cross-validated
+hindcasts to within 0.0001.
+
+## Skill of every member, and of the ensemble
+
+Area-weighted means over Indonesia, cross-validated over 1992-2020. **Pearson
+correlation** is 0 for no linear relationship. **2AFC** is the chance that the
+hindcasts rank two different years in the observed order, 50% for no skill
+[(Mason and Weigel 2009)](https://doi.org/10.1175/2008MWR2553.1).
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof chartMethod = selectControl("Calibration", ["CCA", "PCR"], "CCA")
+viewof chartMetric = selectControl("Score", [["Pearson", "Pearson correlation"], ["2AFC (%)", "2AFC"], ["CV RPSS", "Cross-validated RPSS"]], "Pearson")
+mmeSkillByLead(mme, chartMethod, chartMetric)
+```
+:::
+
+| Lead | Target | Members | MME | CFSv2 alone | Best member | Raw multi-model mean | Pixels where MME beats CFSv2 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Jul 2023 | 7 | 0.32 | 0.21 | SPEAR, 0.36 | 0.50 | 90% |
+| 2 | Aug 2023 | 7 | 0.33 | 0.35 | GEOSS2S, 0.40 | 0.50 | 38% |
+| 3 | Sep 2023 | 7 | 0.39 | 0.33 | GEOSS2S, 0.43 | 0.53 | 87% |
+| 4 | Oct 2023 | 7 | 0.50 | 0.45 | GEOSS2S, 0.52 | 0.48 | 75% |
+| 5 | Nov 2023 | 7 | 0.17 | 0.12 | SEAS51c, 0.26 | 0.26 | 74% |
+| 6 | Dec 2023 | 6 | 0.06 | 0.08 | CFSv2, 0.08 | 0.16 | 44% |
+
+: Pearson correlation of the CCA calibrations, area-weighted mean over 69,640 pixels, cross-validated 1992-2020. Source: [mme-against-members.csv](../data/monthly-mme-2023/mme-against-members.csv).
+
+Read across a row. The ensemble is above CFSv2 for July, September, October and
+November, and slightly below it for August and December. It is never first: third
+of eight for July to September, second of eight for October behind GEOSS2S, fifth of
+eight for November and fifth of seven for December. No member is best throughout
+either: SPEAR leads for July, GEOSS2S for August to October, SEAS51c for November.
+With PCR the ensemble is almost the same
+(0.31, 0.31, 0.38, 0.51, 0.15, 0.07).
+
+The raw column matters more here than on the seasonal page. Averaging the models'
+**raw** rainfall, with no calibration, correlates with the observations at
+0.50, 0.50 and 0.53 for July to September, against 0.32, 0.33 and 0.39
+for the calibrated ensemble. It is also higher for November and December
+(0.26 and 0.16 against 0.17 and 0.06). Only for October does calibration
+come out ahead. Two things should be kept in mind. The raw correlations involve no
+fitting, so they do not carry the downward bias of cross-validation described
+below. And the raw average is not a forecast product: it has model biases and no
+probabilities. This page does not establish why three EOFs keep less of the
+models' signal for a month than for a season.
+
+### Probabilities, cross-validated
+
+PyCPT's own probabilistic scores are computed from in-sample probabilities; its
+source code calls them "unrealistically optimistic". The notebook builds
+cross-validated tercile probabilities instead. For each training year it leaves out
+that year and its two neighbours on each side, takes the tercile boundaries and the
+error spread from the remaining years, and centres a Student's t distribution on
+the left-out year's cross-validated hindcast. The ranked probability skill score
+(**RPSS**) compares those probabilities with a climatological forecast built the
+same way; above 0 means the model adds information. This construction is this
+tutorial's, not CPT's.
+
+| Lead | Target | MME | CFSv2 alone | Highest member |
+| --- | --- | --- | --- | --- |
+| 1 | Jul 2023 | 0.13 | 0.06 | SPEAR, 0.14 |
+| 2 | Aug 2023 | 0.14 | 0.15 | GEOSS2S, 0.18 |
+| 3 | Sep 2023 | 0.17 | 0.13 | GEOSS2S, 0.16 |
+| 4 | Oct 2023 | 0.25 | 0.21 | GEOSS2S, 0.27 |
+| 5 | Nov 2023 | 0.08 | 0.04 | SEAS51c, 0.09 |
+| 6 | Dec 2023 | 0.05 | 0.04 | SPEAR, 0.04 |
+
+: Cross-validated RPSS of the CCA calibrations against a climatological forecast put through the same steps, area-weighted mean, 1992-2020. Source: [skill-by-lead.csv](../data/monthly-mme-2023/skill-by-lead.csv).
+
+By this score the ensemble does better than by correlation: first for September and
+December, second for July, October and November, third for August. Its
+probabilities are positive against climatology at every lead, 0.13 to 0.25 for July
+to October and 0.08 and 0.05 for November and December. The seasonal ensemble
+scored 0.23 to 0.32 for its first four seasons.
+
+### Why a correlation near zero is not "no skill" here
+
+Cross-validation biases correlation downward. A forecast with **no model at all**,
+the mean of the other years, correlates *negatively* with the observations: leaving
+a wet year out lowers the mean of the rest. The notebook measures it: the no-model
+forecast has an area-mean correlation of -0.24 to -0.41 at these six leads
+[(Barnston and van den Dool 1993)](https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2).
+
+So 0 is not the no-skill level of a cross-validated correlation, and the 0.06 for
+December is not as close to "nothing" as it looks. A calibrated model's correlation
+is not simply shifted by that amount either, which is why this page compares
+correlations with each other, and reads them alongside the RPSS, whose reference is
+that same no-model forecast.
+
+### Where the skill is
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof mapModel = selectControl("Model", modelChoices, "MME")
+viewof mapMethod = selectControl("Calibration", [["CCA", "CCA"], ["PCR", "PCR"], ["raw", "None (raw model)"]], "CCA")
+viewof mapMetric = selectControl("Score", [["pearson", "Pearson correlation"], ["rpss", "Cross-validated RPSS"]], "pearson")
+mmeSkillMaps(mme, geo, mapModel, mapMethod, mapMetric)
+```
+:::
+
+## EOF patterns and CCA modes
+
+CCA does not relate the two fields pixel by pixel. It first reduces each to a few
+**EOFs**, patterns that explain the most year-to-year variance, each with a score
+per year. It then finds pairs of combinations of those, the **CCA modes**, whose
+score series are as correlated as possible. These views show what each calibration
+is built from.
+
+Choose a model, a lead and a mode. The top map is the pattern in the model's
+rainfall over the predictor box, the second the pattern in observed rainfall over
+Indonesia, and the chart their scores in each training year.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof patModel = selectControl("Model", memberChoices, "CFSv2")
+viewof patLead = selectControl("Lead", leadChoices, "1")
+viewof patKind = selectControl("Show", [["cca", "CCA mode"], ["eof", "EOF"]], "cca")
+viewof patMode = selectControl("Mode", [["1", "1"], ["2", "2"], ["3", "3 (EOF only)"]], "1")
+mmePatterns(mme, geo, patLead, patModel, patKind, patMode)
+```
+:::
+
+How to read them, and how not to:
+
+- The patterns come from the fit to **all 29 training years**, not from the
+  cross-validation folds. A canonical correlation of 0.69 to 0.91 for the first
+  July mode describes how well the fitted pair matches in-sample. The
+  cross-validated correlation of the forecasts it produces is 0.17 to 0.36.
+- The predictand EOFs depend on the observations alone, so they are identical for
+  every model at a given lead (the notebook checks this). For July the first three
+  explain 40.0%, 10.7% and 9.3% of the variance, 60% together; for
+  July-September the seasonal ensemble's three explained 73%. A single month has
+  more variance that three patterns do not describe.
+- Loadings are in CPT's units and are scaled here so each map's largest absolute
+  value is 1. Sign and shape carry meaning; magnitude does not.
+
+## The forecasts, model by model
+
+Each calibrated member gives a deterministic total and three tercile probabilities
+at every pixel; the ensemble averages them. The first view is PyCPT's standard
+probabilistic map: the colour is the most likely category, darker where its
+probability is higher. Others show the total, and the anomaly against the
+1992-2020 mean of the same month.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof fcModel = selectControl("Model", modelChoices, "MME")
+viewof fcMethod = selectControl("Calibration", ["CCA", "PCR"], "CCA")
+viewof fcView = selectControl("Show", [["probability", "Most likely category and probability"], ["anomaly", "Forecast anomaly (mm)"], ["percent", "Forecast as % of normal"], ["total", "Forecast total"], ["observedCategory", "Observed category"], ["observedAnomaly", "Observed anomaly (mm)"], ["observed", "Observed total"]], "probability")
+mmeForecastMaps(mme, geo, fcModel, fcMethod, fcView)
+```
+:::
+
+### Against what happened
+
+Each lead's target is checked against the observed total. The **hit rate** is the
+share of area where the most likely category was the one observed; the grey
+squares show what always forecasting the most widespread category would have
+scored, a reference chosen with hindsight.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof scoreMethod = selectControl("Calibration", ["CCA", "PCR"], "CCA")
+viewof scoreMetric = selectControl("Score", [["hit", "Hit rate"], ["rpss", "RPSS"], ["rmse", "RMSE"]], "hit")
+mmeScoresByLead(mme, scoreMethod, scoreMetric)
+```
+:::
+
+| Lead | Target | Observed below / near / above (% of area) | MME forecast below / above (% of area) | MME hit rate | Reference hit rate | MME RPSS |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | Jul 2023 | 13 / 51 / 36 | 72 / 19 | 22% | 51% (near) | -0.18 |
+| 2 | Aug 2023 | 27 / 47 / 26 | 68 / 16 | 44% | 47% (near) | 0.07 |
+| 3 | Sep 2023 | 47 / 39 / 14 | 91 / 3 | 48% | 47% (below) | 0.18 |
+| 4 | Oct 2023 | 78 / 19 / 3 | 95 / 3 | 79% | 78% (below) | 0.44 |
+| 5 | Nov 2023 | 61 / 29 / 9 | 91 / 6 | 61% | 61% (below) | 0.26 |
+| 6 | Dec 2023 | 50 / 32 / 18 | 68 / 27 | 55% | 50% (below) | 0.18 |
+
+: The CCA ensemble against each target's observation, area-weighted over 69,640 pixels. RPSS here is against 33/34/33% odds, for one outcome per lead. Sources: [issued-2023-06-forecasts.csv](../data/monthly-mme-2023/issued-2023-06-forecasts.csv), [issued-2023-06-observed.csv](../data/monthly-mme-2023/issued-2023-06-observed.csv).
+
+The ensemble put most of Indonesia in the dry category in every month. For July
+that was wrong: 51% of the area ended near normal and only 13% below, the hit rate
+was 22% against a reference of 51%, and the RPSS was negative (-0.18), worse
+than climatological odds. August was mixed and the ensemble fell 2.5 points short of
+the reference. From September the dry signal was what happened: 47% to 78% of
+the area ended below normal, the hit rate matched or beat the hindsight reference,
+and the RPSS was 0.18 to 0.44, highest for October.
+
+One member shows what averaging guards against. For October, GEOSS2S
+had the highest cross-validated correlation of all (0.52), yet in 2023 its most
+likely category was right over only 11% of the area, while every other member
+scored 74% to 79%. The ensemble, which contains it, scored 79%. One
+outcome per lead describes 2023; it is not a measure of skill.
+
+## The flexible forecast: probability of exceedance
+
+A tercile map answers one question. The **flexible forecast** answers others: the
+probability that the month's total exceeds a chosen amount at each pixel. PyCPT's
+`construct_flex_fcst` builds it from the ensemble's deterministic forecast and its
+prediction error variance, as a Student's t distribution
+([chapter 5](../learn/05-probabilistic-forecasts.ipynb) compares its conventions
+with CPT's native ones).
+
+The default threshold is each pixel's **climatological median**, so the map reads
+as "chance of a wetter than median month" and 50% means no information. Choose
+another percentile to ask about dry or wet extremes. **Click any pixel** to draw
+its curves: the forecast distribution against the climatology, as probability of
+exceedance and as density, with the observed total marked.
+
+::: {.story-interactive}
+```{ojs}
+//| echo: false
+viewof flexLead = selectControl("Lead", leadChoices, "1")
+viewof flexPercentile = selectControl("Threshold", [["10", "10th percentile (very dry)"], ["20", "20th percentile"], ["33", "33rd percentile"], ["50", "Median"], ["67", "67th percentile"], ["80", "80th percentile"], ["90", "90th percentile (very wet)"]], "50")
+mmeFlexible(mme, geo, flexLead, flexPercentile)
+```
+:::
+
+| Lead | Target | Mean chance of exceeding the median | Area with chance above 50% | Area observed above the median |
+| --- | --- | --- | --- | --- |
+| 1 | Jul 2023 | 43% | 25% | 62% |
+| 2 | Aug 2023 | 43% | 23% | 46% |
+| 3 | Sep 2023 | 35% | 8% | 28% |
+| 4 | Oct 2023 | 32% | 4% | 8% |
+| 5 | Nov 2023 | 36% | 9% | 20% |
+| 6 | Dec 2023 | 43% | 30% | 32% |
+
+: The CCA ensemble's flexible forecast, area-weighted. Source: [flexible-forecast.csv](../data/monthly-mme-2023/flexible-forecast.csv).
+
+The table tells the July story again: the forecast gave only 25% of the area a
+better than even chance of a wetter than median month, and 62% of the area ended
+above its median. For October the two numbers are 4% and 8%.
+
+The curves in the browser are computed from four stored fields per lead (forecast
+centre and scale, climatological mean and scale) with the same formula as PyCPT.
+The notebook confirms that those fields reproduce PyCPT's own exceedance
+probabilities exactly (largest difference 0.0 percentage points). The fitted
+climatology is a normal distribution, as in PyCPT's own flexible-forecast figure;
+the green dots are the percentiles of the 29 observed totals, which show where
+that normal curve fits the data and where it does not.
+
+Like the tercile probabilities, these assume the t distribution describes the
+forecast error well. The cross-validated RPSS above is this page's only test of
+that. Where a pixel's forecast curve is as wide as its climatology curve, or wider,
+the forecast is saying little more than climatology there.
+
+## What this case shows, and what it does not
+
+This is one issue date, seven models, one set of fixed settings and one verifying
+year per target. It shows that from a 1 June start a calibrated multi-model
+ensemble has usable skill for the single months July to October, less than for the
+seasons that contain them, and little for November and December. It shows the
+ensemble above CFSv2 alone in four months of six and never the best member, and a
+raw multi-model average that correlates better than the calibrated ensemble in five
+months of six.
+
+It does not show that 1 June is the best start for monthly targets, since no scan
+of start months was made for single months. It does not show how other settings
+behave: the settings (3 EOFs, 2 CCA modes) were those of the seasonal ensemble,
+fixed before any skill was computed and not tuned per model or for monthly targets.
+
+::: {.callout-tip title="Read it with the seasonal ensemble"}
+The [seasonal ensemble](seasonal-mme-2023.qmd) uses the same models, start, training
+years and settings for three-month totals. The
+[single-model monthly page](monthly-leads-2023.qmd), issued 1 November 2023, asks
+the monthly question of CFSv2 alone for December to May. The subseasonal ensembles
+([dekad](dekad-mme-2023.qmd), [weekly](week-mme-2023.qmd), [pentad](pentad-mme-2023.qmd))
+show the same outputs for five subseasonal models.
+:::
+
+## Files
+
+- [Executed notebook](../notebooks/monthly-mme-2023.ipynb): every number and figure on this page
+- [Skill of every member and the ensemble (CSV)](../data/monthly-mme-2023/skill-by-lead.csv) · [Ensemble against its members (CSV)](../data/monthly-mme-2023/mme-against-members.csv) · [EOF and CCA modes (CSV)](../data/monthly-mme-2023/eof-cca-modes.csv) · [Forecasts as issued, scored (CSV)](../data/monthly-mme-2023/issued-2023-06-forecasts.csv) · [Observed targets (CSV)](../data/monthly-mme-2023/issued-2023-06-observed.csv) · [Flexible forecast (CSV)](../data/monthly-mme-2023/flexible-forecast.csv) · [Availability (JSON)](../data/monthly-mme-2023/availability.json) · [Run summary (JSON)](../data/monthly-mme-2023/summary.json)
+- [Ensemble maps at 0.05° (NetCDF)](../data/monthly-mme-2023/monthly-mme-2023-maps.nc): for every lead, the observed total and category, the ensemble's correlation, cross-validated RPSS, forecast total and most likely category (CCA and PCR), and the chance of exceeding the median

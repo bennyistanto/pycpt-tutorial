@@ -11,7 +11,7 @@ format:
 ```{ojs}
 //| echo: false
 //| output: false
-import {selectControl, nationalHeatmap, gainBars, rainfallMaps, errorMaps, provinceView, sensitivity, nationalContext} from "../assets/story/story.js"
+import {selectControl, nationalHeatmap, gainBars, rainfallMaps, errorMaps, forecastMaps, provinceView, sensitivity, nationalContext} from "../assets/story/story.js"
 storyData = FileAttachment("../assets/story/metrics.json").json()
 trainingOptions = [["1991_2020", "1991–2020 (main)"], ["1983_2010", "1983–2010 (sensitivity)"]]
 mapFiles = ({fields: FileAttachment("../assets/story/fields.json").url(),
@@ -21,7 +21,7 @@ mapFiles = ({fields: FileAttachment("../assets/story/fields.json").url(),
 ```
 
 ::: {.eyebrow}
-Seasonal rainfall · Indonesia · 0.25° observation grid
+Seasonal rainfall · Indonesia · native 0.05° grid
 :::
 
 Imagine receiving a rainfall forecast for October to December. A map full of
@@ -49,8 +49,9 @@ tables provide numeric downloads.
 
 ## Four ways to forecast the same rainfall
 
-All four methods are evaluated against the same CHIRPS3 rainfall totals on the
-same 3,240 country-land grid cells. The **raw forecast** is the CFSv2 ensemble
+All four methods are evaluated against the same CHIRPS v3.0 rainfall totals on the
+same 69,640 pixels of its native 0.05° grid: every pixel that touches Indonesia,
+so coastal pixels and small islands are included. The **raw forecast** is the CFSv2 ensemble
 mean, supplied at 1° and interpolated to the observation grid. **Climatology**
 predicts the observed training-period average for each place and season.
 
@@ -66,8 +67,8 @@ three predictand EOFs plus two CCA modes for CCA. These counts were held fixed
 across the experiment; they are not claimed to be optimal for Indonesia.
 
 The forecasts are evaluated over full Indonesia, rather than a selection of
-locations where calibration happened to work. The 0.25° grid describes the
-observation aggregation and forecast output. It does not establish that the
+locations where calibration happened to work. The 0.05° grid is the grid of the
+observations and of the calibrated output. It does not establish that the
 dynamical model predicts rainfall independently at that spatial resolution.
 
 ## A year needs a careful calendar
@@ -180,10 +181,124 @@ observed reference and the calibrated fields. Inspecting these patterns is
 useful, but visual resemblance is not the scoring rule. The reported ranking
 comes from cell-by-cell errors on the shared footprint.
 
+## The forecast a user receives
+
+Scores answer "how good was it". Someone who opens a seasonal forecast asks something
+simpler first: **how much rain, how does that compare with normal, and how likely is a
+dry or a wet season?** CPT gives all three for every fit, and the notebook reads them
+for each of the twelve seasons from the same CCA and PCR calibrations.
+
+- The **normal** is the mean observed total of the 30 training seasons, 1991-2020.
+- The **anomaly** is the forecast minus the normal, in mm; **percent of normal** is
+  their ratio.
+- The **tercile probabilities** are CPT's chances of a total in the driest, middle or
+  wettest third of those 30 seasons. The **most likely category** is the one with the
+  highest chance.
+
+Choose a season and a view. The left map is the forecast, the right map what was
+observed, drawn the same way. Hover a pixel for its normal, its tercile boundaries, both
+forecasts and all three probabilities.
+
+**Click a pixel** to draw its **flexible forecast** under the maps: the whole
+distribution of the forecast against climatology, as a probability of exceedance and as
+a probability density, with the tercile boundaries and the observed total marked. A
+tercile map answers one question; these curves answer any "what is the chance of more
+than X mm here?". They follow PyCPT's `construct_flex_fcst`: the forecast is a Student's
+t distribution centred on the forecast total, with 30 degrees of freedom and a scale of
+√(28/30 × prediction error variance); the climatology is a normal distribution with the
+training mean and √(28/30) × the training standard deviation. The packaging script
+checks these numbers against PyCPT's own function for every season and both methods.
+[Learn chapter 5](../learn/05-probabilistic-forecasts.ipynb) compares these conventions
+with CPT's native tercile probabilities, which differ slightly.
+
+::: {#interactive-forecast-products .story-interactive data-story-panel="forecast-products"}
+
+```{ojs}
+//| echo: false
+viewof productSeason = selectControl("Forecast season", storyData.seasons, "OND")
+viewof productMethod = selectControl("Calibration", [["cca", "CCA"], ["pcr", "PCR"]], "cca")
+viewof productView = selectControl("Show", [["category", "Most likely category and probability"], ["anomaly", "Anomaly (mm)"], ["percent", "Percent of normal"], ["total", "Rainfall total (mm)"]], "category")
+productPlot = {
+  const view = forecastMaps(storyData, mapFiles, productSeason, productMethod, productView);
+  invalidation.then(() => view.dispose());
+  return view;
+}
+```
+
+<p class="story-caption">The forecast issued for each season, beside the outcome. Brown is drier than normal, green wetter, grey near normal.</p>
+<p class="story-downloads"><a href="../assets/seasonal-2023/ond-forecast-products.png">Notebook reference PNG (OND 2023, CCA)</a> · <a href="../notebooks/indonesia-seasons-2023.ipynb#fig-forecast-products">Executed notebook figure</a> · <a href="../assets/seasonal-2023/forecast-products-2023.csv">Twelve-season table (CSV, CCA and PCR)</a></p>
+<noscript><img class="story-fallback" src="../assets/seasonal-2023/ond-forecast-products.png" alt="OND 2023 CCA forecast and observation as percent of normal and as tercile category."></noscript>
+
+:::
+
+| Season | Normal (mm) | CCA forecast (mm, % of normal) | Observed (mm, % of normal) | Forecast area below / near / above (%) | Observed area below / near / above (%) | Most likely category observed |
+| --- | --- | --- | --- | --- | --- | --- |
+| DJF | 832 | 941 (113%) | 900 (108%) | 20 / 2 / 78 | 18 / 37 / 44 | 45% |
+| JFM | 819 | 903 (110%) | 897 (110%) | 15 / 3 / 82 | 12 / 41 / 46 | 43% |
+| FMA | 815 | 852 (104%) | 876 (107%) | 27 / 6 / 67 | 15 / 45 / 41 | 38% |
+| MAM | 800 | 826 (103%) | 842 (105%) | 24 / 13 / 63 | 18 / 46 / 36 | 40% |
+| AMJ | 721 | 729 (101%) | 738 (102%) | 27 / 22 / 51 | 27 / 38 / 35 | 45% |
+| MJJ | 623 | 612 (98%) | 645 (103%) | 41 / 18 / 41 | 19 / 47 / 34 | 34% |
+| JJA | 546 | 417 (76%) | 541 (99%) | 91 / 2 / 7 | 14 / 57 / 29 | 17% |
+| JAS | 511 | 354 (69%) | 482 (94%) | 93 / 2 / 5 | 20 / 60 / 20 | 25% |
+| ASO | 563 | 448 (80%) | 442 (79%) | 86 / 13 / 1 | 60 / 31 / 9 | 60% |
+| SON | 666 | 460 (69%) | 503 (76%) | 100 / 0 / 0 | 70 / 28 / 3 | 70% |
+| OND | 794 | 623 (79%) | 625 (79%) | 96 / 1 / 4 | 75 / 19 / 6 | 76% |
+| NDJ | 840 | 717 (85%) | 790 (94%) | 91 / 1 / 8 | 47 / 32 / 21 | 51% |
+
+: The CCA forecast for each season centred on 2023, calibrated on 1991-2020, as area-weighted means and shares over the 69,640 pixels. Source: [forecast-products-2023.csv](../assets/seasonal-2023/forecast-products-2023.csv), written by the notebook.
+
+::: {.callout-note collapse="true" title="The same table for PCR"}
+| Season | Normal (mm) | PCR forecast (mm, % of normal) | Observed (mm, % of normal) | Forecast area below / near / above (%) | Observed area below / near / above (%) | Most likely category observed |
+| --- | --- | --- | --- | --- | --- | --- |
+| DJF | 832 | 931 (112%) | 900 (108%) | 23 / 1 / 75 | 18 / 37 / 44 | 46% |
+| JFM | 819 | 904 (110%) | 897 (110%) | 16 / 3 / 80 | 12 / 41 / 46 | 41% |
+| FMA | 815 | 836 (103%) | 876 (107%) | 44 / 7 / 49 | 15 / 45 / 41 | 34% |
+| MAM | 800 | 803 (100%) | 842 (105%) | 47 / 10 / 43 | 18 / 46 / 36 | 36% |
+| AMJ | 721 | 731 (101%) | 738 (102%) | 31 / 16 / 53 | 27 / 38 / 35 | 46% |
+| MJJ | 623 | 603 (97%) | 645 (103%) | 48 / 14 / 38 | 19 / 47 / 34 | 35% |
+| JJA | 546 | 420 (77%) | 541 (99%) | 89 / 2 / 9 | 14 / 57 / 29 | 18% |
+| JAS | 511 | 355 (69%) | 482 (94%) | 94 / 2 / 5 | 20 / 60 / 20 | 25% |
+| ASO | 563 | 449 (80%) | 442 (79%) | 88 / 11 / 2 | 60 / 31 / 9 | 60% |
+| SON | 666 | 460 (69%) | 503 (76%) | 99 / 0 / 1 | 70 / 28 / 3 | 71% |
+| OND | 794 | 624 (79%) | 625 (79%) | 95 / 1 / 4 | 75 / 19 / 6 | 76% |
+| NDJ | 840 | 709 (84%) | 790 (94%) | 89 / 1 / 10 | 47 / 32 / 21 | 52% |
+
+: The PCR forecast, same fits and pixels. Across the twelve seasons PCR's area-mean forecast differs from CCA's by at most 3 percentage points of normal, and the share of area called correctly by at most 4 points. Source: the same CSV.
+:::
+
+Read the year from top to bottom:
+
+1. **The forecasts told a clear story: a wet start, a dry second half.** CCA put the
+   area-mean total at 113% of normal for DJF, close to normal from AMJ to MJJ, and at
+   69% to 85% from JJA to NDJ.
+2. **The dry call was right for ASO to OND.** The forecast was 80%, 69% and 79% of
+   normal; 79%, 76% and 79% fell. The most likely category was the observed one over
+   60%, 70% and 76% of the area.
+3. **It came two seasons too early.** For JJA and JAS the forecast was 76% and 69% of
+   normal with more than 90% of the area in the dry category, while 99% and 94% of
+   normal fell and most of the area ended near normal. Only 17% and 25% of the area
+   was called correctly. These are two of the three seasons where climatology had the
+   lower error in the national comparison above.
+4. **The wet start was overstated.** For DJF and JFM about 80% of the area was forecast
+   above normal; 44% and 46% ended there, and 37% and 41% ended near normal.
+
+The last column needs a reference. A forecast that named the same category everywhere
+would score that category's observed share, so compare it with the largest number in
+the observed column: for SON, 70% against 70%; for JJA, 17% against 57%.
+
+::: {.callout-important title="Probabilities shown, not verified"}
+These are CPT's own probabilities for one year. This case does not test whether a 70%
+chance comes true 70% of the time; that needs many forecasts scored against outcomes.
+[Learn chapter 5](../learn/05-probabilistic-forecasts.ipynb) explains how CPT builds the
+probabilities, and the [seven-model case](seasonal-mme-2023.qmd) scores them with
+cross-validation.
+:::
+
 ## National improvement can hide local deterioration
 
-The map explorer below compares local absolute errors with climatology. Green cells
-show where calibration reduced the error; brown cells show where the average
+The map explorer below compares local absolute errors with climatology. Green pixels
+show where calibration reduced the error; brown pixels show where the average
 was closer to the observation. Choose any of the twelve windows or display
 them together; both CCA and PCR remain available.
 
@@ -213,11 +328,10 @@ planting, drought response or rainfall onset.
 
 ## Do the provinces tell the same story?
 
-We now summarize the same cell errors for all 38 supplied provinces, using
-unchanged model forecasts. The analysis assigns original country-native 0.05°
-pixel centres to the unsimplified province polygons and sums their area-weight
-shares within each existing 0.25° cell. It uses no province-specific fitting or
-selection of favourable locations.
+We now summarize the same pixel errors for all 38 supplied provinces, using
+unchanged model forecasts. Each 0.05° pixel belongs to the province that covers
+the largest part of it, read from the unsimplified province polygons. It uses no
+province-specific fitting or selection of favourable locations.
 
 {{< include ../_includes/regional-coverage.qmd >}}
 
@@ -230,14 +344,14 @@ viewof provincePeriod = selectControl("Province training period", trainingOption
 provinceView(storyData, provinceRegion, provincePeriod, false)
 ```
 
-<p class="story-caption">All 38 provinces are included. Choose one province for a four-method seasonal comparison. These are province-weighted views of existing 0.25° cell errors.</p>
+<p class="story-caption">All 38 provinces are included. Choose one province for a four-method seasonal comparison. These are province means of the 0.05° pixel errors.</p>
 <p class="story-downloads"><a href="../assets/seasonal-2023/province-gains-2023.png">Notebook reference PNG (all 38 provinces; 1991–2020)</a> · <a href="../notebooks/indonesia-seasons-2023.ipynb#fig-province-gains">Executed notebook figure</a></p>
-<noscript><img class="story-fallback" src="../assets/seasonal-2023/province-gains-2023.png" alt="All 38 provinces are included. Choose one province for a four-method seasonal comparison. These are province-weighted views of existing 0.25° cell errors."></noscript>
+<noscript><img class="story-fallback" src="../assets/seasonal-2023/province-gains-2023.png" alt="All 38 provinces are included. Choose one province for a four-method seasonal comparison. These are province means of the 0.05° pixel errors."></noscript>
 
 :::
 
 
-Each province gets its own normalized weights, so small and large provinces can
+Each province is scored over its own pixels, so small and large provinces can
 be compared against their own climatology. The colour scale shows relative
 error reduction; the numeric downloads retain RMSE, MAE and bias for both
 training periods, the raw model and matched climatologies.
@@ -262,12 +376,11 @@ The second figure adds the original ending-year 2021–2024 context, including 2
 It is not an independent validation set. A green cell in one year does not
 establish stable provincial forecast skill.
 
-These are **province-weighted views of coarse-cell errors**. A grid cell shared
-by two provinces retains the same forecast and observation error in both, with
-different weight shares. This does not resolve province-only rainfall inside
-the cell. The notebook reports cell support and the largest single-cell weight
-share, which matter especially for small provinces, alongside an assignment
-audit map. See the [regional provenance](../data/regions/provenance.json) and
+These are **province means of pixel errors**. They add no information to the
+forecasts, which come from a 1° model, and neighbouring pixels share weather, so
+a province's pixel count is not a count of independent samples. The notebook
+reports each province's pixel count, which matters especially for small
+provinces, alongside a map of the assignment. See the [regional provenance](../data/regions/provenance.json) and
 [province scores](../assets/seasonal-2023/province-verification-2023.nc), or the
 [four-method OND table](../notebooks/indonesia-seasons-2023.ipynb#tbl-province-ond).
 
@@ -324,6 +437,10 @@ complete collections of seasons centred on calendar years. AMJ climatology
 remains competitive in this broader comparison even though the main 2023
 selection favours calibration there. That difference is a reason to retain the
 broader context rather than treating one year as a forecast-system verdict.
+
+## One model or several?
+
+{{< include ../_includes/seasons-single-vs-mme.qmd >}}
 
 ## What this first study supports
 

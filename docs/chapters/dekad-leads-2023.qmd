@@ -29,10 +29,10 @@ dekads**. Dekads are the unit [BMKG](https://www.bmkg.go.id/iklim/peringatan-din
 uses for its rainfall early warnings. This case takes the **GEFSv12** run started at
 00 UTC on **31 October 2023** and forecasts the three dekads of November: 1-10,
 11-20 and 21-30 November. It is calibrated with CCA and PCR through CPT against the
-CHIRPS v3.0 dekad product at its native 0.05° grid, 61,190 pixels over Indonesia.
+CHIRPS v3.0 dekad product at its native 0.05° grid, 69,638 pixels over Indonesia.
 
-It is the same moment as the [monthly](monthly-leads-2023.qmd) and
-[seasonal](seasonal-leads-2023.qmd) cases, issued the day before them. All numbers
+It is the same moment as the [seasonal](seasonal-leads-2023.qmd) and
+[monthly](monthly-leads-2023.qmd) cases, issued the day before them. All numbers
 come from the [executed notebook](../notebooks/dekad-leads-2023.ipynb).
 
 Hover, tap or use the arrow keys on any map or chart to read values; each view can
@@ -40,16 +40,16 @@ be downloaded as it is set. Maps load when you choose them, one small file per m
 
 ::: {.callout-note title="The short result"}
 - **The forecast of 31 October leaned dry, and November started dry.** The first
-  two dekads brought 60 and 68 mm over Indonesia against normals of 89 and 98 mm.
-  The forecast (CCA) was 67 and 80 mm: drier than normal, not as dry as observed.
-  The third dekad was close to normal (94 mm) and was forecast at 89 mm.
-- For dekads +1 and +2 the most likely category matched the observed one over 64% to
-  65% of the area, the same as always saying "below normal"; for dekad +3 it was 35%
+  two dekads brought 58 and 65 mm over Indonesia against normals of 87 and 95 mm.
+  The forecast (CCA) was 64 and 77 mm: drier than normal, not as dry as observed.
+  The third dekad was close to normal (93 mm) and was forecast at 87 mm.
+- For dekads +1 and +2 the most likely category matched the observed one over 65%
+  of the area, about the same as always saying "below normal"; for dekad +3 it was 34%
   against 38%.
 - **How far to trust each lead**, from all October-December dekads of 2000-2018: the
-  area-mean CCA correlation is 0.35 one dekad ahead, 0.31 two dekads ahead and 0.17
+  area-mean CCA correlation is 0.36 one dekad ahead, 0.31 two dekads ahead and 0.17
   three dekads ahead. The raw GEFSv12 correlation is higher at every lead (0.42,
-  0.32 and 0.20).
+  0.33 and 0.20).
 :::
 
 ## The forecast issued on 31 October 2023
@@ -82,24 +82,33 @@ weekIssueMaps(dekadData, geo, mapIssue, issueMethod, issueView)
 ```
 :::
 
+**Click a pixel** on any of these maps to draw its **flexible forecast** below them: the
+whole distribution of that target's forecast against climatology, as a probability of
+exceedance and as a probability density, with the 2000-2018 mean and the observed total
+marked. The curves follow PyCPT's `construct_flex_fcst`: a Student's t distribution
+centred on the forecast total for the forecast, a normal distribution for the
+climatology, both with the spread shrunk by √((N − 2)/N) for N = 171 training samples.
+The notebook computes them from CPT's prediction error variance and checks the first fit against PyCPT's function. Like the tercile probabilities, the curves are CPT's own for one forecast and are
+not verified here.
+
 | Lead | Target | Forecast (mm) | Observed (mm) | 2000-2018 mean (mm) | Observed below / near / above normal (% of area) | Hit rate (%) | Reference (%) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Dekad +1 | 1-10 Nov | 67.2 | 60.3 | 89.2 | 64.4 / 31.1 / 4.5 | 64.9 | 64.4 |
-| Dekad +2 | 11-20 Nov | 79.5 | 67.9 | 98.3 | 64.4 / 27.6 / 8.0 | 64.1 | 64.4 |
-| Dekad +3 | 21-30 Nov | 89.3 | 94.2 | 98.9 | 36.0 / 38.2 / 25.9 | 34.7 | 38.2 |
+| Dekad +1 | 1-10 Nov | 64.4 | 57.7 | 86.5 | 64.9 / 30.7 / 4.4 | 65.3 | 64.9 |
+| Dekad +2 | 11-20 Nov | 76.5 | 65.3 | 95.5 | 65.3 / 26.7 / 8.0 | 64.8 | 65.3 |
+| Dekad +3 | 21-30 Nov | 87.2 | 92.7 | 96.8 | 35.4 / 37.9 / 26.7 | 34.0 | 37.9 |
 
 : CCA forecast issued 31 October 2023, area-weighted over Indonesia. Source: [issued-2023-10-31.csv](../data/dekad-leads-2023/issued-2023-10-31.csv), which also has PCR.
 
-- **Amounts.** The first two dekads of November were dry, 60 and 68 mm against
-  normals of 89 and 98 mm. The forecast went the same way but stopped short: 67 and
-  80 mm. The third dekad was near normal (94 mm against 99 mm) and was forecast at
-  89 mm.
+- **Amounts.** The first two dekads of November were dry, 58 and 65 mm against
+  normals of 87 and 95 mm. The forecast went the same way but stopped short: 64 and
+  77 mm. The third dekad was near normal (93 mm against 97 mm) and was forecast at
+  87 mm.
 - **Categories.** For dekads +1 and +2 the forecast made below normal the most likely
-  category over 97% to 98% of the area, and below normal was observed over 64% of it.
-  The hit rate (64.9% and 64.1%) equalled the **reference**, always forecasting the
+  category over 98% of the area, and below normal was observed over 65% of it.
+  The hit rate (65.3% and 64.8%) was within half a point of the **reference**, always forecasting the
   category that turned out most common, chosen with hindsight. For dekad +3, a mixed
   dekad, the forecast still favoured below normal over 81% of the area; its hit rate
-  was 34.7% against 38.2%.
+  was 34.0% against 37.9%.
 
 One issue date is one outcome per lead. The next sections show how well each lead
 does on average.
@@ -117,7 +126,7 @@ slightly harder than real use.
 CCA (3 predictor and 3 predictand EOFs, 2 CCA modes) and PCR (3 predictor EOFs) are
 fitted through `cptcore`, the layer PyCPT's `evaluate_models` calls, with
 cross-validation leaving out 17 dekads at a time (the held-out dekad and 8 on each
-side, about a season). At 0.05° one fit took 32 to 38 minutes for CCA and 13 to 14
+side, about a season). At 0.05° one fit took 47 to 48 minutes for CCA and 19 to 20
 minutes for PCR; the six fits ran in parallel. For every fit, CPT's correlation map
 equals the correlation recomputed from its own cross-validated hindcasts to within
 0.000001.
@@ -136,11 +145,11 @@ skillByLead(dekadData, skillMetric)
 
 | Lead | CCA Pearson | PCR Pearson | Raw GEFS Pearson | CCA 2AFC (%) | PCR 2AFC (%) |
 | --- | --- | --- | --- | --- | --- |
-| Dekad +1 | 0.35 | 0.34 | 0.42 | 62.7 | 62.5 |
-| Dekad +2 | 0.31 | 0.31 | 0.32 | 60.8 | 60.9 |
-| Dekad +3 | 0.17 | 0.17 | 0.20 | 57.0 | 56.8 |
+| Dekad +1 | 0.36 | 0.35 | 0.42 | 62.9 | 62.8 |
+| Dekad +2 | 0.31 | 0.31 | 0.33 | 61.0 | 61.1 |
+| Dekad +3 | 0.17 | 0.17 | 0.20 | 57.2 | 57.0 |
 
-: Area-weighted means over 61,190 pixels, 171 dekads of 2000-2018. Source: [skill-by-lead.csv](../data/dekad-leads-2023/skill-by-lead.csv).
+: Area-weighted means over 69,638 pixels, 171 dekads of 2000-2018. Source: [skill-by-lead.csv](../data/dekad-leads-2023/skill-by-lead.csv).
 
 1. **Skill falls with each dekad of lead**, most between dekads +2 and +3: CCA's mean
    correlation drops by 0.04 and then by 0.14.
@@ -172,28 +181,28 @@ Over the nine dekads of each lead, scored over every pixel and dekad
 
 | Lead | Method | Hit rate (%) | Reference (%) | RPSS 2023 | RMSE 2023 (mm) | Mean forecast (mm) | Observed mean (mm) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Dekad +1 | CCA | 52.7 | 53.8 | 0.16 | 37.4 | 82.5 | 71.9 |
-| Dekad +1 | PCR | 52.4 | 53.8 | 0.16 | 37.5 | 82.4 | 71.9 |
-| Dekad +2 | CCA | 45.2 | 53.8 | 0.08 | 40.2 | 85.9 | 71.9 |
-| Dekad +2 | PCR | 45.0 | 53.8 | 0.07 | 40.6 | 85.7 | 71.9 |
-| Dekad +3 | CCA | 50.6 | 53.8 | 0.09 | 39.5 | 84.7 | 71.9 |
-| Dekad +3 | PCR | 49.3 | 53.8 | 0.09 | 39.7 | 84.4 | 71.9 |
+| Dekad +1 | CCA | 53.1 | 53.9 | 0.17 | 37.4 | 80.1 | 69.5 |
+| Dekad +1 | PCR | 52.6 | 53.9 | 0.16 | 37.7 | 80.0 | 69.5 |
+| Dekad +2 | CCA | 45.3 | 53.9 | 0.08 | 40.3 | 83.5 | 69.5 |
+| Dekad +2 | PCR | 45.1 | 53.9 | 0.07 | 40.8 | 83.3 | 69.5 |
+| Dekad +3 | CCA | 50.5 | 53.9 | 0.09 | 39.7 | 82.3 | 69.5 |
+| Dekad +3 | PCR | 49.4 | 53.9 | 0.09 | 39.9 | 82.1 | 69.5 |
 
-: Nine dekads of October-December 2023, area-weighted. Observed: below normal 53.8%, near normal 31.3%, above normal 14.9% of area × dekads. Source: [ond-2023-dekad-forecasts.csv](../data/dekad-leads-2023/ond-2023-dekad-forecasts.csv).
+: Nine dekads of October-December 2023, area-weighted. Observed: below normal 53.9%, near normal 31.3%, above normal 14.8% of area × dekads. Source: [ond-2023-dekad-forecasts.csv](../data/dekad-leads-2023/ond-2023-dekad-forecasts.csv).
 
 - The area-mean total was below the 2000-2018 average in 8 of the 9 dekads; only
   1-10 December was slightly above. The forecasts followed the dry spell but sat
-  between the observations and the average: 82.4 to 85.9 mm per dekad against an
-  observed 71.9 mm.
-- **Hit rate**: always forecasting "below normal" would have scored **53.8%**. No
-  lead did better over the season; one dekad ahead came closest (52.7% for CCA).
+  between the observations and the average: 80.0 to 83.5 mm per dekad against an
+  observed 69.5 mm.
+- **Hit rate**: always forecasting "below normal" would have scored **53.9%**. No
+  lead did better over the season; one dekad ahead came closest (53.1% for CCA).
 - **RPSS 2023**, against climatological odds with the ranked probability score
   ([Epstein 1969](https://doi.org/10.1175/1520-0450(1969)008%3C0985:ASSFPF%3E2.0.CO;2)),
   was positive at every lead. For nine dekads of one season this rewards leaning the
   right way in 2023, not skill in general.
 - **Totals below zero**: where the 2000-2018 mean plus the forecast anomaly fell
-  below zero, the total was set to zero, in 1,686 to 3,196 of the 550,710 CCA
-  pixel-dekads per lead (0.3% to 0.6%).
+  below zero, the total was set to zero, in 3,279 to 5,683 of the 626,742 CCA
+  pixel-dekads per lead (0.5% to 0.9%).
 
 ::: {.story-interactive}
 ```{ojs}
@@ -228,16 +237,21 @@ counted, so the numbers are not a ranking.
 
 | Case | Issued | Leads | CCA correlation, shortest to longest lead | Raw model vs calibrated |
 | --- | --- | --- | --- | --- |
-| [Monthly](monthly-leads-2023.qmd) | 1 Nov 2023 | Dec 2023 to May 2024 | 0.10, then -0.15 to 0.03 | raw higher at all 6 |
-| [Seasonal](seasonal-leads-2023.qmd) | 1 Nov 2023 | DJF 2023-24 to MJJ 2024 | 0.16, then -0.10 to 0.04 | calibrated higher for DJF only |
-| This case | 31 Oct 2023 | dekads +1 to +3 | 0.35 to 0.17 | raw higher at all 3 |
-| [Weekly](week-leads-2023.qmd) | 1 Nov 2023 | weeks 1-4, weeks 3-4 | 0.35 to 0.17 | raw higher for weeks 1-2, level from week 3 |
-| [Pentad](pentad-leads-2023.qmd) | 31 Oct 2023 | pentads +1 to +6 | 0.30 to 0.12 | raw higher for pentads +1 to +3, level from +4 |
+| [Seasonal](seasonal-leads-2023.qmd) | 1 Nov 2023 | DJF 2023-24 to MJJ 2024 | 0.18, then -0.08 to 0.05 | calibrated higher for DJF only |
+| [Monthly](monthly-leads-2023.qmd) | 1 Nov 2023 | Dec 2023 to May 2024 | 0.12, then -0.13 to 0.04 | raw higher at all 6 |
+| This case | 31 Oct 2023 | dekads +1 to +3 | 0.36 to 0.17 | raw higher at all 3 |
+| [Weekly](week-leads-2023.qmd) | 1 Nov 2023 | weeks 1-4, weeks 3-4 | 0.36 to 0.17 | raw higher for weeks 1-2, level from week 3 |
+| [Pentad](pentad-leads-2023.qmd) | 31 Oct 2023 | pentads +1 to +6 | 0.30 to 0.13 | raw higher for pentads +1 to +3, level from +4 |
 
 The monthly and seasonal rows are confounded by the target: each lead there is a
 different month or season. With one target forecast from earlier starts and the same
-settings, November keeps a CCA correlation of 0.01 to 0.24 and October-December 0.33
-to 0.48.
+settings, November keeps a CCA correlation of 0.03 to 0.25 and October-December 0.34 to 0.49.
+
+::: {.callout-tip title="The same forecast from five models"}
+The [dekad multi-model ensemble](dekad-mme-2023.qmd) takes the issue date of
+31 October 2023 and adds four more SubX models to GEFSv12, each calibrated the same
+way and averaged.
+:::
 
 ## What this does and does not show
 

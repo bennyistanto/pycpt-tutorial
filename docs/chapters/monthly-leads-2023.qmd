@@ -30,7 +30,7 @@ against what happened.
 
 The setup is the one used throughout the tutorial: CFSv2 as the predictor, CHIRPS
 v3.0 as the observations, the same CCA and PCR settings and 30 training years
-(1991-2020). The observations keep CHIRPS v3.0's native 0.05° grid: 61,190 pixels
+(1991-2020). The observations keep CHIRPS v3.0's native 0.05° grid: 69,640 pixels
 over Indonesia. Only the **target month** changes from one lead to the next. All
 numbers on this page come from the
 [executed notebook](../notebooks/monthly-leads-2023.ipynb).
@@ -40,15 +40,16 @@ downloaded as it is set. Maps load when you choose them, one small file per map.
 
 ::: {.callout-note title="The short result"}
 - Issued on 1 November, only the **December** forecast has some cross-validated
-  skill, and little: an area-mean CCA correlation of 0.10. For January to May it lies
-  between -0.15 and 0.03, which is no skill.
+  skill, and little: an area-mean CCA correlation of 0.12. For January to May it lies
+  between -0.13 and 0.04, with 2AFC between 46% and 51%: little or no skill that these
+  scores can show.
 - The **raw CFSv2** correlation is higher than the calibrated one at every lead, but
-  it is also small: 0.18 for December, -0.02 to 0.21 afterwards.
+  it is also small: 0.19 for December, -0.03 to 0.20 afterwards.
 - **The target month matters as much as the lead.** One month ahead, November from
-  a 1 October start scores 0.24; December from a 1 November start, 0.10.
+  a 1 October start scores 0.25; December from a 1 November start, 0.12.
 - December 2023 was **dry** and the forecast leaned dry. January to May 2024 were
   mostly **wetter** than normal, while the forecasts kept leaning dry: the hit rate
-  fell to 29% for May against 65% for always forecasting "above normal".
+  fell to 27% for May against 64% for always forecasting "above normal".
 :::
 
 ## One issue date, six target months
@@ -77,8 +78,8 @@ fitted with `evaluate_models`, using **CCA** (3 predictor and 3 predictand EOFs,
 2 CCA modes) and **PCR** (3 predictor EOFs), cross-validation with a window of
 5 years. These settings are the ones used in the
 [Fit & diagnose case](fit-diagnose-2023.qmd), fixed before any skill was computed.
-At 0.05° each fit took 17 to 18 minutes, most of it spent writing and reading CPT's
-files for 61,190 pixels, so the eighteen fits ran side by side, each in its own
+At 0.05° each fit took 21 to 23 minutes, most of it spent writing and reading CPT's
+files for 69,640 pixels, so the eighteen fits ran side by side, each in its own
 process.
 
 ::: {.story-interactive}
@@ -101,7 +102,8 @@ therefore have 28 or 29 days as the calendar requires.
 As a cross-check against a separately stored product, December-February built
 from nine dekads matches the archive's own 3-month total to within 0.0005 mm for
 1990-91 and 2023-24, with the same missing pixels. The predictand is every 0.05°
-pixel whose centre lies inside Indonesia (Natural Earth 1:10m): 61,190 pixels with
+pixel that touches Indonesia's 38-province boundary (the boundary supplied for this tutorial), so
+coastal pixels and small islands are kept: 69,640 pixels with
 data in all 30 training years of every target month.
 
 The CFSv2 requests multiply the model's daily mean by the days in the month:
@@ -128,28 +130,33 @@ skillByLead(leadData, skillMetric)
 
 | Lead | Target | CCA Pearson | PCR Pearson | Raw CFSv2 Pearson | CCA 2AFC (%) | PCR 2AFC (%) |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Dec 2023 | 0.10 | 0.09 | 0.18 | 53.9 | 53.7 |
-| 2 | Jan 2024 | -0.11 | -0.09 | -0.02 | 46.4 | 47.1 |
-| 3 | Feb 2024 | -0.06 | -0.05 | 0.09 | 48.5 | 49.1 |
-| 4 | Mar 2024 | 0.03 | 0.01 | 0.21 | 50.9 | 50.7 |
-| 5 | Apr 2024 | -0.11 | -0.09 | 0.12 | 47.1 | 47.5 |
-| 6 | May 2024 | -0.15 | -0.10 | 0.05 | 45.2 | 46.4 |
+| 1 | Dec 2023 | 0.12 | 0.11 | 0.19 | 54.4 | 54.2 |
+| 2 | Jan 2024 | -0.09 | -0.08 | -0.03 | 47.1 | 47.3 |
+| 3 | Feb 2024 | -0.05 | -0.04 | 0.08 | 49.1 | 49.4 |
+| 4 | Mar 2024 | 0.04 | 0.01 | 0.20 | 51.2 | 50.9 |
+| 5 | Apr 2024 | -0.11 | -0.09 | 0.12 | 47.3 | 47.6 |
+| 6 | May 2024 | -0.13 | -0.09 | 0.05 | 45.6 | 46.7 |
 
-: Area-weighted means over 61,190 pixels, 1991-2020. Source: [skill-by-lead.csv](../data/monthly-2023/skill-by-lead.csv).
+: Area-weighted means over 69,640 pixels, 1991-2020. Source: [skill-by-lead.csv](../data/monthly-2023/skill-by-lead.csv).
 
 1. **December is the only target with calibrated skill**, and it is small: a mean
-   correlation of 0.10 and a 2AFC of 54%.
-2. **For January to May the calibrated forecasts have none.** Their mean
-   correlations are between -0.15 and 0.03 and their 2AFC between 45% and 51%.
-   Values below zero do not mean the forecast is reliably wrong: when there is
-   little real skill, cross-validated correlations of regression forecasts are
-   biased below zero
-   [(Barnston and van den Dool 1993)](https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2).
-3. **The raw model correlates better at every lead**, by 0.08 to 0.24 over CCA.
+   correlation of 0.12 and a 2AFC of 54%.
+2. **For January to May the calibrated forecasts show little or none.** Their mean
+   correlations are between -0.13 and 0.04 and their 2AFC between 46% and 51%,
+   at or below the 50% of a forecast that ranks years at random. Zero is not the
+   no-skill level of a cross-validated correlation, though. A forecast with **no model
+   at all**, the mean of the other years, scores -0.48 to -0.37 for these six
+   months, because leaving a wet year out lowers the mean of the rest
+   [(Barnston and van den Dool 1993)](https://doi.org/10.1175/1520-0442(1993)006%3C0963:ADICVS%3E2.0.CO;2);
+   the notebook's observations give that number
+   ([no-model-baseline.csv](../data/monthly-2023/no-model-baseline.csv)). So values
+   below zero do not mean the forecast is reliably wrong, but they are too small to
+   rank wet and dry years.
+3. **The raw model correlates better at every lead**, by 0.06 to 0.22 over CCA.
    It has nothing fitted, so it pays no cross-validation cost, and calibration
    sees the predictor only through 3 EOF patterns of a large domain
    (85-155°E, 20°S-20°N). Neither explanation was tested here. The raw model's
-   correlation is itself small, at most 0.21.
+   correlation is itself small, at most 0.20.
 
 ## Lead or target month?
 
@@ -168,19 +175,19 @@ sameTargetSkill(leadData)
 
 | Lead | Issued 1 Nov: target | CCA Pearson | Raw CFSv2 | November 2023: start | CCA Pearson | Raw CFSv2 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Dec 2023 | 0.10 | 0.18 | 1 Oct 2023 | 0.24 | 0.36 |
-| 2 | Jan 2024 | -0.11 | -0.02 | 1 Sep 2023 | 0.19 | 0.31 |
-| 3 | Feb 2024 | -0.06 | 0.09 | 1 Aug 2023 | 0.23 | 0.20 |
-| 4 | Mar 2024 | 0.03 | 0.21 | 1 Jul 2023 | 0.04 | 0.22 |
-| 5 | Apr 2024 | -0.11 | 0.12 | 1 Jun 2023 | 0.11 | 0.20 |
-| 6 | May 2024 | -0.15 | 0.05 | 1 May 2023 | 0.01 | 0.23 |
+| 1 | Dec 2023 | 0.12 | 0.19 | 1 Oct 2023 | 0.25 | 0.36 |
+| 2 | Jan 2024 | -0.09 | -0.03 | 1 Sep 2023 | 0.20 | 0.32 |
+| 3 | Feb 2024 | -0.05 | 0.08 | 1 Aug 2023 | 0.24 | 0.21 |
+| 4 | Mar 2024 | 0.04 | 0.20 | 1 Jul 2023 | 0.05 | 0.23 |
+| 5 | Apr 2024 | -0.11 | 0.12 | 1 Jun 2023 | 0.12 | 0.21 |
+| 6 | May 2024 | -0.13 | 0.05 | 1 May 2023 | 0.03 | 0.23 |
 
 : Area-weighted mean correlation, cross-validated for CCA, 1991-2020. Source: [same-target-skill.csv](../data/monthly-2023/same-target-skill.csv).
 
 At every lead, November scores higher than the month the 1 November run is
-forecasting, for CCA and for the raw model alike (for CCA only just at lead 4: 0.04
-against 0.03). One month ahead, the change of target alone cuts the CCA correlation
-from 0.24 to 0.10. Three months ahead, November keeps 0.23 while February has none.
+forecasting, for CCA and for the raw model alike (for CCA only just at lead 4: 0.05
+against 0.04). One month ahead, the change of target alone cuts the CCA correlation
+from 0.25 to 0.12. Three months ahead, November keeps 0.24 while February scores -0.05.
 So the low skill from 1 November is mostly a property of the **target months**,
 December to May, not only of the distance ahead. Why these months are harder is not
 tested here.
@@ -206,21 +213,21 @@ percentiles of that month's 1991-2020 totals at each pixel.
 
 | Lead | Target | Observed mean (mm) | 1991-2020 mean (mm) | Below normal (% of area) | Near normal | Above normal |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Dec 2023 | 270 | 302 | 48.2 | 33.8 | 18.0 |
-| 2 | Jan 2024 | 313 | 283 | 22.7 | 33.3 | 44.0 |
-| 3 | Feb 2024 | 259 | 258 | 31.4 | 35.8 | 32.8 |
-| 4 | Mar 2024 | 299 | 290 | 30.6 | 33.2 | 36.2 |
-| 5 | Apr 2024 | 316 | 283 | 21.3 | 29.1 | 49.6 |
-| 6 | May 2024 | 304 | 243 | 12.2 | 22.6 | 65.2 |
+| 1 | Dec 2023 | 263 | 299 | 49.8 | 32.7 | 17.5 |
+| 2 | Jan 2024 | 312 | 280 | 23.1 | 32.8 | 44.0 |
+| 3 | Feb 2024 | 251 | 254 | 34.0 | 35.2 | 30.8 |
+| 4 | Mar 2024 | 297 | 284 | 28.8 | 33.2 | 38.0 |
+| 5 | Apr 2024 | 315 | 277 | 19.8 | 28.4 | 51.8 |
+| 6 | May 2024 | 300 | 239 | 13.0 | 22.6 | 64.4 |
 
-: Area-weighted over the 61,190 pixels. Source: [issued-2023-11-observed.csv](../data/monthly-2023/issued-2023-11-observed.csv).
+: Area-weighted over the 69,640 pixels. Source: [issued-2023-11-observed.csv](../data/monthly-2023/issued-2023-11-observed.csv).
 
 December 2023 was dry. February was close to normal, with the three categories
 spread evenly. The other months of 2024 were wetter than normal over much of
-Indonesia, most of all April and May, with above normal over 50% and 65% of the
+Indonesia, most of all April and May, with above normal over 52% and 64% of the
 area.
 
-The CCA forecasts favoured below normal at every lead, over 51% to 73% of the
+The CCA forecasts favoured below normal at every lead, over 53% to 73% of the
 area. The map column shows each lead's target: choose the forecast's most likely
 category, the observed category, the totals, or the difference.
 
@@ -233,6 +240,15 @@ weekIssueMaps(leadData, geo, leadData.issue.date, forecastMethod, forecastView)
 ```
 :::
 
+**Click a pixel** on any of these maps to draw its **flexible forecast** below them: the
+whole distribution of that target's forecast against climatology, as a probability of
+exceedance and as a probability density, with the 1991-2020 mean and the observed total
+marked. The curves follow PyCPT's `construct_flex_fcst`: a Student's t distribution
+centred on the forecast total for the forecast, a normal distribution for the
+climatology, both with the spread shrunk by √((N − 2)/N) for N = 30 training samples.
+The notebook takes the numbers from PyCPT's own function. Like the tercile probabilities, the curves are CPT's own for one forecast and are
+not verified here.
+
 ::: {.story-interactive}
 ```{ojs}
 //| echo: false
@@ -243,36 +259,36 @@ scoresByLead(leadData, scoreMetric)
 
 | Lead | Target | Method | Hit rate (%) | Reference hit rate (%) | RPSS | RMSE (mm) | Mean forecast (mm) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Dec 2023 | CCA | 48.5 | 48.2 | 0.14 | 81.1 | 275 |
-| 1 | Dec 2023 | PCR | 49.3 | 48.2 | 0.14 | 80.6 | 270 |
-| 2 | Jan 2024 | CCA | 36.6 | 44.0 | 0.01 | 96.8 | 265 |
-| 2 | Jan 2024 | PCR | 38.0 | 44.0 | -0.00 | 99.7 | 260 |
-| 3 | Feb 2024 | CCA | 47.0 | 35.8 | 0.11 | 71.8 | 240 |
-| 3 | Feb 2024 | PCR | 45.5 | 35.8 | 0.08 | 74.3 | 240 |
-| 4 | Mar 2024 | CCA | 39.9 | 36.2 | 0.05 | 86.5 | 269 |
-| 4 | Mar 2024 | PCR | 38.1 | 36.2 | 0.04 | 86.6 | 269 |
-| 5 | Apr 2024 | CCA | 40.3 | 49.6 | 0.03 | 97.8 | 273 |
-| 5 | Apr 2024 | PCR | 38.2 | 49.6 | 0.01 | 99.3 | 274 |
-| 6 | May 2024 | CCA | 28.8 | 65.2 | -0.10 | 122.8 | 231 |
-| 6 | May 2024 | PCR | 33.6 | 65.2 | -0.15 | 132.8 | 225 |
+| 1 | Dec 2023 | CCA | 50.7 | 49.8 | 0.17 | 80.6 | 269 |
+| 1 | Dec 2023 | PCR | 51.5 | 49.8 | 0.17 | 80.9 | 266 |
+| 2 | Jan 2024 | CCA | 37.4 | 44.0 | 0.02 | 103.6 | 260 |
+| 2 | Jan 2024 | PCR | 38.2 | 44.0 | -0.00 | 107.0 | 255 |
+| 3 | Feb 2024 | CCA | 49.2 | 35.2 | 0.13 | 70.4 | 235 |
+| 3 | Feb 2024 | PCR | 47.1 | 35.2 | 0.10 | 73.3 | 236 |
+| 4 | Mar 2024 | CCA | 38.9 | 38.0 | 0.04 | 89.7 | 262 |
+| 4 | Mar 2024 | PCR | 37.2 | 38.0 | 0.03 | 89.6 | 262 |
+| 5 | Apr 2024 | CCA | 38.6 | 51.8 | 0.01 | 101.6 | 266 |
+| 5 | Apr 2024 | PCR | 37.1 | 51.8 | -0.00 | 102.7 | 267 |
+| 6 | May 2024 | CCA | 27.1 | 64.4 | -0.13 | 127.7 | 225 |
+| 6 | May 2024 | PCR | 32.6 | 64.4 | -0.17 | 136.9 | 219 |
 
 : Each target scored against its own observation. Sources: [issued-2023-11-forecasts.csv](../data/monthly-2023/issued-2023-11-forecasts.csv), [issued-2023-11-observed.csv](../data/monthly-2023/issued-2023-11-observed.csv).
 
 - **Hit rate** is the share of area where the most likely category was the one
   observed. The **reference** is always forecasting the category that covered the
   most area that month, picked with hindsight, so it is a demanding comparison.
-  December's forecasts matched it; February's and March's beat it (47% against 36%,
-  and 40% against 36% for CCA); January, April and May fell short, by most in May
-  (29% against 65%).
+  December's forecasts matched it (51-51% against 50%); CCA beat it for February (49% against 35%)
+  and only just for March (39% against 38%); January, April and May fell short, by most
+  in May (27% against 64% for CCA).
 - **RPSS** compares the forecast probabilities with climatological odds
   (33/34/33%) using the ranked probability score
   [(Epstein 1969)](https://doi.org/10.1175/1520-0450(1969)008%3C0985:ASSFPF%3E2.0.CO;2).
-  It was positive for December (0.14) and February (0.11 for CCA), close to zero
+  It was positive for December (0.17) and February (0.13 for CCA), close to zero
   for January, March and April, and negative for May: leaning dry was costly in
   the wettest month. One outcome per lead rewards being right about 2023, not
   skill in general.
-- **The deterministic totals** were close in December (275 mm against 270 mm for
-  CCA) and too low in every later month: by 19 mm in February and by 30 to 73 mm in
+- **The deterministic totals** were close in December (269 mm against 263 mm for
+  CCA) and too low in every later month: by 16 mm in February and by 35 to 75 mm in
   the others.
 
 ## What this does and does not show
@@ -280,14 +296,14 @@ scoresByLead(leadData, scoreMetric)
 This is one issue date, one model, one set of fixed settings and one verifying
 year per target. It shows that from a 1 November CFSv2 start, with these
 settings, calibrated monthly forecasts for Indonesia carry a little skill for
-December and none for January to May, and that the same lead gives clearly more
+December and little or none that these scores can show for January to May, and that the same lead gives clearly more
 skill for November. It does not show how other start months, models or settings
 behave, and the 2023-24 scores describe single outcomes.
 
-The [seasonal case](seasonal-leads-2023.qmd) issues on the same date for the next
-six overlapping three-month seasons and compares each with its first month. The
-[subseasonal cases](dekad-leads-2023.qmd) look at the weeks before that with
-GEFSv12.
+The [seasonal case](seasonal-leads-2023.qmd) before this one calibrates the same run
+for the next six overlapping three-month seasons and compares each with its first
+month. The [subseasonal cases](dekad-leads-2023.qmd) come next: dekads, weeks and
+pentads with GEFSv12.
 
 ## Files
 
