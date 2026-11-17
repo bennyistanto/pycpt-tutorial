@@ -4,7 +4,7 @@
   "method": "pcr",
   "training_samples": 30,
   "forecast_samples": 1,
-  "native_directory": "<repo>/temp/fitting-2023-jfvpzqwj/JJA-pcr",
+  "native_directory": "<repo>/temp/fitting-2023-z4egrd5q/JJA-pcr",
   "configuration": {
     "x_eof_modes": [
       3,
@@ -20,98 +20,98 @@
   },
   "comparison": {
     "forecast_deterministic": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 0.00011507812496347469,
       "absolute_tolerance": 0.01,
       "relative_tolerance": 0
     },
     "forecast_probabilistic": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 3.814453123140993e-06,
       "absolute_tolerance": 0.001,
       "relative_tolerance": 0
     },
     "forecast_prediction_error_variance": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 0.2344779996201396,
       "absolute_tolerance": 0.1,
       "relative_tolerance": 2e-06
     },
     "cv_hindcasts": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 0.00024318750001839362,
       "absolute_tolerance": 0.01,
       "relative_tolerance": 0
     },
     "native_skill_pearson": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 2.9800415024539006e-08,
       "absolute_tolerance": 0.001,
       "relative_tolerance": 0
     },
     "native_skill_spearman": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 2.9747009300251648e-08,
       "absolute_tolerance": 0.001,
       "relative_tolerance": 0
     },
     "native_skill_two_alternative_forced_choice": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 3.7001953074877747e-06,
       "absolute_tolerance": 0.001,
       "relative_tolerance": 0
     },
     "native_skill_roc_area_below_normal": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 2.9682159397026453e-08,
       "absolute_tolerance": 0.001,
       "relative_tolerance": 0
     },
     "native_skill_roc_area_above_normal": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 2.9716491711795356e-08,
       "absolute_tolerance": 0.001,
       "relative_tolerance": 0
     },
     "native_skill_root_mean_squared_error": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 0.00011139062507936615,
       "absolute_tolerance": 0.01,
       "relative_tolerance": 0
     },
     "predictor_eof_native_weight": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 1.860141755904987e-09,
       "absolute_tolerance": 2e-05,
-      "relative_tolerance": 0
+      "relative_tolerance": 1e-06
     },
     "predictor_eof_score": {
-      "maximum_absolute_difference": 0.0,
+      "maximum_absolute_difference": 2.5209960909933216e-06,
       "absolute_tolerance": 2e-05,
-      "relative_tolerance": 0
+      "relative_tolerance": 1e-06
     },
     "predictor_eof_correlation": {
-      "maximum_absolute_difference": 4.440892098500626e-16,
+      "maximum_absolute_difference": 2.8814804986510012e-08,
       "absolute_tolerance": 2e-05,
-      "relative_tolerance": 0
+      "relative_tolerance": 1e-06
     },
     "predictor_eigenvalue": {
       "maximum_absolute_difference": 0.0,
       "absolute_tolerance": 2e-05,
-      "relative_tolerance": 0
+      "relative_tolerance": 1e-06
     },
     "predictor_explained_variance_percent": {
       "maximum_absolute_difference": 0.0,
       "absolute_tolerance": 2e-05,
-      "relative_tolerance": 0
+      "relative_tolerance": 1e-06
     },
     "predictor_cumulative_variance_percent": {
       "maximum_absolute_difference": 0.0,
       "absolute_tolerance": 2e-05,
-      "relative_tolerance": 0
+      "relative_tolerance": 1e-06
     }
   },
   "outputs": {
     "JJA-pcr-hindcasts.nc": {
-      "sha256": "8e37b1fd188b1b9ce4e1fe27fc7da1eb627d76ea6455ad00c8674f41dab7f2d4",
-      "bytes": 914824
+      "sha256": "511614a5193142e506ed9b832387e18f6a7c05fc0bf58897790d23cb9dbcc96c",
+      "bytes": 15988749
     },
     "JJA-pcr-forecasts.nc": {
-      "sha256": "375dd3e6cae19a290f375c8e6228fb04dc04fac9d0624ae1d72513f7f14ed376",
-      "bytes": 187056
+      "sha256": "30321b2967fdd4a24d0d06e5b2e853fcd68bd8f8df7a90740e55885d55d2cf08",
+      "bytes": 2730326
     },
     "JJA-pcr-native-skill.nc": {
-      "sha256": "54a23bee3c4c98fc35a15bf5431d3aec72121eadc89cc1e995287eeff18de19f",
-      "bytes": 206736
+      "sha256": "23da0a48e91e9ad46d825a2f4a4dca1d7f3bd75fa2cbb3fd113029af11050761",
+      "bytes": 3012957
     },
     "JJA-pcr-x-patterns.nc": {
       "sha256": "bfae07f723fa56f53b4f911589d3435cf440b7314ae5918956e39dab37a2056e",
@@ -122,102 +122,32 @@
       "bytes": 159668
     },
     "sessions/JJA-pcr.log": {
-      "sha256": "cb6b83a3c68e351b7d41e44d7b9f449a93436f1114926d369d13f0f66e02b1d7",
-      "bytes": 451226
+      "sha256": "b14c8d961de4848b9a4da1c00418aed47d8c10d656cdb873d6a3884d61794b15",
+      "bytes": 7157658
     },
     "sessions/JJA-pcr-commands.txt": {
-      "sha256": "6c62715e82074a9614c6f4b4792c8d1b4f6657454c1e313f9c5fab7cf86578fc",
+      "sha256": "cde14ac0e766106191cf13a5580af70862a0aad3fdb1a137d9ab12fe7ca46cf0",
       "bytes": 1380
     }
   },
-  "date_parsing": [
-    {
-      "source": "<repo>/temp/fitting-2023-jfvpzqwj/JJA-pcr/forecast_probabilities.txt",
-      "parsing_copy": "<repo>/temp/fitting-2023-jfvpzqwj/JJA-pcr/forecast_probabilities.midnight-normalized.txt",
-      "dates": [
-        "2023-05-01"
-      ],
-      "source_sha256": "5b337330eedd7afcf4035086ead377dd2f3a21d0443a1ddbe80ab1bbd6425734",
-      "parsing_sha256": "784e4c0847e89c40ef3ffddeda183edbf2c929a3d1a93ecc4387e03199f015df"
-    },
-    {
-      "source": "<repo>/temp/fitting-2023-jfvpzqwj/JJA-pcr/forecast_values.txt",
-      "parsing_copy": "<repo>/temp/fitting-2023-jfvpzqwj/JJA-pcr/forecast_values.midnight-normalized.txt",
-      "dates": [
-        "2023-05-01"
-      ],
-      "source_sha256": "3ece2daca54c6947a8c86aaa905b22399c134c613397b2473debcda49b5c031f",
-      "parsing_sha256": "5fe9fc64201973f29c1e59605236a51fa6f29069f7bcce8cd23687f944b2b670"
-    },
-    {
-      "source": "<repo>/temp/fitting-2023-jfvpzqwj/JJA-pcr/forecast_prediction_error_variance.txt",
-      "parsing_copy": "<repo>/temp/fitting-2023-jfvpzqwj/JJA-pcr/forecast_prediction_error_variance.midnight-normalized.txt",
-      "dates": [
-        "2023-05-01"
-      ],
-      "source_sha256": "071e8872ef2d79ffc9a74e93c75e3ac7275d030824f713bf203b93ba0363e27a",
-      "parsing_sha256": "ae3b25f37d58722b4e4a46e441a88ace27bf3ba053fd3b326fbdacea2fdd1739"
-    },
-    {
-      "source": "<repo>/temp/fitting-2023-jfvpzqwj/JJA-pcr/hindcast_values.txt",
-      "parsing_copy": "<repo>/temp/fitting-2023-jfvpzqwj/JJA-pcr/hindcast_values.midnight-normalized.txt",
-      "dates": [
-        "1991-05-01",
-        "1992-05-01",
-        "1993-05-01",
-        "1994-05-01",
-        "1995-05-01",
-        "1996-05-01",
-        "1997-05-01",
-        "1998-05-01",
-        "1999-05-01",
-        "2000-05-01",
-        "2001-05-01",
-        "2002-05-01",
-        "2003-05-01",
-        "2004-05-01",
-        "2005-05-01",
-        "2006-05-01",
-        "2007-05-01",
-        "2008-05-01",
-        "2009-05-01",
-        "2010-05-01",
-        "2011-05-01",
-        "2012-05-01",
-        "2013-05-01",
-        "2014-05-01",
-        "2015-05-01",
-        "2016-05-01",
-        "2017-05-01",
-        "2018-05-01",
-        "2019-05-01",
-        "2020-05-01"
-      ],
-      "source_sha256": "fa5bfc974c221bb273efff4069c3be84d6b3dbf146d9f81f4534447c667acb9b",
-      "parsing_sha256": "1599f6db28b35c64b088be643a20baccc0a542ab0039f78ebe5f68860531889f"
-    }
-  ],
+  "date_parsing": [],
   "native_file_hashes": {
-    "forecast_prediction_error_variance.midnight-normalized.txt": "ae3b25f37d58722b4e4a46e441a88ace27bf3ba053fd3b326fbdacea2fdd1739",
-    "forecast_prediction_error_variance.txt": "071e8872ef2d79ffc9a74e93c75e3ac7275d030824f713bf203b93ba0363e27a",
-    "forecast_probabilities.midnight-normalized.txt": "784e4c0847e89c40ef3ffddeda183edbf2c929a3d1a93ecc4387e03199f015df",
-    "forecast_probabilities.txt": "5b337330eedd7afcf4035086ead377dd2f3a21d0443a1ddbe80ab1bbd6425734",
-    "forecast_values.midnight-normalized.txt": "5fe9fc64201973f29c1e59605236a51fa6f29069f7bcce8cd23687f944b2b670",
-    "forecast_values.txt": "3ece2daca54c6947a8c86aaa905b22399c134c613397b2473debcda49b5c031f",
-    "goodness_index.txt": "d25ed05851a1ab77a52c9cb06924b24466df96508accb0752d7a60d8f8bbd482",
-    "hindcast_values.midnight-normalized.txt": "1599f6db28b35c64b088be643a20baccc0a542ab0039f78ebe5f68860531889f",
-    "hindcast_values.txt": "fa5bfc974c221bb273efff4069c3be84d6b3dbf146d9f81f4534447c667acb9b",
+    "forecast_prediction_error_variance.txt": "5ccd2c692aa5bfa94aad220bc186f2bc87110ba22e67341f59d30f1bc860cdb5",
+    "forecast_probabilities.txt": "c662bf55a485cab84c63c992a09a03e56763ddd41c18ebe1b40d90a6aca49409",
+    "forecast_values.txt": "e2ed5e9743c9596bd9963671f96c7d3496b098145c4f12751bee78081da0c29b",
+    "goodness_index.txt": "6b9d0b1fd744951c851d6de753adb2f02f6db06a14042fe0679eb0643cb3fd6c",
+    "hindcast_values.txt": "88313d9569f0f9b1854a67eb25af758d13be4fcbefff5a5e349eaf31fd8c7f32",
     "original_forecast_predictor": "892da09055501e38e9c06410b086e86f1dd97d40764dd1a5e2d23b311d2224b5",
-    "original_predictand": "be96a3eaca5f9590e1c48211e6e70df8991f202dd971589d00c2428256eb3411",
+    "original_predictand": "6bd50ca8bf53da540c5a1bd7d1da3430c2311e4d72e020d68369b8f9d580402b",
     "original_predictor": "05e5363d87365288401bf509d3c6948242503986c3c9115f408aabae84a38ca4",
-    "pearson.txt": "9d996447433145a1af106ae64c15f0cfa33421124c27415affd206f34bdb9791",
+    "pearson.txt": "c76d1a962c57ef0e41fcaf8c4b53be9a4f37062beea90c4d7e50f24f18b098ea",
     "predictor_eof_spatial_loadings.txt": "39cfdfb6231b43cb5177b5d3675f660cdb0bcccfe0f135483fc24f3398b310af",
     "predictor_eof_timeseries.txt": "129ac4895ed6d784ff530e92e2fdcd44074076370acf72e665e39d36e89f2623",
     "predictor_explained_variance.txt": "259ad13051a490d71d7018985606d3817bab92477b697fda02769d423aaf2512",
-    "roc_area_above_normal.txt": "6403d214f8f9eca6da8af133c11006daf7e3f723aca164e23b8a32e5784090e0",
-    "roc_area_below_normal.txt": "502d63e1f73fe3b51068d518c1c2fb2377e16e83ea98129a883a5fa564456d91",
-    "root_mean_squared_error.txt": "970772fb65df1bfed76f46dfef42babe55a5e4502468da19908270a696b05807",
-    "spearman.txt": "f67d614c66c28e75e4b82f1abc08cf3140454131ef620dc2ffd5471480a703a2",
-    "two_alternative_forced_choice.txt": "c1f2d664a5f56b3886d7a3eb18f561431db4d91fb8dc52e00e2be27e625ed271"
+    "roc_area_above_normal.txt": "cb0c0ec97b0478062e121d74fac91e0a5d48684e5e8a4798c6ac4ef5b11f0c68",
+    "roc_area_below_normal.txt": "43bbad2baa2ebdd6e0371f5076ee83bf81267fa6aebd02bcb2ef8a1be5660f2d",
+    "root_mean_squared_error.txt": "621b631ca90b1e8775798fe0cc997beb8dfc70b56db7f80622ec4465be4c0bd3",
+    "spearman.txt": "c41a7c9f84f164fe1e49c333a6c78f341e3cc20ae8723d51141e81dd5599493c",
+    "two_alternative_forced_choice.txt": "534cb27bad319a5557e7b305942f86d0392e637cbe0b1c0a0b632ad9011450a9"
   }
 }

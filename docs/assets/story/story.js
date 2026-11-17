@@ -1,3 +1,4 @@
+import {exceedanceCurves, tSf, normSf} from "../leads/leads.js";
 // Presentation only. Every aggregate score comes from the verified Python outputs.
 const NS = "http://www.w3.org/2000/svg";
 const INK = "#182e39", MUTED = "#566974";
@@ -343,10 +344,10 @@ export function provinceView(data,region="all",period="1991_2020",context=false)
     const support=data.support.find(s=>s.name===region);
     root.dataset.exportKey=`${region.toLowerCase().replaceAll(/[^a-z0-9]+/g,"-")}-${period.replaceAll("_","-")}-${context?"2021-2024":"2023"}`;
     root.dataset.exportNote=`RMSE (mm) · ${periodLabel(period)} training`;
-    root.insertBefore(el("p","story-support-note",`${periodLabel(period)} training · ${support.cells} contributing coarse cells · largest cell ${num(support.largestCellPercent)}% of province weight. Shared coarse-cell errors; these are not independent samples.`),root.children[2]);return root;
+    root.insertBefore(el("p","story-support-note",`${periodLabel(period)} training · ${support.cells.toLocaleString('en')} pixels at 0.05° · ${num(support.weightPercent)}% of the scored area. Neighbouring pixels share weather; these are not independent samples.`),root.children[2]);return root;
   }
   const root=panel(context?"province-context":"province",`All 38 provinces · ${time}`,`${periodLabel(period)} training. Hover or tap a tile; use arrow keys when focused. Choose one province above for all four methods.`);
-  root.dataset.exportKey=`all-provinces-${period.replaceAll("_","-")}-${context?"2021-2024":"2023"}`;root.dataset.exportNote=`${periodLabel(period)} training · shared coarse-cell errors partitioned by native province weights`;
+  root.dataset.exportKey=`all-provinces-${period.replaceAll("_","-")}-${context?"2021-2024":"2023"}`;root.dataset.exportNote=`${periodLabel(period)} training · province means of the 0.05° pixel errors`;
   const svg=chartBox(root,1140,1080,"CCA and PCR reductions across 38 provinces and twelve seasons"),tip=tooltip(root),marks=[];
   for(const [j,m]of ["cca","pcr"].entries()){
     const left=267+j*435;svg.append(sv("text",{x:left,y:25,class:"story-axis", "font-weight":"bold"},m.toUpperCase()));
@@ -357,7 +358,7 @@ export function provinceView(data,region="all",period="1991_2020",context=false)
         const r=all.find(r=>r.region===name&&r.season===s&&r.variant===`${m}_${period}`),value=r.gainClimatology;
         const tile=sv("rect",{x:left+i*35.5,y:yy,width:34.5,height:24,fill:palette(data.palettes.BrBG,(value+100)/200),"data-province":name,"data-season":s,"data-method":m.toUpperCase()});
         const support=data.support.find(a=>a.name===name);
-        bindMark(tile,tip,`${name} · ${s} · ${m.toUpperCase()}`,[...rowEntries(r),["Coarse cells",support.cells],["Largest cell share",`${num(support.largestCellPercent)}%`]],value);marks.push(tile);svg.append(tile);
+        bindMark(tile,tip,`${name} · ${s} · ${m.toUpperCase()}`,[...rowEntries(r),["Pixels",support.cells.toLocaleString("en")]],value);marks.push(tile);svg.append(tile);
       });
     });
     data.seasons.forEach((s,i)=>svg.append(sv("text",{x:left+i*35.5+16,y:1008,"text-anchor":"middle",class:"story-axis",transform:`rotate(-40 ${left+i*35.5+16} 1008)`},s)));
@@ -367,13 +368,41 @@ export function provinceView(data,region="all",period="1991_2020",context=false)
 }
 
 const mapCache=new WeakMap();
+// The map manifest (grid, field order, province names), the pixel list, each pixel's province and the boundaries
 async function mapAssets(files) {
   if(!mapCache.has(files))mapCache.set(files,(async()=>{
-    const entries=await Promise.all(Object.entries(files).map(async([key,url])=>{
-      const response=await fetch(await url);if(!response.ok)throw new Error(`Cannot load local ${key} (${response.status})`);
+    const urls={};for(const [key,url] of Object.entries(files))urls[key]=await url;
+    const entries=await Promise.all(Object.entries(urls).map(async([key,url])=>{
+      const response=await fetch(url);if(!response.ok)throw new Error(`Cannot load local ${key} (${response.status})`);
       return [key,await response.json()];
     }));
-    const loaded=Object.fromEntries(entries),paths={};
+    const loaded=Object.fromEntries(entries),paths={},base=new URL(".",new URL(urls.fields,location.href));
+    const binary=async name=>{const r=await fetch(new URL(name,base));if(!r.ok)throw new Error(`Cannot load local ${name} (${r.status})`);return r.arrayBuffer();};
+    const f=loaded.fields;
+    f.pixels=new Int32Array(await binary("pixels.bin"));f.province=new Uint8Array(await binary("provinces.bin"));
+    f.lookup=new Int32Array(f.grid.nx*f.grid.ny).fill(-1);f.pixels.forEach((p,i)=>{f.lookup[p]=i;});
+    const seasons=new Map();
+    // One season's maps: unsigned 16-bit whole millimetres, observed first, then the forecasts in f.order
+    f.season=name=>{
+      if(!seasons.has(name))seasons.set(name,(async()=>{
+        const response=await fetch(new URL(`fields/${name}.bin.gz`,base));if(!response.ok)throw new Error(`Cannot load local ${name} maps (${response.status})`);
+        let buffer=await response.arrayBuffer();const head=new Uint8Array(buffer,0,2);
+        if(head[0]===0x1f&&head[1]===0x8b)buffer=await new Response(new Blob([buffer]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+        const n=f.grid.pixels,out={};f.order.forEach((key,k)=>{out[key]=new Uint16Array(buffer,k*n*2,n);});return out;
+      })());
+      return seasons.get(name);
+    };
+    // One season's forecast products: unsigned 16-bit values in f.productOrder (mm, tenths of a percent, category)
+    const productSets=new Map();
+    f.products=name=>{
+      if(!productSets.has(name))productSets.set(name,(async()=>{
+        const response=await fetch(new URL(`fields/${name}-products.bin.gz`,base));if(!response.ok)throw new Error(`Cannot load local ${name} forecast products (${response.status})`);
+        let buffer=await response.arrayBuffer();const head=new Uint8Array(buffer,0,2);
+        if(head[0]===0x1f&&head[1]===0x8b)buffer=await new Response(new Blob([buffer]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+        const n=f.grid.pixels,out={};f.productOrder.forEach((key,k)=>{out[key]=new Uint16Array(buffer,k*n*2,n);});return out;
+      })());
+      return productSets.get(name);
+    };
     function appendGeometry(path,g){
       if(g.type==="GeometryCollection"){g.geometries.forEach(v=>appendGeometry(path,v));return;}
       const polygons=g.type==="Polygon"?[g.coordinates]:g.type==="MultiPolygon"?g.coordinates:[];
@@ -384,13 +413,80 @@ async function mapAssets(files) {
   })());return mapCache.get(files);
 }
 
-function mapPanel(data,files,season,period,errorMode=false) {
+// Linked zoom for the maps of one view: every map shares a zoom factor and a centre in longitude/latitude
+function mapGroup() {
+  const state = {k: 1, cx: null, cy: null}, maps = [], bar = el("div", "story-map-tools");
+  const button = (label, title, run) => {const b = el("button", null, label); b.type = "button"; b.title = title; b.setAttribute("aria-label", title); b.onclick = run; bar.append(b); return b;};
+  const zoomIn = button("+", "Zoom in", () => zoom(1.6)), zoomOut = button("−", "Zoom out", () => zoom(1 / 1.6));
+  const resetView = () => {state.k = 1; state.cx = state.cy = null; apply();};
+  const reset = button("Reset view", "Back to the full map", resetView);
+  bar.append(el("span", "story-map-tools-note", "Zoom applies to every map in this view. Drag to move when zoomed · double-click or Ctrl + scroll to zoom."));
+  let queued = false;
+  // Buttons, keys and double-clicks redraw at once; a drag sends many moves, so those wait for the next frame
+  function apply(later = false) {
+    state.k = Math.max(1, Math.min(32, state.k)); if (state.k < 1.001) {state.k = 1; state.cx = state.cy = null;}   // 1.6 * 1.6 / 1.6 / 1.6 is not exactly 1
+    zoomOut.disabled = reset.disabled = state.k === 1; zoomIn.disabled = state.k === 32;
+    if (!later) {for (const m of maps) m.redraw(); return;}
+    if (queued) return; queued = true;
+    (document.hidden ? setTimeout : requestAnimationFrame)(() => {queued = false; for (const m of maps) m.redraw();});
+  }
+  function zoom(f, lon, lat, from) {
+    const k = Math.max(1, Math.min(32, state.k * f)), ratio = k / state.k; if (ratio === 1) return;
+    const [x0, x1, y0, y1] = (from || maps[0]).window(), cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    state.cx = lon === undefined ? cx : lon + (cx - lon) / ratio; state.cy = lat === undefined ? cy : lat + (cy - lat) / ratio;
+    state.k = k; apply();
+  }
+  function pan(dLon, dLat, from) {
+    const [x0, x1, y0, y1] = from.window(); state.cx = (x0 + x1) / 2 + dLon; state.cy = (y0 + y1) / 2 + dLat;
+    const [a0, a1, b0, b1] = from.window(); state.cx = (a0 + a1) / 2; state.cy = (b0 + b1) / 2; apply(true);
+  }
+  zoomOut.disabled = reset.disabled = true;
+  return {state, maps, bar, zoom, pan, reset: resetView};
+}
+// The part of a full extent [west, east, south, north] a map shows for the group's zoom and centre
+function groupWindow(group, full) {
+  const k = group.state.k, w = (full[1] - full[0]) / k, h = (full[3] - full[2]) / k;
+  const cx = Math.max(full[0] + w / 2, Math.min(full[1] - w / 2, group.state.cx ?? (full[0] + full[1]) / 2));
+  const cy = Math.max(full[2] + h / 2, Math.min(full[3] - h / 2, group.state.cy ?? (full[2] + full[3]) / 2));
+  return [cx - w / 2, cx + w / 2, cy - h / 2, cy + h / 2];
+}
+const tickStep = span => [20, 10, 5, 2, 1, .5, .2, .1].find(s => span / s >= 3) || .1;
+// Drag, double-click, Ctrl + scroll and + / - / 0 on one map; `at(event)` gives [longitude, latitude, inside the map]
+function zoomGestures(canvas, group, self, at) {
+  let last = null;
+  canvas.addEventListener("pointerdown", e => {delete canvas.dataset.dragged; if (group.state.k > 1 && e.button === 0) {last = {clientX: e.clientX, clientY: e.clientY}; try {canvas.setPointerCapture(e.pointerId);} catch {}}});
+  canvas.addEventListener("pointermove", e => {
+    if (!last) return;
+    if (Math.abs(e.clientX - last.clientX) + Math.abs(e.clientY - last.clientY) < 4 && !canvas.dataset.dragged) return;
+    const a = at(last), b = at(e); canvas.dataset.dragged = "1"; last = {clientX: e.clientX, clientY: e.clientY};
+    group.pan(a[0] - b[0], a[1] - b[1], self);
+  });
+  const release = e => {if (last) {last = null; try {canvas.releasePointerCapture(e.pointerId);} catch {}}};
+  canvas.addEventListener("pointerup", release); canvas.addEventListener("pointercancel", release);
+  canvas.addEventListener("dblclick", e => {const [lon, lat, inside] = at(e); if (inside) {e.preventDefault(); group.zoom(2, lon, lat, self);}});
+  canvas.addEventListener("wheel", e => {if (!e.ctrlKey && !e.metaKey) return; e.preventDefault(); const [lon, lat, inside] = at(e); if (inside) group.zoom(e.deltaY < 0 ? 1.25 : .8, lon, lat, self);}, {passive: false});
+  canvas.addEventListener("keydown", e => {
+    if (e.key === "+" || e.key === "=") {e.preventDefault(); group.zoom(1.6, undefined, undefined, self);}
+    else if (e.key === "-" || e.key === "_") {e.preventDefault(); group.zoom(1 / 1.6, undefined, undefined, self);}
+    else if (e.key === "0") {e.preventDefault(); group.reset();}
+  });
+}
+
+const CATEGORY_NAMES=["Below normal","Near normal","Above normal"];
+const PRODUCT_TITLES={category:"Most likely category and its probability",anomaly:"Anomaly: difference from normal (mm)",percent:"Percent of normal",total:"Rainfall total (mm)"};
+const mix=(a,b,t)=>"#"+[0,1,2].map(k=>Math.round(parseInt(a.slice(1+2*k,3+2*k),16)*(1-t)+parseInt(b.slice(1+2*k,3+2*k),16)*t).toString(16).padStart(2,"0")).join("");
+// Colour of a tercile category at a probability in percent: brown for below, grey for near, green for above
+function categoryColor(colors,k,probability){
+  const t=Math.max(0,Math.min(1,(probability-35)/(k===1?20:50)));
+  return k===1?mix("#d9d9d9","#6b6b6b",t):palette(colors,k===0?.36-.34*t:.64+.34*t);
+}
+function mapPanel(data,files,season,period,errorMode=false,product=null) {
   const seasons=season==="all"?data.seasons:[season];
-  const root=panel(errorMode?"error-maps":"rainfall",errorMode?"Where calibration helps or worsens the local forecast":"Compare rainfall on the same map scale",
-    "Hover or tap a country-land cell. Focus a map and use ← / → to step through scored cells. Grey land is outside the study area.");
+  const root=panel(product?"forecast-products":errorMode?"error-maps":"rainfall",product?`${season} · ${product.method.toUpperCase()} forecast and what was observed · ${PRODUCT_TITLES[product.view]}`:errorMode?"Where calibration helps or worsens the local forecast":"Compare rainfall on the same map scale",
+    "Hover or tap a pixel. Focus a map and use ← / → to step through scored pixels. Grey land is outside the study area.");
   root.dataset.ready="false"; root.dataset.state="waiting";
   root.querySelector('.story-export button').disabled=true;
-  root.dataset.exportKey=`${season.toLowerCase()}-${period.replaceAll("_","-")}-2023`;root.dataset.exportNote=`${season==="all"?"All twelve seasons":season} · seasons centred on 2023 · ${periodLabel(period)} training · 0.25° grid`;
+  root.dataset.exportKey=`${season.toLowerCase()}-${period.replaceAll("_","-")}-2023${product?`-${product.method}-${product.view}`:""}`;root.dataset.exportNote=`${season==="all"?"All twelve seasons":season} · seasons centred on 2023 · ${periodLabel(period)} training · native 0.05° grid`;
   const status=el("p","story-map-status","Maps load when this section comes into view. All map files are local to the book.");root.append(status);
   let observer,resize,disposed=false,active=-1;
   root.dispose=()=>{disposed=true;observer?.disconnect();resize?.disconnect();};
@@ -398,79 +494,154 @@ function mapPanel(data,files,season,period,errorMode=false) {
     observer?.disconnect();root.dataset.state="loading";status.textContent="Loading local map fields and boundaries…";
     try{
       const assets=await mapAssets(files);if(disposed)return;
-      const f=assets.fields,grid=el("div","story-map-grid"),cards=[];
-      const lookup=new Int32Array(76*192).fill(-1);f.cells.forEach((c,i)=>lookup[c.row*192+c.col]=i);
+      const f=assets.fields,{west,north,step,nx,ny,pixels:n}=f.grid,grid=el("div","story-map-grid"),cards=[];
+      const values=Object.fromEntries(await Promise.all(seasons.map(async s=>[s,await f.season(s)])));if(disposed)return;
+      const prod=product?Object.fromEntries(await Promise.all(seasons.map(async s=>[s,await f.products(s)]))):null;if(disposed)return;
+      const probabilities=(q,m,i)=>["below","near","above"].map(c=>q[`${m}_${c}`][i]/10);
+      const likely=p=>p[2]>p[0]?(p[2]>p[1]?2:1):(p[0]>=p[1]?0:1);
+      // The colour of one pixel of a forecast-products map
+      function productColor(card,i){
+        const v=values[card.season],q=prod[card.season],total=v[card.variant][i],normal=q.normal[i],brbg=data.palettes.BrBG;
+        if(product.view==="total")return palette(data.palettes.YlGnBu,total/f.rainLimits[card.season][period]);
+        if(product.view==="anomaly"){const limit=f.anomalyLimits[card.season];return palette(brbg,(total-normal+limit)/(2*limit));}
+        if(product.view==="percent")return palette(brbg,normal>0?(100*total/normal-40)/120:.5);
+        if(card.variant==="observed")return categoryColor(brbg,q.observed_category[i],65);
+        const p=probabilities(q,product.method,i),k=likely(p);return categoryColor(brbg,k,p[k]);
+      }
+      const lonOf=i=>west+(f.pixels[i]%nx+.5)*step,latOf=i=>north-(Math.floor(f.pixels[i]/nx)+.5)*step;
+      const FULL=[west,west+nx*step,north-ny*step,north],aspect=(FULL[3]-FULL[2])/(FULL[1]-FULL[0]);
       const tip=tooltip(root);let request=0;
+      const group=mapGroup(),view=()=>groupWindow(group,FULL);
+      const shownValue=(card,i)=>{const v=values[card.season];return errorMode?Math.abs(v[`climatology_${period}`][i]-v.observed[i])-Math.abs(v[card.variant][i]-v.observed[i]):v[card.variant][i];};
       function inspect(index,event,pin=false){
-        if(index<0||index>=f.cells.length)return;
+        if(index<0||index>=n)return;
         if(tip.pinned&&!pin&&event?.type==='pointermove')return;
-        active=index;const cell=f.cells[index],card=event?.currentTarget?cards.find(c=>c.canvas===event.currentTarget):cards[0];
-        const selectedSeason=card?.season||seasons[0],values=f.fields[selectedSeason];
-        const entries=[["Native weight shares",cell.shares.map(([n,w])=>`${n} ${num(100*w,1)}%`).join("; ")]];
-        if(errorMode){
-          const base=Math.abs(values[`climatology_${period}`][index]-values.observed[index]);
-          entries.push(["Climatology absolute error",`${num(base,2)} mm`]);
-          for(const m of ["cca","pcr"]){const ae=Math.abs(values[`${m}_${period}`][index]-values.observed[index]);entries.push([`${m.toUpperCase()} absolute error`,`${num(ae,2)} mm`],[`${m.toUpperCase()} reduction`,`${num(base-ae,2)} mm`]);}
+        active=index;const card=event?.currentTarget?cards.find(c=>c.canvas===event.currentTarget):cards[0];
+        const selectedSeason=card?.season||seasons[0],v=values[selectedSeason];
+        const entries=[["Province",f.provinces[f.province[index]]]];
+        if(product){
+          const q=prod[selectedSeason],normal=q.normal[index],share=x=>normal>0?`${num(100*x/normal,0)}% of normal`:"normal is 0 mm";
+          entries.push(["Normal, 1991–2020 mean",`${num(normal,0)} mm`],["Tercile boundaries",`${num(q.tercile_lower[index],0)} and ${num(q.tercile_upper[index],0)} mm`],
+            ["Observed",`${num(v.observed[index],0)} mm · ${num(v.observed[index]-normal,0)} mm · ${share(v.observed[index])} · ${CATEGORY_NAMES[q.observed_category[index]].toLowerCase()}`]);
+          for(const m of ["cca","pcr"]){const total=v[`${m}_${period}`][index],p=probabilities(q,m,index);
+            entries.push([`${m.toUpperCase()} forecast`,`${num(total,0)} mm · ${num(total-normal,0)} mm · ${share(total)}`],
+              [`${m.toUpperCase()} below / near / above`,`${num(p[0],0)}% / ${num(p[1],0)}% / ${num(p[2],0)}% · most likely ${CATEGORY_NAMES[likely(p)].toLowerCase()}`]);}
+        }else if(errorMode){
+          const base=Math.abs(v[`climatology_${period}`][index]-v.observed[index]);
+          entries.push(["Climatology absolute error",`${num(base,0)} mm`]);
+          for(const m of ["cca","pcr"]){const ae=Math.abs(v[`${m}_${period}`][index]-v.observed[index]);entries.push([`${m.toUpperCase()} absolute error`,`${num(ae,0)} mm`],[`${m.toUpperCase()} reduction`,`${num(base-ae,0)} mm`]);}
         }else{
-          entries.push(["Observed",`${num(values.observed[index],2)} mm`]);
-          for(const v of chosen(period)){const value=values[v][index];entries.push([method(v),`${num(value,2)} mm (error ${num(value-values.observed[index],2)} mm)`]);}
+          entries.push(["Observed",`${num(v.observed[index],0)} mm`]);
+          for(const key of chosen(period)){const value=v[key][index];entries.push([method(key),`${num(value,0)} mm (error ${num(value-v.observed[index],0)} mm)`]);}
         }
-        tip.show(`${selectedSeason} · ${num(cell.lon,3)}°E, ${num(cell.lat,3)}°N`,entries,event,pin);
+        tip.show(`${selectedSeason} · ${num(lonOf(index),3)}°E, ${num(latOf(index),3)}°N`,entries,event,pin);
+        if(product&&pin)drawCurves(index,selectedSeason);
         if(!request)request=requestAnimationFrame(()=>{request=0;cards.forEach(c=>paint(c));});
+      }
+      // The flexible forecast at one pixel, under the maps: PyCPT's construct_flex_fcst conventions
+      const curves=el("div","story-flex-holder");
+      function drawCurves(index,s0=seasons[0]){
+        if(!product)return;
+        const v=values[s0],q=prod[s0],unit=f.flexible.scaleUnit,nu=f.flexible.degreesOfFreedom,m=product.method;
+        const mu=v[`${m}_${period}`][index],sc=q[`${m}_scale`][index]*unit,cmu=q.normal[index],cs=q.climatology_scale[index]*unit,ob=v.observed[index],lo=q.tercile_lower[index],hi=q.tercile_upper[index];
+        const lat=latOf(index),place=`${num(lonOf(index),3)}°E, ${lat<0?num(-lat,3)+"°S":num(lat,3)+"°N"} · ${f.provinces[f.province[index]]}`;
+        const chance=x=>num(100*tSf(x,nu,mu,sc),0),usual=x=>num(100*normSf(x,cmu,cs),0);
+        curves.replaceChildren(exceedanceCurves({heading:`${s0} · ${m.toUpperCase()} flexible forecast at ${place}`,
+          note:`Forecast centre ${num(mu,0)} mm, 1991–2020 mean ${num(cmu,0)} mm, observed ${num(ob,0)} mm. Chance of more than the mean: forecast ${chance(cmu)}%, climatology ${usual(cmu)}%. Chance of more than the upper tercile boundary (${num(hi,0)} mm): forecast ${chance(hi)}%, climatology ${usual(hi)}%. Chance of more than what was observed: forecast ${chance(ob)}%.`,
+          mu,s:sc,nu,cmu,cs,forecastLabel:`${m.toUpperCase()} forecast`,marks:[[lo,"lower tercile",MUTED,"4 3"],[hi,"upper tercile",MUTED,"2 3"],[ob,"observed",INK]]}));
       }
       function paint(card){
         const ctx=card.canvas.getContext("2d");ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,card.canvas.width,card.canvas.height);ctx.drawImage(card.base,0,0);
-        if(active>=0){const cell=f.cells[active],ratio=card.canvas.width/48;ctx.strokeStyle="#d42f47";ctx.lineWidth=Math.max(2,devicePixelRatio||1);ctx.strokeRect((cell.lon-.125-94)*ratio,(7-cell.lat-.125)*ratio,.25*ratio,.25*ratio);}
+        if(active>=0){const w=view(),ratio=card.canvas.width/(w[1]-w[0]),size=Math.max(step*ratio,6);ctx.strokeStyle="#d42f47";ctx.lineWidth=Math.max(2,devicePixelRatio||1);
+          ctx.strokeRect((lonOf(active)-w[0])*ratio-size/2,(w[3]-latOf(active))*ratio-size/2,size,size);}
+      }
+      // The field as an image with one image pixel per grid pixel, made once per map
+      function raster(card){
+        if(card.raster)return card.raster;
+        const image=new ImageData(nx,ny),colors=data.palettes[errorMode?"BrBG":"YlGnBu"],limit=f.rainLimits[card.season][period];
+        for(let i=0;i<n;i++){
+          const value=product?0:shownValue(card,i),t=errorMode?(value+300)/600:value/limit,c=product?productColor(card,i):palette(colors,t);
+          image.data.set([parseInt(c.slice(1,3),16),parseInt(c.slice(3,5),16),parseInt(c.slice(5,7),16),255],f.pixels[i]*4);
+        }
+        card.raster=el("canvas");card.raster.width=nx;card.raster.height=ny;card.raster.getContext("2d").putImageData(image,0,0);return card.raster;
       }
       function renderMap(card,canvas,width,dpr){
-        const pw=Math.round(width*dpr),ph=Math.round(width*19/48*dpr);canvas.width=pw;canvas.height=ph;
-        const ctx=canvas.getContext("2d");ctx.fillStyle="#f1f5f7";ctx.fillRect(0,0,pw,ph);const scale=pw/48;
-        ctx.setTransform(scale,0,0,-scale,-94*scale,7*scale);
+        const pw=Math.round(width*dpr),ph=Math.round(width*aspect*dpr);canvas.width=pw;canvas.height=ph;
+        const ctx=canvas.getContext("2d");ctx.setTransform(1,0,0,1,0,0);ctx.fillStyle="#f1f5f7";ctx.fillRect(0,0,pw,ph);const w=view(),scale=pw/(w[1]-w[0]);
+        ctx.setTransform(scale,0,0,-scale,-w[0]*scale,w[3]*scale);
         ctx.fillStyle="#d6d8da";ctx.strokeStyle="#9ca3a8";ctx.lineWidth=.4*dpr/scale;ctx.fill(assets.paths.neighbours);ctx.stroke(assets.paths.neighbours);
-        const fields=f.fields[card.season],base=fields[`climatology_${period}`],truth=fields.observed,values=fields[card.variant];
-        for(let i=0;i<f.cells.length;i++){
-          const c=f.cells[i],value=errorMode?Math.abs(base[i]-truth[i])-Math.abs(values[i]-truth[i]):values[i];
-          const t=errorMode?(value+300)/600:value/f.rainLimits[card.season][period];ctx.fillStyle=palette(data.palettes[errorMode?"BrBG":"YlGnBu"],t);ctx.fillRect(c.lon-.125,c.lat-.125,.2505,.2505);
-        }
+        ctx.setTransform(1,0,0,1,0,0);ctx.imageSmoothingEnabled=false;
+        ctx.drawImage(raster(card),(w[0]-west)/step,(north-w[3])/step,(w[1]-w[0])/step,(w[3]-w[2])/step,0,0,pw,ph);
+        ctx.setTransform(scale,0,0,-scale,-w[0]*scale,w[3]*scale);
         for(const [key,color,lw]of [["provinces","#52616b",.35],["indonesia","#263943",.8]]){ctx.strokeStyle=color;ctx.lineWidth=lw*dpr/scale;ctx.stroke(assets.paths[key]);}
       }
       function draw(card){
         const width=Math.max(230,Math.floor(card.canvas.getBoundingClientRect().width)),dpr=Math.min(devicePixelRatio||1,2);
-        if(card.base.width===Math.round(width*dpr)&&card.base.height===Math.round(width*19/48*dpr))return;
-        renderMap(card,card.base,width,dpr);card.canvas.width=card.base.width;card.canvas.height=card.base.height;paint(card);
+        const w=view(),key=w.map(v=>v.toFixed(4)).join();
+        if(card.base.width===Math.round(width*dpr)&&card.base.height===Math.round(width*aspect*dpr)&&card.viewKey===key)return;
+        card.viewKey=key;renderMap(card,card.base,width,dpr);card.canvas.width=card.base.width;card.canvas.height=card.base.height;paint(card);
+        const deg=(v,p,q)=>`${Math.abs(v).toFixed(group.state.k>1?1:0)}°${v<0?q:p}`;
+        card.coords.textContent=`${deg(w[0],"E","W")}                         ${deg((w[0]+w[1])/2,"E","W")}                         ${deg(w[1],"E","W")} · ${deg(w[2],"N","S")}–${deg(w[3],"N","S")}`;
+        card.canvas.style.touchAction=group.state.k>1?"none":"pan-y";card.canvas.style.cursor=group.state.k>1?"grab":"crosshair";
       }
       for(const s of seasons){
         const date=data.calendar.find(c=>c.season===s);
-        const variants=errorMode?[`cca_${period}`,`pcr_${period}`]:["observed",...chosen(period)];
+        const variants=product?[`${product.method}_${period}`,"observed"]:errorMode?[`cca_${period}`,`pcr_${period}`]:["observed",...chosen(period)];
         if(!errorMode){const dates=el("p","story-map-dates",`${s}: ${date.start} to ${date.end} · issued ${date.issue} · ${periodLabel(period)} training · source ending-year ${date.sourceYear}`);root.insertBefore(dates,status);}
         for(const variant of variants){
-          const title=variant==="observed"?"Observed · CHIRPS3":method(variant),box=el("div","story-map-card"),canvas=el("canvas"),base=el("canvas");
-          box.append(el("h4",null,errorMode?`${s} · ${title}`:title));canvas.setAttribute("tabindex","0");canvas.setAttribute("role","img");canvas.setAttribute("aria-label",`${s} ${title} map. Left and right arrows inspect scored country cells; Enter pins details.`);
-          canvas.dataset.mapVariant=variant;canvas.dataset.season=s;box.append(canvas,el("p","story-map-coords","94°E                         118°E                         142°E · 12°S–7°N"));grid.append(box);
-          const card={canvas,base,variant,season:s};cards.push(card);
-          function hit(e,pin=false){const r=canvas.getBoundingClientRect(),lon=94+48*(e.clientX-r.left)/r.width,lat=7-19*(e.clientY-r.top)/r.height;
-            const col=Math.floor((lon-94)/.25),row=Math.floor((7-lat)/.25),index=col>=0&&col<192&&row>=0&&row<76?lookup[row*192+col]:-1;
+          const title=variant==="observed"?"Observed · CHIRPS v3.0":method(variant),box=el("div","story-map-card"),canvas=el("canvas"),base=el("canvas");
+          box.append(el("h4",null,errorMode?`${s} · ${title}`:title));canvas.setAttribute("tabindex","0");canvas.setAttribute("role","img");canvas.setAttribute("aria-label",`${s} ${title} map. Left and right arrows inspect scored pixels; Enter pins details; + and - zoom.`);
+          canvas.style.aspectRatio=`${FULL[1]-FULL[0]}/${FULL[3]-FULL[2]}`;
+          canvas.dataset.mapVariant=variant;canvas.dataset.season=s;const coords=el("p","story-map-coords","");box.append(canvas,coords);grid.append(box);
+          const card={canvas,base,variant,season:s,coords};cards.push(card);
+          const at=e=>{const r=canvas.getBoundingClientRect(),w=view(),fx=(e.clientX-r.left)/r.width,fy=(e.clientY-r.top)/r.height;return [w[0]+(w[1]-w[0])*fx,w[3]-(w[3]-w[2])*fy,fx>=0&&fx<=1&&fy>=0&&fy<=1];};
+          const self={redraw:()=>draw(card),window:view};group.maps.push(self);zoomGestures(canvas,group,self,at);
+          function hit(e,pin=false){if(canvas.dataset.dragged){if(pin)delete canvas.dataset.dragged;return;}const [lon,lat]=at(e);
+            const col=Math.floor((lon-west)/step),row=Math.floor((north-lat)/step),index=col>=0&&col<nx&&row>=0&&row<ny?f.lookup[row*nx+col]:-1;
             if(index>=0)inspect(index,e,pin);else if(!pin)tip.leave();}
           canvas.addEventListener("pointermove",e=>hit(e));canvas.addEventListener("pointerleave",tip.leave);canvas.addEventListener("click",e=>hit(e,true));
-          canvas.addEventListener("keydown",e=>{if(["ArrowLeft","ArrowRight","Enter"," "].includes(e.key)){e.preventDefault();const delta=e.key==="ArrowLeft"?-1:e.key==="ArrowRight"?1:0;inspect(Math.max(0,Math.min(f.cells.length-1,(active<0?0:active)+delta)),e,delta===0);}});
+          canvas.addEventListener("keydown",e=>{if(["ArrowLeft","ArrowRight","Enter"," "].includes(e.key)){e.preventDefault();const delta=e.key==="ArrowLeft"?-1:e.key==="ArrowRight"?1:0;inspect(Math.max(0,Math.min(n-1,(active<0?0:active)+delta)),e,delta===0);}});
         }
       }
-      status.replaceWith(grid);
+      status.replaceWith(grid);grid.before(group.bar);
       root.exportGraphic=async()=>{
-        const width=1200,gap=24,cardWidth=(width-gap)/2,mapHeight=cardWidth*19/48,rowHeight=Math.ceil(mapHeight)+68,height=Math.ceil(cards.length/2)*rowHeight;
+        const width=1200,gap=24,cardWidth=(width-gap)/2,mapHeight=cardWidth*aspect,rowHeight=Math.ceil(mapHeight)+68,height=Math.ceil(cards.length/2)*rowHeight;
         const canvas=el("canvas");canvas.width=width*2;canvas.height=height*2;const ctx=canvas.getContext("2d");ctx.scale(2,2);ctx.fillStyle="white";ctx.fillRect(0,0,width,height);ctx.textBaseline="top";
         for(const [i,card]of cards.entries()){
           const x=(i%2)*(cardWidth+gap),y=Math.floor(i/2)*rowHeight,map=el("canvas");renderMap(card,map,cardWidth,2);
-          ctx.fillStyle=INK;ctx.font="600 18px Arial, sans-serif";ctx.fillText(`${card.season} · ${card.variant==="observed"?"Observed · CHIRPS3":method(card.variant)}`,x,y);
-          ctx.drawImage(map,x,y+28,cardWidth,mapHeight);ctx.font="12px Arial, sans-serif";ctx.fillStyle=MUTED;ctx.fillText("94°E–142°E · 12°S–7°N · grey land outside study area",x,y+mapHeight+36);
+          ctx.fillStyle=INK;ctx.font="600 18px Arial, sans-serif";ctx.fillText(`${card.season} · ${card.variant==="observed"?"Observed · CHIRPS v3.0":method(card.variant)}`,x,y);
+          ctx.drawImage(map,x,y+28,cardWidth,mapHeight);ctx.font="12px Arial, sans-serif";ctx.fillStyle=MUTED;ctx.fillText(`${card.coords.textContent.replace(/\s+/g," ")} · grey land outside study area`,x,y+mapHeight+36);
           // Yield between maps so large atlases keep the page and download UI responsive.
-          await new Promise(resolve=>requestAnimationFrame(resolve));
+          await new Promise(resolve=>setTimeout(resolve,0));
         }return {image:canvas,width,height};
       };
-      const max=errorMode?300:f.rainLimits[seasons[0]][period];legend(root,data.palettes[errorMode?"BrBG":"YlGnBu"],errorMode?-300:0,max,errorMode?"Absolute-error reduction vs climatology (mm): positive helps. Colours saturate beyond ±300 mm; details retain full values.":"Seasonal rainfall (mm). All five maps share the selected season's scale; the highest 1% is colour-saturated only.");
-      if(!errorMode){
-        const values=f.fields[seasons[0]],dates=data.calendar.find(c=>c.season===seasons[0]),rows=f.cells.map((cell,i)=>({season:seasons[0],training:periodLabel(period),targetStart:dates.start,targetEnd:dates.end,longitude:cell.lon,latitude:cell.lat,region:cell.shares.map(([name,w])=>`${name} (${num(100*w,2)}%)`).join("; "),observed:values.observed[i],raw:values.raw_cfsv2[i],climatology:values[`climatology_${period}`][i],cca:values[`cca_${period}`][i],pcr:values[`pcr_${period}`][i]}));
-        root.append(sortableTable(rows,`${seasons[0]} grid values`,[["season","Season"],["training","Training"],["targetStart","Target starts"],["targetEnd","Target ends"],["longitude","Longitude",3],["latitude","Latitude",3],["region","Native province shares"],["observed","Observed (mm)"],["raw","Raw (mm)"],["climatology","Climatology (mm)"],["cca","CCA (mm)"],["pcr","PCR (mm)"]]));
+      if(product){
+        const s0=seasons[0],brbg=data.palettes.BrBG;
+        if(product.view==="total")legend(root,data.palettes.YlGnBu,0,f.rainLimits[s0][period],"Seasonal rainfall (mm). Both maps share one scale; the highest 1% is colour-saturated only.");
+        else if(product.view==="anomaly")legend(root,brbg,-f.anomalyLimits[s0],f.anomalyLimits[s0],"Total minus the 1991–2020 normal (mm): brown is drier than normal, green wetter. The scale stops at the 99th percentile; details keep full values.");
+        else if(product.view==="percent")legend(root,brbg,40,160,"Total as a percentage of the 1991–2020 normal. Colours saturate below 40% and above 160%; details keep full values.");
+        else{
+          const bar=el("div","story-legend story-category-legend");
+          for(const [k,name] of CATEGORY_NAMES.entries()){const item=el("div","story-category-item"),strip=el("div","story-gradient"),top=k===1?55:85;
+            strip.style.background=`linear-gradient(to right,${[35,45,55,65,75,85].filter(x=>x<=top).map(x=>categoryColor(brbg,k,x)).join(",")})`;
+            const ends=el("div","story-legend-ends");ends.append(el("span",null,"35%"),el("span",null,name),el("span",null,`${top}%+`));item.append(strip,ends);bar.append(item);}
+          bar.append(el("p",null,"Forecast map: the most likely tercile category, darker where its probability is higher. Observed map: the category that occurred. Probabilities are CPT's own and are not verified here."));root.append(bar);
+        }
+      }
+      const max=errorMode?300:f.rainLimits[seasons[0]][period];if(!product)legend(root,data.palettes[errorMode?"BrBG":"YlGnBu"],errorMode?-300:0,max,errorMode?"Absolute-error reduction vs climatology (mm): positive helps. Colours saturate beyond ±300 mm; details retain full values.":"Seasonal rainfall (mm). All five maps share the selected season's scale; the highest 1% is colour-saturated only.");
+      if(product){
+        root.append(el("p","story-hint","Click or tap a pixel, or focus a map and press Enter, to draw its flexible forecast here: the full distribution of the forecast against climatology."),curves);
+        let start=0,best=Infinity;for(let i=0;i<n;i++){const d=(lonOf(i)-106.85)**2+(latOf(i)+6.2)**2;if(d<best){best=d;start=i;}}      // start near Jakarta
+        drawCurves(start);
+      }
+      if(!errorMode&&!product){
+        const v=values[seasons[0]],dates=data.calendar.find(c=>c.season===seasons[0]);
+        // The table is built only when it is opened: one row per pixel
+        const holder=el("details","story-table"),summary=el("summary",null,`${seasons[0]} pixel values (${n.toLocaleString("en")} rows)`);holder.append(summary);root.append(holder);
+        holder.addEventListener("toggle",()=>{if(!holder.open||holder.dataset.built)return;holder.dataset.built="1";
+          const rows=Array.from({length:n},(_,i)=>({season:seasons[0],training:periodLabel(period),targetStart:dates.start,targetEnd:dates.end,longitude:lonOf(i),latitude:latOf(i),region:f.provinces[f.province[i]],observed:v.observed[i],raw:v.raw_cfsv2[i],climatology:v[`climatology_${period}`][i],cca:v[`cca_${period}`][i],pcr:v[`pcr_${period}`][i]}));
+          const table=sortableTable(rows,`${seasons[0]} pixel values`,[["season","Season"],["training","Training"],["targetStart","Target starts"],["targetEnd","Target ends"],["longitude","Longitude",3],["latitude","Latitude",3],["region","Province"],["observed","Observed (mm)"],["raw","Raw (mm)"],["climatology","Climatology (mm)"],["cca","CCA (mm)"],["pcr","PCR (mm)"]]);
+          table.open=true;holder.replaceWith(table);});
       }
       resize=new ResizeObserver(()=>cards.forEach(draw));resize.observe(root);cards.forEach(draw);root.dataset.ready="true";root.dataset.state="ready";root.querySelector('.story-export button').disabled=false;
     }catch(error){status.textContent=`Map could not load: ${error.message}. Use the static figure or NetCDF links below.`;root.dataset.state="error";}
@@ -481,3 +652,5 @@ function mapPanel(data,files,season,period,errorMode=false) {
 
 export function rainfallMaps(data,files,season="OND",period="1991_2020"){return mapPanel(data,files,season,period,false);}
 export function errorMaps(data,files,season="JJA",period="1991_2020"){return mapPanel(data,files,season,period,true);}
+// The forecast as a user reads it, beside what was observed: view is "category", "anomaly", "percent" or "total"
+export function forecastMaps(data,files,season="OND",method="cca",view="category"){return mapPanel(data,files,season,"1991_2020",false,{method,view});}

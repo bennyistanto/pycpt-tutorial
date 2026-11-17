@@ -1,25 +1,127 @@
 {
-  "date": "2026-11-01",
   "sources": {
-    "docs/data/indonesia-seasons-2023.nc": "4ce8ee7414d242095ce0da30f0eb2d0a9fe81938059b5df91939d2adafa26d50",
-    "docs/assets/seasonal-2023/verification-2023.nc": "3533d1460aad4c48c24384b62aed68e0f84914306b63614ef80453aa4caf27c1",
-    "docs/data/verification-context-2021-2024.nc": "81ca50784ab5dfa94a0841e80a3275cb770b6eeff13654b3fd86debb2f78ce76",
-    "docs/data/regions/province-weights.nc": "84d144f4ba47774ff3da92bc9e0a6a90563db231e8b1a2431f4ffbf141dd2815",
-    "docs/assets/seasonal-2023/province-verification-2023.nc": "d78e22287e1f3c8c5cf83a8be4151a8523d3a183d9abc09635d28bf3af21db5f",
-    "docs/data/regions/province-context-pooled.nc": "370e9db00a504cf408f84d26e9743b9970493e83227e1aae5db693c044264c11"
+    "docs/data/indonesia-seasons-2023.nc": "ee54b0578dc85aaa9815ebd71b21ac2947feaa7e974ca39f3c3a48d499052e33",
+    "docs/assets/seasonal-2023/verification-2023.nc": "ad9a4489850ebe2e8bfcbada75a021e23dd4aa4d678f4ec0615d3993bf6bfdfd",
+    "docs/data/verification-context-2021-2024.nc": "373665e588ba7c9d042ae46f08d2a6ef9de52c93dbee5ef236a1672b188f1c4d",
+    "docs/assets/seasonal-2023/province-verification-2023.nc": "9e0d27c5e7eaccd6482cf240efa54fef789ec19de95bbbfa456c8abe78c9dd7c",
+    "docs/data/regions/province-context-pooled.nc": "5119eee888bd4d38b970fa133b17c8f14a6c006aafed5462f10b1a562d7123ef",
+    "docs/data/indonesia-seasons-2023-products.nc": "06b1e730794c522aabdba532110dd5be1f613a9fd06ce55e68a2176b47b74585"
   },
   "outputs": {
     "metrics.json": {
-      "sha256": "904291fd9f1736e6b32525e6fb29eb960a5da9e5e22f46670aa4bcfb4b8eafba",
-      "bytes": 1239772
+      "sha256": "59854c8d2be4791ccd3aecdb8b08cb044d9cf4c518057c7122cd052540594524",
+      "bytes": 1205574
     },
     "fields.json": {
-      "sha256": "ebe4e5bf383fe406f16f11210b9e4b88ab2563837e84a2762d1549f6298ecf78",
-      "bytes": 4833633
+      "sha256": "7baa7a90799eb728597f10d41a5c0b8b856f9dca0b7500b8ee83b8f99d096dc8",
+      "bytes": 2580
+    },
+    "pixels.bin": {
+      "sha256": "c8c76a5e6374aff157d059df912e41fd6b69a0a71c4dd5b3c35dbbf28dbf3f03",
+      "bytes": 278560
+    },
+    "provinces.bin": {
+      "sha256": "29cbdf827af0557f3b755c115348081ba008a1104150c6dc16e820e44a60b8b9",
+      "bytes": 69640
+    },
+    "fields/AMJ-products.bin.gz": {
+      "sha256": "b17dc9c3cc937f17906752a9f621fb2b131db7f51bed047f7e7144f1575631cd",
+      "bytes": 1130161
+    },
+    "fields/AMJ.bin.gz": {
+      "sha256": "e328bca7e46dbc7134e99c44435e37aece3be076224d6d91245d8d944dec1b74",
+      "bytes": 734557
+    },
+    "fields/ASO-products.bin.gz": {
+      "sha256": "3056d77489e4bf6dfa9005e35d5fd0e8de612ed98ca78b19124daff204a0cc40",
+      "bytes": 1134858
+    },
+    "fields/ASO.bin.gz": {
+      "sha256": "0747c4edbc78e32b08b13cf044f0e9b38b6089c7002b91d468d21d613012d7ab",
+      "bytes": 717655
+    },
+    "fields/DJF-products.bin.gz": {
+      "sha256": "74de3f1c1b72d9e0da7d3d5db34990f774e5852ec3ac4962099aab7106bcd9a4",
+      "bytes": 1158900
+    },
+    "fields/DJF.bin.gz": {
+      "sha256": "f710526ccec55b6363d8c84cc27263d706b98a81f66fbaa199f0730279c96fbc",
+      "bytes": 753434
+    },
+    "fields/FMA-products.bin.gz": {
+      "sha256": "85a23303ea1fdff2bbc294eb1d12ad570c0cc524d1bf4f6d4a4682ceef822302",
+      "bytes": 1142071
+    },
+    "fields/FMA.bin.gz": {
+      "sha256": "7ef97931e7df4e60d137bfdc63c96abe06e2ceec0455cc08ec4fbff34f4818ac",
+      "bytes": 747545
+    },
+    "fields/JAS-products.bin.gz": {
+      "sha256": "f53e78674ae3564e9c1c0ce71756dad3d081e7d0bc49b55ecaf3eca530f112ea",
+      "bytes": 1129861
+    },
+    "fields/JAS.bin.gz": {
+      "sha256": "0d01db42bd84e81050546b52a3d033606b1adb8d01e24722bda2dc6337a33d29",
+      "bytes": 694808
+    },
+    "fields/JFM-products.bin.gz": {
+      "sha256": "a6e74a1f9df33b3ac1d5a44e38660cae27c03a43a4423f8a8e4e3a4b5d383a7d",
+      "bytes": 1146400
+    },
+    "fields/JFM.bin.gz": {
+      "sha256": "298e5ff4a0bdb946e46227eb1c3adc706ed6f3873a96dacf34415285efad5443",
+      "bytes": 753689
+    },
+    "fields/JJA-products.bin.gz": {
+      "sha256": "86dbe90c17d8a5a19a0464cc6130ba7887598bdd7e37e66d730d938089fa46b7",
+      "bytes": 1137217
+    },
+    "fields/JJA.bin.gz": {
+      "sha256": "2e1e7fa9cf1cf3b589ce2ecebd171bba5b524234f81e269a006a2077f3acaf95",
+      "bytes": 704766
+    },
+    "fields/MAM-products.bin.gz": {
+      "sha256": "c05dfddb400a7fef4cab91bf3a7ad3e62e763f6387bf5fcac107e895dffb94d2",
+      "bytes": 1135257
+    },
+    "fields/MAM.bin.gz": {
+      "sha256": "103f497d2eeaa4dff365b86eb037d733b82d7825f5022b2fca321f013428692c",
+      "bytes": 739612
+    },
+    "fields/MJJ-products.bin.gz": {
+      "sha256": "8821547b720f177ac94195ab62008413cd6299c7c50741dfedf28191099c98c7",
+      "bytes": 1126408
+    },
+    "fields/MJJ.bin.gz": {
+      "sha256": "de649cd51c4bed2378db15f8a3120bfb09fae076ef6c3cb2bf7cc3c3f378b45c",
+      "bytes": 727244
+    },
+    "fields/NDJ-products.bin.gz": {
+      "sha256": "01932ba1dc6194bfb3cbcfaec8483ef03895bf6fda68bffc7b8d8d8aff048b5c",
+      "bytes": 1148589
+    },
+    "fields/NDJ.bin.gz": {
+      "sha256": "82df222df4da72e9cfec8563174ab5edced656fba82e17dee84b8f1b0f387967",
+      "bytes": 754524
+    },
+    "fields/OND-products.bin.gz": {
+      "sha256": "a2b7134cd6b188ce41d3b293ea7b91a11dd3dec0f6721da65c31a41c7c6dafad",
+      "bytes": 1137029
+    },
+    "fields/OND.bin.gz": {
+      "sha256": "8121be4f0b4311a32936d6cf87f17f6c3b308a0edb313696791be7cf6fd2b231",
+      "bytes": 745496
+    },
+    "fields/SON-products.bin.gz": {
+      "sha256": "277c6b5cf10a6d69dc3316928311b54cb43fd64af343a8586ff07ff5a730e8fd",
+      "bytes": 1117209
+    },
+    "fields/SON.bin.gz": {
+      "sha256": "57d1c3b2de099e9800ea44ca0d0ba0c6f06758a83fa4658f4a57776467057a92",
+      "bytes": 724761
     }
   },
-  "preserved_artifacts": 35,
-  "map_cells": 3240,
-  "numeric_rounding": "None in JSON; labels round for readability only.",
-  "method": "Serialize existing metrics and fields; gain percentages use stored RMSE; no new fits or spatial weights."
+  "map_pixels": 69640,
+  "numeric_rounding": "Scores unrounded in JSON; map values rounded to whole millimetres.",
+  "method": "Serialize existing metrics and fields; gain percentages use stored RMSE; no new fits or weights."
 }

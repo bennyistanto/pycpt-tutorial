@@ -1,3 +1,4 @@
+import {exceedanceCurves, tSf, normSf} from "../leads/leads.js";
 // Shared presentation primitives adapted from ../story/story.js; case-one runtime is unchanged.
 // Presentation only. Every aggregate score comes from the verified Python outputs.
 const NS = "http://www.w3.org/2000/svg";
@@ -15,6 +16,8 @@ const palette = (colors,t) => colors[Math.max(0,Math.min(colors.length-1,Math.ro
 document.addEventListener("keydown",e=>{if(e.key==="Escape")document.querySelectorAll('.story-tooltip').forEach(n=>n.dispatchEvent(new Event('story-dismiss')));});
 document.addEventListener("pointerdown",e=>document.querySelectorAll('.story-tooltip:not([hidden])').forEach(n=>{if(!n.closest('.story-view')?.contains(e.target))n.dispatchEvent(new Event('story-dismiss'));}));
 
+const BRBG_ANCHORS=["#543005", "#8c510a", "#bf812d", "#dfc27d", "#f6e8c3", "#f5f5f5", "#c7eae5", "#80cdc1", "#35978f", "#01665e", "#003c30"];
+const BRBG=Array.from({length:201},(_,i)=>{const x=i/200*(BRBG_ANCHORS.length-1),k=Math.min(BRBG_ANCHORS.length-2,Math.floor(x)),t=x-k,a=BRBG_ANCHORS[k],b=BRBG_ANCHORS[k+1];return '#'+[0,1,2].map(j=>Math.round(parseInt(a.slice(1+2*j,3+2*j),16)*(1-t)+parseInt(b.slice(1+2*j,3+2*j),16)*t).toString(16).padStart(2,'0')).join('');});
 export function selectControl(label, options, value) {
   const form=el("form","story-control"), id=`story-select-${++sequence}`;
   const lab=el("label",null,label); lab.htmlFor=id;
@@ -278,7 +281,7 @@ export function inputSummary(data,season='OND'){
 
 export function fittingScores(data,metric='rmse',verification='forecast_2023'){
   const rows=data.scores.filter(r=>r.verification===verification),title=`${VERIFICATION[verification]} · ${metricText(metric)}`;
-  const root=panel('fitting-scores',title,'Hover, tap or focus a bar. All scores use the same 3,240 country-land cells.');
+  const root=panel('fitting-scores',title,'Hover, tap or focus a bar. All scores use the same '+data.grid.pixels.toLocaleString('en-US')+' pixels.');
   root.dataset.exportKey=`${verification}-${metric}`;root.dataset.exportNote=verification==='forecast_2023'?data.notes.forecast:data.notes.cv;
   const svg=chartBox(root,850,390,title),tip=tooltip(root),marks=[];
   const vals=rows.map(r=>r[metric]),min=Math.min(0,...vals)*1.15,max=Math.max(0,...vals)*1.15||1;
@@ -351,47 +354,174 @@ function rings(g){
   return [];
 }
 
-function correlationCanvas(root,tip,field,longitude,latitude,geography,{title,predictor=false,min=-1,max=1,colors=DIVERGE,unit='correlation'}={}){
-  const card=el('div','story-map-card fitting-map-card'),canvas=el('canvas');card.append(el('h4',null,title),canvas);canvas.tabIndex=0;canvas.setAttribute('role','img');
-  canvas.setAttribute('aria-label',`${title}. Hover or tap a cell; arrow keys inspect adjacent grid cells. ${unit}.`);
-  const extent=predictor?[85,155,-20,20]:[94,142,-12,8],W=900,L=72,R=20,T=32,B=72,pw=W-L-R,ph=pw*(extent[3]-extent[2])/(extent[1]-extent[0]),H=Math.ceil(ph+T+B);
-  canvas.width=W;canvas.height=H;canvas.style.aspectRatio=`${W}/${H}`;
-  const ctx=canvas.getContext('2d'),x=v=>L+(v-extent[0])/(extent[1]-extent[0])*pw,y=v=>T+(extent[3]-v)/(extent[3]-extent[2])*ph;
-  ctx.fillStyle='white';ctx.fillRect(0,0,W,H);ctx.save();ctx.beginPath();ctx.rect(L,T,pw,ph);ctx.clip();
-  const dx=Math.abs(longitude[1]-longitude[0]),dy=Math.abs(latitude[1]-latitude[0]);
-  for(let j=0;j<latitude.length;j++)for(let i=0;i<longitude.length;i++){
-    const value=field[j][i];if(value===null)continue;
-    ctx.fillStyle=palette(colors,(value-min)/(max-min||1));
-    const xx=x(longitude[i]-dx/2),yy=y(latitude[j]+dy/2);
-    ctx.fillRect(xx,yy,pw*dx/(extent[1]-extent[0])+.8,ph*dy/(extent[3]-extent[2])+.8);
+// Linked zoom for the maps of one view: every map shares a zoom factor and a centre in longitude/latitude
+function mapGroup() {
+  const state = {k: 1, cx: null, cy: null}, maps = [], bar = el("div", "story-map-tools");
+  const button = (label, title, run) => {const b = el("button", null, label); b.type = "button"; b.title = title; b.setAttribute("aria-label", title); b.onclick = run; bar.append(b); return b;};
+  const zoomIn = button("+", "Zoom in", () => zoom(1.6)), zoomOut = button("−", "Zoom out", () => zoom(1 / 1.6));
+  const resetView = () => {state.k = 1; state.cx = state.cy = null; apply();};
+  const reset = button("Reset view", "Back to the full map", resetView);
+  bar.append(el("span", "story-map-tools-note", "Zoom applies to every map in this view. Drag to move when zoomed · double-click or Ctrl + scroll to zoom."));
+  let queued = false;
+  // Buttons, keys and double-clicks redraw at once; a drag sends many moves, so those wait for the next frame
+  function apply(later = false) {
+    state.k = Math.max(1, Math.min(32, state.k)); if (state.k < 1.001) {state.k = 1; state.cx = state.cy = null;}   // 1.6 * 1.6 / 1.6 / 1.6 is not exactly 1
+    zoomOut.disabled = reset.disabled = state.k === 1; zoomIn.disabled = state.k === 32;
+    if (!later) {for (const m of maps) m.redraw(); return;}
+    if (queued) return; queued = true;
+    (document.hidden ? setTimeout : requestAnimationFrame)(() => {queued = false; for (const m of maps) m.redraw();});
   }
+  function zoom(f, lon, lat, from) {
+    const k = Math.max(1, Math.min(32, state.k * f)), ratio = k / state.k; if (ratio === 1) return;
+    const [x0, x1, y0, y1] = (from || maps[0]).window(), cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    state.cx = lon === undefined ? cx : lon + (cx - lon) / ratio; state.cy = lat === undefined ? cy : lat + (cy - lat) / ratio;
+    state.k = k; apply();
+  }
+  function pan(dLon, dLat, from) {
+    const [x0, x1, y0, y1] = from.window(); state.cx = (x0 + x1) / 2 + dLon; state.cy = (y0 + y1) / 2 + dLat;
+    const [a0, a1, b0, b1] = from.window(); state.cx = (a0 + a1) / 2; state.cy = (b0 + b1) / 2; apply(true);
+  }
+  zoomOut.disabled = reset.disabled = true;
+  return {state, maps, bar, zoom, pan, reset: resetView};
+}
+// The part of a full extent [west, east, south, north] a map shows for the group's zoom and centre
+function groupWindow(group, full) {
+  const k = group.state.k, w = (full[1] - full[0]) / k, h = (full[3] - full[2]) / k;
+  const cx = Math.max(full[0] + w / 2, Math.min(full[1] - w / 2, group.state.cx ?? (full[0] + full[1]) / 2));
+  const cy = Math.max(full[2] + h / 2, Math.min(full[3] - h / 2, group.state.cy ?? (full[2] + full[3]) / 2));
+  return [cx - w / 2, cx + w / 2, cy - h / 2, cy + h / 2];
+}
+const tickStep = span => [20, 10, 5, 2, 1, .5, .2, .1].find(s => span / s >= 3) || .1;
+// Drag, double-click, Ctrl + scroll and + / - / 0 on one map; `at(event)` gives [longitude, latitude, inside the map]
+function zoomGestures(canvas, group, self, at) {
+  let last = null;
+  canvas.addEventListener("pointerdown", e => {delete canvas.dataset.dragged; if (group.state.k > 1 && e.button === 0) {last = {clientX: e.clientX, clientY: e.clientY}; try {canvas.setPointerCapture(e.pointerId);} catch {}}});
+  canvas.addEventListener("pointermove", e => {
+    if (!last) return;
+    if (Math.abs(e.clientX - last.clientX) + Math.abs(e.clientY - last.clientY) < 4 && !canvas.dataset.dragged) return;
+    const a = at(last), b = at(e); canvas.dataset.dragged = "1"; last = {clientX: e.clientX, clientY: e.clientY};
+    group.pan(a[0] - b[0], a[1] - b[1], self);
+  });
+  const release = e => {if (last) {last = null; try {canvas.releasePointerCapture(e.pointerId);} catch {}}};
+  canvas.addEventListener("pointerup", release); canvas.addEventListener("pointercancel", release);
+  canvas.addEventListener("dblclick", e => {const [lon, lat, inside] = at(e); if (inside) {e.preventDefault(); group.zoom(2, lon, lat, self);}});
+  canvas.addEventListener("wheel", e => {if (!e.ctrlKey && !e.metaKey) return; e.preventDefault(); const [lon, lat, inside] = at(e); if (inside) group.zoom(e.deltaY < 0 ? 1.25 : .8, lon, lat, self);}, {passive: false});
+  canvas.addEventListener("keydown", e => {
+    if (e.key === "+" || e.key === "=") {e.preventDefault(); group.zoom(1.6, undefined, undefined, self);}
+    else if (e.key === "-" || e.key === "_") {e.preventDefault(); group.zoom(1 / 1.6, undefined, undefined, self);}
+    else if (e.key === "0") {e.preventDefault(); group.reset();}
+  });
+}
+
+// Predictand maps are at 0.05 degree: their values arrive as small binary files next to this script,
+// one 16-bit integer per scored pixel, in the pixel order of fields/pixels.bin (row 0 = north).
+const FIELD_BASE=new URL("./",import.meta.url),fieldCache=new Map();
+async function binary(name){
+  const response=await fetch(new URL(name,FIELD_BASE));if(!response.ok)throw new Error(`Cannot load ${name} (${response.status})`);
+  let buffer=await response.arrayBuffer();const head=new Uint8Array(buffer,0,2);
+  if(head[0]===0x1f&&head[1]===0x8b)buffer=await new Response(new Blob([buffer]).stream().pipeThrough(new DecompressionStream("gzip"))).arrayBuffer();
+  return buffer;
+}
+function pixelGrid(data){
+  if(!fieldCache.has("grid"))fieldCache.set("grid",binary(data.pixelsFile).then(buffer=>{
+    const pixels=new Int32Array(buffer),{nx,ny}=data.grid,lookup=new Int32Array(nx*ny).fill(-1);pixels.forEach((p,i)=>{lookup[p]=i;});
+    return {...data.grid,pixelIndex:pixels,lookup};
+  }));
+  return fieldCache.get("grid");
+}
+// `count` fields of one file, decoded to Float32Arrays (NaN = no value)
+function pixelFields(data,spec){
+  if(!fieldCache.has(spec.file))fieldCache.set(spec.file,binary(spec.file).then(buffer=>{
+    const n=data.grid.pixels,raw=new Int16Array(buffer);
+    return Array.from({length:spec.count},(_,k)=>{const out=new Float32Array(n);for(let i=0;i<n;i++){const v=raw[k*n+i];out[i]=v===-32768?NaN:v/spec.scale;}return out;});
+  }));
+  return fieldCache.get(spec.file);
+}
+
+function correlationCanvas(root,tip,field,longitude,latitude,geography,{title,predictor=false,min=-1,max=1,colors=DIVERGE,unit='correlation',group,grid=null,rgb=null,detail=null,onPick=null}={}){
+  const card=el('div','story-map-card fitting-map-card'),wrap=el('div','story-map-wrap'),canvas=el('canvas'),dot=el('span','story-map-dot');
+  dot.hidden=true;wrap.append(canvas,dot);card.append(el('h4',null,title),wrap);canvas.tabIndex=0;canvas.setAttribute('role','img');
+  canvas.setAttribute('aria-label',`${title}. Hover or tap a ${grid?'pixel':'cell'}; arrow keys inspect neighbours; + and - zoom. ${unit}.`);
+  const full=grid?[grid.west,grid.west+grid.nx*grid.step,grid.north-grid.ny*grid.step,grid.north]:[85,155,-20,20];
+  const W=900,L=72,R=20,T=32,B=72,pw=W-L-R,ph=pw*(full[3]-full[2])/(full[1]-full[0]),H=Math.ceil(ph+T+B);
+  canvas.width=W;canvas.height=H;canvas.style.aspectRatio=`${W}/${H}`;
+  group=group||mapGroup();
+  let extent=full.slice(),marked=[];
+  const ctx=canvas.getContext('2d'),x=v=>L+(v-extent[0])/(extent[1]-extent[0])*pw,y=v=>T+(extent[3]-v)/(extent[3]-extent[2])*ph;
+  const rgbOf=c=>c.startsWith('#')?[1,3,5].map(i=>parseInt(c.slice(i,i+2),16)):c.match(/\d+/g).map(Number);
+  let raster=null;
+  if(grid){                                                   // the field as an image, one image pixel per grid pixel
+    const image=new ImageData(grid.nx,grid.ny),table=colors.map(rgbOf);
+    for(let i=0;i<field.length;i++){const v=field[i];if(Number.isNaN(v))continue;
+      const c=rgb?rgbOf(rgb(i)):table[Math.max(0,Math.min(table.length-1,Math.round((v-min)/(max-min||1)*(table.length-1))))];image.data.set([c[0],c[1],c[2],255],grid.pixelIndex[i]*4);}
+    raster=el('canvas');raster.width=grid.nx;raster.height=grid.ny;raster.getContext('2d').putImageData(image,0,0);
+  }
+  const dx=grid?grid.step:Math.abs(longitude[1]-longitude[0]),dy=grid?grid.step:Math.abs(latitude[1]-latitude[0]);
   function boundary(layer,fill=false){
     for(const f of layer.features)for(const ring of rings(f.geometry)){
       ctx.beginPath();ring.forEach((p,i)=>i?ctx.lineTo(x(p[0]),y(p[1])):ctx.moveTo(x(p[0]),y(p[1])));ctx.closePath();
       if(fill){ctx.fillStyle='#e3e5e4';ctx.fill();}ctx.strokeStyle='#5b6c68';ctx.lineWidth=.75;ctx.stroke();
     }
   }
-  if(predictor)boundary(geography.predictor);else{boundary(geography.neighbours,true);boundary(geography.indonesia);boundary(geography.provinces);}
-  ctx.restore();ctx.strokeStyle='#8b9f9b';ctx.strokeRect(L,T,pw,ph);ctx.font='26px Arial';ctx.fillStyle=MUTED;ctx.textAlign='center';
-  for(let lon=Math.ceil(extent[0]/10)*10;lon<=extent[1];lon+=10)ctx.fillText(String(lon),x(lon),T+ph+32);
-  ctx.textAlign='right';for(let lat=Math.ceil(extent[2]/10)*10;lat<=extent[3];lat+=10)ctx.fillText(String(lat),L-9,y(lat)+6);
-  ctx.textAlign='center';ctx.fillText('Longitude',L+pw/2,H-10);ctx.save();ctx.translate(21,T+ph/2);ctx.rotate(-Math.PI/2);ctx.fillText('Latitude',0,0);ctx.restore();
-  let index=[Math.floor(longitude.length/2),Math.floor(latitude.length/2)];
-  function show(i,j,e,pin=false){
-    if(i<0||j<0||i>=longitude.length||j>=latitude.length)return;
-    index=[i,j];const value=field[j][i];
-    tip.show(title,[['Longitude',num(longitude[i],3)],['Latitude',num(latitude[j],3)],[unit,value===null?'Outside evaluated support':num(value,4)]],e,pin);
+  function redraw(){
+    extent=groupWindow(group,full);
+    ctx.fillStyle='white';ctx.fillRect(0,0,W,H);ctx.save();ctx.beginPath();ctx.rect(L,T,pw,ph);ctx.clip();
+    if(grid){
+      boundary(geography.neighbours,true);ctx.imageSmoothingEnabled=false;
+      ctx.drawImage(raster,(extent[0]-grid.west)/grid.step,(grid.north-extent[3])/grid.step,(extent[1]-extent[0])/grid.step,(extent[3]-extent[2])/grid.step,L,T,pw,ph);
+      boundary(geography.indonesia);boundary(geography.provinces);
+    }else{
+      const cw=pw*dx/(extent[1]-extent[0])+.8,ch=ph*dy/(extent[3]-extent[2])+.8;
+      for(let j=0;j<latitude.length;j++)for(let i=0;i<longitude.length;i++){
+        const value=field[j][i];if(value===null)continue;
+        ctx.fillStyle=palette(colors,(value-min)/(max-min||1));ctx.fillRect(x(longitude[i]-dx/2),y(latitude[j]+dy/2),cw,ch);
+      }
+      boundary(geography.predictor);
+    }
+    ctx.restore();ctx.strokeStyle='#8b9f9b';ctx.lineWidth=1;ctx.strokeRect(L,T,pw,ph);ctx.font='26px Arial';ctx.fillStyle=MUTED;ctx.textAlign='center';
+    const sx=tickStep(extent[1]-extent[0]),sy=tickStep((extent[3]-extent[2])*1.6),fmt=(v,s)=>s<1?v.toFixed(1):String(Math.round(v));
+    for(let lon=Math.ceil(extent[0]/sx-1e-9)*sx;lon<=extent[1]+1e-9;lon+=sx)if(x(lon)>L+20&&x(lon)<L+pw-20)ctx.fillText(fmt(lon,sx),x(lon),T+ph+32);
+    ctx.textAlign='right';for(let lat=Math.ceil(extent[2]/sy-1e-9)*sy;lat<=extent[3]+1e-9;lat+=sy)if(y(lat)>T+10&&y(lat)<T+ph-4)ctx.fillText(fmt(lat,sy),L-9,y(lat)+6);
+    ctx.textAlign='center';ctx.fillText('Longitude',L+pw/2,H-10);ctx.save();ctx.translate(21,T+ph/2);ctx.rotate(-Math.PI/2);ctx.fillText('Latitude',0,0);ctx.restore();
+    canvas.style.touchAction=group.state.k>1?'none':'pan-y';canvas.style.cursor=group.state.k>1?'grab':'crosshair';mark(...marked);
   }
-  function hit(e,pin=false){const b=canvas.getBoundingClientRect(),px=(e.clientX-b.left)*W/b.width,py=(e.clientY-b.top)*H/b.height;if(px<L||px>L+pw||py<T||py>T+ph)return;
-    const lon=extent[0]+(px-L)/pw*(extent[1]-extent[0]),lat=extent[3]-(py-T)/ph*(extent[3]-extent[2]);
-    show(Math.round((lon-longitude[0])/(longitude[1]-longitude[0])),Math.round((lat-latitude[0])/(latitude[1]-latitude[0])),e,pin);
+  function mark(lon,lat){
+    marked=[lon,lat];
+    if(lon===undefined||lon<extent[0]||lon>extent[1]||lat<extent[2]||lat>extent[3]){dot.hidden=true;return;}
+    dot.hidden=false;dot.style.left=`${x(lon)/W*100}%`;dot.style.top=`${y(lat)/H*100}%`;
   }
-  canvas.addEventListener('pointermove',e=>hit(e));canvas.addEventListener('click',e=>hit(e,true));canvas.addEventListener('pointerleave',tip.leave);
-  canvas.addEventListener('focus',e=>show(...index,e));canvas.addEventListener('keydown',e=>{
-    const step={ArrowRight:[1,0],ArrowLeft:[-1,0],ArrowUp:[0,latitude[1]>latitude[0]?1:-1],ArrowDown:[0,latitude[1]>latitude[0]?-1:1]}[e.key];
-    if(!step)return;e.preventDefault();show(Math.max(0,Math.min(longitude.length-1,index[0]+step[0])),Math.max(0,Math.min(latitude.length-1,index[1]+step[1])),e,true);
-  });
-  canvas.exportMap={title};return {card,canvas};
+  const self={redraw,mark,window:()=>groupWindow(group,full)};group.maps.push(self);
+  const hover=(lon,lat)=>group.maps.forEach(m=>m.mark(lon,lat));
+  const at=e=>{const b=canvas.getBoundingClientRect(),px=(e.clientX-b.left)*W/b.width,py=(e.clientY-b.top)*H/b.height;
+    return [extent[0]+(px-L)/pw*(extent[1]-extent[0]),extent[3]-(py-T)/ph*(extent[3]-extent[2]),px>=L&&px<=L+pw&&py>=T&&py<=T+ph];};
+  let show,hit,key;
+  if(grid){
+    let current=0;const centre=k=>{const p=grid.pixelIndex[k];return [grid.west+(p%grid.nx+.5)*grid.step,grid.north-(Math.floor(p/grid.nx)+.5)*grid.step];};
+    show=(k,e,pin=false)=>{if(k<0)return;current=k;const [lon,lat]=centre(k);hover(lon,lat);
+      tip.show(title,[['Longitude',num(lon,3)],['Latitude',num(lat,3)],...(detail?detail(k):[[unit,Number.isNaN(field[k])?'no value':num(field[k],unit==='mm'?0:4)]])],e,pin);if(pin&&onPick)onPick(k,lon,lat);};
+    hit=(e,pin=false)=>{const [lon,lat,inside]=at(e);if(!inside)return;const col=Math.floor((lon-grid.west)/grid.step),row=Math.floor((grid.north-lat)/grid.step);
+      const k=col>=0&&col<grid.nx&&row>=0&&row<grid.ny?grid.lookup[row*grid.nx+col]:-1;if(k>=0)show(k,e,pin);else{tip.leave();hover();}};
+    key=e=>{const d={ArrowRight:[1,0],ArrowLeft:[-1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];if(!d)return;e.preventDefault();
+      const p=grid.pixelIndex[current],col=p%grid.nx,row=Math.floor(p/grid.nx);
+      for(let s=1;s<200;s++){const c=col+d[0]*s,r=row+d[1]*s;if(c<0||c>=grid.nx||r<0||r>=grid.ny)break;const k=grid.lookup[r*grid.nx+c];if(k>=0){show(k,e,true);return;}}};
+    canvas.addEventListener('focus',e=>show(current,e));
+  }else{
+    let index=[Math.floor(longitude.length/2),Math.floor(latitude.length/2)];
+    show=(i,j,e,pin=false)=>{
+      if(i<0||j<0||i>=longitude.length||j>=latitude.length)return;
+      index=[i,j];const value=field[j][i];hover(longitude[i],latitude[j]);
+      tip.show(title,[['Longitude',num(longitude[i],3)],['Latitude',num(latitude[j],3)],[unit,value===null?'Outside evaluated support':num(value,4)]],e,pin);
+    };
+    hit=(e,pin=false)=>{const [lon,lat,inside]=at(e);if(!inside)return;
+      show(Math.round((lon-longitude[0])/(longitude[1]-longitude[0])),Math.round((lat-latitude[0])/(latitude[1]-latitude[0])),e,pin);};
+    key=e=>{const step={ArrowRight:[1,0],ArrowLeft:[-1,0],ArrowUp:[0,latitude[1]>latitude[0]?1:-1],ArrowDown:[0,latitude[1]>latitude[0]?-1:1]}[e.key];
+      if(!step)return;e.preventDefault();show(Math.max(0,Math.min(longitude.length-1,index[0]+step[0])),Math.max(0,Math.min(latitude.length-1,index[1]+step[1])),e,true);};
+    canvas.addEventListener('focus',e=>show(...index,e));
+  }
+  zoomGestures(canvas,group,self,at);
+  canvas.addEventListener('pointermove',e=>{if(!canvas.dataset.dragged)hit(e);});canvas.addEventListener('click',e=>{if(canvas.dataset.dragged){delete canvas.dataset.dragged;return;}hit(e,true);});
+  canvas.addEventListener('pointerleave',()=>{tip.leave();hover();});canvas.addEventListener('keydown',key);
+  redraw();canvas.exportMap={title};return {card,canvas};
 }
 
 async function combineMaps(maps,chartRoot=null){
@@ -405,22 +535,33 @@ async function combineMaps(maps,chartRoot=null){
   return {image:canvas,width:canvas.width,height:canvas.height};
 }
 
-export function fittingPatterns(data,geography,season='OND',kind='cca',mode='1'){
+// A table with one row per pixel is built only when the reader opens it
+function lazyTable(root,label,count,makeRows,columns=null){
+  const holder=el('details','story-table');holder.append(el('summary',null,`${label} · ${count.toLocaleString('en')} rows · sortable table and CSV`));root.append(holder);
+  holder.addEventListener('toggle',()=>{if(!holder.open||holder.dataset.built)return;holder.dataset.built='1';const table=sortableTable(makeRows(),label,columns);table.open=true;holder.replaceWith(table);});
+}
+
+export async function fittingPatterns(data,geography,season='OND',kind='cca',mode='1'){
   mode=Number(mode);const title=`${season} · ${kind.toUpperCase()} ${mode} · full-training patterns`;
   const root=panel('fitting-patterns',title,'Maps show field–score correlations; the lines show separately standardized training scores.');
   root.dataset.exportKey=`${season}-${kind}-${mode}`;root.dataset.exportNote=data.notes.patterns;
-  const maps=el('div','story-map-grid'),tip=tooltip(root),canvases=[],rows=[],series=[];
+  const maps=el('div','story-map-grid'),tip=tooltip(root),canvases=[],series=[],group=mapGroup();
+  const grid=await pixelGrid(data),yFields=await pixelFields(data,data.diagnostics[season].predictand[kind].fields),centre=k=>{const p=grid.pixelIndex[k];return [grid.west+(p%grid.nx+.5)*grid.step,grid.north-(Math.floor(p/grid.nx)+.5)*grid.step];};
   for(const [side,name,color]of [['predictor','X predictor','#147d92'],['predictand','Y predictand','#c08325']]){
-    const d=data.diagnostics[season][side],a=d[kind].fields[mode-1];
-    const {card,canvas}=correlationCanvas(root,tip,a,d.longitude,d.latitude,geography,{title:name,predictor:side==='predictor'});maps.append(card);canvases.push(canvas);
+    const d=data.diagnostics[season][side],a=side==='predictor'?d[kind].fields[mode-1]:yFields[mode-1];
+    const {card,canvas}=correlationCanvas(root,tip,a,d.longitude,d.latitude,geography,{title:name,predictor:side==='predictor',group,grid:side==='predictor'?null:grid});maps.append(card);canvases.push(canvas);
     series.push({name,color,points:d.years.map((year,i)=>({year,value:d[kind].standardizedScore[mode-1][i],entries:[['Standardized score',num(d[kind].standardizedScore[mode-1][i],4)],['Native score',num(d[kind].score[mode-1][i],6)]]}))});
-    for(let j=0;j<d.latitude.length;j++)for(let i=0;i<d.longitude.length;i++)if(a[j][i]!==null)rows.push({season,diagnostic:kind.toUpperCase(),mode,side,longitude:d.longitude[i],latitude:d.latitude[j],correlation:a[j][i]});
   }
-  root.append(maps);linePlot(root,series,title,{ylabel:'Standardized diagnostic score',height:300});
+  root.append(group.bar,maps);linePlot(root,series,title,{ylabel:'Standardized diagnostic score',height:300});
   root.append(seriesLegend(series.map(s=>({name:s.name,color:s.color}))));
   legend(root,DIVERGE,-1,1,'Field–score correlation · 1991–2020 training · not forecast skill');
   const note=kind==='cca'?`Native canonical correlation for pair ${mode}: ${num(data.diagnostics[season].canonical[mode-1],6)}. This is a training relationship.`:'X and Y EOFs are independently ranked variance modes; sharing a mode number does not make them a canonical pair.';
-  root.append(el('p','story-support-note',note),sortableTable(rows,'Training correlation grid'));
+  root.append(el('p','story-support-note',note));
+  const px=data.diagnostics[season].predictor,xa=px[kind].fields[mode-1];
+  lazyTable(root,'Training correlation grid',px.latitude.length*px.longitude.length+grid.pixels,()=>{const rows=[];
+    for(let j=0;j<px.latitude.length;j++)for(let i=0;i<px.longitude.length;i++)if(xa[j][i]!==null)rows.push({season,diagnostic:kind.toUpperCase(),mode,side:'predictor',longitude:px.longitude[i],latitude:px.latitude[j],correlation:xa[j][i]});
+    for(let k=0;k<grid.pixels;k++){const [lon,lat]=centre(k);rows.push({season,diagnostic:kind.toUpperCase(),mode,side:'predictand',longitude:lon,latitude:lat,correlation:yFields[mode-1][k]});}
+    return rows;});
   root.exportGraphic=()=>combineMaps(canvases,root);
   const svgButton=root.querySelectorAll('.story-export button')[1];svgButton.textContent='Download score series (SVG)';
   root.exportSvg=()=>{const f=el('div');f.dataset.exportNote=`${season} · ${kind.toUpperCase()} ${mode} · 1991–2020 · standardized score series only; maps are in the PNG export.`;
@@ -428,15 +569,91 @@ export function fittingPatterns(data,geography,season='OND',kind='cca',mode='1')
   return root;
 }
 
-export function fittingErrors(data,geography,season='JJA',view='absoluteError'){
-  const d=data.maps[season],title=`${season} 2023 · ${view==='rainfall'?'forecast rainfall':view==='signedError'?'signed forecast error':'absolute forecast error'}`;
-  const root=panel('error-maps',title,'Identical support, units and colour scale for all four methods. Hover, tap or use arrow keys to inspect cells.');
-  root.dataset.exportKey=`fitting-${season}-${view}`;root.dataset.exportNote=data.notes.forecast;
-  const values=FIT_METHODS.flatMap(m=>d[view][m].flat().filter(v=>v!==null)),max=Math.max(...values.map(Math.abs)),min=view==='signedError'?-max:0,colors=view==='signedError'?DIVERGE:ERROR;
-  const maps=el('div','story-map-grid'),tip=tooltip(root),canvases=[],rows=[];
-  for(const method of FIT_METHODS){const a=d[view][method],{card,canvas}=correlationCanvas(root,tip,a,d.longitude,d.latitude,geography,{title:method,min,max,colors,unit:'mm'});maps.append(card);canvases.push(canvas);
-    for(let j=0;j<d.latitude.length;j++)for(let i=0;i<d.longitude.length;i++)if(a[j][i]!==null)rows.push({season,method,longitude:d.longitude[i],latitude:d.latitude[j],view:{rainfall:'Forecast rainfall',absoluteError:'Absolute error',signedError:'Signed error'}[view],value_mm:a[j][i]});}
-  root.append(maps);legend(root,colors,min,max,view==='signedError'?'Forecast minus observed rainfall (mm)':view==='rainfall'?'Forecast seasonal rainfall (mm)':'Absolute forecast minus observed rainfall (mm)');
-  root.append(el('p','story-support-note',data.notes.forecast),sortableTable(rows,'2023 forecast grid'));root.exportGraphic=()=>combineMaps(canvases);return root;
+const CATEGORY_NAMES=['Below normal','Near normal','Above normal'];
+const productViews={anomaly:'forecast anomaly',percent:'forecast as % of normal',category:'most likely tercile category'};
+const mixHex=(a,b,t)=>'#'+[0,1,2].map(k=>Math.round(parseInt(a.slice(1+2*k,3+2*k),16)*(1-t)+parseInt(b.slice(1+2*k,3+2*k),16)*t).toString(16).padStart(2,'0')).join('');
+// Colour of a tercile category at a probability in percent: brown below, grey near, green above
+function categoryColor(k,probability){
+  const t=Math.max(0,Math.min(1,(probability-35)/(k===1?20:50)));
+  return k===1?mixHex('#d9d9d9','#6b6b6b',t):palette(BRBG,k===0?.36-.34*t:.64+.34*t);
 }
-
+// The forecast as a user reads it: anomaly, percent of normal or tercile category, beside what was observed
+async function fittingProducts(data,geography,season,view){
+  const d=data.maps[season],q=d.products;
+  const root=panel('forecast-products',`${season} 2023 · ${productViews[view]}`,view==='category'?'CPT gives probabilities for the two calibrated fits only. Hover, tap or use arrow keys to inspect pixels.':'Identical pixels and colour scale for every map. Climatology has no map here: that forecast is the 1991–2020 normal itself, so its anomaly is 0 mm and it is 100% of normal everywhere. Hover, tap or use arrow keys to inspect pixels.');
+  root.dataset.exportKey=`fitting-${season}-${view}`;root.dataset.exportNote=data.notes.forecast;
+  const grid=await pixelGrid(data),all=await pixelFields(data,{file:d.file,count:d.order.length,scale:d.scale});
+  const base=await pixelFields(data,{file:q.file,count:q.order.length,scale:q.scale}),probs=await pixelFields(data,{file:q.probabilities.file,count:q.probabilities.order.length,scale:q.probabilities.scale});
+  const [normal,lower,upper,observed,observedCategory]=base,total=m=>all[d.order.indexOf(`rainfall:${m}`)];
+  const p=(m,k)=>['below','near','above'].map(c=>probs[q.probabilities.order.indexOf(`${m.toLowerCase()}:${c}`)][k]);
+  const likely=v=>v[2]>v[0]?(v[2]>v[1]?2:1):(v[0]>=v[1]?0:1),cap=q.anomalyCap;
+  const share=(x,k)=>normal[k]>0?`${num(100*x/normal[k],0)}% of normal`:'normal is 0 mm';
+  const describe=k=>{const rows=[['Normal, 1991–2020 mean',`${num(normal[k],0)} mm`],['Tercile boundaries',`${num(lower[k],0)} and ${num(upper[k],0)} mm`],
+      ['Observed',`${num(observed[k],0)} mm · ${num(observed[k]-normal[k],0)} mm · ${share(observed[k],k)} · ${CATEGORY_NAMES[observedCategory[k]].toLowerCase()}`]];
+    for(const m of FIT_METHODS){const t=total(m)[k];rows.push([m,`${num(t,0)} mm · ${num(t-normal[k],0)} mm · ${share(t,k)}`]);}
+    for(const m of ['CCA','PCR']){const v=p(m,k);rows.push([`${m} below / near / above`,`${num(v[0],0)}% / ${num(v[1],0)}% / ${num(v[2],0)}% · most likely ${CATEGORY_NAMES[likely(v)].toLowerCase()}`]);}
+    return rows;};
+  // climatology is the normal itself (anomaly 0 mm, 100% of normal everywhere), so it has no map in these views
+  const cards=view==='category'?['CCA','PCR','Observed']:[...FIT_METHODS.filter(m=>m!=='Climatology'),'Observed'];
+  const colour=(name,k)=>{
+    if(view==='category'){if(name==='Observed')return categoryColor(observedCategory[k],65);const v=p(name,k),c=likely(v);return categoryColor(c,v[c]);}
+    const t=name==='Observed'?observed[k]:total(name)[k];
+    return palette(BRBG,view==='anomaly'?(t-normal[k]+cap)/(2*cap):(normal[k]>0?(100*t/normal[k]-40)/120:.5));
+  };
+  const maps=el('div','story-map-grid'),tip=tooltip(root),canvases=[],group=mapGroup();
+  // The flexible forecast at a clicked pixel: a CCA or PCR map shows its own fit, any other map shows CCA
+  const fx=q.flexible,scales=fx?await pixelFields(data,{file:fx.file,count:fx.order.length,scale:fx.scale}):null,curves=el('div');
+  const centre=k=>{const pix=grid.pixelIndex[k];return [grid.west+(pix%grid.nx+.5)*grid.step,grid.north-(Math.floor(pix/grid.nx)+.5)*grid.step];};
+  function drawCurves(k,name){
+    const m=name==='PCR'?'PCR':'CCA',mu=total(m)[k],sc=scales[fx.order.indexOf(m.toLowerCase())][k],cmu=normal[k],cs=scales[0][k],nu=fx.degreesOfFreedom,[lon,lat]=centre(k);
+    const chance=x=>num(100*tSf(x,nu,mu,sc),0),usual=x=>num(100*normSf(x,cmu,cs),0);
+    curves.replaceChildren(exceedanceCurves({heading:`${season} 2023 · ${m} flexible forecast at ${num(lon,3)}°E, ${lat<0?num(-lat,3)+'°S':num(lat,3)+'°N'}`,
+      note:`Forecast centre ${num(mu,0)} mm, 1991–2020 mean ${num(cmu,0)} mm, observed ${num(observed[k],0)} mm. Chance of more than the mean: forecast ${chance(cmu)}%, climatology ${usual(cmu)}%. Chance of more than the upper tercile boundary (${num(upper[k],0)} mm): forecast ${chance(upper[k])}%, climatology ${usual(upper[k])}%. Chance of more than what was observed: forecast ${chance(observed[k])}%.`,
+      mu,s:sc,nu,cmu,cs,forecastLabel:`${m} forecast`,marks:[[lower[k],'lower tercile',MUTED,'4 3'],[upper[k],'upper tercile',MUTED,'2 3'],[observed[k],'observed',INK]]}));
+  }
+  for(const name of cards){const {card,canvas}=correlationCanvas(root,tip,normal,null,null,geography,{title:name==='Observed'?'Observed · CHIRPS v3.0':name,unit:'mm',group,grid,rgb:k=>colour(name,k),detail:describe,onPick:fx?k=>drawCurves(k,name):null});maps.append(card);canvases.push(canvas);}
+  root.append(group.bar,maps);
+  if(view==='anomaly')legend(root,BRBG,-cap,cap,'Total minus the 1991–2020 normal (mm): brown is drier than normal, green wetter. The scale stops at the 99th percentile; details keep full values.');
+  else if(view==='percent')legend(root,BRBG,40,160,'Total as a percentage of the 1991–2020 normal. Colours saturate below 40% and above 160%; details keep full values.');
+  else{
+    const bar=el('div','story-legend story-category-legend');
+    for(const [k,name] of CATEGORY_NAMES.entries()){const item=el('div','story-category-item'),strip=el('div','story-gradient'),top=k===1?55:85;
+      strip.style.background=`linear-gradient(to right,${[35,45,55,65,75,85].filter(x=>x<=top).map(x=>categoryColor(k,x)).join(',')})`;
+      const ends=el('div','story-legend-ends');ends.append(el('span',null,'35%'),el('span',null,name),el('span',null,`${top}%+`));item.append(strip,ends);bar.append(item);}
+    bar.append(el('p',null,'Forecast maps: the most likely tercile category, darker where its probability is higher. Observed map: the category that occurred. Probabilities are CPT\'s own and are not verified here.'));root.append(bar);
+  }
+  if(fx){
+    root.append(el('p','story-hint','Click or tap a pixel, or focus a map and press Enter, to draw its flexible forecast here: the whole distribution of the forecast against climatology.'),curves);
+    let start=0,best=Infinity;for(let k=0;k<grid.pixels;k++){const [lon,lat]=centre(k),d=(lon-106.85)**2+(lat+6.2)**2;if(d<best){best=d;start=k;}}
+    drawCurves(start,'CCA');
+  }
+  root.append(el('p','story-support-note',data.notes.forecast));
+  root.exportGraphic=()=>combineMaps(canvases);return root;
+}
+export async function fittingErrors(data,geography,season='JJA',view='absoluteError'){
+  if(productViews[view])return fittingProducts(data,geography,season,view);
+  const d=data.maps[season],title=`${season} 2023 · ${view==='rainfall'?'forecast rainfall':view==='signedError'?'signed forecast error':'absolute forecast error'}`;
+  const root=panel('error-maps',title,'Identical pixels, units and colour scale for all four methods. Hover, tap or use arrow keys on any map to read all four forecasts and their errors at that pixel.');
+  root.dataset.exportKey=`fitting-${season}-${view}`;root.dataset.exportNote=data.notes.forecast;
+  const grid=await pixelGrid(data),all=await pixelFields(data,{file:d.file,count:d.order.length,scale:d.scale});
+  const fieldOf=method=>all[d.order.indexOf(`${view}:${method}`)];
+  // The colour scale stops at the 99th percentile of the four methods' values; larger values take the end colour.
+  const top=d.limits[view],max=d.caps?d.caps[view]:top,min=view==='signedError'?-max:0,colors=view==='signedError'?DIVERGE:ERROR;
+  const capNote=max<top?` Colour scale capped at the 99th percentile, ${num(max,0)} mm; the largest value is ${num(top,0)} mm and pixels beyond the cap take the end colour.`:'';
+  const maps=el('div','story-map-grid'),tip=tooltip(root),canvases=[],group=mapGroup();
+  // Hovering any map lists every method at that pixel, so the four can be compared in one place
+  const totalOf=method=>all[d.order.indexOf(`rainfall:${method}`)],signedOf=method=>all[d.order.indexOf(`signedError:${method}`)];
+  const base=d.products?await pixelFields(data,{file:d.products.file,count:d.products.order.length,scale:d.products.scale}):null,observed=base?base[d.products.order.indexOf('observed')]:null;
+  const detail=k=>{const rows=observed?[['Observed',`${num(observed[k],0)} mm`]]:[];
+    for(const method of FIT_METHODS){const t=totalOf(method)[k],e=signedOf(method)[k];rows.push([method,`${num(t,0)} mm · error ${e>0?'+':''}${num(e,0)} mm`]);}
+    return rows;};
+  for(const method of FIT_METHODS){const {card,canvas}=correlationCanvas(root,tip,fieldOf(method),null,null,geography,{title:method,min,max,colors,unit:'mm',group,grid,detail});maps.append(card);canvases.push(canvas);}
+  root.append(group.bar,maps);legend(root,colors,min,max,view==='signedError'?'Forecast minus observed rainfall (mm)':view==='rainfall'?'Forecast seasonal rainfall (mm)':'Absolute forecast minus observed rainfall (mm)');
+  if(capNote)root.append(el('p','story-support-note',capNote.trim()));
+  root.append(el('p','story-support-note',data.notes.forecast));
+  const label={rainfall:'Forecast rainfall',absoluteError:'Absolute error',signedError:'Signed error'}[view];
+  lazyTable(root,'2023 forecast pixels',grid.pixels*FIT_METHODS.length,()=>{const rows=[];
+    for(const method of FIT_METHODS){const a=fieldOf(method);for(let k=0;k<grid.pixels;k++){const p=grid.pixelIndex[k];rows.push({season,method,longitude:grid.west+(p%grid.nx+.5)*grid.step,latitude:grid.north-(Math.floor(p/grid.nx)+.5)*grid.step,view:label,value_mm:a[k]});}}
+    return rows;});
+  root.exportGraphic=()=>combineMaps(canvases);return root;
+}

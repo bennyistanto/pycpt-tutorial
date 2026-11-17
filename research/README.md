@@ -8,7 +8,10 @@ the reusable pipelines that produced them, not disposable intermediate files.
 | [cases/](cases/) | Frozen case reports, NetCDF results, figures, metrics and provenance |
 | [scripts/](scripts/README.md) | Preparation, fitting, verification and report-generation pipelines |
 
-Start with the [all-twelve-season benchmark](cases/indonesia-all-seasons-2021-2024-025deg/README.md).
+Start with the [twelve-season run at 0.05°](cases/indonesia-all-seasons-2021-2024-005deg/README.md),
+which the published twelve-season case and Fit & diagnose use. It was built from the
+[0.25° benchmark](cases/indonesia-all-seasons-2021-2024-025deg/README.md), whose audited
+predictor inputs it reuses.
 The earlier [OND2023 case](cases/indonesia-ond-2023/README.md) and its sensitivity
 experiments remain preserved controls.
 The [0.05° predictand trial](cases/indonesia-ond-2023-005deg-trial/README.md) tests
@@ -34,4 +37,4 @@ results in [docs/](../docs/README.md).
 Every case keeps its NetCDF results in its `outputs/` folder, next to a README that
 describes them and JSON manifests that record each file's SHA-256 hash. The files
 are standard NetCDF4 and open with xarray, for example
-`xarray.open_dataset("cases/indonesia-all-seasons-2021-2024-025deg/outputs/verification_scores.nc")`.
+`xarray.open_dataset("cases/indonesia-all-seasons-2021-2024-005deg/outputs/verification_scores.nc")`.

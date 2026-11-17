@@ -523,10 +523,10 @@ async function weekField(data, name, kind, scale = 1) {
   const promise = loadBytes(`${data.base}fields/${name}.bin.gz`).then(buffer => {
     const n = data.grid.pixels, out = {};
     let offset = 0;
-    for (const [part, type, partScale] of data.layout[kind]) {
-      const Type = {i16: Int16Array, u16: Uint16Array, u8: Uint8Array}[type], missing = {i16: -32768, u16: 65535, u8: 255}[type];
+    for (const [part, type, partScale, partOffset = 0] of data.layout[kind]) {
+      const Type = {i16: Int16Array, u16: Uint16Array, u8: Uint8Array, i8: Int8Array}[type], missing = {i16: -32768, u16: 65535, u8: 255, i8: -128}[type];
       const raw = new Type(buffer, offset, n), s = partScale || scale, values = new Float32Array(n);
-      for (let i = 0; i < n; i++) values[i] = raw[i] === missing ? NaN : raw[i] / s;
+      for (let i = 0; i < n; i++) values[i] = raw[i] === missing ? NaN : raw[i] / s + partOffset;
       out[part] = values; offset += raw.byteLength;
     }
     return out;
@@ -538,58 +538,162 @@ async function weekField(data, name, kind, scale = 1) {
 const leadKey = (data, lead) => data.leadKeys[data.leads.indexOf(lead)];
 const leadOfKey = (data, key) => data.leads[data.leadKeys.indexOf(key)];
 
-// One 0.05° map: the field is drawn as an image (one image pixel per grid pixel), boundaries on top
-function rasterCanvas(tip, data, geo, values, {title, colorOf, describe}) {
-  const card = el("div", "story-map-card"), canvas = el("canvas"); card.append(el("h4", null, title), canvas);
-  canvas.dataset.title = title; canvas.tabIndex = 0; canvas.setAttribute("role", "img");
-  canvas.setAttribute("aria-label", `${title}. Hover or tap a pixel; arrow keys move between pixels.`);
-  const {west, north, step, nx, ny} = data.grid, extent = [west, west + nx * step, north - ny * step, north];
-  const W = 960, L = 56, R = 16, T = 16, B = 46;
-  const pw = W - L - R, ph = pw * (extent[3] - extent[2]) / (extent[1] - extent[0]), H = Math.ceil(ph + T + B);
+// Shared zoom, pan and hover marker for all maps of one view. Maps may cover different boxes
+// (the predictor box and Indonesia): they share a zoom factor and a centre in longitude/latitude.
+function mapGroup(root) {
+  const state = {k: 1, cx: null, cy: null}, maps = [];
+  const bar = el("div", "story-map-tools");
+  const button = (label, title, run) => {const b = el("button", null, label); b.type = "button"; b.title = title; b.setAttribute("aria-label", title); b.onclick = run; bar.append(b); return b;};
+  const zoomIn = button("+", "Zoom in", () => zoom(1.6)), zoomOut = button("−", "Zoom out", () => zoom(1 / 1.6));
+  const resetView = () => {state.k = 1; state.cx = state.cy = null; apply();};
+  const reset = button("Reset view", "Back to the full map", resetView);
+  bar.append(el("span", "story-map-tools-note", "Zoom and the red marker apply to every map in this view. Drag to move when zoomed · double-click or Ctrl + scroll to zoom."));
+  root.append(bar);
+  let queued = false;
+  // Buttons, keys and double-clicks redraw at once; a drag sends many moves, so those wait for the next frame
+  function apply(later = false) {
+    state.k = Math.max(1, Math.min(32, state.k)); if (state.k < 1.001) {state.k = 1; state.cx = state.cy = null;}   // 1.6 * 1.6 / 1.6 / 1.6 is not exactly 1
+    zoomOut.disabled = reset.disabled = state.k === 1; zoomIn.disabled = state.k === 32;
+    if (!later) {for (const m of maps) m.redraw(); return;}
+    if (queued) return; queued = true;
+    (document.hidden ? setTimeout : requestAnimationFrame)(() => {queued = false; for (const m of maps) m.redraw();});
+  }
+  // Zoom by factor f, keeping the point (lon, lat) where it is on screen; without a point, about the centre
+  function zoom(f, lon, lat, from) {
+    const k = Math.max(1, Math.min(32, state.k * f)), ratio = k / state.k; if (ratio === 1) return;
+    const [x0, x1, y0, y1] = (from || maps[0]).window(), cx = (x0 + x1) / 2, cy = (y0 + y1) / 2;
+    state.cx = lon === undefined ? cx : lon + (cx - lon) / ratio; state.cy = lat === undefined ? cy : lat + (cy - lat) / ratio;
+    state.k = k; apply();
+  }
+  function pan(dLon, dLat, from) {
+    const [x0, x1, y0, y1] = from.window(); state.cx = (x0 + x1) / 2 + dLon; state.cy = (y0 + y1) / 2 + dLat;
+    const [a0, a1, b0, b1] = from.window(); state.cx = (a0 + a1) / 2; state.cy = (b0 + b1) / 2; apply(true);      // keep the clamped centre
+  }
+  const hover = (lon, lat) => {for (const m of maps) m.mark(lon, lat);};
+  const leave = () => {for (const m of maps) m.mark();};
+  zoomOut.disabled = reset.disabled = true;
+  return {state, maps, zoom, pan, hover, leave, reset: resetView};
+}
+
+// The part of a full extent [west, east, south, north] a map shows for the group's zoom and centre
+function groupWindow(group, full) {
+  const k = group.state.k, w = (full[1] - full[0]) / k, h = (full[3] - full[2]) / k;
+  const cx = Math.max(full[0] + w / 2, Math.min(full[1] - w / 2, group.state.cx ?? (full[0] + full[1]) / 2));
+  const cy = Math.max(full[2] + h / 2, Math.min(full[3] - h / 2, group.state.cy ?? (full[2] + full[3]) / 2));
+  return [cx - w / 2, cx + w / 2, cy - h / 2, cy + h / 2];
+}
+const tickStep = span => [20, 10, 5, 2, 1, .5, .2, .1, .05].find(s => span / s >= 3) || .05;
+const degreeLabel = (v, pos, neg, step) => {const d = step < 1 ? (step < .1 ? 2 : 1) : 0, a = Math.abs(v).toFixed(d); return Math.abs(v) < 1e-9 ? "0°" : `${a}°${v > 0 ? pos : neg}`;};
+
+// Frame, zoom gestures and hover marker shared by the two kinds of map; `paint` draws the data for a window
+function zoomableMap(tip, geo, group, full, title, hint, paint, locate, layersBelow = true) {
+  const card = el("div", "story-map-card"), wrap = el("div", "story-map-wrap"), canvas = el("canvas"), dot = el("span", "story-map-dot");
+  dot.hidden = true; wrap.append(canvas, dot); card.append(el("h4", null, title), wrap);
+  canvas.dataset.title = title; canvas.tabIndex = 0; canvas.setAttribute("role", "img"); canvas.setAttribute("aria-label", `${title}. ${hint}`);
+  const W = 960, L = 56, R = 16, T = 16, B = 46, pw = W - L - R, ph = pw * (full[3] - full[2]) / (full[1] - full[0]), H = Math.ceil(ph + T + B);
   canvas.width = W; canvas.height = H; canvas.style.aspectRatio = `${W}/${H}`;
-  const ctx = canvas.getContext("2d"), x = v => L + (v - extent[0]) / (extent[1] - extent[0]) * pw, y = v => T + (extent[3] - v) / (extent[3] - extent[2]) * ph;
-  ctx.fillStyle = "white"; ctx.fillRect(0, 0, W, H); ctx.save(); ctx.beginPath(); ctx.rect(L, T, pw, ph); ctx.clip();
-  const drawLayer = (layer, fill) => {
+  const ctx = canvas.getContext("2d");
+  let win = full.slice();
+  const x = v => L + (v - win[0]) / (win[1] - win[0]) * pw, y = v => T + (win[3] - v) / (win[3] - win[2]) * ph;
+  const drawLayer = (layer, fill, stroke = "#7d8580", width = .6) => {
     for (const f of layer.features) for (const ring of rings(f.geometry)) {
       ctx.beginPath(); ring.forEach((p, i) => i ? ctx.lineTo(x(p[0]), y(p[1])) : ctx.moveTo(x(p[0]), y(p[1]))); ctx.closePath();
-      if (fill) {ctx.fillStyle = "#eceae4"; ctx.fill();} ctx.strokeStyle = "#7d8580"; ctx.lineWidth = .6; ctx.stroke();
+      if (fill) {ctx.fillStyle = "#eceae4"; ctx.fill();} ctx.strokeStyle = stroke; ctx.lineWidth = width; ctx.stroke();
     }
   };
-  drawLayer(geo.neighbours, true); drawLayer(geo.indonesia, true);
+  function redraw() {
+    win = groupWindow(group, full);
+    ctx.fillStyle = "white"; ctx.fillRect(0, 0, W, H); ctx.save(); ctx.beginPath(); ctx.rect(L, T, pw, ph); ctx.clip();
+    if (layersBelow) {drawLayer(geo.neighbours, true); drawLayer(geo.indonesia, true);}
+    paint(ctx, win, {L, T, pw, ph, x, y});
+    if (layersBelow) drawLayer(geo.provinces, false); else {drawLayer(geo.neighbours, false, "#3c4049", .7); drawLayer(geo.indonesia, false, "#3c4049", .7);}
+    ctx.restore(); ctx.strokeStyle = LINE; ctx.lineWidth = 1; ctx.strokeRect(L, T, pw, ph); ctx.fillStyle = MUTED; ctx.font = "20px Arial"; ctx.textAlign = "center";
+    const sx = tickStep(win[1] - win[0]), sy = tickStep((win[3] - win[2]) * 1.6);
+    for (let v = Math.ceil(win[0] / sx - 1e-9) * sx; v <= win[1] + 1e-9; v += sx) if (x(v) > L + 30 && x(v) < L + pw - 30) ctx.fillText(degreeLabel(v, "E", "W", sx), x(v), T + ph + 30);
+    ctx.textAlign = "right";
+    for (let v = Math.ceil(win[2] / sy - 1e-9) * sy; v <= win[3] + 1e-9; v += sy) if (y(v) > T + 10 && y(v) < T + ph - 4) ctx.fillText(degreeLabel(v, "N", "S", sy), L - 6, y(v) + 6);
+    canvas.style.touchAction = group.state.k > 1 ? "none" : "pan-y"; canvas.style.cursor = group.state.k > 1 ? "grab" : "crosshair";
+    mark(...marked);
+  }
+  let marked = [];
+  function mark(lon, lat) {
+    marked = [lon, lat];
+    if (lon === undefined || lon < win[0] || lon > win[1] || lat < win[2] || lat > win[3]) {dot.hidden = true; return;}
+    dot.hidden = false; dot.style.left = `${x(lon) / W * 100}%`; dot.style.top = `${y(lat) / H * 100}%`;
+  }
+  const at = e => {const b = canvas.getBoundingClientRect(), px = (e.clientX - b.left) * W / b.width, py = (e.clientY - b.top) * H / b.height;
+    return [win[0] + (px - L) / pw * (win[1] - win[0]), win[3] - (py - T) / ph * (win[3] - win[2]), px >= L && px <= L + pw && py >= T && py <= T + ph];};
+  const self = {card, canvas, redraw, mark, window: () => groupWindow(group, full)};
+  let drag = null, moved = false;
+  function point(e, pin) {
+    const [lon, lat, inside] = at(e), hit = inside ? locate(lon, lat) : null;
+    if (!hit) {tip.leave(); group.leave(); return;}
+    group.hover(hit.lon, hit.lat); hit.show(e, pin);
+  }
+  canvas.addEventListener("pointerdown", e => {moved = false; if (group.state.k > 1 && e.button === 0) {drag = {x: e.clientX, y: e.clientY}; canvas.setPointerCapture(e.pointerId);}});
+  canvas.addEventListener("pointermove", e => {
+    if (drag) {
+      const b = canvas.getBoundingClientRect(), dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+      if (Math.abs(dx) + Math.abs(dy) < 4 && !moved) return;
+      moved = true; drag = {x: e.clientX, y: e.clientY}; tip.leave();
+      group.pan(-dx * W / b.width / pw * (win[1] - win[0]), dy * H / b.height / ph * (win[3] - win[2]), self); return;
+    }
+    point(e, false);
+  });
+  const release = e => {if (drag) {drag = null; try {canvas.releasePointerCapture(e.pointerId);} catch {}}};
+  canvas.addEventListener("pointerup", release); canvas.addEventListener("pointercancel", release);
+  canvas.addEventListener("click", e => {if (moved) {moved = false; return;} point(e, true);});
+  canvas.addEventListener("dblclick", e => {const [lon, lat, inside] = at(e); if (inside) {e.preventDefault(); group.zoom(2, lon, lat, self);}});
+  canvas.addEventListener("wheel", e => {if (!e.ctrlKey && !e.metaKey) return; e.preventDefault(); const [lon, lat, inside] = at(e); if (inside) group.zoom(e.deltaY < 0 ? 1.25 : .8, lon, lat, self);}, {passive: false});
+  canvas.addEventListener("pointerleave", () => {tip.leave(); group.leave();});
+  canvas.addEventListener("keydown", e => {
+    if (e.key === "+" || e.key === "=") {e.preventDefault(); group.zoom(1.6, undefined, undefined, self);}
+    else if (e.key === "-" || e.key === "_") {e.preventDefault(); group.zoom(1 / 1.6, undefined, undefined, self);}
+    else if (e.key === "0") {e.preventDefault(); group.reset();}
+  });
+  group.maps.push(self);
+  return self;
+}
+
+// One 0.05° map: the field is drawn as an image (one image pixel per grid pixel), boundaries on top
+function rasterCanvas(tip, data, geo, values, {title, colorOf, describe, onPick, group}) {
+  const {west, north, step, nx, ny} = data.grid, full = [west, west + nx * step, north - ny * step, north];
   const image = new ImageData(nx, ny);
   data.pixels.forEach((p, k) => {
     const v = values[k]; if (Number.isNaN(v)) return;
     const c = colorOf(v); image.data.set([c[0], c[1], c[2], 255], p * 4);
   });
   const raster = el("canvas"); raster.width = nx; raster.height = ny; raster.getContext("2d").putImageData(image, 0, 0);
-  ctx.imageSmoothingEnabled = false; ctx.drawImage(raster, L, T, pw, ph);
-  drawLayer(geo.provinces, false); ctx.restore();
-  ctx.strokeStyle = LINE; ctx.strokeRect(L, T, pw, ph); ctx.fillStyle = MUTED; ctx.font = "20px Arial"; ctx.textAlign = "center";
-  for (let lo = 100; lo <= 140; lo += 10) ctx.fillText(`${lo}°E`, x(lo), T + ph + 30);
-  ctx.textAlign = "right"; for (const la of [-10, -5, 0, 5]) ctx.fillText(la < 0 ? `${-la}°S` : la > 0 ? `${la}°N` : "0°", L - 6, y(la) + 6);
-  let current = 0;
+  const paint = (ctx, win, {L, T, pw, ph}) => {
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(raster, (win[0] - west) / step, (north - win[3]) / step, (win[1] - win[0]) / step, (win[3] - win[2]) / step, L, T, pw, ph);
+  };
   const centre = k => {const p = data.pixels[k]; return [west + (p % nx + .5) * step, north - (Math.floor(p / nx) + .5) * step];};
+  let current = 0;
   function show(k, e, pin = false) {
     if (k === undefined || k < 0) return; current = k; const [lo, la] = centre(k);
     tip.show(title, [["Longitude", num(lo, 3)], ["Latitude", num(la, 3)], ...describe(values[k], k)], e, pin);
+    if (pin && onPick) onPick(k, lo, la);
   }
-  function hit(e, pin = false) {
-    const b = canvas.getBoundingClientRect(), px = (e.clientX - b.left) * W / b.width, py = (e.clientY - b.top) * H / b.height;
-    const col = Math.floor((px - L) / pw * nx), row = Math.floor((py - T) / ph * ny);
+  const locate = (lon, lat) => {
+    const col = Math.floor((lon - west) / step), row = Math.floor((north - lat) / step);
     const k = col >= 0 && col < nx && row >= 0 && row < ny ? data.lookup[row * nx + col] : -1;
-    if (k >= 0) show(k, e, pin); else tip.leave();
-  }
-  canvas.addEventListener("pointermove", e => hit(e)); canvas.addEventListener("click", e => hit(e, true)); canvas.addEventListener("pointerleave", tip.leave);
-  canvas.addEventListener("focus", e => show(current, e));
+    if (k < 0) return null; const [lo, la] = centre(k);
+    return {lon: lo, lat: la, show: (e, pin) => show(k, e, pin)};
+  };
+  const map = zoomableMap(tip, geo, group || mapGroup(el("div")), full, title, "Hover or tap a pixel; arrow keys move between pixels; + and - zoom.", paint, locate);
+  const {canvas} = map;
+  canvas.addEventListener("focus", e => {show(current, e); map.mark(...centre(current));});
   canvas.addEventListener("keydown", e => {
     const d = {ArrowRight: [1, 0], ArrowLeft: [-1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1]}[e.key]; if (!d) return; e.preventDefault();
     const p = data.pixels[current], col = p % nx, row = Math.floor(p / nx);
     for (let s = 1; s < 200; s++) {
       const c = col + d[0] * s, r = row + d[1] * s; if (c < 0 || c >= nx || r < 0 || r >= ny) break;
-      const k = data.lookup[r * nx + c]; if (k >= 0) {show(k, e, true); return;}
+      const k = data.lookup[r * nx + c]; if (k >= 0) {show(k, e, true); (group ? group.hover : map.mark)(...centre(k)); return;}
     }
   });
-  return {card, canvas};
+  map.redraw();
+  return {card: map.card, canvas};
 }
 
 function loadingPanel(root) {
@@ -633,10 +737,10 @@ export async function weekSkillMaps(data, geo, method = "CCA", metric = "pearson
   const tip = tooltip(root), note = loadingPanel(root), canvases = [], [lo, hi] = metric === "pearson" ? [-1, 1] : [0, 100];
   const fields = await Promise.all(data.leads.map(lead => weekField(data, `skill-${method}-${metric}-${leadKey(data, lead)}`, "skill", data.scales[metric])));
   note.remove();
-  const grid = el("div"); grid.style.display = "grid"; grid.style.gap = ".8rem";
+  const grid = el("div"), group = mapGroup(root); grid.style.display = "grid"; grid.style.gap = ".8rem";
   data.leads.forEach((lead, i) => {
     const values = fields[i].value;
-    const {card, canvas} = rasterCanvas(tip, data, geo, values, {title: leadName(data, lead), colorOf: v => pickRgb(DIVERGE, (v - lo) / (hi - lo)),
+    const {card, canvas} = rasterCanvas(tip, data, geo, values, {group, title: leadName(data, lead), colorOf: v => pickRgb(DIVERGE, (v - lo) / (hi - lo)),
       describe: v => [[label, Number.isNaN(v) ? "no value" : num(v, metric === "pearson" ? 3 : 1)]]});
     grid.append(card); canvases.push(canvas);
   });
@@ -653,8 +757,22 @@ export async function weekIssueMaps(data, geo, issue, method = "CCA", view = "to
     data.mapsHint || "Week 1 at the top, weeks 3-4 at the bottom. Totals are the 2000-2018 mean for that part of the season plus the calibrated anomaly; categories follow CPT's terciles of the training anomalies.");
   const tip = tooltip(root), note = loadingPanel(root), canvases = [];
   const loaded = await Promise.all(item.targets.map(t => Promise.all([weekField(data, `fc-${t.lead}-${method}-${t.start}`, "fc"), weekField(data, `obs-${t.days}-${t.start}`, "obs")])));
+  // Flexible forecast ingredients, where the case provides them: the forecast scale and the climatology scale
+  const flex = data.flex ? await Promise.all(item.targets.map(t => Promise.all([weekField(data, `flex-${t.lead}-${method}-${t.start}`, "flex"), weekField(data, data.flex.clim[t.lead], "flex")]))) : null;
   note.remove();
-  const grid = el("div"); grid.style.display = "grid"; grid.style.gap = ".8rem";
+  const curves = el("div");
+  const {nx, west, north, step} = data.grid;
+  function drawCurves(i, k) {
+    const t = item.targets[i], [f, o] = loaded[i], mu = f.total[k], sc = flex[i][0].scale[k], cmu = o.mean[k], cs = flex[i][1].scale[k], ob = o.total[k], nu = data.flex.dof[t.lead];
+    if (![mu, sc, cmu, cs].every(Number.isFinite) || sc <= 0 || cs <= 0) return;
+    const p = data.pixels[k], lo = west + (p % nx + .5) * step, la = north - (Math.floor(p / nx) + .5) * step;
+    const place = `${num(lo, 3)}°E, ${la < 0 ? num(-la, 3) + "°S" : num(la, 3) + "°N"}`, chance = x => num(100 * tSf(x, nu, mu, sc), 0);
+    curves.replaceChildren(exceedanceCurves({heading: `${leadName(data, leadOfKey(data, t.lead))} · ${method} flexible forecast at ${place}`,
+      note: `Forecast centre ${num(mu, 0)} mm, ${data.training} mean ${num(cmu, 0)} mm, observed ${num(ob, 0)} mm. Chance of more than the mean: forecast ${chance(cmu)}%, climatology 50%.${Number.isFinite(ob) ? ` Chance of more than what was observed: forecast ${chance(ob)}%.` : ""}`,
+      mu, s: sc, nu, cmu, cs, forecastLabel: `${method} forecast`, unit: `total in the target (${data.unit || "mm"})`,
+      marks: [[cmu, `${data.training} mean`, MUTED, "4 3"], [ob, "observed", INK]]}));
+  }
+  const grid = el("div"), group = mapGroup(root); grid.style.display = "grid"; grid.style.gap = ".8rem";
   item.targets.forEach((t, i) => {
     const [f, o] = loaded[i], top = (data.rainMax || {})[t.days] || (t.days === 7 ? 200 : 400);
     const end = new Date(Date.parse(t.start + "T00:00:00Z") + (t.days - 1) * 864e5).toISOString().slice(0, 10);
@@ -665,10 +783,16 @@ export async function weekIssueMaps(data, geo, issue, method = "CCA", view = "to
     if (view === "total" || view === "observed") {values = view === "total" ? f.total : o.total; colorOf = v => pickRgb(RAIN, Math.sqrt(Math.max(0, v) / top));}
     else if (view === "difference") {values = f.total.map((v, k) => v - o.total[k]); colorOf = v => pickRgb(DIFF, (v + top / 2) / top); describe = (v, k) => [["Difference", num(v, 0) + " mm"], ...cell(k)];}
     else {values = view === "category" ? f.category : o.category; colorOf = v => CATEGORY_RGB[v];}
-    const {card, canvas} = rasterCanvas(tip, data, geo, values, {title: `${leadName(data, leadOfKey(data, t.lead))} · ${fmtDate(t.start)} to ${fmtDate(end)}`, colorOf, describe});
+    const {card, canvas} = rasterCanvas(tip, data, geo, values, {group, title: `${leadName(data, leadOfKey(data, t.lead))} · ${fmtDate(t.start)} to ${fmtDate(end)}`, colorOf, describe, onPick: flex ? k => drawCurves(i, k) : undefined});
     grid.append(card); canvases.push(canvas);
   });
   root.append(grid);
+  if (flex) {
+    root.append(el("p", "story-hint", "Click or tap a pixel on any map, or focus a map and press Enter, to draw that target's flexible forecast below: the whole distribution of the forecast against climatology."), curves);
+    let start = 0, best = Infinity;                       // start at the pixel nearest Jakarta, on the first target
+    data.pixels.forEach((p, k) => {const d = (west + (p % nx + .5) * step - 106.85) ** 2 + (north - (Math.floor(p / nx) + .5) * step + 6.2) ** 2; if (d < best) {best = d; start = k;}});
+    drawCurves(0, start);
+  }
   let legendText;
   if (data.rainLegend && view !== "category" && view !== "observedCategory") {
     const m = Object.values(data.rainMax)[0];
@@ -700,7 +824,7 @@ export function weekSeries(data) {
   svg.append(sv("text", {x: 14, y: T + (H - T - B) / 2, transform: `rotate(-90 14 ${T + (H - T - B) / 2})`, "text-anchor": "middle", class: "story-axis"}, unit));
   for (let i = 0; i < n; i++) {
     const r = sv("rect", {x: x(i) - bw / 2, y: y(s.observed[i]), width: bw, height: y(0) - y(s.observed[i]), fill: "#d9d3c7"});
-    bind(r, tip, `Week from ${fmtDate(starts[i])}`, [["Observed", num(s.observed[i], 1) + " mm"], ["2000-2018 mean", num(s.mean_2000_2018[i], 1) + " mm"],
+    bind(r, tip, `${/pentad/.test(unit) ? "Pentad" : /dekad/.test(unit) ? "Dekad" : "Week"} from ${fmtDate(starts[i])}`, [["Observed", num(s.observed[i], 1) + " mm"], ["2000-2018 mean", num(s.mean_2000_2018[i], 1) + " mm"],
       ...keys.map(k => [`CCA, ${leadName(data, leadOfKey(data, k))}`, num(column(k)[i], 1) + " mm"])]);
     svg.append(r, sv("text", {x: x(i), y: H - B + 18, "text-anchor": "middle", class: "story-axis"}, fmtDate(starts[i])));
   }
@@ -715,5 +839,346 @@ export function weekSeries(data) {
              sv("line", {x1: W - R + 14, x2: W - R + 30, y1: T + 124, y2: T + 124, stroke: MUTED, "stroke-dasharray": "5 4"}), sv("text", {x: W - R + 34, y: T + 128, class: "story-axis"}, "2000-2018 mean"));
   const scroll = el("div", "story-chart-scroll"); scroll.append(svg); root.append(scroll);
   exportButtons(root, "ond-2023-weekly-series", null, async () => svgBlob(svg));
+  return root;
+}
+
+// ---------------------------------------------------------------------------------------
+// Views for the multi-model cases: every member and the ensemble (MME), EOF and CCA modes,
+// calibrated forecasts and the flexible forecast (probability of exceedance)
+
+const BELOW = ramp(["#fde8d7", "#f4a261", "#c8551b", "#7a2e05"]), NEAR = ramp(["#ededea", "#b4b4ae", "#6f6f6a"]), ABOVE = ramp(["#dbe9f6", "#7fb0dc", "#2f6fb5", "#0b3a75"]);
+const POE = ramp(["#8c510a", "#d8b365", "#f5f5f5", "#5ab4ac", "#01665e"]);
+// The ensemble is drawn in the text colour, so it stays visible in the dark theme
+const leadTick = (data, ld) => data.leadShort ? data.leadShort[data.leads.indexOf(ld)] : `Lead ${ld}`;
+const periodWord = data => data.periodWord || (data.kind === "month" ? "month" : "season");
+const modelColor = (data, m) => m === "MME" ? "currentColor" : (data.modelColors || {})[m] || INK;
+const isMember = (data, model, lead) => model === "MME" || data.members[leadKey(data, lead)].includes(model);
+const memberCount = (data, lead) => data.members[leadKey(data, lead)].length;
+const modelTitle = (data, model, lead) => model === "MME" ? `MME (${lead === undefined ? "all members" : memberCount(data, lead) + " members"})` : model;
+
+// Student's t and normal distributions, for the flexible forecast (same formulas as scipy's t.sf and norm.sf)
+function lgamma(z) {
+  const c = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
+  if (z < .5) return Math.log(Math.PI / Math.sin(Math.PI * z)) - lgamma(1 - z);
+  z -= 1; let x = c[0]; for (let i = 1; i < 9; i++) x += c[i] / (z + i);
+  const t = z + 7.5; return .5 * Math.log(2 * Math.PI) + (z + .5) * Math.log(t) - t + Math.log(x);
+}
+function betacf(a, b, x) {
+  const tiny = 1e-300; let c = 1, d = 1 - (a + b) * x / (a + 1); if (Math.abs(d) < tiny) d = tiny; d = 1 / d; let h = d;
+  for (let m = 1; m <= 300; m++) {
+    let aa = m * (b - m) * x / ((a + 2 * m - 1) * (a + 2 * m));
+    d = 1 + aa * d; if (Math.abs(d) < tiny) d = tiny; c = 1 + aa / c; if (Math.abs(c) < tiny) c = tiny; d = 1 / d; h *= d * c;
+    aa = -(a + m) * (a + b + m) * x / ((a + 2 * m) * (a + 2 * m + 1));
+    d = 1 + aa * d; if (Math.abs(d) < tiny) d = tiny; c = 1 + aa / c; if (Math.abs(c) < tiny) c = tiny; d = 1 / d; const del = d * c; h *= del;
+    if (Math.abs(del - 1) < 1e-12) break;
+  }
+  return h;
+}
+function ibeta(a, b, x) {
+  if (x <= 0) return 0; if (x >= 1) return 1;
+  const bt = Math.exp(lgamma(a + b) - lgamma(a) - lgamma(b) + a * Math.log(x) + b * Math.log(1 - x));
+  return x < (a + 1) / (a + b + 2) ? bt * betacf(a, b, x) / a : 1 - bt * betacf(b, a, 1 - x) / b;
+}
+export function tSf(x, nu, mu, s) {const z = (x - mu) / s, p = .5 * ibeta(nu / 2, .5, nu / (nu + z * z)); return z > 0 ? p : 1 - p;}
+const tPdf = (x, nu, mu, s) => {const z = (x - mu) / s; return Math.exp(lgamma((nu + 1) / 2) - lgamma(nu / 2)) / Math.sqrt(nu * Math.PI) * Math.pow(1 + z * z / nu, -(nu + 1) / 2) / s;};
+function erfc(x) {
+  const z = Math.abs(x), t = 1 / (1 + .5 * z);
+  const r = t * Math.exp(-z * z - 1.26551223 + t * (1.00002368 + t * (.37409196 + t * (.09678418 + t * (-.18628806 + t * (.27886807 + t * (-1.13520398 + t * (1.48851587 + t * (-.82215223 + t * .17087277)))))))));
+  return x >= 0 ? r : 2 - r;
+}
+export const normSf = (x, mu, s) => .5 * erfc((x - mu) / s / Math.SQRT2);
+const normPdf = (x, mu, s) => Math.exp(-.5 * ((x - mu) / s) ** 2) / (s * Math.sqrt(2 * Math.PI));
+
+// The flexible forecast at one place: probability of exceedance and probability density, forecast against climatology.
+// The forecast is a Student's t distribution (centre mu, scale s, nu degrees of freedom), the climatology a normal
+// distribution (mean cmu, scale cs): PyCPT's construct_flex_fcst. `marks` are vertical lines [value, label, colour, dash].
+export function exceedanceCurves({heading, note, mu, s, nu, cmu, cs, marks = [], forecastLabel = "forecast", unit = "season total (mm)"}) {
+  const holder = el("div", "story-flex-curves");
+  if (heading) holder.append(el("h4", null, heading));
+  if (note) holder.append(el("p", "story-hint", note));
+  const values = marks.map(m => m[0]).filter(Number.isFinite);
+  const xmin = Math.max(0, Math.min(cmu - 3.2 * cs, mu - 3.2 * s, ...values)), xmax = Math.max(cmu + 3.2 * cs, mu + 3.2 * s, ...values.map(v => v * 1.03));
+  const N = 200, xs = Array.from({length: N}, (_, i) => xmin + (xmax - xmin) * i / (N - 1));
+  const W = 900, H = 260, L = 60, R = 190, T = 16, B = 40, x = v => L + (v - xmin) / (xmax - xmin) * (W - L - R);
+  const frame = (yMax, yLabel, fmt) => {
+    const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, class: "story-svg", role: "img", "aria-label": `${yLabel}: ${forecastLabel} against climatology`}), y = v => T + (1 - v / yMax) * (H - T - B);
+    for (let i = 0; i <= 4; i++) {const v = yMax * i / 4; svg.append(sv("line", {x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: "#ece8e0"})); if (fmt) svg.append(sv("text", {x: L - 8, y: y(v) + 4, "text-anchor": "end", class: "story-axis"}, fmt(v)));}
+    for (let i = 0; i <= 5; i++) {const v = xmin + (xmax - xmin) * i / 5; svg.append(sv("text", {x: x(v), y: H - B + 18, "text-anchor": "middle", class: "story-axis"}, num(v, 0)));}
+    svg.append(sv("text", {x: (L + W - R) / 2, y: H - 4, "text-anchor": "middle", class: "story-axis"}, unit));
+    svg.append(sv("text", {x: 14, y: T + (H - T - B) / 2, transform: `rotate(-90 14 ${T + (H - T - B) / 2})`, "text-anchor": "middle", class: "story-axis"}, yLabel));
+    for (const [v, , c, dash] of marks) if (Number.isFinite(v)) svg.append(sv("line", {x1: x(v), x2: x(v), y1: T, y2: H - B, stroke: c || MUTED, "stroke-dasharray": dash || "none", "stroke-width": 1.3}));
+    return {svg, y};
+  };
+  const key = svg => [[forecastLabel, METHOD_COLORS.PCR], ["climatology (normal)", METHOD_COLORS.CCA], ...marks.map(m => [m[1], m[2] || MUTED, m[3]])]
+    .forEach(([name, c, dash], i) => {svg.append(sv("line", {x1: W - R + 12, x2: W - R + 32, y1: T + 14 + i * 22, y2: T + 14 + i * 22, stroke: c, "stroke-width": 2, "stroke-dasharray": dash || "none"}), sv("text", {x: W - R + 38, y: T + 18 + i * 22, class: "story-axis"}, name));});
+  const a = frame(100, "probability of exceedance (%)", v => num(v, 0));
+  a.svg.append(sv("polyline", {points: xs.map(v => `${x(v)},${a.y(normSf(v, cmu, cs) * 100)}`).join(" "), fill: "none", stroke: METHOD_COLORS.CCA, "stroke-width": 2}));
+  a.svg.append(sv("polyline", {points: xs.map(v => `${x(v)},${a.y(tSf(v, nu, mu, s) * 100)}`).join(" "), fill: "none", stroke: METHOD_COLORS.PCR, "stroke-width": 2.4}));
+  key(a.svg);
+  const peak = Math.max(tPdf(mu, nu, mu, s), normPdf(cmu, cmu, cs)) * 1.08, b = frame(peak, "probability density", null);
+  b.svg.append(sv("polyline", {points: xs.map(v => `${x(v)},${b.y(normPdf(v, cmu, cs))}`).join(" "), fill: "none", stroke: METHOD_COLORS.CCA, "stroke-width": 2}));
+  b.svg.append(sv("polyline", {points: xs.map(v => `${x(v)},${b.y(tPdf(v, nu, mu, s))}`).join(" "), fill: "none", stroke: METHOD_COLORS.PCR, "stroke-width": 2.4}));
+  key(b.svg);
+  for (const [title, part] of [["Probability of exceedance", a], ["Probability density", b]]) {const scroll = el("div", "story-chart-scroll"); scroll.append(el("h4", null, title), part.svg); holder.append(scroll);}
+  return holder;
+}
+
+function stackGrid() {const grid = el("div"); grid.style.display = "grid"; grid.style.gap = ".8rem"; return grid;}
+function noteCard(title, text) {const card = el("div", "story-map-card"); card.append(el("h4", null, title), el("p", "story-hint", text)); return card;}
+
+// M1. Skill by lead for every member and the ensemble
+export function mmeSkillByLead(data, method = "CCA", metric = "Pearson") {
+  const label = {Pearson: "Pearson correlation", "2AFC (%)": "2AFC (%)", "CV RPSS": "Cross-validated RPSS"}[metric], ref = metric === "2AFC (%)" ? 50 : 0;
+  const root = panel("mme-skill-by-lead", `${method} · ${label} by lead · every member and the ensemble`,
+    `Area-weighted mean over ${data.cellText}, cross-validated ${data.training}. Black: the ensemble (MME).${metric === "Pearson" ? " Dashed grey: the raw multi-model mean, no calibration." : ""} A line stops where a model has no forecast for that lead.`);
+  const tip = tooltip(root), rows = data.skillTable.filter(r => r.method === method && Number.isFinite(r[metric]));
+  const rawRows = metric === "Pearson" ? data.skillTable.filter(r => r.method === "raw" && r.model === "MME") : [];
+  const vals = rows.concat(rawRows).map(r => r[metric]), pad = metric === "2AFC (%)" ? 2 : .04, lo = Math.min(ref, ...vals) - pad, hi = Math.max(ref, ...vals) + pad;
+  const n = data.leads.length, W = 900, H = 360, L = 60, R = 190, T = 20, B = 56, x = i => L + (i + .5) * (W - L - R) / n, y = v => T + (1 - (v - lo) / (hi - lo)) * (H - T - B);
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, class: "story-svg", role: "group", "aria-label": `${label} by lead for every model`});
+  for (let i = 0; i <= 4; i++) {const v = lo + (hi - lo) * i / 4; svg.append(sv("line", {x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: "#ece8e0"})); svg.append(sv("text", {x: L - 8, y: y(v) + 4, "text-anchor": "end", class: "story-axis"}, num(v, metric === "2AFC (%)" ? 0 : 2)));}
+  svg.append(sv("line", {x1: L, x2: W - R, y1: y(ref), y2: y(ref), stroke: "#9a9a94", "stroke-dasharray": "4 3"}));
+  data.leads.forEach((ld, i) => {svg.append(sv("text", {x: x(i), y: H - B + 20, "text-anchor": "middle", class: "story-axis"}, leadTick(data, ld))); svg.append(sv("text", {x: x(i), y: H - B + 38, "text-anchor": "middle", class: "story-axis"}, target(data, ld).label));});
+  const series = data.models.map(m => [m, rows.filter(r => r.model === m), false]);
+  if (rawRows.length) series.push(["raw multi-model mean", rawRows, true]);
+  series.forEach(([m, mine, dashed], k) => {
+    const color = dashed ? MUTED : modelColor(data, m), bold = m === "MME";
+    const pts = data.leads.map((ld, i) => [i, mine.find(r => r.lead === ld)]).filter(([, r]) => r);
+    svg.append(sv("polyline", {points: pts.map(([i, r]) => `${x(i)},${y(r[metric])}`).join(" "), fill: "none", stroke: color, "stroke-width": bold ? 3 : 1.4, "stroke-dasharray": dashed ? "6 4" : "none"}));
+    pts.forEach(([i, r]) => {const c = sv("circle", {cx: x(i), cy: y(r[metric]), r: bold ? 6 : 4.5, fill: dashed ? "white" : color, stroke: color, "stroke-width": 1.5});
+      bind(c, tip, `${m} · ${dashed ? "no calibration" : method} · ${leadTick(data, r.lead)} · ${r.target}`, [[label, num(r[metric], metric === "2AFC (%)" ? 1 : 3)]]); svg.append(c);});
+    svg.append(sv("line", {x1: W - R + 12, x2: W - R + 32, y1: T + 14 + k * 22, y2: T + 14 + k * 22, stroke: color, "stroke-width": bold ? 3 : 1.6, "stroke-dasharray": dashed ? "6 4" : "none"}), sv("text", {x: W - R + 38, y: T + 18 + k * 22, class: "story-axis", "font-weight": bold ? 700 : 400}, m));
+  });
+  const scroll = el("div", "story-chart-scroll"); scroll.append(svg); root.append(scroll);
+  exportButtons(root, `mme-skill-${method}-${metric.replace(/\W+/g, "")}`, null, async () => svgBlob(svg));
+  return root;
+}
+
+// M2. Skill maps of one model (or the ensemble), one per lead
+export async function mmeSkillMaps(data, geo, model = "MME", method = "CCA", metric = "pearson") {
+  if (method === "raw") metric = "pearson";
+  const label = metric === "pearson" ? "Pearson correlation" : "Cross-validated RPSS";
+  const how = method === "raw" ? "no calibration" : method;
+  const root = panel("mme-skill-maps", `${modelTitle(data, model)} · ${how} · ${label} by lead`,
+    `${method === "raw" ? "The model's own rainfall against the observations" : "Cross-validated"} over ${data.sample}. Hover, tap or use the arrow keys to read a pixel.`);
+  const tip = tooltip(root), note = loadingPanel(root), canvases = [], use = data.leads.filter(ld => isMember(data, model, ld));
+  const fields = await Promise.all(use.map(ld => weekField(data, `skill-${model}-${method}-${metric}-${leadKey(data, ld)}`, "skill")));
+  note.remove();
+  const grid = stackGrid(), group = mapGroup(root);
+  data.leads.forEach(ld => {
+    const i = use.indexOf(ld);
+    if (i < 0) {grid.append(noteCard(leadName(data, ld), `${model} has no forecast this far ahead from ${data.issue.label}, so it is not in this lead's ensemble.`)); return;}
+    const {card, canvas} = rasterCanvas(tip, data, geo, fields[i].value, {group, title: `${leadName(data, ld)} · ${modelTitle(data, model, ld)}`, colorOf: v => pickRgb(DIVERGE, (v + 1) / 2),
+      describe: v => [[label, Number.isNaN(v) ? "no value" : num(v, 2)]]});
+    grid.append(card); canvases.push(canvas);
+  });
+  root.append(grid);
+  const legend = `${label} · ${metric === "pearson" ? "0 = no linear relationship" : "0 = no better than a climatological forecast built the same way (values below -1 drawn as -1)"}`;
+  gradientLegend(root, DIVERGE, -1, 1, legend, 5);
+  exportButtons(root, `mme-skill-${model}-${method}-${metric}`, () => stackPng(`${modelTitle(data, model)} · ${how} · ${label} by lead`, canvases, legend), null);
+  return root;
+}
+
+// M3. Calibrated forecasts of one model (or the ensemble): probabilistic and deterministic, one map per lead
+export async function mmeForecastMaps(data, geo, model = "MME", method = "CCA", view = "probability") {
+  const names = {probability: "Most likely category and its probability", total: "Forecast total", anomaly: `Forecast minus the ${data.training} mean`,
+    percent: `Forecast as % of the ${data.training} mean`, observed: "Observed total", observedAnomaly: `Observed minus the ${data.training} mean`, observedCategory: "Observed category"};
+  const observedView = view.startsWith("observed");
+  const root = panel("mme-forecast-maps", observedView ? `What happened · ${names[view]}` : `Issued ${data.issue.label} · ${modelTitle(data, model)} · ${method} · ${names[view]}`,
+    `${leadTick(data, data.leads[0])} at the top. Each map is a different target ${periodWord(data)}. Hover a pixel for the three category probabilities, the forecast, the observation and the training mean.`);
+  const tip = tooltip(root), note = loadingPanel(root), canvases = [], use = data.leads.filter(ld => observedView || isMember(data, model, ld));
+  const loaded = await Promise.all(use.map(ld => Promise.all([observedView && model !== "MME" && !isMember(data, model, ld) ? null : weekField(data, `fc-${model}-${method}-${leadKey(data, ld)}`, "fc"), weekField(data, `obs-${leadKey(data, ld)}`, "obs")])));
+  note.remove();
+  const top = data.rainMax, grid = stackGrid(), half = top / 2, group = mapGroup(root);
+  data.leads.forEach(ld => {
+    const i = use.indexOf(ld);
+    if (i < 0) {grid.append(noteCard(leadName(data, ld), `${model} has no forecast this far ahead from ${data.issue.label}.`)); return;}
+    const [f, o] = loaded[i];
+    const probs = k => {const b = f.below[k], a = f.above[k], m = 100 - b - a; return [b, m, a];};
+    const cell = k => {
+      const rows = [];
+      if (f) {const p = probs(k); rows.push(["Below / near / above", Number.isNaN(p[0]) ? "–" : `${num(p[0], 0)}% / ${num(p[1], 0)}% / ${num(p[2], 0)}%`], ["Forecast", num(f.total[k], 0) + " mm"]);}
+      rows.push([`${data.training} mean`, num(o.mean[k], 0) + " mm"]);
+      if (f) rows.push(["Forecast anomaly", `${f.total[k] >= o.mean[k] ? "+" : ""}${num(f.total[k] - o.mean[k], 0)} mm`]);
+      rows.push(["Observed", num(o.total[k], 0) + " mm"], ["Observed category", Number.isNaN(o.category[k]) ? "–" : CATEGORY[o.category[k]][0]]);
+      return rows;
+    };
+    let values, colorOf;
+    if (view === "probability") {
+      values = new Float32Array(f.total.length);
+      for (let k = 0; k < values.length; k++) {const p = probs(k); values[k] = Number.isNaN(p[0]) ? NaN : p.indexOf(Math.max(...p)) * 1000 + Math.max(...p);}
+      colorOf = v => {const c = Math.floor(v / 1000), p = v - c * 1000; return pickRgb([BELOW, NEAR, ABOVE][c], (p - 33) / (c === 1 ? 27 : 52));};
+    }
+    else if (view === "total" || view === "observed") {values = view === "total" ? f.total : o.total; colorOf = v => pickRgb(RAIN, Math.sqrt(Math.max(0, v) / top));}
+    else if (view === "anomaly" || view === "observedAnomaly") {const a = view === "anomaly" ? f.total : o.total; values = a.map((v, k) => v - o.mean[k]); colorOf = v => pickRgb(DIFF, (v + half) / top);}
+    else if (view === "percent") {values = f.total.map((v, k) => o.mean[k] > 0 ? v / o.mean[k] * 100 : NaN); colorOf = v => pickRgb(DIFF, (v - 50) / 100);}
+    else {values = o.category; colorOf = v => CATEGORY_RGB[v];}
+    const {card, canvas} = rasterCanvas(tip, data, geo, values, {group, title: `${leadName(data, ld)}${observedView ? "" : " · " + modelTitle(data, model, ld)}`, colorOf, describe: (v, k) => cell(k)});
+    grid.append(card); canvases.push(canvas);
+  });
+  root.append(grid);
+  let legendText;
+  if (view === "probability") {
+    legendText = "Colour: the category with the highest probability; darker = more probable (33% to 85%, near normal 33% to 60%)";
+    const bar = el("div", "story-legend");
+    for (const [name, colors, hi] of [["Below normal", BELOW, 85], ["Near normal", NEAR, 60], ["Above normal", ABOVE, 85]]) {
+      const strip = el("div", "story-gradient"); strip.style.background = `linear-gradient(to right,${colors.filter((_, i) => i % 16 === 0).join(",")})`;
+      const ends = el("div", "story-legend-ends"); ends.append(el("span", null, `${name} 33%`), el("span", null, `${hi}%+`)); bar.append(strip, ends);
+    }
+    bar.append(el("p", null, legendText)); root.append(bar);
+  }
+  else if (view === "total" || view === "observed") {legendText = `${data.rainLegend} (square-root colour scale, 0 to ${top}+)`; gradientLegend(root, RAIN, 0, top, legendText, 5);}
+  else if (view === "anomaly" || view === "observedAnomaly") {legendText = `Difference from the ${data.training} mean, ${data.rainLegend} (brown: drier, green: wetter)`; gradientLegend(root, DIFF, -half, half, legendText, 5);}
+  else if (view === "percent") {legendText = `Forecast as % of the ${data.training} mean (100 = the mean)`; gradientLegend(root, DIFF, 50, 150, legendText, 5);}
+  else {legendText = `Terciles of each target's ${data.training} values at each pixel`; categoryLegend(root, legendText);}
+  exportButtons(root, `mme-forecast-${model}-${method}-${view}`, () => stackPng(`Issued ${data.issue.label} · ${modelTitle(data, model)} · ${method} · ${names[view]}`, canvases, legendText), null);
+  return root;
+}
+
+// A coarse predictor field (one value per model grid cell) with coastlines
+function gridCanvas(tip, geo, box, lat, lon, values, {title, colorOf, describe, group}) {
+  const full = [box.west, box.east, box.south, box.north], dx = Math.abs(lon[1] - lon[0]), dy = Math.abs(lat[1] - lat[0]);
+  const paint = (ctx, win, {pw, ph, x, y}) => {
+    const cw = pw * dx / (win[1] - win[0]) + .7, ch = ph * dy / (win[3] - win[2]) + .7;
+    lat.forEach((la, j) => lon.forEach((lo, i) => {
+      const v = values[j * lon.length + i]; if (v === null) return;
+      const c = colorOf(v); ctx.fillStyle = `rgb(${c[0]},${c[1]},${c[2]})`; ctx.fillRect(x(lo - dx / 2), y(la + dy / 2), cw, ch);
+    }));
+  };
+  const locate = (lo, la) => {
+    let i = -1, j = -1; lon.forEach((v, k) => {if (Math.abs(v - lo) <= dx / 2) i = k;}); lat.forEach((v, k) => {if (Math.abs(v - la) <= dy / 2) j = k;});
+    if (i < 0 || j < 0 || values[j * lon.length + i] === null) return null;
+    return {lon: lon[i], lat: lat[j], show: (e, pin) => tip.show(title, [["Longitude", num(lon[i], 1)], ["Latitude", num(lat[j], 1)], ...describe(values[j * lon.length + i])], e, pin)};
+  };
+  const map = zoomableMap(tip, geo, group || mapGroup(el("div")), full, title, "Hover or tap a cell; + and - zoom.", paint, locate, false);
+  map.redraw();
+  return {card: map.card, canvas: map.canvas};
+}
+
+const patternCache = new Map();
+const loadPatterns = (data, key) => {
+  if (!patternCache.has(data.base + key)) patternCache.set(data.base + key, fetch(`${data.base}patterns-${key}.json`).then(r => r.json()));
+  return patternCache.get(data.base + key);
+};
+
+// M4. EOF patterns and CCA modes of one model at one lead: predictor map, predictand map, score series
+export async function mmePatterns(data, geo, lead, model = "CFSv2", kind = "cca", mode = 1) {
+  lead = Number(lead); mode = Number(mode);
+  const key = leadKey(data, lead), what = kind === "eof" ? `EOF ${mode}` : `CCA mode ${mode}`;
+  const root = panel("mme-patterns", `${model} · ${leadName(data, lead)} · ${what}`,
+    `From the fit to all of ${data.sample}, not from the cross-validation folds. Loadings are CPT's, scaled so the largest absolute value on each map is 1; only sign and shape carry meaning.`);
+  const tip = tooltip(root);
+  if (!isMember(data, model, lead)) {root.append(el("p", "story-hint", `${model} has no forecast this far ahead from ${data.issue.label}, so there is no fit for this lead.`)); return root;}
+  if (kind === "cca" && mode > 2) {root.append(el("p", "story-hint", "The fits keep two CCA modes; choose mode 1 or 2.")); return root;}
+  const note = loadingPanel(root);
+  const [all, yField] = await Promise.all([loadPatterns(data, key), kind === "eof" ? weekField(data, `yeof-${key}`, "yeof") : weekField(data, `ycca-${model}-${key}`, "ycca")]);
+  note.remove();
+  const p = all.models[model], color = v => pickRgb(DIVERGE, (v + 1) / 2);
+  const xValues = (kind === "eof" ? p.xEof : p.xCca)[mode - 1], yValues = yField[`m${mode}`];
+  const extra = kind === "eof" ? [`${num(p.xVariance[mode - 1], 1)}% of predictor variance`, `${num(p.yVariance[mode - 1], 1)}% of predictand variance`] : [`canonical correlation ${num(p.canonical[mode - 1], 2)}`, `canonical correlation ${num(p.canonical[mode - 1], 2)}`];
+  const grid = stackGrid(), canvases = [], group = mapGroup(root);
+  const a = gridCanvas(tip, geo, data.predictorBox, p.lat, p.lon, xValues, {group, title: `Predictor (${model} rainfall) · ${what} · ${extra[0]}`, colorOf: color, describe: v => [["Loading (scaled)", num(v, 2)]]});
+  const b = rasterCanvas(tip, data, geo, yValues, {group, title: `Predictand (CHIRPS v3.0) · ${what} · ${extra[1]}`, colorOf: color, describe: v => [["Loading (scaled)", Number.isNaN(v) ? "no value" : num(v, 2)]]});
+  grid.append(a.card, b.card); canvases.push(a.canvas, b.canvas); root.append(grid);
+  gradientLegend(root, DIVERGE, -1, 1, "Loading, scaled to a largest absolute value of 1 on each map", 5);
+  const xs = (kind === "eof" ? p.xEofScores : p.xCcaScores)[mode - 1], ys = (kind === "eof" ? p.yEofScores : p.yCcaScores)[mode - 1], years = all.years;
+  const std = v => {const m = v.reduce((s, q) => s + q, 0) / v.length, sd = Math.sqrt(v.reduce((s, q) => s + (q - m) ** 2, 0) / v.length) || 1; return v.map(q => (q - m) / sd);};
+  const X = std(xs), Y = std(ys), lim = Math.max(2.5, ...X.map(Math.abs), ...Y.map(Math.abs));
+  const W = 900, H = 260, L = 60, R = 170, T = 20, B = 40, x = i => L + (i + .5) * (W - L - R) / years.length, y = v => T + (1 - (v + lim) / (2 * lim)) * (H - T - B);
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, class: "story-svg", role: "group", "aria-label": `${what} scores by training year`});
+  for (const v of [-2, -1, 0, 1, 2]) {svg.append(sv("line", {x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: v ? "#ece8e0" : "#9a9a94"})); svg.append(sv("text", {x: L - 8, y: y(v) + 4, "text-anchor": "end", class: "story-axis"}, String(v)));}
+  years.forEach((yr, i) => {if (yr % 4 === 0 && (i === 0 || years[i - 1] !== yr)) svg.append(sv("text", {x: x(i), y: H - B + 18, "text-anchor": "middle", class: "story-axis"}, String(yr)));});
+  [["predictor", X, METHOD_COLORS.CCA], ["predictand", Y, METHOD_COLORS.PCR]].forEach(([name, v, c], k) => {
+    svg.append(sv("polyline", {points: v.map((d, i) => `${x(i)},${y(d)}`).join(" "), fill: "none", stroke: c, "stroke-width": years.length > 60 ? 1 : 1.8}));
+    v.forEach((d, i) => {const dot = sv("circle", {cx: x(i), cy: y(d), r: years.length > 60 ? 2 : 4, fill: c}); bind(dot, tip, `${what} · ${name} score · ${all.labels ? all.labels[i] : years[i]}`, [["Standardised score", num(d, 2)]]); svg.append(dot);});
+    svg.append(sv("circle", {cx: W - R + 18, cy: T + 14 + k * 22, r: 6, fill: c}), sv("text", {x: W - R + 30, y: T + 18 + k * 22, class: "story-axis"}, name));
+  });
+  svg.append(sv("text", {x: 14, y: T + (H - T - B) / 2, transform: `rotate(-90 14 ${T + (H - T - B) / 2})`, "text-anchor": "middle", class: "story-axis"}, "standardised score"));
+  const scroll = el("div", "story-chart-scroll"); scroll.append(el("h4", null, `${what} · scores by ${all.labels ? "training target" : "training target year"}${kind === "cca" ? ` · correlation ${num(p.canonical[mode - 1], 2)}` : ""}`), svg); root.append(scroll);
+  exportButtons(root, `mme-${kind}${mode}-${model}-${key}`, () => stackPng(`${model} · ${leadName(data, lead)} · ${what}`, canvases, "Loadings scaled to a largest absolute value of 1"), async () => svgBlob(svg));
+  return root;
+}
+
+// M5. Flexible forecast of the ensemble: probability of exceeding a climatological percentile, with the curves at a chosen pixel
+export async function mmeFlexible(data, geo, lead, percentile = 50) {
+  lead = Number(lead); percentile = Number(percentile);
+  const key = leadKey(data, lead), nu = data.flexDof[key], t = target(data, lead);
+  const root = panel("mme-flexible", `MME (CCA) · chance that ${t.label} exceeds its ${percentile === 50 ? "median" : `${percentile}th percentile`} · ${leadName(data, lead)}`,
+    `The threshold at each pixel is the ${percentile === 50 ? "median" : percentile + "th percentile"} of its ${data.training} totals, so climatology alone gives ${100 - percentile}% everywhere. Click or tap a pixel, or use the arrow keys, to draw its curves below.`);
+  const tip = tooltip(root), note = loadingPanel(root);
+  const [fx, q, o] = await Promise.all([weekField(data, `flex-${key}`, "flex"), weekField(data, `quant-${key}`, "quant"), weekField(data, `obs-${key}`, "obs")]);
+  note.remove();
+  const thr = q[`q${percentile}`], n = thr.length, poe = new Float32Array(n);
+  for (let k = 0; k < n; k++) poe[k] = Number.isNaN(fx.mu[k]) ? NaN : tSf(thr[k], nu, fx.mu[k], fx.scale[k]) * 100;
+  const charts = el("div");
+  const {nx, west, north, step} = data.grid;
+  function draw(k) {
+    const p = data.pixels[k], lo = west + (p % nx + .5) * step, la = north - (Math.floor(p / nx) + .5) * step;
+    const mu = fx.mu[k], s = fx.scale[k], cmu = fx.cmu[k], cs = fx.cscale[k], ob = o.total[k], th = thr[k];
+    const xmin = Math.max(0, Math.min(cmu - 3 * cs, mu - 3 * s)), xmax = Math.max(cmu + 3 * cs, mu + 3 * s, ob * 1.05), N = 160, xs = Array.from({length: N}, (_, i) => xmin + (xmax - xmin) * i / (N - 1));
+    charts.replaceChildren();
+    const place = `${num(lo, 3)}°E, ${la < 0 ? num(-la, 3) + "°S" : num(la, 3) + "°N"}`;
+    charts.append(el("h4", null, `Pixel ${place} · forecast centre ${num(mu, 0)} mm, ${data.training} mean ${num(cmu, 0)} mm, observed ${num(ob, 0)} mm`));
+    charts.append(el("p", "story-hint", `Chance of exceeding ${num(th, 0)} mm (the ${percentile === 50 ? "median" : percentile + "th percentile"}): forecast ${num(tSf(th, nu, mu, s) * 100, 0)}%, climatology ${100 - percentile}%. Chance of exceeding the observed ${num(ob, 0)} mm: forecast ${num(tSf(ob, nu, mu, s) * 100, 0)}%.`));
+    const W = 900, H = 250, L = 60, R = 200, T = 16, B = 40, x = v => L + (v - xmin) / (xmax - xmin) * (W - L - R);
+    const frame = (yMax, yLabel, fmt) => {
+      const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, class: "story-svg", role: "group", "aria-label": yLabel}), y = v => T + (1 - v / yMax) * (H - T - B);
+      for (let i = 0; i <= 4; i++) {const v = yMax * i / 4; svg.append(sv("line", {x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: "#ece8e0"})); if (fmt) svg.append(sv("text", {x: L - 8, y: y(v) + 4, "text-anchor": "end", class: "story-axis"}, fmt(v)));}
+      for (let i = 0; i <= 5; i++) {const v = xmin + (xmax - xmin) * i / 5; svg.append(sv("text", {x: x(v), y: H - B + 18, "text-anchor": "middle", class: "story-axis"}, num(v, 0)));}
+      svg.append(sv("text", {x: (L + W - R) / 2, y: H - 4, "text-anchor": "middle", class: "story-axis"}, `${periodWord(data)} total (mm)`));
+      svg.append(sv("text", {x: 14, y: T + (H - T - B) / 2, transform: `rotate(-90 14 ${T + (H - T - B) / 2})`, "text-anchor": "middle", class: "story-axis"}, yLabel));
+      for (const [v, c, dash] of [[th, MUTED, "4 3"], [ob, INK, "none"]]) svg.append(sv("line", {x1: x(v), x2: x(v), y1: T, y2: H - B, stroke: c, "stroke-dasharray": dash, "stroke-width": 1.3}));
+      return {svg, y};
+    };
+    const legend = (svg, items) => items.forEach(([name, c, dash], i) => {svg.append(sv("line", {x1: W - R + 12, x2: W - R + 32, y1: T + 14 + i * 22, y2: T + 14 + i * 22, stroke: c, "stroke-width": 2, "stroke-dasharray": dash || "none"}), sv("text", {x: W - R + 38, y: T + 18 + i * 22, class: "story-axis"}, name));});
+    const a = frame(100, "probability of exceedance (%)", v => num(v, 0));
+    a.svg.append(sv("polyline", {points: xs.map(v => `${x(v)},${a.y(normSf(v, cmu, cs) * 100)}`).join(" "), fill: "none", stroke: METHOD_COLORS.CCA, "stroke-width": 2}));
+    a.svg.append(sv("polyline", {points: xs.map(v => `${x(v)},${a.y(tSf(v, nu, mu, s) * 100)}`).join(" "), fill: "none", stroke: METHOD_COLORS.PCR, "stroke-width": 2.4}));
+    data.percentiles.forEach(pc => {const v = q[`q${pc}`][k]; if (v < xmin || v > xmax) return; const dot = sv("circle", {cx: x(v), cy: a.y(100 - pc), r: 5, fill: "#4f8a5a"}); bind(dot, tip, `${pc}th percentile of ${data.training}`, [["Total", num(v, 0) + " mm"], ["Exceeded in", `${100 - pc}% of ${data.sampleUnit || "training years"}`], ["Forecast chance of exceeding it", num(tSf(v, nu, mu, s) * 100, 0) + "%"]]); a.svg.append(dot);});
+    legend(a.svg, [["MME forecast", METHOD_COLORS.PCR], ["climatology, fitted normal", METHOD_COLORS.CCA], ["climatology, percentiles", "#4f8a5a"], ["threshold", MUTED, "4 3"], ["observed", INK]]);
+    const peak = Math.max(tPdf(mu, nu, mu, s), normPdf(cmu, cmu, cs)) * 1.08, b = frame(peak, "probability density", null);
+    b.svg.append(sv("polyline", {points: xs.map(v => `${x(v)},${b.y(normPdf(v, cmu, cs))}`).join(" "), fill: "none", stroke: METHOD_COLORS.CCA, "stroke-width": 2}));
+    b.svg.append(sv("polyline", {points: xs.map(v => `${x(v)},${b.y(tPdf(v, nu, mu, s))}`).join(" "), fill: "none", stroke: METHOD_COLORS.PCR, "stroke-width": 2.4}));
+    legend(b.svg, [["MME forecast", METHOD_COLORS.PCR], ["climatology, fitted normal", METHOD_COLORS.CCA], ["threshold", MUTED, "4 3"], ["observed", INK]]);
+    for (const [title, part] of [["Probability of exceedance", a], ["Probability density", b]]) {const scroll = el("div", "story-chart-scroll"); scroll.append(el("h4", null, title), part.svg); charts.append(scroll);}
+  }
+  const {card, canvas} = rasterCanvas(tip, data, geo, poe, {group: mapGroup(root), title: `Chance of exceeding the ${percentile === 50 ? "median" : percentile + "th percentile"} (%)`, colorOf: v => pickRgb(POE, v / 100),
+    describe: (v, k) => [["Chance of exceeding", Number.isNaN(v) ? "no value" : num(v, 0) + "%"], ["Threshold", num(thr[k], 0) + " mm"], ["Forecast centre", num(fx.mu[k], 0) + " mm"], ["Observed", num(o.total[k], 0) + " mm"]],
+    onPick: k => draw(k)});
+  root.append(card);
+  const legendText = `Chance of exceeding the threshold (%) · brown: drier than usual is more likely, green: wetter · ${100 - percentile}% = climatology`;
+  gradientLegend(root, POE, 0, 100, legendText, 5);
+  root.append(charts);
+  let start = 0, best = Infinity;                       // start at the pixel nearest Jakarta
+  data.pixels.forEach((p, k) => {const d = (west + (p % nx + .5) * step - 106.85) ** 2 + (north - (Math.floor(p / nx) + .5) * step + 6.2) ** 2; if (d < best) {best = d; start = k;}});
+  draw(start);
+  exportButtons(root, `mme-exceedance-${key}-p${percentile}`, () => stackPng(`MME (CCA) · chance that ${t.label} exceeds its ${percentile === 50 ? "median" : percentile + "th percentile"}`, [canvas], legendText), null);
+  return root;
+}
+
+// M6. The forecasts as issued, scored against what happened, for every member and the ensemble
+export function mmeScoresByLead(data, method = "CCA", metric = "hit") {
+  const names = {hit: "Hit rate of the most likely category (%)", rpss: "RPSS against 33/34/33% odds", rmse: "RMSE of the deterministic forecast (mm)"};
+  const key = {hit: "hit rate (%)", rpss: "RPSS", rmse: "RMSE (mm)"}[metric];
+  const root = panel("mme-scores-by-lead", `Issued ${data.issue.label} · ${method} · ${names[metric]}`,
+    (metric === "hit" ? "Grey squares: always forecasting the category that covered most of the area (chosen with hindsight). " : metric === "rpss" ? "0 is no better than 33/34/33% odds. " : "") + `One outcome per lead: this describes ${data.outcomeLabel || "2023-24"}, not skill.`);
+  const tip = tooltip(root), rows = data.scores2023.filter(r => r.method === method), refs = data.references, n = data.leads.length;
+  const vals = rows.map(r => r[key]).concat(metric === "hit" ? refs.map(r => r["reference hit rate (%)"]) : metric === "rpss" ? [0] : []);
+  const lo = Math.min(...vals), hi = Math.max(...vals), pad = (hi - lo) * .12 || 1;
+  const W = 900, H = 340, L = 70, R = 190, T = 20, B = 56, y = v => T + (1 - (v - (lo - pad)) / (hi - lo + 2 * pad)) * (H - T - B), x = i => L + (i + .5) * (W - L - R) / n;
+  const svg = sv("svg", {viewBox: `0 0 ${W} ${H}`, class: "story-svg", role: "group", "aria-label": names[metric]});
+  for (let i = 0; i <= 4; i++) {const v = lo - pad + (hi - lo + 2 * pad) * i / 4; svg.append(sv("line", {x1: L, x2: W - R, y1: y(v), y2: y(v), stroke: "#ece8e0"})); svg.append(sv("text", {x: L - 8, y: y(v) + 4, "text-anchor": "end", class: "story-axis"}, num(v, metric === "rpss" ? 2 : 0)));}
+  if (metric === "rpss") svg.append(sv("line", {x1: L, x2: W - R, y1: y(0), y2: y(0), stroke: MUTED, "stroke-dasharray": "6 4"}));
+  data.leads.forEach((ld, i) => {svg.append(sv("text", {x: x(i), y: H - B + 20, "text-anchor": "middle", class: "story-axis"}, leadTick(data, ld))); svg.append(sv("text", {x: x(i), y: H - B + 38, "text-anchor": "middle", class: "story-axis"}, target(data, ld).label));});
+  if (metric === "hit") refs.forEach((r, i) => {const q = sv("rect", {x: x(i) - 8, y: y(r["reference hit rate (%)"]) - 8, width: 16, height: 16, fill: "#c9c6bd"}); bind(q, tip, `Reference · ${r.target}`, [["Always forecasting", r["reference category"]], ["Hit rate", num(r["reference hit rate (%)"], 1) + "%"]]); svg.append(q);});
+  data.models.forEach((m, k) => {
+    const color = modelColor(data, m), bold = m === "MME", pts = data.leads.map((ld, i) => [i, rows.find(r => r.lead === ld && r.model === m)]).filter(([, r]) => r);
+    svg.append(sv("polyline", {points: pts.map(([i, r]) => `${x(i)},${y(r[key])}`).join(" "), fill: "none", stroke: color, "stroke-width": bold ? 3 : 1.2, opacity: bold ? 1 : .7}));
+    pts.forEach(([i, r]) => {const c = sv("circle", {cx: x(i), cy: y(r[key]), r: bold ? 6 : 4.5, fill: color}); bind(c, tip, `${m} · ${method} · ${leadTick(data, r.lead)} · ${r.target}`, [[names[metric], num(r[key], metric === "rpss" ? 3 : 1)]]); svg.append(c);});
+    svg.append(sv("line", {x1: W - R + 12, x2: W - R + 32, y1: T + 14 + k * 22, y2: T + 14 + k * 22, stroke: color, "stroke-width": bold ? 3 : 1.6}), sv("text", {x: W - R + 38, y: T + 18 + k * 22, class: "story-axis", "font-weight": bold ? 700 : 400}, m));
+  });
+  if (metric === "hit") svg.append(sv("rect", {x: W - R + 14, y: T + 8 + data.models.length * 22, width: 14, height: 14, fill: "#c9c6bd"}), sv("text", {x: W - R + 38, y: T + 20 + data.models.length * 22, class: "story-axis"}, "reference"));
+  const scroll = el("div", "story-chart-scroll"); scroll.append(svg); root.append(scroll);
+  exportButtons(root, `mme-scores-${method}-${metric}`, null, async () => svgBlob(svg));
   return root;
 }

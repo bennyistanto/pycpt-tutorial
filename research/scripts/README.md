@@ -24,9 +24,24 @@ models or replacing the frozen case metadata. The runtime smoke check is
 
 - `run_indonesia_005_trial.py` and `plot_indonesia_005_trial.py` produce the
   [0.05° predictand trial](../cases/indonesia-ond-2023-005deg-trial/README.md).
+- `run_indonesia_all_seasons_005.py` produces the
+  [twelve-season run at 0.05°](../cases/indonesia-all-seasons-2021-2024-005deg/README.md)
+  that the published twelve-season case and Fit & diagnose use.
 - `check_mme_availability.py` records which seasonal models qualify for the
   multi-model ensemble of Learn PyCPT chapter 6
   (`docs/data/learn/mme-availability.json`).
+- `check_lead_mme_availability.py` does the same for one issue date and its leads,
+  for the seasonal and monthly ensemble cases.
+- `seasonal_mme_fits.py` runs the fits of the seasonal and monthly ensemble cases,
+  and `subseasonal_mme_fits.py` downloads, prepares and fits the five SubX models of
+  the dekad, weekly and pentad ensemble cases. Both run one process per fit and
+  reuse finished fits.
+- `skill_calendar_scan.py` and `subseasonal_skill_scan.py` scan skill at 0.25° across
+  issue dates and leads; the ensemble pages cite their tables.
+- `check_subseasonal_values.py` checks that the SubX hindcasts and 2023 runs hold
+  values, not only missing data.
+- `no_model_cv_baseline.py` scores a forecast with no model in cross-validation, the
+  baseline quoted by the single-model seasonal and monthly cases.
 - `download_gefs_dekads.py` downloads the GEFSv12 starts used by the dekad
   lead-time case; resumable, with unit, member, lead, grid and missing-value checks
   per start. The weekly and pentad scripts reuse its helpers and cache.
