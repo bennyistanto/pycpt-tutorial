@@ -23,6 +23,8 @@ for the evidence supporting the published comparisons.
 
 The source is maintained in the [pycpt-tutorial repository](https://github.com/bennyistanto/pycpt-tutorial).
 This is a tutorial project, rather than a replacement for upstream software documentation.
+It is not affiliated with, endorsed by, or maintained by the IRI or the developers of
+PyCPT and CPT.
 
 ## Why this tutorial
 
@@ -30,10 +32,11 @@ I first met CPT briefly as an undergraduate. I started using it seriously, hands
 during the 2015 El Niño, while working on a fire risk system for Indonesia. In 2023 I
 came back to it through PyCPT.
 
-This tutorial is what I would have liked to have at each of those points: worked
-cases on real data that show what CPT does at every step, and how to get from model
-output and observations to a forecast of your own. I hope it helps you understand how
-CPT works and produce your own forecasts.
+CPT comes with detailed help pages, and the IRI team publishes PyCPT notebooks and
+training material. That is how I learned to run it. This tutorial, a casual weekend
+project, is meant as a companion to those: the same steps followed through on one
+country, on real data, all the way to a forecast you can check against what happened.
+I hope it helps you understand how CPT works and produce your own forecasts.
 
 *Benny Istanto*
 
