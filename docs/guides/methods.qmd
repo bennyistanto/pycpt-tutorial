@@ -73,6 +73,22 @@ conventions are deliberately distinguished. Adjacent seasons overlap and spatial
 cells are correlated; neither twelve windows nor thousands of cells provide that
 many independent annual validation samples. No significance tests are claimed.
 
+### What "seasonal" and "subseasonal" mean here
+
+This site names a case by the **period being forecast**: a three-month total is
+seasonal, a one-month total is monthly, and a week, dekad or pentad is subseasonal.
+It does not name a case by how far ahead the forecast looks.
+
+Other sources classify by lead time. One example is the US
+[Weather Research and Forecasting Innovation Act of 2017](https://www.congress.gov/bill/115th-congress/house-bill/353/text),
+whose Section 2 defines subseasonal as "the time range between 2 weeks and 3
+months" and seasonal as "the time range between 3 months and 2 years". The two usages do not always agree for the cases here. The
+subseasonal targets start 1 to 26 days after the issue date, so the earliest ones
+(week 1, week 2, dekad +1, pentad +1 to +3) start before that two-week mark and
+are not subseasonal by a lead-time definition. The monthly and seasonal targets start about one to six months after
+the issue date, so the first leads are subseasonal and the later ones seasonal by
+that definition.
+
 ## Province-weighted verification
 
 The province extension uses the unsimplified supplied 38-feature province file. A
